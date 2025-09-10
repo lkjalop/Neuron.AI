@@ -1,0 +1,771 @@
+{
+  "thresholds": [
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "results": [
+    {
+      "threshold": 1.0,
+      "duration_sec": 0.5836248397827148,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.008400002116104588,
+          "p95_ms": 0.25917500024661416,
+          "mean_ms": 0.030559499991795747
+        }
+      },
+      "snn": {
+        "precision": 0.12307692307692308,
+        "recall": 1.0,
+        "f1": 0.21917808219178084,
+        "predicted_anomaly_events": 130,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.041599998439778574,
+          "p95_ms": 0.06686499928036935,
+          "mean_ms": 0.04961299995557056
+        },
+        "threshold": 1.0
+      },
+      "overlap": {
+        "baseline_only": 0,
+        "snn_only": 117,
+        "overlap": 13,
+        "overlap_ratio": 0.1,
+        "sample_baseline_only": [],
+        "sample_snn_only": [
+          "93d33b8c-53ce-4c91-ad92-d0d3083a092b",
+          "4177ea61-4893-4402-bbed-04ece3184fe4",
+          "bbf080f8-a2ae-4e4f-ab38-24f560ab0d6d",
+          "03ea0fd3-6b56-47e8-85be-2eb28775b2d3",
+          "12fcdefc-c5fa-43c3-b21d-f21754cd51e8",
+          "939934c2-431a-46ce-852a-58ea803de166",
+          "048743f7-991b-494a-8881-f98626659626",
+          "e324be60-b17e-401b-83b0-a9bcb98fe2c4",
+          "a3b42d73-2b44-40da-95fc-c20f5147ea57",
+          "a1b24439-1bbd-44ea-a53e-d6f8d6d46d35",
+          "c76fca2e-8e20-4736-988c-bbf035774d23",
+          "0c4d6247-045d-49d2-8746-57e6f7a3242b",
+          "8c8f2191-c7ce-4c6e-a26d-d13e8107fc0a",
+          "54634d34-ddf4-477d-b817-3fac7a356545",
+          "5628e7ae-e060-493b-9028-6c26cf5df230",
+          "9eb08964-50b9-467c-aa91-58e010c0c50d",
+          "64b967bf-1172-4b77-8859-6d0cbc0ce357",
+          "3d0bd65b-890a-4f96-9ce3-c8da9c90db29",
+          "defa8486-3249-4422-9630-665490efdd4b",
+          "a5cf007a-483e-4a51-b956-fb25cbb0a7f5"
+        ]
+      },
+      "uplifts": {
+        "recall_uplift": 0.23076923076923078,
+        "precision_loss": 0.8769230769230769,
+        "f1_uplift": -0.6773736419461502
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.19231000096624482
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.1640625,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 2.0,
+      "duration_sec": 0.5498120784759521,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.00819999877421651,
+          "p95_ms": 0.2586600008726236,
+          "mean_ms": 0.030787999894528188
+        }
+      },
+      "snn": {
+        "precision": 0.2962962962962963,
+        "recall": 1.0,
+        "f1": 0.45714285714285713,
+        "predicted_anomaly_events": 54,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.06260000009206124,
+          "p95_ms": 0.07820999890100211,
+          "mean_ms": 0.060116999920865055
+        },
+        "threshold": 2.0
+      },
+      "overlap": {
+        "baseline_only": 0,
+        "snn_only": 41,
+        "overlap": 13,
+        "overlap_ratio": 0.24074074074074073,
+        "sample_baseline_only": [],
+        "sample_snn_only": [
+          "cc7b11bb-01c1-41ef-ab15-b15be015cb1b",
+          "0f908611-cd34-429b-9b73-4c5b83fecfec",
+          "da172de8-1951-44e4-851f-77909b0d0164",
+          "cf1547df-f535-45ec-94c9-7c65d992435f",
+          "43972014-44ab-4775-8d21-13c9b07d6255",
+          "7eab6468-d264-4be6-923f-8c40715ed49d",
+          "c7de3c16-0533-4888-85a1-0632dc3285a8",
+          "6eaf7e9a-b6e1-4713-b532-22f150a8e06c",
+          "981b0284-9c0b-4f89-852f-d99d6e7e9352",
+          "ca20a904-d2f8-4a81-8d18-ff598c110c67",
+          "5eeaaddf-33f0-421a-ae7f-d9d9c0001cbe",
+          "63ddafbe-8dd1-4931-b779-4575631c1cfa",
+          "df359d0d-4fb7-4816-aaf5-784bd40626f1",
+          "2e77f862-a07a-4314-87ea-479bc40625f4",
+          "e9ea4dde-32b3-4645-8fb0-01e6a4d1cd3f",
+          "37317f5a-47c1-4814-9e62-cff0389a1865",
+          "a1df2617-1dc7-413c-9f00-c319b3a404f0",
+          "16aaa21e-aad0-4711-9235-d5cee582f607",
+          "197fd178-d582-4846-a113-03b3aba31a05",
+          "a7c9b01b-0c63-426c-84ac-b7e4dd92e589"
+        ]
+      },
+      "uplifts": {
+        "recall_uplift": 0.23076923076923078,
+        "precision_loss": 0.7037037037037037,
+        "f1_uplift": -0.4394088669950739
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.18045000197162148
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.1484375,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 3.0,
+      "duration_sec": 0.5329270362854004,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.00799999907030724,
+          "p95_ms": 0.2628649994221632,
+          "mean_ms": 0.029725500025961082
+        }
+      },
+      "snn": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "predicted_anomaly_events": 16,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.06320000102277845,
+          "p95_ms": 0.08150999856297858,
+          "mean_ms": 0.06528149988298537
+        },
+        "threshold": 3.0
+      },
+      "overlap": {
+        "baseline_only": 0,
+        "snn_only": 3,
+        "overlap": 13,
+        "overlap_ratio": 0.8125,
+        "sample_baseline_only": [],
+        "sample_snn_only": [
+          "22770d6c-9ba3-4cbe-8579-79424ee16528",
+          "6cd9f98c-b8eb-4da9-a24c-923c1cb20ed2",
+          "02697b76-7f06-461f-bf50-3046a9933c41"
+        ]
+      },
+      "uplifts": {
+        "recall_uplift": 0.23076923076923078,
+        "precision_loss": 0.0,
+        "f1_uplift": 0.10344827586206895
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.1813550008591846
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.14453125,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "proceed",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 4.0,
+      "duration_sec": 0.5483827590942383,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.00799999907030724,
+          "p95_ms": 0.2660150017618434,
+          "mean_ms": 0.029956000107631553
+        }
+      },
+      "snn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "predicted_anomaly_events": 0,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.06370000119204633,
+          "p95_ms": 0.08978999903774817,
+          "mean_ms": 0.06964650014197105
+        },
+        "threshold": 4.0
+      },
+      "overlap": {
+        "baseline_only": 13,
+        "snn_only": 0,
+        "overlap": 0,
+        "overlap_ratio": 0.0,
+        "sample_baseline_only": [
+          "01a44176-c4d6-43fe-9a4b-2f40c1da4dcc",
+          "e762edfb-f256-421e-939f-9b6db780cfd2",
+          "3324f592-452c-4d0f-99ee-f2d899047d60",
+          "f6635dab-87c2-43be-8fee-3d82ac9abdba",
+          "2e509bfd-01c7-49db-a159-80d811bae59e",
+          "827ff998-c123-4827-b1a5-ae86d1f2c8b1",
+          "24161273-bccc-4cbc-bafd-4b267d0f41c5",
+          "4ba50cde-81e5-4333-b2be-161dff3eef34",
+          "0b558fb7-de24-49ec-8a46-9bead12e2899",
+          "419d8716-ff5a-4078-a48b-0a045c2c661d",
+          "ad896a2b-249a-4eb4-93ea-219756769426",
+          "5e7946fd-af26-4670-b47a-357b9ad36551",
+          "d58f1a0e-da50-4934-b028-7fa178a1fba3"
+        ],
+        "sample_snn_only": []
+      },
+      "uplifts": {
+        "recall_uplift": -1.0,
+        "precision_loss": 1.0,
+        "f1_uplift": -0.896551724137931
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.17622500272409522
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.12109375,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 5.0,
+      "duration_sec": 0.5556561946868896,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.008000002708286047,
+          "p95_ms": 0.2540499979659216,
+          "mean_ms": 0.029363500179897528
+        }
+      },
+      "snn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "predicted_anomaly_events": 0,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.06314999882306438,
+          "p95_ms": 0.0824999980977736,
+          "mean_ms": 0.06700399982946692
+        },
+        "threshold": 5.0
+      },
+      "overlap": {
+        "baseline_only": 13,
+        "snn_only": 0,
+        "overlap": 0,
+        "overlap_ratio": 0.0,
+        "sample_baseline_only": [
+          "cd56e1fc-5b1c-42a2-a975-64e2bb10c40a",
+          "ae6f06c2-74a5-4258-b449-d4788dcb3d9d",
+          "b33f8499-d41f-47a9-afcf-aa2f7ef5d792",
+          "457c5ea9-549a-4a92-a0e8-b6ce06f36c28",
+          "21b34e8e-4158-4d3e-83ab-d017a0f2c3ce",
+          "c34dc606-7511-4feb-afb1-1bb7c3f3ceb9",
+          "0d321786-85e4-434f-a82a-7ff5f1486459",
+          "65ccad61-7ecf-4589-8ca7-a7e1c41df5c5",
+          "843352bd-9c36-4891-b298-cef297ded6c1",
+          "9c12540a-78e3-4ce0-9b3f-47f92df87ae8",
+          "342a1b1c-ff60-4a37-9517-1d2b904b41a2",
+          "5aece38a-2862-4edf-abcc-30847ee0ebd5",
+          "15ce8e79-0cfc-447c-be84-75e22bdaa6c8"
+        ],
+        "sample_snn_only": []
+      },
+      "uplifts": {
+        "recall_uplift": -1.0,
+        "precision_loss": 1.0,
+        "f1_uplift": -0.896551724137931
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.171549999868148
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.12109375,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 6.0,
+      "duration_sec": 0.5272729396820068,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.007899998308857903,
+          "p95_ms": 0.25232000025425805,
+          "mean_ms": 0.029000500089750858
+        }
+      },
+      "snn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "predicted_anomaly_events": 0,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.06274999941524584,
+          "p95_ms": 0.07656500056327784,
+          "mean_ms": 0.06584949987882283
+        },
+        "threshold": 6.0
+      },
+      "overlap": {
+        "baseline_only": 13,
+        "snn_only": 0,
+        "overlap": 0,
+        "overlap_ratio": 0.0,
+        "sample_baseline_only": [
+          "ee1df936-2e76-4703-8155-2a996e55cf7c",
+          "c6df6eaa-3d05-4ab0-88b6-fcc4186130e3",
+          "10825149-c803-4281-be64-1ff06426e7ea",
+          "ae5d1b60-6114-4074-9005-67084d34595c",
+          "37a59fbb-3b0f-4f73-8740-00ba1408a335",
+          "94aea3ca-dd71-478b-b7cc-e0e6a7b31163",
+          "077ab44b-2f4c-4a81-b0c0-5fa4baa3ba60",
+          "77ce641c-90e7-40f5-9081-a49149db3ec1",
+          "f7afad21-efe6-4f0f-923b-347209f714f5",
+          "17441925-0c2f-4ec7-aa59-f83b08439aab",
+          "5bc3d035-230c-443e-8944-585bda9e8d11",
+          "3a7a4f95-aea6-4be1-8a03-be8080cca935",
+          "84d3ca38-7109-4b91-afa5-93b7566a3337"
+        ],
+        "sample_snn_only": []
+      },
+      "uplifts": {
+        "recall_uplift": -1.0,
+        "precision_loss": 1.0,
+        "f1_uplift": -0.896551724137931
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.1757549996909802
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.12109375,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 7.0,
+      "duration_sec": 0.5310993194580078,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.007800001185387373,
+          "p95_ms": 0.24906499984354005,
+          "mean_ms": 0.02756750000116881
+        }
+      },
+      "snn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "predicted_anomaly_events": 0,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.06209999992279336,
+          "p95_ms": 0.07540499864262526,
+          "mean_ms": 0.06550800000695745
+        },
+        "threshold": 7.0
+      },
+      "overlap": {
+        "baseline_only": 13,
+        "snn_only": 0,
+        "overlap": 0,
+        "overlap_ratio": 0.0,
+        "sample_baseline_only": [
+          "7f6b82cb-6591-46a0-86f4-3c77ef45c230",
+          "acd0f1ee-d54a-4365-83d9-155b17353256",
+          "529d5051-64a3-45af-adf0-c4a5241d7ac5",
+          "1161eda3-1863-42db-973b-38396badb76b",
+          "fe4132c5-aeb9-4292-8d81-ba9be7d05e18",
+          "d1004944-8ae6-404d-9f04-ef0a279d6dda",
+          "705d78ec-41c0-42c8-a7b9-3a7e4d8a5a25",
+          "b1a4df95-b3d6-4f69-a5ff-9af0f0c2efdc",
+          "c843c6ca-77c1-4fe4-9e6f-0fb2982dfab6",
+          "a5921803-b0fc-4020-bc15-6182679cf4cc",
+          "0c6f735d-786e-4eb9-9d6c-a5edac536617",
+          "1942a4eb-7ee5-492e-8345-ecec9d147de3",
+          "683f1427-dadb-4c21-84c5-9ebfcd69a061"
+        ],
+        "sample_snn_only": []
+      },
+      "uplifts": {
+        "recall_uplift": -1.0,
+        "precision_loss": 1.0,
+        "f1_uplift": -0.896551724137931
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.1736600012009148
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.12109375,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 8.0,
+      "duration_sec": 0.5637702941894531,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.00790000194683671,
+          "p95_ms": 0.2722749983149696,
+          "mean_ms": 0.031744000043545384
+        }
+      },
+      "snn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "predicted_anomaly_events": 0,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.0624999993306119,
+          "p95_ms": 0.0826199997391086,
+          "mean_ms": 0.06749049998688861
+        },
+        "threshold": 8.0
+      },
+      "overlap": {
+        "baseline_only": 13,
+        "snn_only": 0,
+        "overlap": 0,
+        "overlap_ratio": 0.0,
+        "sample_baseline_only": [
+          "7f9d56be-dfa9-4294-8314-0d02ac14741d",
+          "1bf30ba6-e724-46af-9c21-d4217f0247ea",
+          "91296485-337c-4058-8a9c-483872cdf982",
+          "4f9783b0-cf52-45c2-9403-05b8eb39a8f4",
+          "33913d34-8dbb-4ecd-9db4-b9d6becb205e",
+          "c7d6c845-50bf-406e-8074-0753aef1bedc",
+          "25ee08f5-8e71-4045-a58f-cf1a5ddf6ced",
+          "4443df2f-59e6-408a-a23d-f02eeccc6c8e",
+          "63145feb-e22e-4b4e-8fda-8d45dc922c0d",
+          "4d29cad5-ae7c-457d-842c-0bff47f3606e",
+          "62b4c5bc-5290-4f89-9937-d93c0c3679cf",
+          "0ec8a892-8645-457b-a778-28f00dfc7660",
+          "1ad5d55e-377b-4dbf-92e5-6f3e17894458"
+        ],
+        "sample_snn_only": []
+      },
+      "uplifts": {
+        "recall_uplift": -1.0,
+        "precision_loss": 1.0,
+        "f1_uplift": -0.896551724137931
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.189654998575861
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.12109375,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 9.0,
+      "duration_sec": 0.5431015491485596,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.007899998308857903,
+          "p95_ms": 0.2588700001069809,
+          "mean_ms": 0.030245499983720947
+        }
+      },
+      "snn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "predicted_anomaly_events": 0,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.06299999949987978,
+          "p95_ms": 0.07874500170146342,
+          "mean_ms": 0.0673665000613255
+        },
+        "threshold": 9.0
+      },
+      "overlap": {
+        "baseline_only": 13,
+        "snn_only": 0,
+        "overlap": 0,
+        "overlap_ratio": 0.0,
+        "sample_baseline_only": [
+          "736ed9a1-ac9a-4e80-9b1b-4ba1975c564a",
+          "ba90d538-f373-4e41-93a8-8e897779b419",
+          "3de253d2-fd67-401d-970f-7fc5f9ba5115",
+          "958124fa-57df-4866-8d37-5940e1f5fd84",
+          "f772c78a-2ca8-4de6-925a-f338ab75e225",
+          "e523e6a1-c73e-4224-aa93-7892bbdfcd46",
+          "1be70653-b47c-4329-ad30-5b93cb3c96c9",
+          "49f0a676-0056-4841-9914-cf164cc23994",
+          "3ceeddf3-36fc-45be-9350-8845416e2025",
+          "2df2c036-aca7-4103-abaa-07f76d60df43",
+          "b2e9240c-0401-4e07-aebe-7056d9cae8b6",
+          "64a2ed60-9c41-4fac-97eb-1b4615667da1",
+          "5bac863c-11e0-44f3-9c5a-d4333c66c21f"
+        ],
+        "sample_snn_only": []
+      },
+      "uplifts": {
+        "recall_uplift": -1.0,
+        "precision_loss": 1.0,
+        "f1_uplift": -0.896551724137931
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.1801249984055175
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.12890625,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    },
+    {
+      "threshold": 10.0,
+      "duration_sec": 0.5208001136779785,
+      "total_events": 200,
+      "baseline": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1": 0.896551724137931,
+        "predicted_anomaly_events": 13,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.007800001185387373,
+          "p95_ms": 0.240234997363586,
+          "mean_ms": 0.03147199995510164
+        }
+      },
+      "snn": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "predicted_anomaly_events": 0,
+        "latency": {
+          "count": 200,
+          "p50_ms": 0.0626499986537965,
+          "p95_ms": 0.0804299974333844,
+          "mean_ms": 0.06624099994951393
+        },
+        "threshold": 10.0
+      },
+      "overlap": {
+        "baseline_only": 13,
+        "snn_only": 0,
+        "overlap": 0,
+        "overlap_ratio": 0.0,
+        "sample_baseline_only": [
+          "32aadc2a-7c73-4623-9f7b-3cc918f00147",
+          "0cd04008-a609-4e01-b8b4-12ccefee0bb9",
+          "0d1024b3-9454-4cc0-bb73-edaf169e01db",
+          "c53a7a2a-1ed9-42ad-8fce-5a6f4c274151",
+          "1e861dbb-b4c1-4275-a026-2b05914839e3",
+          "6036997d-5bb0-44f8-9fd0-fb35699e6178",
+          "1e83736f-d040-46c4-b962-0d477deb7a8d",
+          "24d16a61-7538-4804-9636-52afc40ae9bc",
+          "f3c635dd-373f-4871-8aa8-95cd656d5a0f",
+          "926a08da-727a-4568-8221-074b05379fd0",
+          "669b39d0-64c6-4504-89ea-6d7e0cf8a9fd",
+          "218a5fd3-3290-424a-806c-aa999bfb8e26",
+          "c5f9176e-0131-49d0-9f28-ccbc4eed80ae"
+        ],
+        "sample_snn_only": []
+      },
+      "uplifts": {
+        "recall_uplift": -1.0,
+        "precision_loss": 1.0,
+        "f1_uplift": -0.896551724137931
+      },
+      "overhead": {
+        "added_latency_p95_ms": -0.15980499993020159
+      },
+      "resources_snapshot": {
+        "rss_delta_mb": 0.12109375,
+        "cpu_percent_sample": 0.0
+      },
+      "decision": "retire_or_rethink",
+      "spec_hash_refs": {
+        "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+        "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+      }
+    }
+  ],
+  "selected": {
+    "threshold": 3.0,
+    "duration_sec": 0.5329270362854004,
+    "total_events": 200,
+    "baseline": {
+      "precision": 1.0,
+      "recall": 0.8125,
+      "f1": 0.896551724137931,
+      "predicted_anomaly_events": 13,
+      "latency": {
+        "count": 200,
+        "p50_ms": 0.00799999907030724,
+        "p95_ms": 0.2628649994221632,
+        "mean_ms": 0.029725500025961082
+      }
+    },
+    "snn": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "predicted_anomaly_events": 16,
+      "latency": {
+        "count": 200,
+        "p50_ms": 0.06320000102277845,
+        "p95_ms": 0.08150999856297858,
+        "mean_ms": 0.06528149988298537
+      },
+      "threshold": 3.0
+    },
+    "overlap": {
+      "baseline_only": 0,
+      "snn_only": 3,
+      "overlap": 13,
+      "overlap_ratio": 0.8125,
+      "sample_baseline_only": [],
+      "sample_snn_only": [
+        "22770d6c-9ba3-4cbe-8579-79424ee16528",
+        "6cd9f98c-b8eb-4da9-a24c-923c1cb20ed2",
+        "02697b76-7f06-461f-bf50-3046a9933c41"
+      ]
+    },
+    "uplifts": {
+      "recall_uplift": 0.23076923076923078,
+      "precision_loss": 0.0,
+      "f1_uplift": 0.10344827586206895
+    },
+    "overhead": {
+      "added_latency_p95_ms": -0.1813550008591846
+    },
+    "resources_snapshot": {
+      "rss_delta_mb": 0.14453125,
+      "cpu_percent_sample": 0.0
+    },
+    "decision": "proceed",
+    "spec_hash_refs": {
+      "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+      "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+    }
+  },
+  "selected_value": 3.0,
+  "governance_satisfied": true
+}

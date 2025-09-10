@@ -1,0 +1,77 @@
+groups:
+  - name: neuron-rag-retrieval
+    interval: 30s
+    rules:
+      - alert: RetentionPurgeSpike
+        expr: increase(neuron_retrieval_retention_purged_total[5m]) > 200
+        for: 2m
+        labels:
+          severity: warning
+          team: platform
+        annotations:
+          summary: "High retrieval retention purge rate"
+          description: "More than 200 chunks purged in 5m window. Investigate ingestion burst or mis-sized retention params."
+
+      - alert: UnsupportedEntitiesElevated
+        expr: neuron_retrieval_generation_unsupported_entities > 5
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Unsupported entities in generated answers elevated"
+          description: "Answers referencing entities not in context; potential hallucination risk."
+
+      - alert: CitationCoverageLow
+        expr: neuron_retrieval_generation_sentence_citation_ratio < 0.4
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low sentence citation coverage"
+          description: "Less than 40% of answer sentences cite provenance; check retrieval relevance or generation prompts."
+
+      - alert: WarmupLatencyDegraded
+        expr: histogram_quantile(0.95, sum(rate(neuron_retrieval_generation_warmup_latency_seconds_bucket[10m])) by (le)) > 30
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Generation warmup P95 latency high"
+          description: "Warmup taking >30s; model load or disk I/O contention."
+
+      - alert: FirstTokenLatencyHigh
+        expr: histogram_quantile(0.95, sum(rate(neuron_retrieval_generation_first_token_latency_seconds_bucket[5m])) by (le)) > 2
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "First token P95 latency >2s"
+          description: "Generation responsiveness degraded; investigate model saturation or resource contention."
+
+      - alert: FullGenerationLatencyHigh
+        expr: histogram_quantile(0.95, sum(rate(neuron_retrieval_generation_full_latency_seconds_bucket[5m])) by (le)) > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Full generation P95 latency >10s"
+          description: "Answers slow; consider scaling or caching strategies."
+
+      - alert: RetentionInefficiency
+        expr: (increase(neuron_retrieval_retention_purged_total[1h])) / (increase(neuron_retrieval_retention_purged_total[1h]) + neuron_retrieval_chunks_rows) > 0.5
+        for: 30m
+        labels:
+          severity: info
+        annotations:
+          summary: "High retention churn ratio"
+          description: "Purged proportion >50%; storage budget may be undersized or ingestion skewed."
+
+      - alert: SnnNormalizationMappingStale
+        # NOTE: Replace 1800 with the deployment's configured snn.norm.max_stale_s if overridden.
+        expr: neuron_snn_norm_mapping_age_seconds > 1800 * 1.2
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "SNN normalization mapping stale"
+          description: "SNN normalization mapping age exceeds 120% of snn.norm.max_stale_s. Investigate normalization refresh or data flow." 

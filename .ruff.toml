@@ -1,0 +1,11 @@
+# Ruff configuration (initial security/style baseline)
+line-length = 120
+select = ["E","F","I","B","UP","SIM","S","C4"]
+ignore = [
+  # Allow print (remove later when structured logging complete)
+  "T201",
+]
+exclude = ["__pycache__","build","dist","venv",".venv"]
+
+[per-file-ignores]
+"tests/*" = ["S101"]  # allow assert usage

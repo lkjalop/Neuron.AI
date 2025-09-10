@@ -1,0 +1,6 @@
+{
+  "fusion.weight.audit": 0.7,
+  "fusion.weight.baseline_stats": 1.05,
+  "fusion.weight.snn_detector": 0.95,
+  "fusion.weight.test_detector": 2.0
+}

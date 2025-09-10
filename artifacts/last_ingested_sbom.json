@@ -1,0 +1,12 @@
+{
+  "asset_id": "asset-52926082b7",
+  "asset_name": "demo-app",
+  "components": [
+    {
+      "name": "libA",
+      "version": "1.0.0",
+      "purl": null,
+      "asset_metadata": {}
+    }
+  ]
+}

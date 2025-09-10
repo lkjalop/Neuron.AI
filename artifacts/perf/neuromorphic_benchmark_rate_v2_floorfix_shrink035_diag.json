@@ -1,0 +1,22 @@
+{
+  "events": 400,
+  "patterns": [
+    "drift",
+    "burst",
+    "periodic"
+  ],
+  "combinations": [
+    {
+      "error": "cannot access local variable 'debug_flag' where it is not associated with a value",
+      "snn_mode": "proto",
+      "snn_encoder": "rate_v2"
+    },
+    {
+      "error": "cannot access local variable 'debug_flag' where it is not associated with a value",
+      "snn_mode": "lif",
+      "snn_encoder": "rate_v2"
+    }
+  ],
+  "generated_at": 1756879045.0577123,
+  "encoder_aggregate": []
+}

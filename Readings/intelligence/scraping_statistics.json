@@ -1,0 +1,75 @@
+{
+  "frameworks_discovered": 10,
+  "frameworks_scraped": 7,
+  "controls_extracted": 226,
+  "mappings_created": 156,
+  "errors_encountered": 0,
+  "export_date": "2025-08-13T22:04:14.601273",
+  "framework_breakdown": {
+    "NIST SP 800-53 Rev 5": {
+      "controls_count": 5,
+      "publisher": "National Institute of Standards and Technology",
+      "jurisdiction": "United States",
+      "industry_focus": [
+        "Federal Government",
+        "Critical Infrastructure"
+      ],
+      "publication_date": "2020-09-23"
+    },
+    "Directive (EU) 2022/2555 (NIS2)": {
+      "controls_count": 10,
+      "publisher": "European Union",
+      "jurisdiction": "European Union",
+      "industry_focus": [
+        "Critical Infrastructure",
+        "Essential Services",
+        "Important Services"
+      ],
+      "publication_date": "2022-12-14"
+    },
+    "NIST Cybersecurity Framework 2.0": {
+      "controls_count": 12,
+      "publisher": "Unknown",
+      "jurisdiction": "Unknown",
+      "industry_focus": [
+        "General"
+      ],
+      "publication_date": "2025-08-13"
+    },
+    "CIS Controls Version 8.1": {
+      "controls_count": 5,
+      "publisher": "Unknown",
+      "jurisdiction": "Unknown",
+      "industry_focus": [
+        "General"
+      ],
+      "publication_date": "2025-08-13"
+    },
+    "Cloud Controls Matrix v4.0": {
+      "controls_count": 184,
+      "publisher": "Cloud Security Alliance",
+      "jurisdiction": "Global",
+      "industry_focus": [
+        "Cloud Computing",
+        "Technology"
+      ],
+      "publication_date": "2023-01-15"
+    }
+  },
+  "coverage_analysis": {
+    "total_unique_controls": 226,
+    "average_controls_per_framework": 32.285714285714285,
+    "frameworks_by_jurisdiction": {
+      "United States": 3,
+      "European Union": 1,
+      "Unknown": 2,
+      "Global": 1
+    },
+    "frameworks_by_publisher": {
+      "National Institute of Standards and Technology": 3,
+      "European Union": 1,
+      "Unknown": 2,
+      "Cloud Security Alliance": 1
+    }
+  }
+}

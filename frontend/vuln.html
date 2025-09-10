@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vulnerabilities & SBOM</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/app/style.css" />
+  <style>
+    body { padding:12px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #2a313d; padding: .35rem .5rem; font-size: .85rem; }
+    th { background: #161b22; text-align:left; }
+    .controls { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+    input[type="file"] { max-width: 340px; }
+    .badge { background:#243044; padding:4px 8px; border-radius:999px; font-size:11px; }
+  </style>
+</head>
+<body>
+  <h1 style="margin-top:0">Vulnerabilities & SBOM</h1>
+  <div class="controls">
+    <label>API Key <input id="apiKey" type="password" placeholder="x-api-key" style="width:160px;"></label>
+    <button id="refresh">Refresh</button>
+    <span id="status" class="badge">Idle</span>
+  </div>
+
+  <section style="margin-top:1rem">
+    <h2>SBOM Ingest</h2>
+    <div class="controls">
+      <input type="file" id="sbomFile" accept=".json,.jsonl,.sbom" />
+      <button id="uploadSbom">Upload</button>
+      <span class="meta" id="sbomInfo"></span>
+    </div>
+    <div id="sbomJobs"></div>
+  </section>
+
+  <section style="margin-top:1rem">
+    <h2>Findings</h2>
+    <table id="findingsTable">
+      <thead><tr><th>ID</th><th>Package</th><th>Version</th><th>CVE</th><th>Risk</th><th>SLA</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script src="/app/vuln.js"></script>
+</body>
+</html>

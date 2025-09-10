@@ -1,0 +1,34 @@
+version: '3.9'
+
+# Production-oriented compose (minimal). For local dev, use docker-compose.yml.
+services:
+  neuron-api:
+    build:
+      context: .
+      target: runtime
+    image: neuron-ai:prod
+    env_file:
+      - dbsec.env.txt
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    user: "10001:10001"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; s=socket.socket(); s.settimeout(2); s.connect(('127.0.0.1',8000)); s.close()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes:
+      # Writable artifacts directory (logs, perf, security outputs)
+      - ./artifacts:/app/artifacts:rw
+      # Optional read-only config mount
+      # - ./config:/app/config:ro
+    # Note: with read_only rootfs ensure any write paths are mounted (e.g., /app/artifacts, /tmp via tmpfs)

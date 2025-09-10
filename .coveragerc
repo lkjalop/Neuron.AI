@@ -1,0 +1,21 @@
+[run]
+branch = True
+source = src
+omit = 
+    */__init__.py
+    src/core/version.py
+    src/core/detect/snn_*  # heavy optional modules
+
+[report]
+fail_under = 75
+show_missing = True
+skip_covered = False
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.: 
+    def __repr__
+    def __str__
+    raise NotImplementedError
+
+[html]
+directory = artifacts/coverage_html

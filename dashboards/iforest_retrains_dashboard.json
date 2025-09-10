@@ -1,0 +1,36 @@
+{
+  "title": "Isolation Forest Retrains & Anomalies",
+  "schemaVersion": 39,
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Retrains per Tenant",
+      "targets": [
+        {"expr": "neuron_iforest_retrains_total"}
+      ],
+      "id": 1,
+      "lines": true,
+      "legend": {"show": true}
+    },
+    {
+      "type": "graph",
+      "title": "Anomalies (Isolation Forest vs Baseline)",
+      "targets": [
+        {"expr": "sum by(tenant) (increase(neuron_anomalies_total{detector=\"iforest\"}[5m]))"},
+        {"expr": "sum by(tenant) (increase(neuron_anomalies_total{detector=\"baseline\"}[5m]))"}
+      ],
+      "id": 2,
+      "lines": true,
+      "legend": {"show": true}
+    },
+    {
+      "type": "stat",
+      "title": "Retrain to Anomaly Ratio (Recent 30m)",
+      "targets": [
+        {"expr": "(sum(increase(neuron_iforest_retrains_total[30m])))/(sum(increase(neuron_anomalies_total{detector=\"iforest\"}[30m])) + 1)"}
+      ],
+      "id": 3
+    }
+  ],
+  "time": {"from": "now-6h", "to": "now"}
+}

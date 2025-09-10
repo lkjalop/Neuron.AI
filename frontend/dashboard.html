@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Neuron Dashboard</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="/app/style.css" />
+<style>
+body { padding:12px; }
+.grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); }
+.card { background:#161b22; border:1px solid #2a313d; padding:12px 14px; border-radius:12px; display:flex; flex-direction:column; gap:6px; }
+.card h3 { margin:0; font-size:14px; letter-spacing:.5px; font-weight:600; }
+.value { font-size:24px; font-weight:500; }
+small { opacity:.7; font-size:11px; }
+#status { font-size:12px; margin-bottom:10px; opacity:.6; }
+.badge { background:#243044; padding:4px 8px; border-radius:999px; font-size:11px; margin-right:4px; }
+.flex { display:flex; flex-wrap:wrap; gap:6px; }
+canvas.spark { width:100%; height:48px; }
+/* spinner/toast */
+.spinner-overlay { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(14,17,23,0.45); z-index:100; }
+.spinner { width:40px; height:40px; border:5px solid #223040; border-top-color:#5eb5ff; border-radius:50%; animation:spin 1s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg);} }
+#toast { position:fixed; right:12px; top:12px; background:#22313f; color:#d9e6f2; padding:8px 10px; border-radius:8px; display:none; z-index:110; }
+</style>
+</head>
+<body>
+<h1 style="margin-top:0;font-size:20px;">Executive KPIs</h1>
+<div id="status">Loading...</div>
+<div class="grid" id="grid"></div>
+<div id="toast"></div>
+<script src="/app/dashboard.js"></script>
+</body>
+</html>

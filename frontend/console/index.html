@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEURON Analyst Console</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <div class="brand">NEURON</div>
+      <div class="mode">
+        <button id="mode-main" class="mode-btn active">Main</button>
+        <button id="mode-wiki" class="mode-btn">Wiki</button>
+      </div>
+      <div class="spacer"></div>
+      <button id="open-palette" class="ghost">⌘K</button>
+      <div class="scope">
+        <label>Tenant</label>
+        <select id="tenant">
+          <option>Acme</option>
+        </select>
+        <label>Time</label>
+        <select id="time">
+          <option>Last 24h</option>
+          <option>Last 7d</option>
+        </select>
+      </div>
+      <div class="status" id="status">Models OK • Ingest OK</div>
+    </header>
+
+    <div class="columns">
+      <aside class="left" id="left">
+        <div class="pane-header">
+          <h3>Mission Board</h3>
+          <button id="detach-left" class="ghost small">Detach ↗</button>
+        </div>
+        <div class="pane-body" id="mission">
+          <ul class="list">
+            <li>Today’s Objectives</li>
+            <li>SLA Risks (12)</li>
+            <li>Open Tickets (7)</li>
+          </ul>
+          <h4>Collections</h4>
+          <ul class="list"><li>Saved Views</li><li>Playbooks</li></ul>
+          <h4>Templates</h4>
+          <ul class="list"><li>Exec Summary</li><li>Ransomware Hunt</li><li>Forensics Triage</li></ul>
+        </div>
+      </aside>
+
+      <main class="center" id="center">
+        <div class="thread" id="thread">
+          <!-- cards will be appended here -->
+        </div>
+        <div class="dock" id="dock">Drop detached cards here</div>
+      </main>
+
+      <aside class="right" id="right">
+        <div class="pane-header">
+          <h3>Explain & Tuners</h3>
+          <button id="detach-right" class="ghost small">Detach ↗</button>
+        </div>
+        <div class="pane-body">
+          <section>
+            <h4>Explain</h4>
+            <div class="explain-controls">
+              <label><input type="checkbox" id="eli5"> Explain for C‑suite</label>
+            </div>
+            <div id="explain">Plain-language explainers will appear here.</div>
+          </section>
+          <section>
+            <h4>Tuners (Sandbox)</h4>
+            <div class="tuner-row">
+              <label><input type="radio" name="smoothing" value="raw"> Raw</label>
+              <label><input type="radio" name="smoothing" value="ema" checked> EMA</label>
+            </div>
+            <label>Weight: <input type="range" id="tuner-weight" min="0" max="100" value="50"> <span id="tuner-weight-val">50</span>%</label>
+            <div class="actions">
+              <button class="ghost" id="preview-tuner">Preview Impact</button>
+              <button class="primary" id="request-approval">Request Approval</button>
+            </div>
+          </section>
+          <section>
+            <h4>Watchers</h4>
+            <div class="watchers">
+              <input id="watcher-input" placeholder="Add watcher email or @channel"/>
+              <button id="add-watcher" class="ghost small">Add</button>
+              <ul id="watcher-list" class="list small"></ul>
+              <div class="hint">Sends new‑findings notifications (Slack/Teams/email via backend).</div>
+            </div>
+          </section>
+          <section>
+            <h4>Approvals</h4>
+            <ul id="approvals" class="list small"></ul>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="composer">
+      <div class="mode-inline">
+        <button id="inline-main" class="mode-btn active">Main</button>
+        <button id="inline-wiki" class="mode-btn">Wiki</button>
+      </div>
+      <textarea id="input" rows="1" placeholder="Ask or search… (e.g., Create an exec summary from current cards)"></textarea>
+      <div class="composer-actions">
+        <button id="templates" class="ghost">Templates ▼</button>
+        <button id="attach" class="ghost">Attach</button>
+        <button id="help" class="ghost">?</button>
+        <button id="send" class="primary">Send</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Detached Windows -->
+  <div id="win-report" class="window hidden">
+    <div class="window-bar">Editable Report — Executive Summary
+      <div class="win-actions">
+        <button data-action="pin">Pin</button>
+        <button data-action="snapl">◧</button>
+        <button data-action="snapr">◨</button>
+        <button data-action="close">✕</button>
+      </div>
+    </div>
+    <div class="window-body">
+      <div class="report-toolbar">
+        <button id="export-pdf" class="ghost">Export PDF</button>
+        <button id="export-html" class="ghost">Export HTML</button>
+        <span class="sep"></span>
+        <span class="hint">Embeds are snapshot-by-default.</span>
+        <span class="spacer"></span>
+        <button id="share-view" class="ghost">Shareable View</button>
+        <button id="story-mode" class="ghost">Story Mode</button>
+      </div>
+      <div id="report-canvas" class="report-canvas">
+        <div class="drop-hint">Drag cards here to embed. Each embed shows provenance.
+          <div style="margin-top:8px">
+            <button id="apply-recommended" class="ghost small">Apply Recommended View</button>
+            <details style="margin-top:6px">
+              <summary>Advanced</summary>
+              <div class="hint">Power options: per-embed live toggles, variable overrides, custom time ranges.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+      <div class="report-footer">
+        <button id="publish" class="primary">Review & Publish</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="win-metrics" class="window hidden">
+    <div class="window-bar">Metrics & Findings Hub
+      <div class="win-actions">
+        <button data-action="pin">Pin</button>
+        <button data-action="snapl">◧</button>
+        <button data-action="snapr">◨</button>
+        <button data-action="close">✕</button>
+      </div>
+    </div>
+    <div class="window-body">
+      <div class="tabs">
+        <button class="tab active" data-tab="metrics">Metrics</button>
+        <button class="tab" data-tab="findings">Findings</button>
+        <button class="tab" data-tab="graphs">Graphs</button>
+        <button class="tab" data-tab="tuners">Tuners</button>
+        <button class="tab" data-tab="maps">CVE→Controls→Business</button>
+      </div>
+      <div class="tab-body" id="tab-metrics">
+        <ul class="list">
+          <li>neuron_alert_dispatch_total — <button class="ghost small">Chart</button> <button class="ghost small">Table</button> <button class="ghost small">Explain</button></li>
+          <li>fusion_temporal_weight{tenant} — <button class="ghost small">Live</button> <button class="ghost small">7d</button> <button class="ghost small">30d</button></li>
+          <li>ingestion_latency_ms — <button class="ghost small">SLO</button></li>
+        </ul>
+      </div>
+      <div class="tab-body hidden" id="tab-findings">Findings list…</div>
+      <div class="tab-body hidden" id="tab-graphs">Grafana panels here (iframe)</div>
+      <div class="tab-body hidden" id="tab-tuners">Sandbox details…</div>
+      <div class="tab-body hidden" id="tab-maps">Mappings and explanations…</div>
+    </div>
+  </div>
+
+  <div id="palette" class="palette hidden">
+    <input id="palette-input" placeholder="Type a command… (e.g., Open Editable Report)" />
+    <ul id="palette-list"></ul>
+  </div>
+
+  <script src="./script.js"></script>
+  <script src="./report.js"></script>
+</body>
+</html>

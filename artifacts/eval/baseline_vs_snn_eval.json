@@ -1,0 +1,67 @@
+{
+  "total_events": 200,
+  "baseline": {
+    "precision": 1.0,
+    "recall": 0.8125,
+    "f1": 0.896551724137931,
+    "predicted_anomaly_events": 13,
+    "latency": {
+      "count": 200,
+      "p50_ms": 0.007800001185387373,
+      "p95_ms": 0.240234997363586,
+      "mean_ms": 0.03147199995510164
+    }
+  },
+  "snn": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "predicted_anomaly_events": 0,
+    "latency": {
+      "count": 200,
+      "p50_ms": 0.0626499986537965,
+      "p95_ms": 0.0804299974333844,
+      "mean_ms": 0.06624099994951393
+    },
+    "threshold": 10.0
+  },
+  "overlap": {
+    "baseline_only": 13,
+    "snn_only": 0,
+    "overlap": 0,
+    "overlap_ratio": 0.0,
+    "sample_baseline_only": [
+      "32aadc2a-7c73-4623-9f7b-3cc918f00147",
+      "0cd04008-a609-4e01-b8b4-12ccefee0bb9",
+      "0d1024b3-9454-4cc0-bb73-edaf169e01db",
+      "c53a7a2a-1ed9-42ad-8fce-5a6f4c274151",
+      "1e861dbb-b4c1-4275-a026-2b05914839e3",
+      "6036997d-5bb0-44f8-9fd0-fb35699e6178",
+      "1e83736f-d040-46c4-b962-0d477deb7a8d",
+      "24d16a61-7538-4804-9636-52afc40ae9bc",
+      "f3c635dd-373f-4871-8aa8-95cd656d5a0f",
+      "926a08da-727a-4568-8221-074b05379fd0",
+      "669b39d0-64c6-4504-89ea-6d7e0cf8a9fd",
+      "218a5fd3-3290-424a-806c-aa999bfb8e26",
+      "c5f9176e-0131-49d0-9f28-ccbc4eed80ae"
+    ],
+    "sample_snn_only": []
+  },
+  "uplifts": {
+    "recall_uplift": -1.0,
+    "precision_loss": 1.0,
+    "f1_uplift": -0.896551724137931
+  },
+  "overhead": {
+    "added_latency_p95_ms": -0.15980499993020159
+  },
+  "resources_snapshot": {
+    "rss_delta_mb": 0.12109375,
+    "cpu_percent_sample": 0.0
+  },
+  "decision": "retire_or_rethink",
+  "spec_hash_refs": {
+    "uplift_targets_doc": "docs/UPLIFT_TARGETS.md",
+    "resource_budget_doc": "docs/RESOURCE_BUDGET.md"
+  }
+}

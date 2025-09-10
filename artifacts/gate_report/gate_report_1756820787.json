@@ -1,0 +1,185 @@
+{
+  "generated_at": 1756820787,
+  "parameters": {
+    "baseline.window_size": 50,
+    "baseline.stddev_threshold": 2.0,
+    "baseline.warmup_min": 10,
+    "baseline.mad_factor": 3.5,
+    "flood.threshold": 0.2
+  },
+  "evaluation_metrics": {
+    "total_events": 1199,
+    "predicted_anomaly_events": 11,
+    "predicted_anomaly_rate": 0.009174311926605505,
+    "window": 50,
+    "stddev_threshold": 4.0,
+    "true_positives": 11,
+    "false_positives": 0,
+    "false_negatives": 84,
+    "precision": 1.0,
+    "recall": 0.11578947368421053,
+    "f1": 0.20754716981132076
+  },
+  "threshold_sweep": {
+    "window": 50,
+    "thresholds": [
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0
+    ],
+    "results": [
+      {
+        "threshold": 2.0,
+        "duration_sec": 0.49022650718688965,
+        "total_events": 1199,
+        "predicted_anomaly_events": 11,
+        "predicted_anomaly_rate": 0.009174311926605505,
+        "window": 50,
+        "stddev_threshold": 2.0,
+        "true_positives": 11,
+        "false_positives": 0,
+        "false_negatives": 84,
+        "precision": 1.0,
+        "recall": 0.11578947368421053,
+        "f1": 0.20754716981132076
+      },
+      {
+        "threshold": 2.5,
+        "duration_sec": 0.4674956798553467,
+        "total_events": 1199,
+        "predicted_anomaly_events": 11,
+        "predicted_anomaly_rate": 0.009174311926605505,
+        "window": 50,
+        "stddev_threshold": 2.5,
+        "true_positives": 11,
+        "false_positives": 0,
+        "false_negatives": 84,
+        "precision": 1.0,
+        "recall": 0.11578947368421053,
+        "f1": 0.20754716981132076
+      },
+      {
+        "threshold": 3.0,
+        "duration_sec": 0.46695733070373535,
+        "total_events": 1199,
+        "predicted_anomaly_events": 11,
+        "predicted_anomaly_rate": 0.009174311926605505,
+        "window": 50,
+        "stddev_threshold": 3.0,
+        "true_positives": 11,
+        "false_positives": 0,
+        "false_negatives": 84,
+        "precision": 1.0,
+        "recall": 0.11578947368421053,
+        "f1": 0.20754716981132076
+      },
+      {
+        "threshold": 3.5,
+        "duration_sec": 0.4663722515106201,
+        "total_events": 1199,
+        "predicted_anomaly_events": 11,
+        "predicted_anomaly_rate": 0.009174311926605505,
+        "window": 50,
+        "stddev_threshold": 3.5,
+        "true_positives": 11,
+        "false_positives": 0,
+        "false_negatives": 84,
+        "precision": 1.0,
+        "recall": 0.11578947368421053,
+        "f1": 0.20754716981132076
+      },
+      {
+        "threshold": 4.0,
+        "duration_sec": 0.46677279472351074,
+        "total_events": 1199,
+        "predicted_anomaly_events": 11,
+        "predicted_anomaly_rate": 0.009174311926605505,
+        "window": 50,
+        "stddev_threshold": 4.0,
+        "true_positives": 11,
+        "false_positives": 0,
+        "false_negatives": 84,
+        "precision": 1.0,
+        "recall": 0.11578947368421053,
+        "f1": 0.20754716981132076
+      }
+    ],
+    "best": {
+      "threshold": 2.0,
+      "duration_sec": 0.49022650718688965,
+      "total_events": 1199,
+      "predicted_anomaly_events": 11,
+      "predicted_anomaly_rate": 0.009174311926605505,
+      "window": 50,
+      "stddev_threshold": 2.0,
+      "true_positives": 11,
+      "false_positives": 0,
+      "false_negatives": 84,
+      "precision": 1.0,
+      "recall": 0.11578947368421053,
+      "f1": 0.20754716981132076
+    },
+    "applied": true,
+    "applied_value": 2.0
+  },
+  "load_metrics": {
+    "total_events": 100,
+    "duration_seconds": 0.3395615000008547,
+    "events_per_second": 294.4974621673785,
+    "latency_ms": {
+      "average": 1.340475999895716,
+      "max": 2.619099999719765,
+      "p50": 1.265550001335214,
+      "p90": 1.6301300031045687,
+      "p95": 1.8939300003694368,
+      "p99": 2.0408410013260467
+    },
+    "error_count": 0,
+    "tenants": [
+      "tenantA",
+      "tenantB"
+    ],
+    "concurrency": 5,
+    "url": "http://localhost:8000/ingest"
+  },
+  "dataset_manifest": {
+    "export_ts": 1756820778,
+    "tenant": null,
+    "anomaly_count": 0,
+    "params_snapshot": {
+      "baseline.window_size": 50,
+      "baseline.stddev_threshold": 2.0,
+      "baseline.warmup_min": 10,
+      "baseline.mad_factor": 3.5,
+      "flood.threshold": 0.2
+    },
+    "notes": "Dataset export stub v1; fields subject to extension."
+  },
+  "artifacts": {
+    "evaluation_metrics": {
+      "path": "D:\\AI\\Neuron-AI\\artifacts\\eval\\baseline_metrics.json",
+      "sha256": "545a98d0d4e791c8c3dbfa0334fc17954a75b76803e2b0cd96d37eef58e556d0"
+    },
+    "threshold_sweep": {
+      "path": "D:\\AI\\Neuron-AI\\artifacts\\eval\\threshold_sweep.json",
+      "sha256": "c82f4bc5a0b0f92f5cde070af4929981503d063a36404ffd0cb55d91b3054010"
+    },
+    "load_metrics": {
+      "path": "D:\\AI\\Neuron-AI\\artifacts\\perf\\load_metrics.json",
+      "sha256": "f9bd2312314b424c6276ef6163e52fd13c0d906dfeaa666e2108bc0b47b440dc"
+    },
+    "dataset_manifest": {
+      "path": "D:\\AI\\Neuron-AI\\artifacts\\dataset\\manifest_1756820778.json",
+      "sha256": "b2f55de5d24b895b7e450840a1eb92ecc13501f92425eba567b03c4d5de3d320"
+    }
+  },
+  "canonical_doc_hash": "2640eae56126b5dabd4ea2cabba13d4e88be9952a3b995df55ae534bccaa8f68",
+  "audit_log_tail": "Entries are chronological. Do not delete or rewrite history. To supersede, append a new entry referencing prior hash.\n\n## 2025-09-02 Initial Scaffolding Entry\nID: A01\nSummary: Created initial directory structure, central dogma, audit log placeholder.\nArtifacts: docs/CENTRAL_DOGMA.md\nHashPlaceholder: (to be filled after manifest generation)\n\n## 2025-09-02 Batch 1 Hardening Entry\nID: A02\nSummary: Added source line mapping, extended metrics (drops/errors), rate limiter, trace_id, manifest integrity guard, tests (tenant isolation, rate limiter, manifest), learning path doc.\nArtifacts: docs/NEURON_PHASES.md, src/core/metrics.py, src/core/ratelimit.py, src/core/event.py, src/core/ingest/manager.py, tests/test_tenant_isolation.py, tests/test_rate_limiter.py, tests/test_manifest_guard.py, docs/LEARNING_PATH.md\nRationale: Strengthen integrity & observability before expanding Phase 2 evaluation scope.\nManifestHashPostChange: (fill after regenerate)\nNotes: Env override ALLOW_CANONICAL_DOC_DRIFT introduced (dev only).\n\n## 2025-09-02 Runtime Parameters & Secrets Scaffold\nID: A03\nSummary: Introduced runtime parameter registry, secret manager stub, admin parameter endpoints, adaptive threshold integration, expanded learning path (governance, recovery playbook, neuromorphic preview).\nArtifacts: src/config/runtime_params.py, src/security/secrets.py, src/core/detect/baseline.py, src/core/main.py, docs/LEARNING_PATH.md\nRationale: Shift-left governance & usability ahead of Phase 3 SNN to enable auditable tuning and secure secret handling preparation.\nDeviation: Value-add outside original Phase 1\u00e2\u20ac\u201c5 doc (parameter externalization & secret scaffold) \u00e2\u20ac\u201c documented to avoid silent scope drift.\nRisks: Until IAM enforcement added, admin endpoints are open; mitigation plan: add RBAC check + API key gate before production exposure.\nNext: Gate report, load harness artifact, security scan stub.\n",
+  "param_change_tail": "{\"ts\": 1756820477.3279057, \"key\": \"baseline.stddev_threshold\", \"old\": 3.0, \"new\": 2.0, \"reason\": \"threshold_sweep_best_f1\", \"actor\": \"threshold_sweep\"}",
+  "system_snapshot": {
+    "memory_mb": 25.92578125,
+    "cpu_percent": 0.0
+  }
+}

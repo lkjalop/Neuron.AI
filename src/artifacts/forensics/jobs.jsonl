@@ -1,0 +1,1 @@
+{"id":"3423daa8785a","modality":"memory","submitted_ts":1757413927.7839155,"status":"done","params":{},"result":{"asset_id":"unknown","context":{},"started":1757413927.7839155,"artifacts":[{"type":"synthetic.process_summary","data":{"process_count":35,"suspicious_modules":2,"open_sockets":128},"severity":"low","source":"simulated"}],"completed":1757413927.7839155},"error":null}

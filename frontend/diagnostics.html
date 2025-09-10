@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diagnostics & Governance</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 1.2rem; }
+    h1 { margin-top: 0; }
+    .controls { margin-bottom: 1rem; display: flex; gap: .75rem; align-items: center; }
+    button { padding: .4rem .8rem; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: .35rem .5rem; font-size: .85rem; }
+    th { background: #f5f5f5; }
+    .chip { display: inline-block; padding: .25rem .55rem; border-radius: 999px; font-size: .7rem; color: #fff; }
+    .chip.green { background: #2e7d32; }
+    .chip.yellow { background: #f9a825; color: #222; }
+    .chip.red { background: #c62828; }
+    .section { margin-top: 2rem; }
+    .inline { display: inline-block; }
+    .meta { font-size: .72rem; color: #666; }
+    /* lightweight spinner + toast */
+    .spinner-overlay { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.25); z-index:100; }
+    .spinner { width:38px; height:38px; border:5px solid #e0e0e0; border-top-color:#1976d2; border-radius:50%; animation:spin 1s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg);} }
+    #toast-container { position:fixed; right:14px; top:14px; display:flex; flex-direction:column; gap:8px; z-index:110; }
+    .toast { background:#323232; color:#fff; padding:.5rem .7rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.25); font-size:.8rem; }
+    .toast.error { background:#b71c1c; }
+    .toast.ok { background:#1b5e20; }
+  </style>
+</head>
+<body>
+  <h1>Diagnostics & Governance</h1>
+  <div class="controls">
+    <button id="prevBtn">Prev</button>
+    <button id="nextBtn">Next</button>
+    <span id="pageInfo" class="meta"></span>
+    <button id="refreshBtn">Refresh</button>
+    <label class="meta">API Key <input id="apiKey" type="password" placeholder="x-api-key" style="width:140px;"></label>
+    <label class="meta">Diag Key <input id="diagKey" type="password" placeholder="x-diagnostics-key" style="width:160px;"></label>
+    <div>Normalization Mapping: <span id="normChip" class="chip">--</span></div>
+  </div>
+
+  <div class="section">
+    <h2>Runtime Params (slice)</h2>
+    <table id="runtimeTable">
+      <thead><tr><th>Key</th><th>Value</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Governance Recommendations (recent)</h2>
+    <div class="controls">
+      <label class="meta">Tenant <input id="tenantFilter" placeholder="tenant id" style="width:120px;"></label>
+      <label class="meta">Action
+        <select id="actionFilter">
+          <option value="">Any</option>
+          <option value="raise_threshold">raise_threshold</option>
+          <option value="lower_threshold">lower_threshold</option>
+        </select>
+      </label>
+      <button id="applyFilters">Apply</button>
+    </div>
+    <table id="govTable">
+      <thead><tr><th>Time</th><th>Tenant</th><th>Action</th><th>Delta</th><th>Reason</th><th>Diff</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Governance Weights</h2>
+    <div class="controls">
+      <label class="meta">Tenant <input id="gwTenant" placeholder="tenant id" style="width:120px;"></label>
+      <button id="loadGw">Load Weights</button>
+      <button id="loadCoverage">Enrichment Coverage</button>
+      <label class="meta">Compare Tenants <input id="gwCompareTenants" placeholder="t1,t2,t3" style="width:160px;" title="Comma-separated tenant ids to compare effective weights"></label>
+      <button id="runCompare" title="Show effective weights for listed tenants side-by-side">Compare</button>
+    </div>
+  <div id="gwSummary" class="meta">Use the controls to fetch <code>/governance/weights</code>. Per-tenant override keys follow:
+    <span class="inline">
+      <code id="keyTemporal">detection.temporal.weight.{tenant}</code> <button class="copyBtn" data-copy="detection.temporal.weight.{tenant}">Copy</button>
+    </span>
+    <span class="inline" style="margin-left:.6rem;">
+      <code id="keyDetector">fusion.weight.{detector}.{tenant}</code> <button class="copyBtn" data-copy="fusion.weight.{detector}.{tenant}">Copy</button>
+    </span>
+  </div>
+    <table id="gwTable">
+      <thead>
+        <tr><th>Key</th><th>Global</th><th>Override</th><th>Effective</th><th>Copy Override Key</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="gwComposite" class="meta" style="margin-top:.5rem"></div>
+    <div class="meta" style="margin-top:.5rem">
+      <div id="gwAudit"></div>
+      <div style="margin-top:.35rem; display:flex; gap:.5rem; align-items:center;">
+        <button id="auditShowMore" class="inline" style="display:none;">Show more</button>
+        <button id="auditExportCsv" class="inline" title="Export recent temporal adjustment tail as CSV">Export CSV</button>
+        <span id="auditDeltaSpark" class="inline"></span>
+      </div>
+    </div>
+    <div class="meta" style="margin-top:.5rem">
+      <div style="display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;">
+        <span>Coverage Trends</span>
+        <label class="meta">Mode
+          <select id="trendMode">
+            <option value="ema7" selected>EMA-7</option>
+            <option value="raw">Raw</option>
+          </select>
+        </label>
+        <button id="refreshTrends">Refresh Trends</button>
+      </div>
+      <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap; margin-top:.35rem;">
+        <div>
+          <div class="meta">KEV</div>
+          <div id="coverageTrendKev"></div>
+        </div>
+        <div>
+          <div class="meta">EPSS</div>
+          <div id="coverageTrendEpss"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Alerts Test</h2>
+    <div class="controls">
+      <label class="meta">Tenant <input id="alertTenant" placeholder="tenant id" style="width:120px;"></label>
+      <label class="meta">Severity
+        <select id="alertSeverity">
+          <option value="LOW">LOW</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="HIGH">HIGH</option>
+          <option value="CRITICAL">CRITICAL</option>
+        </select>
+      </label>
+      <label class="meta">Message <input id="alertMessage" placeholder="test message" style="width:220px;"></label>
+      <button id="sendAlert">Send Test Alert</button>
+    </div>
+    <div class="meta">Posts to <code>/alerts/test</code>. Uses <code>x-api-key</code> if provided.</div>
+  </div>
+
+<script>
+(function() {
+  // spinner/toast utilities
+  let pending = 0;
+  function setLoading(on) {
+    pending += on ? 1 : -1; pending = Math.max(0,pending);
+    if (on && !document.getElementById('global-spinner')) {
+      const sp = document.createElement('div'); sp.id='global-spinner'; sp.className='spinner-overlay'; sp.innerHTML='<div class="spinner"></div>';
+      document.body.appendChild(sp);
+    } else if (!on && pending===0) {
+      const sp = document.getElementById('global-spinner'); if (sp) sp.remove();
+    }
+  }
+  function toast(msg, kind='ok', ms=2800) {
+    let c = document.getElementById('toast-container');
+    if (!c) { c = document.createElement('div'); c.id='toast-container'; document.body.appendChild(c); }
+    const t = document.createElement('div'); t.className='toast '+kind; t.textContent = msg; c.appendChild(t);
+    setTimeout(()=>{ t.classList.add('fade'); t.style.opacity='0'; setTimeout(()=>t.remove(), 300); }, ms);
+  }
+  let offset = 0; const limit = 25;
+  const apiKeyEl = document.getElementById('apiKey');
+  const diagKeyEl = document.getElementById('diagKey');
+  // Persist keys locally
+  apiKeyEl.value = localStorage.getItem('neuron_api_key') || '';
+  diagKeyEl.value = localStorage.getItem('neuron_diag_key') || '';
+  apiKeyEl.addEventListener('change', ()=> localStorage.setItem('neuron_api_key', apiKeyEl.value));
+  diagKeyEl.addEventListener('change', ()=> localStorage.setItem('neuron_diag_key', diagKeyEl.value));
+  function diagHeaders() {
+    const h = {};
+    if (diagKeyEl.value) h['x-diagnostics-key'] = diagKeyEl.value;
+    return h;
+  }
+  function adminHeaders() {
+    const h = {};
+    if (apiKeyEl.value) h['x-api-key'] = apiKeyEl.value;
+    return h;
+  }
+  async function fetchConfig() {
+    setLoading(true);
+    try {
+      const r = await fetch(`/diagnostics/config?limit=${limit}&offset=${offset}`, { headers: diagHeaders() });
+      const j = await r.json();
+      renderRuntime(j.runtime || {});
+      updatePagination(j.runtime || {});
+    } catch (e) {
+      toast('Failed loading runtime: '+ e.message, 'error');
+    } finally {
+      setLoading(false);
+    }
+  }
+  function renderRuntime(rt) {
+    const tbody = document.querySelector('#runtimeTable tbody');
+    tbody.innerHTML = '';
+    (rt.items || []).forEach(it => {
+      const tr = document.createElement('tr');
+      const k = document.createElement('td'); k.textContent = it.key;
+      const v = document.createElement('td'); v.textContent = typeof it.value === 'object' ? JSON.stringify(it.value) : it.value;
+      tr.appendChild(k); tr.appendChild(v); tbody.appendChild(tr);
+    });
+  }
+  function updatePagination(rt) {
+    document.getElementById('pageInfo').textContent = `offset ${rt.offset || 0} / total ${rt.total || 0}`;
+  }
+  const tenantEl = document.getElementById('tenantFilter');
+  const actionEl = document.getElementById('actionFilter');
+  async function fetchGovernance() {
+    setLoading(true);
+    try {
+      const params = new URLSearchParams({ limit: '50' });
+      const t = tenantEl.value.trim();
+      const a = actionEl.value.trim();
+      if (a) params.set('action', a);
+      if (t) params.set('tenant', t);
+      const r = await fetch(`/governance/recommendations/recent?` + params.toString(), { headers: adminHeaders() });
+      const j = await r.json();
+      const tbody = document.querySelector('#govTable tbody');
+      tbody.innerHTML = '';
+      const items = j.items || [];
+      items.forEach(it => {
+        const tr = document.createElement('tr');
+        const ts = new Date((it.ts || 0) * 1000).toISOString();
+        const sug = (it.suggestion || {});
+        tr.innerHTML = `<td>${ts}</td><td>${it.tenant||''}</td><td>${sug.action||''}</td><td>${sug.delta||''}</td><td>${sug.reason||''}</td><td>${sug.diff||''}</td>`;
+        tbody.appendChild(tr);
+      });
+    } catch (e) {
+      toast('Failed loading governance recs: '+ e.message, 'error');
+    } finally {
+      setLoading(false);
+    }
+  }
+  async function fetchNormalizationStatus() {
+    // Derive freshness from metrics: we attempt to scrape mapping age gauge; fallback to unknown.
+    try {
+      const r = await fetch('/metrics');
+      const text = await r.text();
+      const ageMatch = text.match(/neuron_snn_norm_mapping_age_seconds (\d+(?:\.\d+)?)/);
+      let age = ageMatch ? parseFloat(ageMatch[1]) : null;
+      // Default stale param threshold (seconds) 1800 unless runtime param changed (not exposed here yet)
+      const maxStale = 1800;
+      const chip = document.getElementById('normChip');
+      if (age == null) { chip.textContent = 'unknown'; chip.className = 'chip yellow'; return; }
+      chip.textContent = `${Math.round(age)}s`;
+      if (age <= maxStale * 0.5) chip.className = 'chip green';
+      else if (age <= maxStale * 1.2) chip.className = 'chip yellow';
+      else chip.className = 'chip red';
+    } catch (e) {
+      const chip = document.getElementById('normChip');
+      chip.textContent = 'err'; chip.className = 'chip red';
+    }
+  }
+  document.getElementById('prevBtn').addEventListener('click', () => { offset = Math.max(0, offset - limit); fetchConfig(); });
+  document.getElementById('nextBtn').addEventListener('click', () => { offset += limit; fetchConfig(); });
+  document.getElementById('refreshBtn').addEventListener('click', () => { fetchConfig(); fetchGovernance(); fetchNormalizationStatus(); });
+  document.getElementById('applyFilters').addEventListener('click', () => { fetchGovernance(); });
+  document.getElementById('loadGw').addEventListener('click', fetchGovernanceWeights);
+  document.getElementById('runCompare').addEventListener('click', runCompareTenants);
+  document.getElementById('auditExportCsv').addEventListener('click', exportAuditCsv);
+  // trend refresh
+  document.getElementById('refreshTrends').addEventListener('click', fetchCoverageTrend);
+  document.getElementById('trendMode').addEventListener('change', fetchCoverageTrend);
+  document.getElementById('loadCoverage').addEventListener('click', async () => {
+    setLoading(true);
+    try {
+      const r = await fetch('/vuln/enrichment/coverage', { headers: adminHeaders() });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || r.statusText);
+      toast(`Coverage: total=${j.total} EPSS=${j.epss_pct}% KEV=${j.kev_pct}%`, 'ok');
+    } catch (e) { toast('Failed loading coverage: ' + e.message, 'error'); }
+    finally { setLoading(false); }
+  });
+  document.getElementById('sendAlert').addEventListener('click', async () => {
+    const tenant = document.getElementById('alertTenant').value.trim() || 'demo';
+    const severity = document.getElementById('alertSeverity').value;
+    const message = document.getElementById('alertMessage').value.trim() || 'Hello from Diagnostics';
+    setLoading(true);
+    try {
+      const r = await fetch('/alerts/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...adminHeaders() },
+        body: JSON.stringify({ tenant, severity, message })
+      });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || r.statusText);
+      const info = j || {};
+      toast(`Alert dispatched: outcome=${info.outcome||'ok'} attempts=${info.attempts||1}`, 'ok');
+    } catch (e) {
+      toast('Alert dispatch failed: ' + e.message, 'error');
+    } finally {
+      setLoading(false);
+    }
+  });
+  // Initial load
+  fetchConfig(); fetchGovernance(); fetchNormalizationStatus(); fetchCoverageTrend();
+  setInterval(fetchNormalizationStatus, 20000);
+
+  async function fetchGovernanceWeights() {
+    const tenant = document.getElementById('gwTenant').value.trim();
+    const params = new URLSearchParams();
+    if (tenant) params.set('tenant', tenant);
+    setLoading(true);
+    try {
+      const r = await fetch('/governance/weights' + (params.toString()? ('?' + params.toString()): ''), { headers: adminHeaders() });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || r.statusText);
+      renderGovernanceWeights(j);
+    } catch (e) {
+      toast('Failed loading governance weights: ' + e.message, 'error');
+    } finally { setLoading(false); }
+  }
+
+  function renderGovernanceWeights(data) {
+    const weights = data.weights || {};
+    const overrides = data.tenant_overrides || {};
+    const effective = data.effective || {};
+    const tbody = document.querySelector('#gwTable tbody');
+    tbody.innerHTML = '';
+    const keys = ['temporal','transformer','baseline','snn','iforest'];
+    const tenant = (data.tenant || '').trim();
+    keys.forEach(k => {
+      const tr = document.createElement('tr');
+      const g = (weights[k] ?? '');
+      const o = (overrides[k] ?? '');
+      const e = (effective[k] ?? '');
+      // Build override key template for copy
+      let overrideKey = '';
+      if (k === 'temporal') overrideKey = tenant ? `detection.temporal.weight.${tenant}` : 'detection.temporal.weight.{tenant}';
+      else overrideKey = tenant ? `fusion.weight.${k}.${tenant}` : `fusion.weight.${k}.{tenant}`;
+      tr.innerHTML = `<td>${k}</td><td>${g}</td><td>${o}</td><td>${e}</td><td><button class="copyRowBtn" data-copy="${overrideKey}">Copy</button></td>`;
+      tbody.appendChild(tr);
+    });
+    const flags = [];
+    if (weights.temporal_enabled) flags.push('temporal_enabled');
+    if (weights.transformer_enabled) flags.push('transformer_enabled');
+    if (weights.shadow_mode) flags.push('shadow_mode');
+    document.getElementById('gwSummary').textContent = `Tenant=${data.tenant || 'n/a'} Flags: ${flags.join(', ') || 'none'}`;
+    const comp = data.governance_composite || {};
+    const r = comp.thresholds || {};
+    const hyst = comp.hysteresis || {};
+    document.getElementById('gwComposite').textContent = `Composite current=${comp.current ?? ''} band=${comp.band || ''} thresholds(low=${r.low ?? ''}, med=${r.medium ?? ''}, high=${r.high ?? ''}) hysteresis(enter=${hyst.enter ?? ''}, exit=${hyst.exit ?? ''})`;
+    const adj = (data.audit && data.audit.temporal_adjust_log) || [];
+    // Render compact tail list (max 5 by default) newest-first
+    const list = document.createElement('ul'); list.style.margin = '0'; list.style.paddingLeft = '1.1rem';
+    const show = Math.min(5, adj.length);
+    for (let i = 0; i < show; i++) {
+      const it = adj[i]; if (!it) continue;
+      const li = document.createElement('li');
+      li.className = 'auditItem';
+      const ts = new Date((it.ts || 0) * 1000).toISOString();
+      li.setAttribute('data-ts', ts);
+      li.setAttribute('data-reason', String(it.reason_code||''));
+      li.setAttribute('data-delta', String(it.delta ?? ''));
+      li.textContent = `${ts} reason=${it.reason_code||''} delta=${it.delta ?? ''}`;
+      list.appendChild(li);
+    }
+    const auditDiv = document.getElementById('gwAudit');
+    auditDiv.innerHTML = '';
+    if (adj.length === 0) auditDiv.textContent = 'no recent adjustments';
+    else auditDiv.appendChild(list);
+    const btn = document.getElementById('auditShowMore');
+    if (adj.length > show) {
+      btn.style.display = 'inline-block';
+      btn.onclick = () => {
+        const more = document.createElement('ul'); more.style.margin = '0'; more.style.paddingLeft = '1.1rem';
+        for (let i = show; i < Math.min(25, adj.length); i++) {
+          const it = adj[i]; if (!it) continue;
+          const li = document.createElement('li');
+          li.className = 'auditItem';
+          const ts = new Date((it.ts || 0) * 1000).toISOString();
+          li.setAttribute('data-ts', ts);
+          li.setAttribute('data-reason', String(it.reason_code||''));
+          li.setAttribute('data-delta', String(it.delta ?? ''));
+          li.textContent = `${ts} reason=${it.reason_code||''} delta=${it.delta ?? ''}`;
+          more.appendChild(li);
+        }
+        auditDiv.appendChild(more);
+        btn.style.display = 'none';
+      };
+    } else {
+      btn.style.display = 'none';
+    }
+    // Wire copy handlers for header examples and rows
+    const headerCopy = document.querySelectorAll('.copyBtn');
+    headerCopy.forEach(b => b.onclick = () => {
+      const tpl = b.getAttribute('data-copy') || '';
+      const t = (document.getElementById('gwTenant').value || '').trim();
+      const rendered = tpl.replace('{tenant}', t || '{tenant}').replace('{detector}', 'snn');
+      b.title = `Template: ${tpl} | Rendered: ${rendered}`;
+      navigator.clipboard.writeText(rendered).then(()=> toast('Copied: ' + rendered, 'ok')).catch(()=> toast('Copy failed', 'error'));
+    });
+    const rowCopy = document.querySelectorAll('.copyRowBtn');
+    rowCopy.forEach(b => b.onclick = () => {
+      const key = b.getAttribute('data-copy') || '';
+      b.title = `Rendered: ${key}`;
+      navigator.clipboard.writeText(key).then(()=> toast('Copied: ' + key, 'ok')).catch(()=> toast('Copy failed', 'error'));
+    });
+    // Delta sparkline (small inline) using recent deltas from adj
+    const deltas = (adj || []).slice(0, 40).map(o => Number(o && o.delta || 0));
+    const dsp = document.getElementById('auditDeltaSpark');
+    dsp.innerHTML = deltas.length ? buildSparklineSigned(deltas, 120, 24, '#555') : '';
+  }
+
+  function exportAuditCsv() {
+    const gw = document.getElementById('gwAudit');
+    if (!gw) { toast('Nothing to export', 'error'); return; }
+    // Collect visible audit entries from DOM (assuming render filled it from data.adj)
+    const items = [];
+    gw.querySelectorAll('.auditItem').forEach(div => {
+      const ts = div.getAttribute('data-ts') || '';
+      const reason = div.getAttribute('data-reason') || '';
+      const delta = div.getAttribute('data-delta') || '';
+      items.push({ ts, reason, delta });
+    });
+    if (!items.length) { toast('No audit items', 'error'); return; }
+    const header = ['ts','reason','delta'];
+    const escape = v => '"' + String(v ?? '').replace(/"/g,'""') + '"';
+    const csv = [header.join(',')].concat(items.map(o => [o.ts, o.reason, o.delta].map(escape).join(','))).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'temporal_adjust_tail.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=> URL.revokeObjectURL(url), 1000);
+  }
+
+  async function runCompareTenants() {
+    const list = (document.getElementById('gwCompareTenants').value || '').split(',').map(s=>s.trim()).filter(Boolean).slice(0,6);
+    if (!list.length) { toast('Enter tenants to compare', 'error'); return; }
+    const rows = [];
+    for (const t of list) {
+      try {
+        const r = await fetch('/governance/weights?tenant=' + encodeURIComponent(t));
+        const j = await r.json();
+        const eff = (j.effective || {});
+        rows.push({ tenant: t, eff });
+      } catch (e) {}
+    }
+    const containerId = 'gwCompareTable';
+    let table = document.getElementById(containerId);
+    if (!table) {
+      table = document.createElement('table'); table.id = containerId; table.style.marginTop = '.5rem';
+      table.innerHTML = '<thead><tr><th>Tenant</th><th>temporal</th><th>transformer</th><th>baseline</th><th>snn</th><th>iforest</th></tr></thead><tbody></tbody>';
+      document.querySelector('#gwComposite').after(table);
+    }
+    const tbody = table.querySelector('tbody'); tbody.innerHTML = '';
+    rows.forEach(rw => {
+      const tr = document.createElement('tr');
+      const eff = rw.eff || {};
+      tr.innerHTML = `<td>${rw.tenant}</td><td>${eff.temporal ?? ''}</td><td>${eff.transformer ?? ''}</td><td>${eff.baseline ?? ''}</td><td>${eff.snn ?? ''}</td><td>${eff.iforest ?? ''}</td>`;
+      tbody.appendChild(tr);
+    });
+    // Render per-tenant delta sparklines for temporal weight changes side-by-side
+    await renderTenantDeltaSparklines(list);
+  }
+
+  async function fetchCoverageTrend() {
+    const mode = (document.getElementById('trendMode').value || 'ema7');
+    const kevEl = document.getElementById('coverageTrendKev');
+    const epssEl = document.getElementById('coverageTrendEpss');
+    kevEl.innerHTML = '<span class="meta">loading…</span>';
+    epssEl.innerHTML = '<span class="meta">loading…</span>';
+    try {
+      const r = await fetch('/vuln/enrichment/coverage/history?limit=90', { headers: adminHeaders() });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || r.statusText);
+      const items = j.items || [];
+      const kev = items.map(o => Number(o.kev_pct || 0));
+      const epss = items.map(o => Number(o.epss_pct || 0));
+      const kevSeries = (mode === 'ema7') ? ema(kev, 7) : kev;
+      const epssSeries = (mode === 'ema7') ? ema(epss, 7) : epss;
+      kevEl.innerHTML = kevSeries.length ? buildSparkline(kevSeries) : '<em>no data</em>';
+      epssEl.innerHTML = epssSeries.length ? buildSparkline(epssSeries) : '<em>no data</em>';
+    } catch (e) {
+      kevEl.textContent = 'trend unavailable';
+      epssEl.textContent = 'trend unavailable';
+    }
+  }
+  function ema(values, n=7) {
+    if (!values || values.length === 0) return [];
+    const k = 2 / (n + 1);
+    let emaPrev = values[0];
+    const out = [emaPrev];
+    for (let i=1; i<values.length; i++) {
+      const v = values[i];
+      emaPrev = v * k + emaPrev * (1 - k);
+      out.push(emaPrev);
+    }
+    return out;
+  }
+  function buildSparkline(values) {
+    if (!values || values.length === 0) return '';
+    const width = 200, height = 28;
+    const mn = Math.min(...values), mx = Math.max(...values);
+    const span = (mx - mn) || 1;
+    const pts = values.map((v,i)=>{
+      const x = (i / Math.max(1, values.length - 1)) * (width - 4) + 2;
+      const y = height - 2 - ((v - mn) / span) * (height - 4);
+      return `${x.toFixed(2)},${y.toFixed(2)}`;
+    }).join(' ');
+    return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><polyline fill="none" stroke="#00897b" stroke-width="1.5" points="${pts}"/></svg>`;
+  }
+  function buildSparklineSigned(values, width=200, height=28, stroke='#444') {
+    if (!values || values.length === 0) return '';
+    const min = Math.min(...values), max = Math.max(...values);
+    const absMax = Math.max(Math.abs(min), Math.abs(max)) || 1;
+    const mid = height / 2;
+    const pts = values.map((v,i)=>{
+      const x = (i / Math.max(1, values.length - 1)) * (width - 4) + 2;
+      const y = mid - (v / absMax) * (height/2 - 2);
+      return `${x.toFixed(2)},${y.toFixed(2)}`;
+    }).join(' ');
+    return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><line x1="0" y1="${mid}" x2="${width}" y2="${mid}" stroke="#ccc" stroke-width="1"/><polyline fill="none" stroke="${stroke}" stroke-width="1.5" points="${pts}"/></svg>`;
+  }
+
+  async function renderTenantDeltaSparklines(tenants) {
+    const id = 'tenantDeltaSparklines';
+    let holder = document.getElementById(id);
+    if (!holder) {
+      holder = document.createElement('div');
+      holder.id = id;
+      holder.className = 'meta';
+      holder.style.marginTop = '.5rem';
+      holder.innerHTML = '<div class="meta">Per-tenant temporal delta trends</div>';
+      const anchor = document.getElementById('gwCompareTable') || document.getElementById('gwComposite');
+      (anchor || document.getElementById('gwComposite')).after(holder);
+    }
+    holder.innerHTML = '<div class="meta">Per-tenant temporal delta trends</div>';
+    const row = document.createElement('div'); row.style.display='flex'; row.style.gap = '1rem'; row.style.flexWrap='wrap';
+    holder.appendChild(row);
+    for (const t of tenants) {
+      try {
+        const url = '/governance/param_changes?tenant=' + encodeURIComponent(t) + '&limit=200&keys=detection.temporal.weight';
+        const r = await fetch(url, { headers: adminHeaders() });
+        const j = await r.json();
+        const items = (j.items || []).filter(o => typeof o.delta === 'number');
+        const deltas = items.map(o => Number(o.delta)).slice(-40);
+        const col = document.createElement('div');
+        col.innerHTML = `<div class="meta">${t}</div><div>${deltas.length ? buildSparklineSigned(deltas, 160, 28, '#555') : '<em>no data</em>'}</div>`;
+        row.appendChild(col);
+      } catch (e) {
+        const col = document.createElement('div');
+        col.innerHTML = `<div class="meta">${t}</div><div><em>error</em></div>`;
+        row.appendChild(col);
+      }
+    }
+  }
+
+  // Param changes CSV export (with optional tenant/keys)
+  ;(function addParamCsvControls(){
+    const ctrlId = 'paramCsvControls';
+    if (document.getElementById(ctrlId)) return;
+    const wrap = document.createElement('div');
+    wrap.id = ctrlId; wrap.className = 'controls'; wrap.style.marginTop = '.5rem';
+    wrap.innerHTML = `
+      <label class="meta">Tenant <input id="csvTenant" placeholder="tenant id" style="width:120px;"></label>
+      <label class="meta">Keys <input id="csvKeys" placeholder="comma-separated prefixes" style="width:220px;" title="Default: detection.temporal.weight, fusion.weight.*"></label>
+      <button id="paramExportCsv">Export Param Changes CSV</button>
+    `;
+    const auditBar = document.getElementById('gwAudit').parentElement;
+    auditBar.parentElement.appendChild(wrap);
+    document.getElementById('paramExportCsv').addEventListener('click', exportParamChangesCsv);
+  })();
+
+  async function exportParamChangesCsv() {
+    const tenant = (document.getElementById('csvTenant').value || '').trim();
+    const keys = (document.getElementById('csvKeys').value || '').trim();
+    const qs = new URLSearchParams();
+    if (tenant) qs.set('tenant', tenant);
+    if (keys) qs.set('keys', keys);
+    qs.set('limit', '1000');
+    setLoading(true);
+    try {
+      const r = await fetch('/governance/param_changes?' + qs.toString(), { headers: adminHeaders() });
+      const j = await r.json();
+      if (!r.ok) throw new Error(j.detail || r.statusText);
+      const items = j.items || [];
+      if (!items.length) { toast('No param changes found', 'error'); return; }
+      const header = ['ts','key','old','new','actor','tenant','delta'];
+      const escape = v => '"' + String(v ?? '').replace(/"/g,'""') + '"';
+      const rows = items.map(o => [o.ts, o.key, o.old, o.new, o.actor, o.tenant, o.delta].map(escape).join(','));
+      const csv = [header.join(',')].concat(rows).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'param_changes.csv'; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=> URL.revokeObjectURL(url), 1000);
+      toast(`Exported ${items.length} records`, 'ok');
+    } catch (e) {
+      toast('Export failed: ' + e.message, 'error');
+    } finally {
+      setLoading(false);
+    }
+  }
+})();
+</script>
+</body>
+</html>

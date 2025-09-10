@@ -1,0 +1,10 @@
+apiVersion: 1
+providers:
+  - name: 'neuron-dashboards'
+    orgId: 1
+    folder: 'Neuron'
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /var/lib/grafana/dashboards

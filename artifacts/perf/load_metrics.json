@@ -1,0 +1,22 @@
+{
+  "total_events": 400,
+  "duration_seconds": 0.7885925999980827,
+  "events_per_second": 507.23275871593586,
+  "latency_ms": {
+    "average": 1.431233749990497,
+    "max": 4.545700001472142,
+    "p50": 1.2867000004916918,
+    "p90": 1.9549400007235824,
+    "p95": 2.363250001144479,
+    "p99": 3.121336003059696
+  },
+  "error_count": 0,
+  "tenants": [
+    "tenantA",
+    "tenantB"
+  ],
+  "concurrency": 8,
+  "url": "http://localhost:8000/ingest",
+  "anomalies_injected": 12,
+  "anomaly_factor": 6.0
+}

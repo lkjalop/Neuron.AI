@@ -1,0 +1,8 @@
+# Bandit configuration (baseline)
+skips: []
+exclude:
+  - tests
+  - venv
+  - .venv
+severity: LOW
+confidence: MEDIUM

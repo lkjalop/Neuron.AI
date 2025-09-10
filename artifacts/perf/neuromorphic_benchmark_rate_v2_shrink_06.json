@@ -1,0 +1,53 @@
+{
+  "events": 400,
+  "patterns": [
+    "drift",
+    "burst",
+    "periodic"
+  ],
+  "combinations": [
+    {
+      "events": 400,
+      "patterns": [
+        "drift",
+        "burst",
+        "periodic"
+      ],
+      "snn_mode": "proto",
+      "snn_encoder": "rate_v2",
+      "elapsed_s": 0.047997236251831055,
+      "baseline_anomalies": 11,
+      "snn_anomalies": 0,
+      "snn_spike_energy": 0,
+      "uplift_raw": -11,
+      "uplift_ratio": 0.08333333333333333,
+      "hash": "565d5b928ddda135"
+    },
+    {
+      "events": 400,
+      "patterns": [
+        "drift",
+        "burst",
+        "periodic"
+      ],
+      "snn_mode": "lif",
+      "snn_encoder": "rate_v2",
+      "elapsed_s": 0.045999765396118164,
+      "baseline_anomalies": 8,
+      "snn_anomalies": 0,
+      "snn_spike_energy": 0,
+      "uplift_raw": -8,
+      "uplift_ratio": 0.1111111111111111,
+      "hash": "25cf2860677e53a2"
+    }
+  ],
+  "generated_at": 1756878389.762679,
+  "encoder_aggregate": [
+    {
+      "encoder": "rate_v2",
+      "aggregate_uplift_ratio": 0.05,
+      "baseline_anomalies": 19,
+      "snn_anomalies": 0
+    }
+  ]
+}

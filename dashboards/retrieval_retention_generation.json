@@ -1,0 +1,80 @@
+{
+  "title": "Retrieval Retention & Generation",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Chunk Store Rows",
+      "targets": [ { "expr": "neuron_retrieval_chunks_rows" } ],
+      "id": 1
+    },
+    {
+      "type": "graph",
+      "title": "Chunk Text Bytes",
+      "targets": [ { "expr": "neuron_retrieval_chunk_text_bytes_total" } ],
+      "id": 2
+    },
+    {
+      "type": "graph",
+      "title": "Retention Purges (by reason)",
+      "targets": [ { "expr": "increase(neuron_retrieval_retention_purged_total[5m]) by (reason)" } ],
+      "id": 3
+    },
+    {
+      "type": "graph",
+      "title": "Generation Warmup Latency",
+      "targets": [ { "expr": "histogram_quantile(0.95, sum(rate(neuron_retrieval_generation_warmup_latency_seconds_bucket[5m])) by (le))" } ],
+      "id": 4
+    },
+    {
+      "type": "graph",
+      "title": "Warmup Latency P50",
+      "targets": [ { "expr": "histogram_quantile(0.50, sum(rate(neuron_retrieval_generation_warmup_latency_seconds_bucket[5m])) by (le))" } ],
+      "id": 9
+    },
+    {
+      "type": "graph",
+      "title": "Generation First Token P95",
+      "targets": [ { "expr": "histogram_quantile(0.95, sum(rate(neuron_retrieval_generation_first_token_latency_seconds_bucket[5m])) by (le))" } ],
+      "id": 10
+    },
+    {
+      "type": "graph",
+      "title": "Generation Full Latency P95",
+      "targets": [ { "expr": "histogram_quantile(0.95, sum(rate(neuron_retrieval_generation_full_latency_seconds_bucket[5m])) by (le))" } ],
+      "id": 11
+    },
+    {
+      "type": "graph",
+      "title": "Retention Efficiency Ratio",
+      "targets": [ { "expr": "(increase(neuron_retrieval_retention_purged_total[1h])) / (increase(neuron_retrieval_retention_purged_total[1h]) + neuron_retrieval_chunks_rows)" } ],
+      "id": 12
+    },
+    {
+      "type": "graph",
+      "title": "Sentence Citation Coverage",
+      "targets": [ { "expr": "neuron_retrieval_generation_sentence_citation_ratio" } ],
+      "id": 5
+    },
+    {
+      "type": "graph",
+      "title": "Unsupported Entities",
+      "targets": [ { "expr": "neuron_retrieval_generation_unsupported_entities" } ],
+      "id": 6
+    },
+    {
+      "type": "graph",
+      "title": "Token Coverage",
+      "targets": [ { "expr": "neuron_retrieval_generation_token_coverage" } ],
+      "id": 7
+    },
+    {
+      "type": "graph",
+      "title": "Citation Count",
+      "targets": [ { "expr": "neuron_retrieval_generation_citation_count" } ],
+      "id": 8
+    }
+  ],
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s"
+}

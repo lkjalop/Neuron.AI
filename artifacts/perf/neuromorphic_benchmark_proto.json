@@ -1,0 +1,16 @@
+{
+  "events": 600,
+  "patterns": [
+    "drift",
+    "burst",
+    "periodic"
+  ],
+  "snn_mode": "proto",
+  "elapsed_s": 0.13299846649169922,
+  "baseline_anomalies": 10,
+  "snn_anomalies": 107,
+  "snn_spike_energy": 535,
+  "uplift_raw": 97,
+  "uplift_ratio": 9.818181818181818,
+  "hash": "03ae851a56f6e198"
+}

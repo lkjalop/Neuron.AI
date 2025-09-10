@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Neuron Chat (Focus Mode)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="/app/style.css" />
+</head>
+<body>
+<div id="app-root" class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">Neuron<span class="beta">β</span></div>
+    <button id="new-chat" class="primary full">+ New Chat</button>
+    <div class="chat-history" id="chat-history"></div>
+    <div class="nav-links">
+      <button id="soc-chat" class="ghost full">SOC Analyst Chat</button>
+      <button id="open-diagnostics" class="ghost full">Diagnostics ↗</button>
+      <button id="open-vuln" class="ghost full">Vulnerabilities ↗</button>
+      <button id="open-forensics" class="ghost full">Forensics ↗</button>
+      <button id="open-hunt" class="ghost full">IOC & Hunt ↗</button>
+    </div>
+    <div class="sidebar-footer">
+      <button id="open-dashboard" class="ghost small">Dashboard ↗</button>
+      <button id="toggle-compact" class="ghost small">Compact</button>
+    </div>
+  </aside>
+  <main class="chat-pane">
+    <header class="chat-header">
+      <div class="title">Focus Chat</div>
+      <div class="actions">
+        <button id="detach-chat" class="ghost">Pop Out ↗</button>
+        <button id="toggle-sidebar" class="ghost">☰</button>
+      </div>
+    </header>
+    <section id="messages" class="messages"></section>
+    <div id="error-banner" class="error-banner" style="display:none;"></div>
+    <form id="chat-form" class="composer" autocomplete="off">
+      <textarea id="chat-input" placeholder="Ask about vulnerabilities, context, or remediation..." rows="1"></textarea>
+      <div class="composer-actions">
+        <select id="topk">
+          <option value="5" selected>k=5</option>
+          <option value="3">k=3</option>
+          <option value="8">k=8</option>
+          <option value="10">k=10</option>
+        </select>
+        <button type="submit" class="primary" id="send-btn">Send</button>
+      </div>
+    </form>
+  </main>
+  <section class="context-pane" id="context-pane">
+    <header>Contexts <span id="ctx-count"></span><button id="detach-dashboard" class="ghost small right">Pop Out ↗</button></header>
+    <div id="contexts" class="contexts"></div>
+    <div class="metrics-block">
+      <h4>Timings</h4>
+      <ul id="timings"></ul>
+      <div class="confidence" id="confidence-badge"></div>
+    </div>
+  </section>
+</div>
+<script src="/app/app.js"></script>
+<script>
+(function(){
+  const btn = document.getElementById('open-diagnostics');
+  if (btn) {
+    btn.addEventListener('click', function(){
+      window.open(window.location.origin + '/app/diagnostics.html','_blank','noopener');
+    });
+  }
+  const v = document.getElementById('open-vuln');
+  if (v) v.addEventListener('click', function(){ window.open(window.location.origin + '/app/vuln.html','_blank','noopener'); });
+  const f = document.getElementById('open-forensics');
+  if (f) f.addEventListener('click', function(){ window.open(window.location.origin + '/app/forensics.html','_blank','noopener'); });
+  const h = document.getElementById('open-hunt');
+  if (h) h.addEventListener('click', function(){ window.open(window.location.origin + '/app/hunt.html','_blank','noopener'); });
+})();
+</script>
+</body>
+</html>

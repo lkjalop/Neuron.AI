@@ -1,0 +1,93 @@
+{
+  "events": 400,
+  "patterns": [
+    "drift",
+    "burst",
+    "periodic"
+  ],
+  "combinations": [
+    {
+      "events": 400,
+      "patterns": [
+        "drift",
+        "burst",
+        "periodic"
+      ],
+      "snn_mode": "proto",
+      "snn_encoder": "rate_v1",
+      "elapsed_s": 0.048949241638183594,
+      "baseline_anomalies": 10,
+      "snn_anomalies": 41,
+      "snn_spike_energy": 205,
+      "uplift_raw": 31,
+      "uplift_ratio": 3.8181818181818183,
+      "hash": "65a26c6c9bcde687"
+    },
+    {
+      "events": 400,
+      "patterns": [
+        "drift",
+        "burst",
+        "periodic"
+      ],
+      "snn_mode": "proto",
+      "snn_encoder": "rate_v2",
+      "elapsed_s": 0.044999122619628906,
+      "baseline_anomalies": 7,
+      "snn_anomalies": 0,
+      "snn_spike_energy": 0,
+      "uplift_raw": -7,
+      "uplift_ratio": 0.125,
+      "hash": "6bc227b0fe3f22cc"
+    },
+    {
+      "events": 400,
+      "patterns": [
+        "drift",
+        "burst",
+        "periodic"
+      ],
+      "snn_mode": "lif",
+      "snn_encoder": "rate_v1",
+      "elapsed_s": 0.04700279235839844,
+      "baseline_anomalies": 7,
+      "snn_anomalies": 42,
+      "snn_spike_energy": 210,
+      "uplift_raw": 35,
+      "uplift_ratio": 5.375,
+      "hash": "7ce28b48ab849c5f"
+    },
+    {
+      "events": 400,
+      "patterns": [
+        "drift",
+        "burst",
+        "periodic"
+      ],
+      "snn_mode": "lif",
+      "snn_encoder": "rate_v2",
+      "elapsed_s": 0.046994686126708984,
+      "baseline_anomalies": 11,
+      "snn_anomalies": 0,
+      "snn_spike_energy": 0,
+      "uplift_raw": -11,
+      "uplift_ratio": 0.08333333333333333,
+      "hash": "52f05959d3343eee"
+    }
+  ],
+  "generated_at": 1756878368.6458428,
+  "encoder_aggregate": [
+    {
+      "encoder": "rate_v1",
+      "aggregate_uplift_ratio": 4.666666666666667,
+      "baseline_anomalies": 17,
+      "snn_anomalies": 83
+    },
+    {
+      "encoder": "rate_v2",
+      "aggregate_uplift_ratio": 0.05263157894736842,
+      "baseline_anomalies": 18,
+      "snn_anomalies": 0
+    }
+  ]
+}

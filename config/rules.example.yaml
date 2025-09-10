@@ -1,0 +1,18 @@
+# Example rule DSL file for Neuron automation engine.
+# Copy to rules.yaml to activate or set env RULE_DSL_PATH to alternate path.
+# Each rule: id, when block (optional conditions), playbook (id of playbook), optional next for chaining.
+
+- id: promote_on_reopened
+  when:
+    case_status: reopened
+  playbook: basic_containment
+
+- id: boost_high_confidence
+  when:
+    min_confidence: 0.7
+  playbook: basic_containment
+  next: escalate_followup
+
+- id: escalate_followup
+  when: {}
+  playbook: basic_containment

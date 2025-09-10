@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forensics Jobs</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/app/style.css" />
+  <style>
+    body { padding:12px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #2a313d; padding: .35rem .5rem; font-size: .85rem; }
+    th { background: #161b22; text-align:left; }
+    .controls { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <h1 style="margin-top:0">Forensics</h1>
+  <div class="controls">
+    <label>API Key <input id="apiKey" type="password" placeholder="x-api-key" style="width:160px;"></label>
+    <input id="asset" placeholder="asset id" />
+    <input id="dumpPath" placeholder="dump path (optional)" style="min-width:260px;" />
+    <button id="submitJob">Acquire Memory</button>
+    <button id="refresh">Refresh</button>
+    <span id="status" class="badge">Idle</span>
+  </div>
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items:start;">
+    <div>
+      <h3 style="margin:.5rem 0">Recent Jobs</h3>
+      <div class="controls" style="margin:.25rem 0 .5rem; gap:.5rem;">
+        <label style="font-size:.9rem">Modality
+          <select id="filterModality">
+            <option value="">All</option>
+            <option value="memory">memory</option>
+            <option value="disk">disk</option>
+            <option value="network">network</option>
+          </select>
+        </label>
+        <label style="font-size:.9rem">Status
+          <select id="filterStatus">
+            <option value="">All</option>
+            <option value="submitted">submitted</option>
+            <option value="queued">queued</option>
+            <option value="running">running</option>
+            <option value="done">done</option>
+            <option value="error">error</option>
+          </select>
+        </label>
+        <input id="searchJobs" placeholder="search id/modality/status" style="min-width:200px" />
+      </div>
+      <table id="jobsTable">
+        <thead><tr><th>ID</th><th>Modality</th><th>Status</th><th>Submitted</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div>
+      <h3 style="margin:.5rem 0">Job Detail</h3>
+      <div id="jobDetail" style="border:1px solid #2a313d;padding:.5rem;border-radius:8px;min-height:220px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap;">
+          <div>
+            <div id="jobHeader">Select a job…</div>
+            <div id="jobMeta" style="font-size:.85rem;color:#9aa4b0"></div>
+          </div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <label style="font-size:.85rem"><input type="checkbox" id="autoPoll" checked /> Auto-refresh</label>
+            <button id="verifyCustody">Verify custody</button>
+            <button id="exportJson">Export JSON</button>
+            <button id="exportCsv">Export CSV</button>
+          </div>
+        </div>
+        <h4 style="margin:.75rem 0 .25rem">Evidence</h4>
+        <table id="evidenceTable">
+          <thead><tr><th>Type</th><th>Summary</th><th>Severity</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <h4 style="margin:.75rem 0 .25rem">Raw</h4>
+        <pre id="rawView" style="max-height:220px;overflow:auto;background:#0b1016;border:1px solid #1f2833;padding:.5rem;border-radius:6px;"></pre>
+        <div id="verifyOut" style="margin-top:.5rem;font-size:.9rem;color:#cbd5e1"></div>
+      </div>
+    </div>
+  </div>
+  <script src="/app/forensics.js"></script>
+</body>
+</html>

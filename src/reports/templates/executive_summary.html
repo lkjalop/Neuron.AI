@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Executive Vulnerability Summary</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    h1 { font-size: 1.4rem; }
+    table { border-collapse: collapse; margin: 1rem 0; }
+    th, td { border: 1px solid #ccc; padding: 4px 8px; }
+    th { background: #f0f0f0; }
+    .kpi { display: inline-block; margin-right: 1.5rem; }
+    .kpi span { display:block; font-size: 0.8rem; color:#666; }
+  </style>
+ </head>
+ <body>
+  <h1>Executive Vulnerability Summary</h1>
+  <p>Generated {{ generated_ts | int }}</p>
+  <div>
+    <h2>Governance Composite (recent)</h2>
+    {{ composite_sparkline | safe }}
+  </div>
+  <div>
+    <h2>Temporal Weight Adjustments (recent)</h2>
+    {{ temporal_weight_sparkline | safe }}
+    {% if weight_last_summary %}
+      <p><em>{{ weight_last_summary }}</em></p>
+    {% endif %}
+    <div>
+      <h3>Reason Distribution</h3>
+      <table>
+        <tr><th>Reason Code</th><th>Count</th></tr>
+        {% for rc, ct in weight_reason_counts %}
+          <tr><td>{{ rc }}</td><td>{{ ct }}</td></tr>
+        {% endfor %}
+      </table>
+      <h3>Recent Decisions</h3>
+      <table>
+        <tr><th>Age (s)</th><th>Dir</th><th>Δ</th><th>Composite</th><th>Reason</th></tr>
+        {% for row in weight_adjust_recent %}
+          <tr>
+            <td>{{ row.age_s | round(1) }}</td>
+            <td>{% if row.direction == 'increase' %}▲{% else %}▼{% endif %}</td>
+            <td>{{ row.delta }}</td>
+            <td>{{ row.composite }}</td>
+            <td>{{ row.reason_code }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <h3>Delta Sparkline</h3>
+      {{ weight_delta_sparkline | safe }}
+    </div>
+  </div>
+  <div>
+    <h2>Exposure Trend (daily risk)</h2>
+    {{ exposure_sparkline | safe }}
+  </div>
+  <div>
+    <h2>Retrieval Corpus Growth (chunks)</h2>
+    {{ retrieval_corpus_sparkline | safe }}
+  </div>
+  <div>
+    <strong>Retrieval Provider Failovers:</strong> {{ retrieval_failovers }}
+    <div>
+      <h3>Retrieval Quality (Recent)</h3>
+      {% if retrieval_quality.avg_overlap_precision is not none %}
+        <p>Avg Overlap Precision: {{ (retrieval_quality.avg_overlap_precision * 100) | round(1) }}%</p>
+      {% else %}
+        <p>Avg Overlap Precision: n/a</p>
+      {% endif %}
+      {% if retrieval_quality.topk_drift is not none %}
+        <p>Top-K Drift (last vs prev): {{ (retrieval_quality.topk_drift * 100) | round(1) }}%</p>
+      {% endif %}
+    </div>
+  </div>
+  <div>
+    <h2>Scanner (Local MVP)</h2>
+    {% if not catalog_available %}
+      <p style="color:#b00;font-weight:bold;">Warning: Local vulnerability catalog seed missing or empty; no matches will be produced.</p>
+    {% endif %}
+    <p>Open Findings: CRITICAL {{ scanner_open_counts.CRITICAL }}, HIGH {{ scanner_open_counts.HIGH }}, MEDIUM {{ scanner_open_counts.MEDIUM }}, LOW {{ scanner_open_counts.LOW }}</p>
+    <p>Last Scan: {% if scanner_last_scan_ts %}{{ scanner_last_scan_ts | int }}{% else %}n/a{% endif %}</p>
+    <p>Scan Latency: {% if last_scan_latency %}{{ last_scan_latency | round(2) }}s{% else %}n/a{% endif %} (EMA Avg {% if avg_scan_latency %}{{ avg_scan_latency | round(2) }}s{% else %}n/a{% endif %})</p>
+    <h3>Remediation Burn-down</h3>
+    {% if remediation_sparkline %}
+      {{ remediation_sparkline | safe }}
+      <p>
+        {% if remediation_slope is not none %}Slope: {{ remediation_slope | round(2) }} findings/day{% endif %}
+        {% if remediation_days_to_zero is not none %} | Est. Days to Zero: {{ remediation_days_to_zero | round(1) }}{% endif %}
+      </p>
+    {% else %}
+      <p><em>No burn-down data yet (need at least 1 day)</em></p>
+    {% endif %}
+    <h3>Ingest SBOM</h3>
+    <form method="post" action="/vuln/ingest_sbom" enctype="application/json" onsubmit="event.preventDefault(); fetch('/vuln/ingest_sbom',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':prompt('API Key')},body:document.getElementById('sbom_json').value}).then(r=>r.json()).then(j=>{alert('Ingested '+j.count+' components'); location.reload();});">
+      <textarea id="sbom_json" style="width:100%;height:120px;">{"asset_name":"sample-app","document":{"components":[{"name":"openssl","version":"3.0.13","purl":"pkg:openssl/openssl@3.0.13"}]}}</textarea><br/>
+      <button type="submit">Upload SBOM</button>
+    </form>
+    <h3>Open Findings Severity Chart</h3>
+    <div id="sev_chart"></div>
+    <script>
+      (function(){
+        const counts = {
+          CRITICAL: Number('{{ scanner_open_counts.CRITICAL }}'),
+            HIGH: Number('{{ scanner_open_counts.HIGH }}'),
+            MEDIUM: Number('{{ scanner_open_counts.MEDIUM }}'),
+            LOW: Number('{{ scanner_open_counts.LOW }}')
+        };
+        const total = Object.values(counts).reduce((a,b)=>a+b,0) || 1;
+        const colors = {CRITICAL:'#8b0000',HIGH:'#d9534f',MEDIUM:'#f0ad4e',LOW:'#5bc0de'};
+        let html = '<div style="display:flex;height:18px;width:360px;border:1px solid #ccc">';
+        for (const k of ['CRITICAL','HIGH','MEDIUM','LOW']) {
+          const pct = (counts[k]/total)*100;
+          html += `<div title="${k} ${counts[k]}" style="flex:${counts[k] || 0};background:${colors[k]};font-size:0.6rem;color:#fff;text-align:center;line-height:18px;">${pct.toFixed(0)}%</div>`;
+        }
+        html+='</div>';
+        document.getElementById('sev_chart').innerHTML = html;
+      })();
+    </script>
+  </div>
+  <div>
+    <h2>Risk Factor Contributions</h2>
+    {% if risk_factor_summary.top %}
+      <table>
+        <tr><th>Factor</th><th>Avg Share (%)</th><th>Trend</th></tr>
+        {% for item in risk_factor_summary.top %}
+          <tr>
+            <td>{{ item.factor }}</td>
+            <td>{{ (item.share * 100) | round(1) }}</td>
+            <td>{% if risk_factor_summary.sparklines[item.factor] %}{{ risk_factor_summary.sparklines[item.factor] | safe }}{% else %}&nbsp;{% endif %}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <p><em>Samples: {{ risk_factor_summary.samples or 0 }} | Shares reflect mean pre-multiplier contribution weight.</em></p>
+    {% else %}
+      <p><em>No contribution data yet.</em></p>
+    {% endif %}
+  </div>
+  <div>
+    <div class="kpi"><strong>{{ snapshot.vulnerability_severity.CRITICAL | default(0) }}</strong><span>Critical Vulns</span></div>
+    <div class="kpi"><strong>{{ snapshot.vulnerability_severity.HIGH | default(0) }}</strong><span>High Vulns</span></div>
+    <div class="kpi"><strong>{{ snapshot.open_findings_severity.CRITICAL | default(0) }}</strong><span>Critical Open Findings</span></div>
+    <div class="kpi"><strong>{{ snapshot.new_findings_7d | default(0) }}</strong><span>New Findings (7d)</span></div>
+    <div class="kpi"><strong>{{ snapshot.closed_findings_7d | default(0) }}</strong><span>Closed Findings (7d)</span></div>
+  </div>
+  <h2>Severity Distribution</h2>
+  <table>
+    <tr><th>Severity</th><th>Count</th></tr>
+    {% for sev, count in snapshot.vulnerability_severity.items() %}
+      <tr><td>{{ sev }}</td><td>{{ count }}</td></tr>
+    {% endfor %}
+  </table>
+  <h2>Exploit Availability</h2>
+  <table>
+    <tr><th>Exploit Available</th><th>Count</th></tr>
+    {% for flag, count in snapshot.vulnerability_exploit_available.items() %}
+      <tr><td>{{ flag }}</td><td>{{ count }}</td></tr>
+    {% endfor %}
+  </table>
+
+  <h2>Enrichment Coverage</h2>
+  <p>
+    EPSS populated: <strong>{{ (enrichment_coverage.epss_pct or 0) | round(1) }}%</strong>
+    | KEV listed: <strong>{{ (enrichment_coverage.kev_pct or 0) | round(1) }}%</strong>
+    {% if enrichment_coverage.total is defined %}
+      <span class="meta">(total: {{ enrichment_coverage.total }}, EPSS count: {{ enrichment_coverage.epss_count }}, KEV count: {{ enrichment_coverage.kev_count }})</span>
+    {% endif %}
+  </p>
+  {% if enrichment_coverage_trend %}
+    <div>
+      <h3>KEV Coverage Trend (EMA-7)</h3>
+      {{ enrichment_coverage_trend | safe }}
+    </div>
+  {% endif %}
+
+  <h2>Anomaly Surrogate Metrics</h2>
+  <table>
+    <tr><th>Metric</th><th>Value</th><th>Trend</th></tr>
+    <tr>
+      <td>Overlap Ratio Avg</td>
+      <td>{% if anomaly_surrogates.overlap_ratio_avg is not none %}{{ (anomaly_surrogates.overlap_ratio_avg * 100) | round(1) }}%{% else %}n/a{% endif %}</td>
+      <td>{{ anomaly_surrogate_sparklines.overlap | safe }}</td>
+    </tr>
+    <tr>
+      <td>SNN Unique Ratio Avg</td>
+      <td>{% if anomaly_surrogates.snn_unique_ratio_avg is not none %}{{ (anomaly_surrogates.snn_unique_ratio_avg * 100) | round(1) }}%{% else %}n/a{% endif %}</td>
+      <td>{{ anomaly_surrogate_sparklines.snn_unique | safe }}</td>
+    </tr>
+    <tr>
+      <td>Suppression Rate Avg</td>
+      <td>{% if anomaly_surrogates.suppression_rate_avg is not none %}{{ (anomaly_surrogates.suppression_rate_avg * 100) | round(1) }}%{% else %}n/a{% endif %}</td>
+      <td>{{ anomaly_surrogate_sparklines.suppression | safe }}</td>
+    </tr>
+  </table>
+ </body>
+</html>

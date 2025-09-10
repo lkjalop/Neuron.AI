@@ -1,0 +1,4 @@
+[
+  {"package": "openssl", "affected": "<=3.0.13", "cve": "CVE-2025-12345", "severity": "HIGH", "cvss_base": 7.8},
+  {"package": "zlib", "affected": "<=1.2.11", "cve": "CVE-2024-22222", "severity": "MEDIUM", "cvss_base": 5.3}
+]

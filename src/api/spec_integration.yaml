@@ -1,0 +1,217 @@
+openapi: 3.1.0
+info:
+  title: Neuron Integration Extensions
+  version: 0.1.0
+  description: >-
+    Draft specs for new integration endpoints: report diff/patch, guided session streaming (SSE),
+    tuner rollback, permalink create/resolve.
+
+    NOTE: Streaming implemented via SSE at /guided/session/{session_id}/stream after session creation.
+servers:
+  - url: https://api.neuron.local
+paths:
+  /reports/{report_id}/diff:
+    get:
+      summary: Compute diff between two report versions
+      parameters:
+        - in: path
+          name: report_id
+          required: true
+          schema: { type: string }
+        - in: query
+          name: base
+          required: true
+          schema: { type: string, description: Base version hash/id }
+        - in: query
+          name: target
+          required: true
+          schema: { type: string, description: Target version hash/id }
+      responses:
+        '200':
+          description: Diff computed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  base_version: { type: string }
+                  target_version: { type: string }
+                  diff:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        path: { type: string }
+                        op: { type: string, enum: [replace, add, remove] }
+                        before: { type: string, nullable: true }
+                        after: { type: string, nullable: true }
+        '404': { description: Report or version not found }
+  /reports/{report_id}:
+    patch:
+      summary: Apply patch operations to report
+      parameters:
+        - in: path
+          name: report_id
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                base_version: { type: string }
+                ops:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      path: { type: string }
+                      op: { type: string, enum: [replace, add, remove] }
+                      value: { type: string }
+      responses:
+        '200':
+          description: Patch applied
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  report_id: { type: string }
+                  new_version: { type: string }
+                  changed_paths:
+                    type: array
+                    items: { type: string }
+        '409': { description: Version conflict }
+  /tuner/snapshots/{snapshot_id}/rollback:
+    post:
+      summary: Roll back active tuner parameters to a snapshot
+      parameters:
+        - in: path
+          name: snapshot_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Rollback performed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string }
+                  restored_snapshot: { type: string }
+        '404': { description: Snapshot not found }
+  /permalink:
+    post:
+      summary: Create permalink to a resource
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resource_type: { type: string, enum: [story, report] }
+                resource_id: { type: string }
+                expires_in_s: { type: integer, minimum: 60 }
+      responses:
+        '200':
+          description: Permalink created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code: { type: string }
+                  url: { type: string }
+                  expires_at: { type: string, format: date-time }
+  /p/{code}:
+    get:
+      summary: Resolve a permalink code
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      responses:
+        '302': { description: Redirect to canonical resource }
+        '404': { description: Permalink not found or expired }
+  /guided/session:
+    post:
+      summary: Start a guided session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                goal: { type: string }
+                mode: { type: string, enum: [analysis, remediation] }
+      responses:
+        '200':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  session_id: { type: string }
+                  stream_url: { type: string }
+  /guided/session/{session_id}/step:
+    post:
+      summary: Advance or rewind a guided session step
+      parameters:
+        - in: path
+          name: session_id
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                direction: { type: string, enum: [forward, back] }
+      responses:
+        '200': { description: Step accepted }
+  /guided/session/{session_id}/eli5:
+    post:
+      summary: Generate simplified explanation for current state
+      parameters:
+        - in: path
+          name: session_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Explanation enqueued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string }
+                  queued: { type: boolean }
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code: { type: string }
+            message: { type: string }
+            retry_after_s: { type: integer, nullable: true }
+            meta: { type: object }
+security:
+  - ApiKeyAuth: []

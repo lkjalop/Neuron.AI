@@ -1,0 +1,50 @@
+{
+  "title": "Retrieval Pipeline Overview",
+  "uid": "retrieval-pipeline",
+  "timezone": "browser",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Pipeline Latency (p95)",
+      "datasource": null,
+      "targets": [
+        {"expr": "histogram_quantile(0.95, sum(rate(neuron_retrieval_pipeline_latency_seconds_bucket[5m])) by (le))", "legendFormat": "p95"}
+      ],
+      "lines": true,
+      "linewidth": 2
+    },
+    {
+      "type": "graph",
+      "title": "Corrective Iterations", 
+      "targets": [
+        {"expr": "sum(increase(neuron_retrieval_corrective_iterations_total[5m]))", "legendFormat": "iterations"}
+      ],
+      "lines": true
+    },
+    {
+      "type": "graph",
+      "title": "Corrective Acceptance Ratio", 
+      "targets": [
+        {"expr": "avg(neuron_retrieval_corrective_accept_ratio)", "legendFormat": "accept_ratio"}
+      ],
+      "lines": true
+    },
+    {
+      "type": "graph",
+      "title": "Rerank Model Load Latency", 
+      "targets": [
+        {"expr": "sum(rate(neuron_retrieval_rerank_model_load_latency_seconds_sum[5m])) / sum(rate(neuron_retrieval_rerank_model_load_latency_seconds_count[5m]))", "legendFormat": "avg_load_latency"}
+      ],
+      "lines": true
+    },
+    {
+      "type": "graph",
+      "title": "Grounding Span Coverage", 
+      "targets": [
+        {"expr": "avg(neuron_retrieval_grounding_span_coverage_ratio)", "legendFormat": "coverage"}
+      ],
+      "lines": true
+    }
+  ],
+  "version": 1
+}

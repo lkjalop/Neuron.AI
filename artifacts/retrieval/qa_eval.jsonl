@@ -1,0 +1,2 @@
+{"id": "Q1", "question": "What is the SLA breach threshold?", "answers": ["30 days", "thirty days"], "doc_ids": ["COMPLIANCE_TRACK.md"]}
+{"id": "Q2", "question": "Which metric tracks top-k drift?", "answers": ["topk drift", "top-k drift"], "doc_ids": ["PREDICTIVE_EXPANSION.md"]}

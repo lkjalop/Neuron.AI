@@ -1,0 +1,79 @@
+{
+  "asset_name": "test-application",
+  "document": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.4",
+    "components": [
+      {
+        "name": "openssl",
+        "version": "1.1.1",
+        "purl": "pkg:openssl/openssl@1.1.1",
+        "type": "library",
+        "description": "Outdated OpenSSL with known vulnerabilities"
+      },
+      {
+        "name": "log4j-core",
+        "version": "2.14.0",
+        "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.0",
+        "type": "library",
+        "description": "Log4Shell vulnerable version"
+      },
+      {
+        "name": "spring-core",
+        "version": "5.3.15",
+        "purl": "pkg:maven/org.springframework/spring-core@5.3.15",
+        "type": "library"
+      },
+      {
+        "name": "commons-text",
+        "version": "1.9",
+        "purl": "pkg:maven/org.apache.commons/commons-text@1.9",
+        "type": "library",
+        "description": "Text4Shell vulnerable version"
+      },
+      {
+        "name": "jquery",
+        "version": "2.2.4",
+        "purl": "pkg:npm/jquery@2.2.4",
+        "type": "library"
+      },
+      {
+        "name": "struts",
+        "version": "2.5.20",
+        "purl": "pkg:maven/org.apache.struts/struts2-core@2.5.20",
+        "type": "framework"
+      },
+      {
+        "name": "tensorflow",
+        "version": "2.8.0",
+        "purl": "pkg:pypi/tensorflow@2.8.0",
+        "type": "library"
+      },
+      {
+        "name": "nginx",
+        "version": "1.18.0",
+        "purl": "pkg:nginx/nginx@1.18.0",
+        "type": "application"
+      },
+      {
+        "name": "postgresql",
+        "version": "12.5",
+        "purl": "pkg:postgresql/postgresql@12.5",
+        "type": "database"
+      },
+      {
+        "name": "redis",
+        "version": "6.0.9",
+        "purl": "pkg:redis/redis@6.0.9",
+        "type": "database"
+      }
+    ]
+  },
+  "asset_metadata": {
+    "criticality": 0.9,
+    "environment": "production",
+    "owner": "security-team",
+    "classification": "critical",
+    "exposure": "internet-facing"
+  }
+}

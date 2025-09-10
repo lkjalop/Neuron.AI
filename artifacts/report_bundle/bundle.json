@@ -1,0 +1,227 @@
+{
+  "generated_ts": 1757452585.7805321,
+  "executive_kpis": {},
+  "coverage": {
+    "total": 0,
+    "avg_detection_count": 0.0,
+    "avg_control_count": 0.0,
+    "techniques": []
+  },
+  "enrichment_coverage": {
+    "total": 1,
+    "epss_count": 1,
+    "kev_count": 0,
+    "epss_pct": 100.0,
+    "kev_pct": 0.0
+  },
+  "vulnerabilities": {},
+  "exposure": {
+    "trend_daily": []
+  },
+  "retrieval": {
+    "provider_failovers_total": 0,
+    "corpus_sizes": [
+      [
+        1757122778,
+        3
+      ],
+      [
+        1757122819,
+        3
+      ],
+      [
+        1757123034,
+        3
+      ],
+      [
+        1757124107,
+        3
+      ],
+      [
+        1757152275,
+        3
+      ],
+      [
+        1757223603,
+        3
+      ],
+      [
+        1757227229,
+        3
+      ],
+      [
+        1757228244,
+        3
+      ],
+      [
+        1757271040,
+        3
+      ],
+      [
+        1757319936,
+        3
+      ],
+      [
+        1757325210,
+        3
+      ],
+      [
+        1757379451,
+        3
+      ],
+      [
+        1757394845,
+        3
+      ],
+      [
+        1757410930,
+        3
+      ],
+      [
+        1757412814,
+        3
+      ],
+      [
+        1757414247,
+        3
+      ],
+      [
+        1757414377,
+        3
+      ],
+      [
+        1757414467,
+        3
+      ],
+      [
+        1757451651,
+        3
+      ],
+      [
+        1757452552,
+        3
+      ]
+    ]
+  },
+  "remediation": {
+    "open_findings_total": 0,
+    "open_findings_delta": 0
+  },
+  "anomaly_surrogates": {
+    "overlap_ratio_avg": null,
+    "snn_unique_ratio_avg": null,
+    "suppression_rate_avg": null
+  },
+  "weight_adjustments": {
+    "recent": [
+      {
+        "ts": 1757152309.0156698,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.0,
+        "shadow": true
+      },
+      {
+        "ts": 1757223643.2037642,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.0,
+        "shadow": true
+      },
+      {
+        "ts": 1757227261.090133,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.0,
+        "shadow": true
+      },
+      {
+        "ts": 1757228273.965881,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.0,
+        "shadow": true
+      },
+      {
+        "ts": 1757271071.6187766,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.0,
+        "shadow": true
+      },
+      {
+        "ts": 1757319967.9449558,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.0,
+        "shadow": true
+      },
+      {
+        "ts": 1757325244.091132,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.0,
+        "shadow": true
+      },
+      {
+        "ts": 1757379485.3223057,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.27132347068530066,
+        "shadow": true
+      },
+      {
+        "ts": 1757394878.631088,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.27132347068530066,
+        "shadow": true
+      },
+      {
+        "ts": 1757410964.0937486,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.27132347068530066,
+        "shadow": true
+      },
+      {
+        "ts": 1757451683.817197,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.27132347068530066,
+        "shadow": true
+      },
+      {
+        "ts": 1757452585.7725344,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.27198394148547017,
+        "shadow": true
+      }
+    ],
+    "counts": {
+      "composite_low": 12
+    },
+    "total_records_sampled": 12,
+    "last_reason_code": "composite_low"
+  },
+  "forensics": {
+    "job_counts": {
+      "memory": 3
+    },
+    "last_job_ts": 1757452557.3731277
+  },
+  "hunt": {}
+}

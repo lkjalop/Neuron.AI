@@ -1,0 +1,17 @@
+{
+  "schema": "synthetic.dataset.v1",
+  "generated_at": "2025-09-02T16:31:34Z",
+  "parameters": {
+    "count": 200,
+    "tenants": [
+      "tenantA",
+      "tenantB"
+    ],
+    "anomaly_rate": 0.08,
+    "anomaly_magnitude": 5.0,
+    "seed": 42
+  },
+  "event_count": 200,
+  "events_merkle_root": "6d7e10866583569a31b71a51b5fa0e273f85c34d857472530e6546e53dd58cd8",
+  "notes": "Replaceable with real telemetry: maintain schema, extend parameters.source.* for real connectors."
+}

@@ -1,0 +1,4041 @@
+{
+  "metadata": {
+    "export_date": "2025-08-13T22:04:14.245372",
+    "total_frameworks": 7,
+    "total_controls": 226,
+    "scraping_statistics": {
+      "frameworks_discovered": 10,
+      "frameworks_scraped": 7,
+      "controls_extracted": 226,
+      "mappings_created": 156,
+      "errors_encountered": 0
+    }
+  },
+  "frameworks": {
+    "nist:nist_800_171": {
+      "framework_id": "nist_800_53",
+      "name": "NIST SP 800-53 Rev 5",
+      "version": "Rev 5",
+      "source_url": "https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final",
+      "description": "Security and Privacy Controls for Federal Information Systems and Organizations",
+      "publisher": "National Institute of Standards and Technology",
+      "publication_date": "2020-09-23",
+      "jurisdiction": "United States",
+      "industry_focus": [
+        "Federal Government",
+        "Critical Infrastructure"
+      ],
+      "controls": [
+        {
+          "control_id": "AC-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate access control policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Access Control",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.487695"
+        },
+        {
+          "control_id": "AC-2",
+          "title": "Account Management",
+          "description": "Manage information system accounts including establishment, activation, modification, and removal",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Access Control",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.487695"
+        },
+        {
+          "control_id": "AU-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate audit and accountability policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Audit and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.487695"
+        },
+        {
+          "control_id": "CA-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate assessment, authorization, and monitoring policy",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Assessment, Authorization, and Monitoring",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.487695"
+        },
+        {
+          "control_id": "CM-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate configuration management policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.487695"
+        }
+      ],
+      "total_controls": 5,
+      "scraping_metadata": {}
+    },
+    "nist:nist_800_53": {
+      "framework_id": "nist_800_53",
+      "name": "NIST SP 800-53 Rev 5",
+      "version": "Rev 5",
+      "source_url": "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final",
+      "description": "Security and Privacy Controls for Federal Information Systems and Organizations",
+      "publisher": "National Institute of Standards and Technology",
+      "publication_date": "2020-09-23",
+      "jurisdiction": "United States",
+      "industry_focus": [
+        "Federal Government",
+        "Critical Infrastructure"
+      ],
+      "controls": [
+        {
+          "control_id": "AC-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate access control policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Access Control",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.489404"
+        },
+        {
+          "control_id": "AC-2",
+          "title": "Account Management",
+          "description": "Manage information system accounts including establishment, activation, modification, and removal",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Access Control",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.489404"
+        },
+        {
+          "control_id": "AU-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate audit and accountability policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Audit and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.489404"
+        },
+        {
+          "control_id": "CA-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate assessment, authorization, and monitoring policy",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Assessment, Authorization, and Monitoring",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.489404"
+        },
+        {
+          "control_id": "CM-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate configuration management policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:46.489404"
+        }
+      ],
+      "total_controls": 5,
+      "scraping_metadata": {}
+    },
+    "owasp:owasp_asvs": {
+      "framework_id": "nist_800_53",
+      "name": "NIST SP 800-53 Rev 5",
+      "version": "Rev 5",
+      "source_url": "https://github.com/OWASP/ASVS/raw/master/4.0/OWASP%20Application%20Security%20Verification%20Standard%204.0-en.pdf",
+      "description": "Security and Privacy Controls for Federal Information Systems and Organizations",
+      "publisher": "National Institute of Standards and Technology",
+      "publication_date": "2020-09-23",
+      "jurisdiction": "United States",
+      "industry_focus": [
+        "Federal Government",
+        "Critical Infrastructure"
+      ],
+      "controls": [
+        {
+          "control_id": "AC-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate access control policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Access Control",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.508354"
+        },
+        {
+          "control_id": "AC-2",
+          "title": "Account Management",
+          "description": "Manage information system accounts including establishment, activation, modification, and removal",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Access Control",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.508354"
+        },
+        {
+          "control_id": "AU-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate audit and accountability policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Audit and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.508354"
+        },
+        {
+          "control_id": "CA-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate assessment, authorization, and monitoring policy",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Assessment, Authorization, and Monitoring",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.508354"
+        },
+        {
+          "control_id": "CM-1",
+          "title": "Policy and Procedures",
+          "description": "Develop, document, and disseminate configuration management policy and procedures",
+          "framework": "NIST SP 800-53 Rev 5",
+          "category": "Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.508354"
+        }
+      ],
+      "total_controls": 5,
+      "scraping_metadata": {}
+    },
+    "enisa:nis2_directive": {
+      "framework_id": "nis2_directive",
+      "name": "Directive (EU) 2022/2555 (NIS2)",
+      "version": "2022/2555",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022L2555",
+      "description": "Directive on measures for a high common level of cybersecurity across the Union",
+      "publisher": "European Union",
+      "publication_date": "2022-12-14",
+      "jurisdiction": "European Union",
+      "industry_focus": [
+        "Critical Infrastructure",
+        "Essential Services",
+        "Important Services"
+      ],
+      "controls": [
+        {
+          "control_id": "NIS2-21-1",
+          "title": "Cybersecurity risk management measures - Requirement 1",
+          "description": "Risk analysis and information system security policies",
+          "framework": "NIS2 Directive",
+          "category": "Cybersecurity risk management measures",
+          "subcategory": "Article 21",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-21-2",
+          "title": "Cybersecurity risk management measures - Requirement 2",
+          "description": "Incident handling",
+          "framework": "NIS2 Directive",
+          "category": "Cybersecurity risk management measures",
+          "subcategory": "Article 21",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-21-3",
+          "title": "Cybersecurity risk management measures - Requirement 3",
+          "description": "Business continuity and crisis management",
+          "framework": "NIS2 Directive",
+          "category": "Cybersecurity risk management measures",
+          "subcategory": "Article 21",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-21-4",
+          "title": "Cybersecurity risk management measures - Requirement 4",
+          "description": "Supply chain security",
+          "framework": "NIS2 Directive",
+          "category": "Cybersecurity risk management measures",
+          "subcategory": "Article 21",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-21-5",
+          "title": "Cybersecurity risk management measures - Requirement 5",
+          "description": "Security in network and information systems acquisition",
+          "framework": "NIS2 Directive",
+          "category": "Cybersecurity risk management measures",
+          "subcategory": "Article 21",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-21-6",
+          "title": "Cybersecurity risk management measures - Requirement 6",
+          "description": "Policies and procedures to assess cybersecurity effectiveness",
+          "framework": "NIS2 Directive",
+          "category": "Cybersecurity risk management measures",
+          "subcategory": "Article 21",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-23-1",
+          "title": "Incident reporting - Requirement 1",
+          "description": "Notification without undue delay",
+          "framework": "NIS2 Directive",
+          "category": "Incident reporting",
+          "subcategory": "Article 23",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-23-2",
+          "title": "Incident reporting - Requirement 2",
+          "description": "Initial notification within 24 hours",
+          "framework": "NIS2 Directive",
+          "category": "Incident reporting",
+          "subcategory": "Article 23",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-23-3",
+          "title": "Incident reporting - Requirement 3",
+          "description": "Incident assessment and final report",
+          "framework": "NIS2 Directive",
+          "category": "Incident reporting",
+          "subcategory": "Article 23",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        },
+        {
+          "control_id": "NIS2-23-4",
+          "title": "Incident reporting - Requirement 4",
+          "description": "Coordination with competent authorities",
+          "framework": "NIS2 Directive",
+          "category": "Incident reporting",
+          "subcategory": "Article 23",
+          "implementation_guidance": "",
+          "control_type": "regulatory",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.509355"
+        }
+      ],
+      "total_controls": 10,
+      "scraping_metadata": {}
+    },
+    "nist:nist_csf_20": {
+      "framework_id": "nist_cybersecurity_framework_2.0",
+      "name": "NIST Cybersecurity Framework 2.0",
+      "version": "Unknown",
+      "source_url": "https://www.nist.gov/cyberframework/framework",
+      "description": "Automatically scraped framework",
+      "publisher": "Unknown",
+      "publication_date": "2025-08-13",
+      "jurisdiction": "Unknown",
+      "industry_focus": [
+        "General"
+      ],
+      "controls": [
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "Archive | NIST",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "2.0",
+          "title": "Control 2.0",
+          "description": "Resource Center",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "2.0",
+          "title": "Control 2.0",
+          "description": " Resources",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "Core (Excel)",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "(April 2018)Download Framework V1.1(PDF | 1.1 MB)Framework V1.1 Core(XLSX | 37 KB)Framework V1.1\u00a0Pre",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "19.1",
+          "title": "Control 19.1",
+          "description": "MB)CSF 1.1 Quick Start GuideProvides direction and guidance to those organizations seeking to improv",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "Online LearningEach learning module is focused on a separate topic relating to the Cybersecurity Fra",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "PerspectivesThis is a listing of publicly available Framework v1.1 perspectives.\u00a0PerspectivesCSF 1.1",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "resources.\u00a0ResourcesCSF 1.1 TranslationsDiscover CSF 1.1 translations in various languages for enhan",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "ProfilesThe Framework Profile is the alignment of the Functions, Categories, and Subcategories with ",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "Success StoriesThese brief summaries focus on why and how the organization used the Framework, empha",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        },
+        {
+          "control_id": "1.1",
+          "title": "Control 1.1",
+          "description": "Development ArchiveThe Framework Development Archive page highlights key milestones of the developme",
+          "framework": "NIST Cybersecurity Framework 2.0",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:47.739704"
+        }
+      ],
+      "total_controls": 12,
+      "scraping_metadata": {}
+    },
+    "cis:cis_controls_v8": {
+      "framework_id": "cis_controls_version_8.1",
+      "name": "CIS Controls Version 8.1",
+      "version": "Unknown",
+      "source_url": "https://www.cisecurity.org/controls/cis-controls-list",
+      "description": "Automatically scraped framework",
+      "publisher": "Unknown",
+      "publication_date": "2025-08-13",
+      "jurisdiction": "Unknown",
+      "industry_focus": [
+        "General"
+      ],
+      "controls": [
+        {
+          "control_id": "8.1",
+          "title": "Control 8.1",
+          "description": ", includes updated alignment to evolving industry standards and frameworks, revised asset classes an",
+          "framework": "CIS Controls Version 8.1",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:48.267120"
+        },
+        {
+          "control_id": "8.1",
+          "title": "Control 8.1",
+          "description": "and Resources",
+          "framework": "CIS Controls Version 8.1",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:48.267120"
+        },
+        {
+          "control_id": "7.1",
+          "title": "Control 7.1",
+          "description": "Resources and ToolsInformation HubCIS ControlsWhite Paper08.07.2025An Introduction to Artificial Int",
+          "framework": "CIS Controls Version 8.1",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:48.267120"
+        },
+        {
+          "control_id": "08.01.2025",
+          "title": "Control 08.01.2025",
+          "description": "CIS Controls v8.1 Cloud Worksheet \u2014 FrenchRead MoreCase Study08.01.2025BMW\u2019s Strategic IT Security O",
+          "framework": "CIS Controls Version 8.1",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:48.267120"
+        },
+        {
+          "control_id": "07.24.2025",
+          "title": "Control 07.24.2025",
+          "description": "Automating the CIS Controls with OSCALRead MoreAboutLeadershipBoardCommunitiesCareersMediaTestimonia",
+          "framework": "CIS Controls Version 8.1",
+          "category": "Generic",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {},
+          "last_updated": "2025-08-13T22:03:48.267120"
+        }
+      ],
+      "total_controls": 5,
+      "scraping_metadata": {}
+    },
+    "cloud_security_alliance:ccm_v4": {
+      "framework_id": "ccm_v4",
+      "name": "Cloud Controls Matrix v4.0",
+      "version": "4.0",
+      "source_url": "https://cloudsecurityalliance.org/research/cloud-controls-matrix/",
+      "description": "Cybersecurity control framework specifically designed for cloud computing",
+      "publisher": "Cloud Security Alliance",
+      "publication_date": "2023-01-15",
+      "jurisdiction": "Global",
+      "industry_focus": [
+        "Cloud Computing",
+        "Technology"
+      ],
+      "controls": [
+        {
+          "control_id": "CCM-APP-01",
+          "title": "Application & Interface Security Control 1",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.1",
+            "NIST_CSF": "PR.1.1",
+            "SOC_2": "CC1.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-02",
+          "title": "Application & Interface Security Control 2",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.2",
+            "NIST_CSF": "PR.1.2",
+            "SOC_2": "CC1.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-03",
+          "title": "Application & Interface Security Control 3",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.3",
+            "NIST_CSF": "PR.1.3",
+            "SOC_2": "CC1.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-04",
+          "title": "Application & Interface Security Control 4",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.4",
+            "NIST_CSF": "PR.1.4",
+            "SOC_2": "CC1.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-05",
+          "title": "Application & Interface Security Control 5",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.5",
+            "NIST_CSF": "PR.1.5",
+            "SOC_2": "CC1.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-06",
+          "title": "Application & Interface Security Control 6",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.6",
+            "NIST_CSF": "PR.1.6",
+            "SOC_2": "CC1.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-07",
+          "title": "Application & Interface Security Control 7",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.7",
+            "NIST_CSF": "PR.1.7",
+            "SOC_2": "CC1.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-08",
+          "title": "Application & Interface Security Control 8",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.8",
+            "NIST_CSF": "PR.1.8",
+            "SOC_2": "CC1.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-APP-09",
+          "title": "Application & Interface Security Control 9",
+          "description": "Cloud security control for application & interface security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Application & Interface Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.1.9",
+            "NIST_CSF": "PR.1.9",
+            "SOC_2": "CC1.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-01",
+          "title": "Audit Assurance & Compliance Control 1",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.1",
+            "NIST_CSF": "PR.2.1",
+            "SOC_2": "CC2.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-02",
+          "title": "Audit Assurance & Compliance Control 2",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.2",
+            "NIST_CSF": "PR.2.2",
+            "SOC_2": "CC2.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-03",
+          "title": "Audit Assurance & Compliance Control 3",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.3",
+            "NIST_CSF": "PR.2.3",
+            "SOC_2": "CC2.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-04",
+          "title": "Audit Assurance & Compliance Control 4",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.4",
+            "NIST_CSF": "PR.2.4",
+            "SOC_2": "CC2.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-05",
+          "title": "Audit Assurance & Compliance Control 5",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.5",
+            "NIST_CSF": "PR.2.5",
+            "SOC_2": "CC2.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-06",
+          "title": "Audit Assurance & Compliance Control 6",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.6",
+            "NIST_CSF": "PR.2.6",
+            "SOC_2": "CC2.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-07",
+          "title": "Audit Assurance & Compliance Control 7",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.7",
+            "NIST_CSF": "PR.2.7",
+            "SOC_2": "CC2.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-08",
+          "title": "Audit Assurance & Compliance Control 8",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.8",
+            "NIST_CSF": "PR.2.8",
+            "SOC_2": "CC2.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-09",
+          "title": "Audit Assurance & Compliance Control 9",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.9",
+            "NIST_CSF": "PR.2.9",
+            "SOC_2": "CC2.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-AUD-10",
+          "title": "Audit Assurance & Compliance Control 10",
+          "description": "Cloud security control for audit assurance & compliance",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Audit Assurance & Compliance",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.2.10",
+            "NIST_CSF": "PR.2.10",
+            "SOC_2": "CC2.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-BUS-01",
+          "title": "Business Continuity Management & Operational Resilience Control 1",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.1",
+            "NIST_CSF": "PR.3.1",
+            "SOC_2": "CC3.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.528716"
+        },
+        {
+          "control_id": "CCM-BUS-02",
+          "title": "Business Continuity Management & Operational Resilience Control 2",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.2",
+            "NIST_CSF": "PR.3.2",
+            "SOC_2": "CC3.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-03",
+          "title": "Business Continuity Management & Operational Resilience Control 3",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.3",
+            "NIST_CSF": "PR.3.3",
+            "SOC_2": "CC3.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-04",
+          "title": "Business Continuity Management & Operational Resilience Control 4",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.4",
+            "NIST_CSF": "PR.3.4",
+            "SOC_2": "CC3.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-05",
+          "title": "Business Continuity Management & Operational Resilience Control 5",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.5",
+            "NIST_CSF": "PR.3.5",
+            "SOC_2": "CC3.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-06",
+          "title": "Business Continuity Management & Operational Resilience Control 6",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.6",
+            "NIST_CSF": "PR.3.6",
+            "SOC_2": "CC3.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-07",
+          "title": "Business Continuity Management & Operational Resilience Control 7",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.7",
+            "NIST_CSF": "PR.3.7",
+            "SOC_2": "CC3.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-08",
+          "title": "Business Continuity Management & Operational Resilience Control 8",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.8",
+            "NIST_CSF": "PR.3.8",
+            "SOC_2": "CC3.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-09",
+          "title": "Business Continuity Management & Operational Resilience Control 9",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.9",
+            "NIST_CSF": "PR.3.9",
+            "SOC_2": "CC3.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-10",
+          "title": "Business Continuity Management & Operational Resilience Control 10",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.10",
+            "NIST_CSF": "PR.3.10",
+            "SOC_2": "CC3.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-BUS-11",
+          "title": "Business Continuity Management & Operational Resilience Control 11",
+          "description": "Cloud security control for business continuity management & operational resilience",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Business Continuity Management & Operational Resilience",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.3.11",
+            "NIST_CSF": "PR.3.11",
+            "SOC_2": "CC3.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-01",
+          "title": "Change Control & Configuration Management Control 1",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.1",
+            "NIST_CSF": "PR.4.1",
+            "SOC_2": "CC4.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-02",
+          "title": "Change Control & Configuration Management Control 2",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.2",
+            "NIST_CSF": "PR.4.2",
+            "SOC_2": "CC4.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-03",
+          "title": "Change Control & Configuration Management Control 3",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.3",
+            "NIST_CSF": "PR.4.3",
+            "SOC_2": "CC4.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-04",
+          "title": "Change Control & Configuration Management Control 4",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.4",
+            "NIST_CSF": "PR.4.4",
+            "SOC_2": "CC4.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-05",
+          "title": "Change Control & Configuration Management Control 5",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.5",
+            "NIST_CSF": "PR.4.5",
+            "SOC_2": "CC4.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-06",
+          "title": "Change Control & Configuration Management Control 6",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.6",
+            "NIST_CSF": "PR.4.6",
+            "SOC_2": "CC4.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-07",
+          "title": "Change Control & Configuration Management Control 7",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.7",
+            "NIST_CSF": "PR.4.7",
+            "SOC_2": "CC4.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-08",
+          "title": "Change Control & Configuration Management Control 8",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.8",
+            "NIST_CSF": "PR.4.8",
+            "SOC_2": "CC4.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-09",
+          "title": "Change Control & Configuration Management Control 9",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.9",
+            "NIST_CSF": "PR.4.9",
+            "SOC_2": "CC4.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-10",
+          "title": "Change Control & Configuration Management Control 10",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.10",
+            "NIST_CSF": "PR.4.10",
+            "SOC_2": "CC4.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-11",
+          "title": "Change Control & Configuration Management Control 11",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.11",
+            "NIST_CSF": "PR.4.11",
+            "SOC_2": "CC4.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-CHA-12",
+          "title": "Change Control & Configuration Management Control 12",
+          "description": "Cloud security control for change control & configuration management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Change Control & Configuration Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.4.12",
+            "NIST_CSF": "PR.4.12",
+            "SOC_2": "CC4.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-01",
+          "title": "Data Security & Information Lifecycle Management Control 1",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.1",
+            "NIST_CSF": "PR.5.1",
+            "SOC_2": "CC5.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-02",
+          "title": "Data Security & Information Lifecycle Management Control 2",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.2",
+            "NIST_CSF": "PR.5.2",
+            "SOC_2": "CC5.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-03",
+          "title": "Data Security & Information Lifecycle Management Control 3",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.3",
+            "NIST_CSF": "PR.5.3",
+            "SOC_2": "CC5.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-04",
+          "title": "Data Security & Information Lifecycle Management Control 4",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.4",
+            "NIST_CSF": "PR.5.4",
+            "SOC_2": "CC5.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-05",
+          "title": "Data Security & Information Lifecycle Management Control 5",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.5",
+            "NIST_CSF": "PR.5.5",
+            "SOC_2": "CC5.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-06",
+          "title": "Data Security & Information Lifecycle Management Control 6",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.6",
+            "NIST_CSF": "PR.5.6",
+            "SOC_2": "CC5.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-07",
+          "title": "Data Security & Information Lifecycle Management Control 7",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.7",
+            "NIST_CSF": "PR.5.7",
+            "SOC_2": "CC5.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-08",
+          "title": "Data Security & Information Lifecycle Management Control 8",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.8",
+            "NIST_CSF": "PR.5.8",
+            "SOC_2": "CC5.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-09",
+          "title": "Data Security & Information Lifecycle Management Control 9",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.9",
+            "NIST_CSF": "PR.5.9",
+            "SOC_2": "CC5.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-10",
+          "title": "Data Security & Information Lifecycle Management Control 10",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.10",
+            "NIST_CSF": "PR.5.10",
+            "SOC_2": "CC5.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-11",
+          "title": "Data Security & Information Lifecycle Management Control 11",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.11",
+            "NIST_CSF": "PR.5.11",
+            "SOC_2": "CC5.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-12",
+          "title": "Data Security & Information Lifecycle Management Control 12",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.12",
+            "NIST_CSF": "PR.5.12",
+            "SOC_2": "CC5.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-13",
+          "title": "Data Security & Information Lifecycle Management Control 13",
+          "description": "Cloud security control for data security & information lifecycle management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Data Security & Information Lifecycle Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.5.13",
+            "NIST_CSF": "PR.5.13",
+            "SOC_2": "CC5.13"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-01",
+          "title": "Datacenter Security Control 1",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.1",
+            "NIST_CSF": "PR.6.1",
+            "SOC_2": "CC6.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-02",
+          "title": "Datacenter Security Control 2",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.2",
+            "NIST_CSF": "PR.6.2",
+            "SOC_2": "CC6.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-03",
+          "title": "Datacenter Security Control 3",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.3",
+            "NIST_CSF": "PR.6.3",
+            "SOC_2": "CC6.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-04",
+          "title": "Datacenter Security Control 4",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.4",
+            "NIST_CSF": "PR.6.4",
+            "SOC_2": "CC6.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-05",
+          "title": "Datacenter Security Control 5",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.5",
+            "NIST_CSF": "PR.6.5",
+            "SOC_2": "CC6.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-06",
+          "title": "Datacenter Security Control 6",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.6",
+            "NIST_CSF": "PR.6.6",
+            "SOC_2": "CC6.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-07",
+          "title": "Datacenter Security Control 7",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.7",
+            "NIST_CSF": "PR.6.7",
+            "SOC_2": "CC6.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-08",
+          "title": "Datacenter Security Control 8",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.8",
+            "NIST_CSF": "PR.6.8",
+            "SOC_2": "CC6.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-09",
+          "title": "Datacenter Security Control 9",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.9",
+            "NIST_CSF": "PR.6.9",
+            "SOC_2": "CC6.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-10",
+          "title": "Datacenter Security Control 10",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.10",
+            "NIST_CSF": "PR.6.10",
+            "SOC_2": "CC6.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-11",
+          "title": "Datacenter Security Control 11",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.11",
+            "NIST_CSF": "PR.6.11",
+            "SOC_2": "CC6.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-12",
+          "title": "Datacenter Security Control 12",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.12",
+            "NIST_CSF": "PR.6.12",
+            "SOC_2": "CC6.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-13",
+          "title": "Datacenter Security Control 13",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.13",
+            "NIST_CSF": "PR.6.13",
+            "SOC_2": "CC6.13"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-DAT-14",
+          "title": "Datacenter Security Control 14",
+          "description": "Cloud security control for datacenter security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Datacenter Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.6.14",
+            "NIST_CSF": "PR.6.14",
+            "SOC_2": "CC6.14"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-01",
+          "title": "Encryption & Key Management Control 1",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.1",
+            "NIST_CSF": "PR.7.1",
+            "SOC_2": "CC7.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-02",
+          "title": "Encryption & Key Management Control 2",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.2",
+            "NIST_CSF": "PR.7.2",
+            "SOC_2": "CC7.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-03",
+          "title": "Encryption & Key Management Control 3",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.3",
+            "NIST_CSF": "PR.7.3",
+            "SOC_2": "CC7.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-04",
+          "title": "Encryption & Key Management Control 4",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.4",
+            "NIST_CSF": "PR.7.4",
+            "SOC_2": "CC7.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-05",
+          "title": "Encryption & Key Management Control 5",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.5",
+            "NIST_CSF": "PR.7.5",
+            "SOC_2": "CC7.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-06",
+          "title": "Encryption & Key Management Control 6",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.6",
+            "NIST_CSF": "PR.7.6",
+            "SOC_2": "CC7.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-07",
+          "title": "Encryption & Key Management Control 7",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.7",
+            "NIST_CSF": "PR.7.7",
+            "SOC_2": "CC7.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-08",
+          "title": "Encryption & Key Management Control 8",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.8",
+            "NIST_CSF": "PR.7.8",
+            "SOC_2": "CC7.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-09",
+          "title": "Encryption & Key Management Control 9",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.9",
+            "NIST_CSF": "PR.7.9",
+            "SOC_2": "CC7.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-10",
+          "title": "Encryption & Key Management Control 10",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.10",
+            "NIST_CSF": "PR.7.10",
+            "SOC_2": "CC7.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-11",
+          "title": "Encryption & Key Management Control 11",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.11",
+            "NIST_CSF": "PR.7.11",
+            "SOC_2": "CC7.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-12",
+          "title": "Encryption & Key Management Control 12",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.12",
+            "NIST_CSF": "PR.7.12",
+            "SOC_2": "CC7.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-13",
+          "title": "Encryption & Key Management Control 13",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.13",
+            "NIST_CSF": "PR.7.13",
+            "SOC_2": "CC7.13"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-14",
+          "title": "Encryption & Key Management Control 14",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.14",
+            "NIST_CSF": "PR.7.14",
+            "SOC_2": "CC7.14"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-ENC-15",
+          "title": "Encryption & Key Management Control 15",
+          "description": "Cloud security control for encryption & key management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Encryption & Key Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.7.15",
+            "NIST_CSF": "PR.7.15",
+            "SOC_2": "CC7.15"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-01",
+          "title": "Governance and Risk Management Control 1",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.1",
+            "NIST_CSF": "PR.8.1",
+            "SOC_2": "CC8.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-02",
+          "title": "Governance and Risk Management Control 2",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.2",
+            "NIST_CSF": "PR.8.2",
+            "SOC_2": "CC8.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-03",
+          "title": "Governance and Risk Management Control 3",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.3",
+            "NIST_CSF": "PR.8.3",
+            "SOC_2": "CC8.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-04",
+          "title": "Governance and Risk Management Control 4",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.4",
+            "NIST_CSF": "PR.8.4",
+            "SOC_2": "CC8.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-05",
+          "title": "Governance and Risk Management Control 5",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.5",
+            "NIST_CSF": "PR.8.5",
+            "SOC_2": "CC8.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-06",
+          "title": "Governance and Risk Management Control 6",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.6",
+            "NIST_CSF": "PR.8.6",
+            "SOC_2": "CC8.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-07",
+          "title": "Governance and Risk Management Control 7",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.7",
+            "NIST_CSF": "PR.8.7",
+            "SOC_2": "CC8.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-GOV-08",
+          "title": "Governance and Risk Management Control 8",
+          "description": "Cloud security control for governance and risk management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Governance and Risk Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.8.8",
+            "NIST_CSF": "PR.8.8",
+            "SOC_2": "CC8.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-01",
+          "title": "Human Resources Control 1",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.1",
+            "NIST_CSF": "PR.9.1",
+            "SOC_2": "CC9.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-02",
+          "title": "Human Resources Control 2",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.2",
+            "NIST_CSF": "PR.9.2",
+            "SOC_2": "CC9.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-03",
+          "title": "Human Resources Control 3",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.3",
+            "NIST_CSF": "PR.9.3",
+            "SOC_2": "CC9.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-04",
+          "title": "Human Resources Control 4",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.4",
+            "NIST_CSF": "PR.9.4",
+            "SOC_2": "CC9.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-05",
+          "title": "Human Resources Control 5",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.5",
+            "NIST_CSF": "PR.9.5",
+            "SOC_2": "CC9.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-06",
+          "title": "Human Resources Control 6",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.6",
+            "NIST_CSF": "PR.9.6",
+            "SOC_2": "CC9.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-07",
+          "title": "Human Resources Control 7",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.7",
+            "NIST_CSF": "PR.9.7",
+            "SOC_2": "CC9.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-08",
+          "title": "Human Resources Control 8",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.8",
+            "NIST_CSF": "PR.9.8",
+            "SOC_2": "CC9.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-HUM-09",
+          "title": "Human Resources Control 9",
+          "description": "Cloud security control for human resources",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Human Resources",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.9.9",
+            "NIST_CSF": "PR.9.9",
+            "SOC_2": "CC9.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-01",
+          "title": "Identity & Access Management Control 1",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.1",
+            "NIST_CSF": "PR.10.1",
+            "SOC_2": "CC10.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-02",
+          "title": "Identity & Access Management Control 2",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.2",
+            "NIST_CSF": "PR.10.2",
+            "SOC_2": "CC10.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-03",
+          "title": "Identity & Access Management Control 3",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.3",
+            "NIST_CSF": "PR.10.3",
+            "SOC_2": "CC10.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-04",
+          "title": "Identity & Access Management Control 4",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.4",
+            "NIST_CSF": "PR.10.4",
+            "SOC_2": "CC10.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-05",
+          "title": "Identity & Access Management Control 5",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.5",
+            "NIST_CSF": "PR.10.5",
+            "SOC_2": "CC10.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-06",
+          "title": "Identity & Access Management Control 6",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.6",
+            "NIST_CSF": "PR.10.6",
+            "SOC_2": "CC10.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-07",
+          "title": "Identity & Access Management Control 7",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.7",
+            "NIST_CSF": "PR.10.7",
+            "SOC_2": "CC10.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-08",
+          "title": "Identity & Access Management Control 8",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.8",
+            "NIST_CSF": "PR.10.8",
+            "SOC_2": "CC10.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-09",
+          "title": "Identity & Access Management Control 9",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.9",
+            "NIST_CSF": "PR.10.9",
+            "SOC_2": "CC10.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-IDE-10",
+          "title": "Identity & Access Management Control 10",
+          "description": "Cloud security control for identity & access management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Identity & Access Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.10.10",
+            "NIST_CSF": "PR.10.10",
+            "SOC_2": "CC10.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-01",
+          "title": "Infrastructure & Virtualization Security Control 1",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.1",
+            "NIST_CSF": "PR.11.1",
+            "SOC_2": "CC11.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-02",
+          "title": "Infrastructure & Virtualization Security Control 2",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.2",
+            "NIST_CSF": "PR.11.2",
+            "SOC_2": "CC11.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-03",
+          "title": "Infrastructure & Virtualization Security Control 3",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.3",
+            "NIST_CSF": "PR.11.3",
+            "SOC_2": "CC11.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-04",
+          "title": "Infrastructure & Virtualization Security Control 4",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.4",
+            "NIST_CSF": "PR.11.4",
+            "SOC_2": "CC11.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-05",
+          "title": "Infrastructure & Virtualization Security Control 5",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.5",
+            "NIST_CSF": "PR.11.5",
+            "SOC_2": "CC11.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-06",
+          "title": "Infrastructure & Virtualization Security Control 6",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.6",
+            "NIST_CSF": "PR.11.6",
+            "SOC_2": "CC11.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-07",
+          "title": "Infrastructure & Virtualization Security Control 7",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.7",
+            "NIST_CSF": "PR.11.7",
+            "SOC_2": "CC11.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-08",
+          "title": "Infrastructure & Virtualization Security Control 8",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.8",
+            "NIST_CSF": "PR.11.8",
+            "SOC_2": "CC11.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-09",
+          "title": "Infrastructure & Virtualization Security Control 9",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.9",
+            "NIST_CSF": "PR.11.9",
+            "SOC_2": "CC11.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-10",
+          "title": "Infrastructure & Virtualization Security Control 10",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.10",
+            "NIST_CSF": "PR.11.10",
+            "SOC_2": "CC11.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INF-11",
+          "title": "Infrastructure & Virtualization Security Control 11",
+          "description": "Cloud security control for infrastructure & virtualization security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Infrastructure & Virtualization Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.11.11",
+            "NIST_CSF": "PR.11.11",
+            "SOC_2": "CC11.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-01",
+          "title": "Interoperability & Portability Control 1",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.1",
+            "NIST_CSF": "PR.12.1",
+            "SOC_2": "CC12.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-02",
+          "title": "Interoperability & Portability Control 2",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.2",
+            "NIST_CSF": "PR.12.2",
+            "SOC_2": "CC12.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-03",
+          "title": "Interoperability & Portability Control 3",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.3",
+            "NIST_CSF": "PR.12.3",
+            "SOC_2": "CC12.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-04",
+          "title": "Interoperability & Portability Control 4",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.4",
+            "NIST_CSF": "PR.12.4",
+            "SOC_2": "CC12.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-05",
+          "title": "Interoperability & Portability Control 5",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.5",
+            "NIST_CSF": "PR.12.5",
+            "SOC_2": "CC12.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-06",
+          "title": "Interoperability & Portability Control 6",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.6",
+            "NIST_CSF": "PR.12.6",
+            "SOC_2": "CC12.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-07",
+          "title": "Interoperability & Portability Control 7",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.7",
+            "NIST_CSF": "PR.12.7",
+            "SOC_2": "CC12.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-08",
+          "title": "Interoperability & Portability Control 8",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.8",
+            "NIST_CSF": "PR.12.8",
+            "SOC_2": "CC12.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-09",
+          "title": "Interoperability & Portability Control 9",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.9",
+            "NIST_CSF": "PR.12.9",
+            "SOC_2": "CC12.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-10",
+          "title": "Interoperability & Portability Control 10",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.10",
+            "NIST_CSF": "PR.12.10",
+            "SOC_2": "CC12.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-11",
+          "title": "Interoperability & Portability Control 11",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.11",
+            "NIST_CSF": "PR.12.11",
+            "SOC_2": "CC12.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-INT-12",
+          "title": "Interoperability & Portability Control 12",
+          "description": "Cloud security control for interoperability & portability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Interoperability & Portability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.12.12",
+            "NIST_CSF": "PR.12.12",
+            "SOC_2": "CC12.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-01",
+          "title": "Mobile Security Control 1",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.1",
+            "NIST_CSF": "PR.13.1",
+            "SOC_2": "CC13.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-02",
+          "title": "Mobile Security Control 2",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.2",
+            "NIST_CSF": "PR.13.2",
+            "SOC_2": "CC13.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-03",
+          "title": "Mobile Security Control 3",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.3",
+            "NIST_CSF": "PR.13.3",
+            "SOC_2": "CC13.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-04",
+          "title": "Mobile Security Control 4",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.4",
+            "NIST_CSF": "PR.13.4",
+            "SOC_2": "CC13.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-05",
+          "title": "Mobile Security Control 5",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.5",
+            "NIST_CSF": "PR.13.5",
+            "SOC_2": "CC13.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-06",
+          "title": "Mobile Security Control 6",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.6",
+            "NIST_CSF": "PR.13.6",
+            "SOC_2": "CC13.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-07",
+          "title": "Mobile Security Control 7",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.7",
+            "NIST_CSF": "PR.13.7",
+            "SOC_2": "CC13.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-08",
+          "title": "Mobile Security Control 8",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.8",
+            "NIST_CSF": "PR.13.8",
+            "SOC_2": "CC13.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-09",
+          "title": "Mobile Security Control 9",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.9",
+            "NIST_CSF": "PR.13.9",
+            "SOC_2": "CC13.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-10",
+          "title": "Mobile Security Control 10",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.10",
+            "NIST_CSF": "PR.13.10",
+            "SOC_2": "CC13.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-11",
+          "title": "Mobile Security Control 11",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.11",
+            "NIST_CSF": "PR.13.11",
+            "SOC_2": "CC13.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-12",
+          "title": "Mobile Security Control 12",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.12",
+            "NIST_CSF": "PR.13.12",
+            "SOC_2": "CC13.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-MOB-13",
+          "title": "Mobile Security Control 13",
+          "description": "Cloud security control for mobile security",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Mobile Security",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.13.13",
+            "NIST_CSF": "PR.13.13",
+            "SOC_2": "CC13.13"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-01",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 1",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.1",
+            "NIST_CSF": "PR.14.1",
+            "SOC_2": "CC14.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-02",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 2",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.2",
+            "NIST_CSF": "PR.14.2",
+            "SOC_2": "CC14.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-03",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 3",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.3",
+            "NIST_CSF": "PR.14.3",
+            "SOC_2": "CC14.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-04",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 4",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.4",
+            "NIST_CSF": "PR.14.4",
+            "SOC_2": "CC14.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-05",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 5",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.5",
+            "NIST_CSF": "PR.14.5",
+            "SOC_2": "CC14.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-06",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 6",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.6",
+            "NIST_CSF": "PR.14.6",
+            "SOC_2": "CC14.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-07",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 7",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.7",
+            "NIST_CSF": "PR.14.7",
+            "SOC_2": "CC14.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-08",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 8",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.8",
+            "NIST_CSF": "PR.14.8",
+            "SOC_2": "CC14.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-09",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 9",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.9",
+            "NIST_CSF": "PR.14.9",
+            "SOC_2": "CC14.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-10",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 10",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.10",
+            "NIST_CSF": "PR.14.10",
+            "SOC_2": "CC14.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-11",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 11",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.11",
+            "NIST_CSF": "PR.14.11",
+            "SOC_2": "CC14.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-12",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 12",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.12",
+            "NIST_CSF": "PR.14.12",
+            "SOC_2": "CC14.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-13",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 13",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.13",
+            "NIST_CSF": "PR.14.13",
+            "SOC_2": "CC14.13"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SEC-14",
+          "title": "Security Incident Management, E-Discovery & Cloud Forensics Control 14",
+          "description": "Cloud security control for security incident management, e-discovery & cloud forensics",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Security Incident Management, E-Discovery & Cloud Forensics",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.14.14",
+            "NIST_CSF": "PR.14.14",
+            "SOC_2": "CC14.14"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-01",
+          "title": "Supply Chain Management, Transparency and Accountability Control 1",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.1",
+            "NIST_CSF": "PR.15.1",
+            "SOC_2": "CC15.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-02",
+          "title": "Supply Chain Management, Transparency and Accountability Control 2",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.2",
+            "NIST_CSF": "PR.15.2",
+            "SOC_2": "CC15.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-03",
+          "title": "Supply Chain Management, Transparency and Accountability Control 3",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.3",
+            "NIST_CSF": "PR.15.3",
+            "SOC_2": "CC15.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-04",
+          "title": "Supply Chain Management, Transparency and Accountability Control 4",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.4",
+            "NIST_CSF": "PR.15.4",
+            "SOC_2": "CC15.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-05",
+          "title": "Supply Chain Management, Transparency and Accountability Control 5",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.5",
+            "NIST_CSF": "PR.15.5",
+            "SOC_2": "CC15.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-06",
+          "title": "Supply Chain Management, Transparency and Accountability Control 6",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.6",
+            "NIST_CSF": "PR.15.6",
+            "SOC_2": "CC15.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-07",
+          "title": "Supply Chain Management, Transparency and Accountability Control 7",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.7",
+            "NIST_CSF": "PR.15.7",
+            "SOC_2": "CC15.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-08",
+          "title": "Supply Chain Management, Transparency and Accountability Control 8",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.8",
+            "NIST_CSF": "PR.15.8",
+            "SOC_2": "CC15.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-09",
+          "title": "Supply Chain Management, Transparency and Accountability Control 9",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.9",
+            "NIST_CSF": "PR.15.9",
+            "SOC_2": "CC15.9"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-10",
+          "title": "Supply Chain Management, Transparency and Accountability Control 10",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.10",
+            "NIST_CSF": "PR.15.10",
+            "SOC_2": "CC15.10"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-11",
+          "title": "Supply Chain Management, Transparency and Accountability Control 11",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.11",
+            "NIST_CSF": "PR.15.11",
+            "SOC_2": "CC15.11"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-12",
+          "title": "Supply Chain Management, Transparency and Accountability Control 12",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.12",
+            "NIST_CSF": "PR.15.12",
+            "SOC_2": "CC15.12"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-13",
+          "title": "Supply Chain Management, Transparency and Accountability Control 13",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.13",
+            "NIST_CSF": "PR.15.13",
+            "SOC_2": "CC15.13"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-14",
+          "title": "Supply Chain Management, Transparency and Accountability Control 14",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.14",
+            "NIST_CSF": "PR.15.14",
+            "SOC_2": "CC15.14"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-SUP-15",
+          "title": "Supply Chain Management, Transparency and Accountability Control 15",
+          "description": "Cloud security control for supply chain management, transparency and accountability",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Supply Chain Management, Transparency and Accountability",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.15.15",
+            "NIST_CSF": "PR.15.15",
+            "SOC_2": "CC15.15"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-01",
+          "title": "Threat and Vulnerability Management Control 1",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.1",
+            "NIST_CSF": "PR.16.1",
+            "SOC_2": "CC16.1"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-02",
+          "title": "Threat and Vulnerability Management Control 2",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.2",
+            "NIST_CSF": "PR.16.2",
+            "SOC_2": "CC16.2"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-03",
+          "title": "Threat and Vulnerability Management Control 3",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.3",
+            "NIST_CSF": "PR.16.3",
+            "SOC_2": "CC16.3"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-04",
+          "title": "Threat and Vulnerability Management Control 4",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.4",
+            "NIST_CSF": "PR.16.4",
+            "SOC_2": "CC16.4"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-05",
+          "title": "Threat and Vulnerability Management Control 5",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.5",
+            "NIST_CSF": "PR.16.5",
+            "SOC_2": "CC16.5"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-06",
+          "title": "Threat and Vulnerability Management Control 6",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.6",
+            "NIST_CSF": "PR.16.6",
+            "SOC_2": "CC16.6"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-07",
+          "title": "Threat and Vulnerability Management Control 7",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.7",
+            "NIST_CSF": "PR.16.7",
+            "SOC_2": "CC16.7"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        },
+        {
+          "control_id": "CCM-THR-08",
+          "title": "Threat and Vulnerability Management Control 8",
+          "description": "Cloud security control for threat and vulnerability management",
+          "framework": "Cloud Controls Matrix v4.0",
+          "category": "Threat and Vulnerability Management",
+          "subcategory": "",
+          "implementation_guidance": "",
+          "control_type": "preventive",
+          "maturity_level": "",
+          "references": [],
+          "mappings": {
+            "ISO_27001": "A.16.8",
+            "NIST_CSF": "PR.16.8",
+            "SOC_2": "CC16.8"
+          },
+          "last_updated": "2025-08-13T22:03:48.529756"
+        }
+      ],
+      "total_controls": 184,
+      "scraping_metadata": {}
+    }
+  }
+}

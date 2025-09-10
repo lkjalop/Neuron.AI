@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>SOC Analyst Chat</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="/app/style.css" />
+</head>
+<body>
+<div class="layout" style="--context-width:380px;">
+  <main class="chat-pane">
+    <header class="chat-header"><div class="title">SOC Analyst Assistant</div><div class="actions"><button onclick="window.close()" class="ghost">Close</button></div></header>
+    <section id="messages" class="messages"></section>
+    <div id="error-banner" class="error-banner" style="display:none;"></div>
+    <form id="chat-form" class="composer" autocomplete="off">
+      <textarea id="chat-input" placeholder="Ask playbook, hunting, or IOC triage questions..." rows="1"></textarea>
+      <div class="composer-actions">
+        <select id="mode">
+          <option value="playbook" selected>Playbook</option>
+          <option value="hunting">Hunting Query</option>
+          <option value="ioc">IOC Enrich</option>
+        </select>
+        <button type="submit" class="primary">Send</button>
+      </div>
+    </form>
+  </main>
+  <section class="context-pane">
+    <header>Knowledge Tabs</header>
+    <div class="contexts" id="contexts"></div>
+    <div class="metrics-block">
+      <h4>Timings</h4>
+      <ul id="timings"></ul>
+      <div class="confidence badge" id="confidence-badge"></div>
+    </div>
+  </section>
+</div>
+<script src="/app/soc.js"></script>
+</body>
+</html>

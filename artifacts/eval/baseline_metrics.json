@@ -1,0 +1,13 @@
+{
+  "total_events": 1199,
+  "predicted_anomaly_events": 25,
+  "predicted_anomaly_rate": 0.020850708924103418,
+  "window": 50,
+  "stddev_threshold": 3.0,
+  "true_positives": 25,
+  "false_positives": 0,
+  "false_negatives": 70,
+  "precision": 1.0,
+  "recall": 0.2631578947368421,
+  "f1": 0.4166666666666667
+}

@@ -1,0 +1,26 @@
+{
+  "snn": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "predicted_anomaly_events": 0,
+    "latency": {
+      "count": 200,
+      "p50_ms": 0.0626499986537965,
+      "p95_ms": 0.0804299974333844,
+      "mean_ms": 0.06624099994951393
+    },
+    "threshold": 10.0
+  },
+  "uplifts": {
+    "recall_uplift": -1.0,
+    "precision_loss": 1.0,
+    "f1_uplift": -0.896551724137931
+  },
+  "latency": {
+    "count": 200,
+    "p50_ms": 0.0626499986537965,
+    "p95_ms": 0.0804299974333844,
+    "mean_ms": 0.06624099994951393
+  }
+}

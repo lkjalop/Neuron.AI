@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-09-09T20:32:07.791915",
+  "tests_run": 4,
+  "passed": 4,
+  "partial": 0,
+  "failed": 0,
+  "success_rate": 100.0,
+  "dashboards": [
+    [
+      "API Docs",
+      "http://localhost:8000/docs"
+    ],
+    [
+      "Metrics",
+      "http://localhost:8000/metrics"
+    ],
+    [
+      "Anomalies",
+      "http://localhost:8000/anomalies"
+    ],
+    [
+      "Cases",
+      "http://localhost:8000/cases"
+    ]
+  ]
+}

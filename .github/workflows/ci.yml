@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install ruff bandit pip-audit cyclonedx-bom detect-secrets
+      - name: Lint & Security
+        run: make security
+      - name: Tests
+        run: make test
+      - name: Performance check
+        run: |
+          python scripts/ci_perf_check.py
+      - name: Build production image
+        run: docker build -t neuron-ai:ci --target runtime .
+      - name: Trivy vulnerability scan
+        uses: aquasecurity/trivy-action@0.14.0
+        with:
+          image-ref: 'neuron-ai:ci'
+          format: 'table'
+          severity: 'HIGH,CRITICAL'
+          exit-code: '1'
+          ignore-unfixed: true
+      - name: Install Grype
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+      - name: Grype vulnerability scan
+        run: |
+          grype neuron-ai:ci -o json > grype.json || true
+          cat grype.json | jq '.matches[] | select(.vulnerability.severity == "High" or .vulnerability.severity == "Critical")' > grype_high.json || true
+          COUNT=$(cat grype_high.json | wc -l)
+          if [ "$COUNT" -gt 0 ]; then echo "Grype found High/Critical findings ($COUNT)"; exit 1; fi
+          mkdir -p artifacts/security
+          mv grype.json artifacts/security/grype.json
+      - name: OpenAPI Export (optional)
+        run: |
+          if [ -f docs/export_openapi.py ]; then python docs/export_openapi.py; fi
+      - name: Push perf metrics (optional)
+        env:
+          PERF_PUSHGATEWAY_URL: ${{ secrets.PERF_PUSHGATEWAY_URL }}
+        run: |
+          python scripts/push_perf_metrics.py || echo "Perf push skipped"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-artifacts
+          path: artifacts/security
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Verify version tag matches
+        run: |
+          VERSION=$(python -c "import core.version as v; print(v.__version__)")
+          TAG=${GITHUB_REF##*/}
+          if [ "v$VERSION" != "$TAG" ]; then echo "Tag $TAG != version $VERSION"; exit 1; fi
+      - name: Build image
+        run: docker build -t neuron-ai:${GITHUB_REF##*/} --target runtime .
+      - name: Install cosign
+        run: |
+          wget https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64 -O cosign
+          chmod +x cosign
+          sudo mv cosign /usr/local/bin/cosign
+      - name: Sign image (if key provided)
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+        run: |
+          python scripts/sign_image.py neuron-ai:${GITHUB_REF##*/}
+      - name: SBOM attestation (if SBOM + cosign)
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+        run: |
+          if [ -f artifacts/security/sbom.json ]; then python scripts/attest_sbom.py neuron-ai:${GITHUB_REF##*/}; else echo "No SBOM found"; fi
+      - name: Summary
+        run: echo "Release build successful for ${GITHUB_REF##*/}" 

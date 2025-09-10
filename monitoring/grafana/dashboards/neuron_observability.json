@@ -1,0 +1,55 @@
+{
+  "id": null,
+  "uid": "neuron-obs",
+  "title": "Neuron Observability",
+  "tags": ["neuron", "core"],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Story Create Latency p95 (s)",
+      "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8},
+      "options": {"legend": {"displayMode": "list", "placement": "right"}},
+      "targets": [
+        {"expr": "histogram_quantile(0.95, sum(rate(neuron_story_endpoint_latency_seconds_bucket{endpoint=\"create\"}[5m])) by (le))", "refId": "A"}
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Integrity Mismatches (24h)",
+      "gridPos": {"x": 12, "y": 0, "w": 6, "h": 4},
+      "options": {"colorMode": "value", "graphMode": "none"},
+      "targets": [
+        {"expr": "increase(neuron_report_integrity_total{outcome=\"mismatch\"}[24h])", "refId": "A"}
+      ]
+    },
+    {
+      "type": "stat",
+      "title": "Hours Since Last Story Prune",
+      "gridPos": {"x": 18, "y": 0, "w": 6, "h": 4},
+      "targets": [
+        {"expr": "(time() - neuron_story_last_prune_ts) / 3600", "refId": "A"}
+      ],
+      "options": {"colorMode": "value", "reduceOptions": {"calcs": ["lastNotNull"]}}
+    },
+    {
+      "type": "timeseries",
+      "title": "Story File Size (bytes)",
+      "gridPos": {"x": 12, "y": 4, "w": 12, "h": 8},
+      "targets": [
+        {"expr": "neuron_story_file_size_bytes", "refId": "A"}
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Runtime Param: story.max_content_bytes",
+      "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8},
+      "targets": [
+        {"expr": "neuron_runtime_param_value{key=\"story.max_content_bytes\"}", "refId": "A"}
+      ]
+    }
+  ]
+}

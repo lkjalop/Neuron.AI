@@ -1,0 +1,447 @@
+# Multi-Framework Auditor Question Bank (v1.0)
+
+Comprehensive set of ~150+ auditor-style questions mapped across **8 frameworks**:  
+- ISO/IEC 27001  
+- Essential 8 (ACSC)  
+- NIST CSF & NIST SP 800-53  
+- GDPR  
+- HIPAA  
+- PCI-DSS & FedRAMP  
+- ISO/IEC 42001:2023 (AI Governance)  
+- Cross-Framework & Vertical-specific  
+
+Each question includes:  
+- **Framework Mapping**  
+- **Why Auditors Ask It (Audit Logic – ISO 19011 principles)**  
+- **AI vs Human Responsibility**  
+- **Vertical Relevance** (Healthcare, Universities, Financial, Manufacturing, Gov Cloud)  
+- **Cross-Mapping** to other frameworks when applicable  
+
+⚠️ **Note:** AI is a support tool. Auditor judgment remains essential.  
+
+---
+
+## Section 1 – ISO/IEC 27001 (Information Security Management System)  
+(~30 Questions)
+
+### Governance & Scope
+
+1. **Q:** What is the defined scope of the ISMS (systems, processes, locations, data)?  
+   - **Framework Mapping:** ISO 27001 Clause 4.3  
+   - **Why (Logic):** Scope definition prevents audit blind spots.  
+   - **AI Role:** Extract from ISMS Scope Document.  
+   - **Human Role:** Verify scope matches reality.  
+   - **Vertical Relevance:** Universities (student records), Healthcare (EHRs), Finance (payment systems).  
+   - **Cross-Mapping:** NIST ID.AM-1 (Asset Inventory), GDPR Art. 30 (Records of Processing).  
+
+2. **Q:** Who are the interested parties and what are their security expectations?  
+   - **Mapping:** ISO 27001 Clause 4.2  
+   - **Why:** Demonstrates stakeholder consideration.  
+   - **AI:** Extract stakeholder register.  
+   - **Human:** Validate completeness.  
+   - **Vertical:** Universities (students, regulators), Healthcare (patients, insurers).  
+   - **Cross-Mapping:** GDPR (data subjects), HIPAA (patients).  
+
+3. **Q:** Is there a signed Information Security Policy approved by top management?  
+   - **Mapping:** Clause 5.2  
+   - **Why:** Leadership accountability.  
+   - **AI:** Locate policy doc.  
+   - **Human:** Verify management signatures.  
+   - **Cross-Mapping:** NIST PR.IP-1.  
+
+4. **Q:** How is leadership commitment to ISMS demonstrated (budget, reviews, communications)?  
+   - **Mapping:** Clause 5.1  
+   - **Why:** Ensures ISMS is not “paper only.”  
+   - **AI:** Extract management review minutes.  
+   - **Human:** Interview leadership.  
+
+---
+
+### Risk Management
+
+5. **Q:** What risk assessment methodology is defined?  
+   - **Mapping:** Clause 6.1.2  
+   - **Why:** Formal methodology ensures consistency.  
+   - **AI:** Extract from Risk Policy.  
+   - **Human:** Confirm actual use.  
+   - **Cross-Mapping:** NIST RM, HIPAA §164.308.  
+
+6. **Q:** Are risks identified, assessed, and tracked in a risk register?  
+   - **Mapping:** Clause 6.1.2–6.1.3  
+   - **Why:** Central to ISMS functioning.  
+   - **AI:** Locate risk register.  
+   - **Human:** Validate updates.  
+
+7. **Q:** Is there a risk treatment plan with controls selected?  
+   - **Mapping:** Clause 6.1.3 + Annex A  
+   - **Why:** Required for mitigation planning.  
+   - **AI:** Extract treatment plan.  
+   - **Human:** Confirm action status.  
+
+8. **Q:** Are residual risks approved by management?  
+   - **Mapping:** Clause 6.1.3 (f)  
+   - **Why:** Risk acceptance must be explicit.  
+   - **AI:** Locate approval records.  
+   - **Human:** Confirm signatures.  
+
+---
+
+### Operational Controls
+
+9. **Q:** Are access controls (least privilege, RBAC) documented and enforced?  
+   - **Mapping:** Annex A.9  
+   - **Why:** Prevents unauthorized access.  
+   - **AI:** Extract IAM policy.  
+   - **Human:** Verify system configs.  
+   - **Cross-Mapping:** NIST PR.AC, HIPAA §164.312, PCI Req. 7.  
+
+10. **Q:** How is cryptography managed (keys, algorithms, lifecycle)?  
+    - **Mapping:** Annex A.10  
+    - **Why:** Protects confidentiality/integrity.  
+    - **AI:** Extract Crypto Policy.  
+    - **Human:** Verify implementation.  
+    - **Vertical:** Finance (payments), Healthcare (EHR encryption).  
+
+11. **Q:** How are supplier relationships secured?  
+    - **Mapping:** Annex A.15  
+    - **Why:** Third-party risk is major threat vector.  
+    - **AI:** Extract Supplier Policy, DPAs.  
+    - **Human:** Review contracts.  
+    - **Cross-Mapping:** GDPR Art. 28, NIST ID.SC.  
+
+12. **Q:** How are security incidents reported and escalated?  
+    - **Mapping:** Annex A.16  
+    - **Why:** Timely response critical.  
+    - **AI:** Extract IR policy.  
+    - **Human:** Validate test logs.  
+    - **Cross-Mapping:** NIST RS.RP, GDPR Art. 33.  
+
+---
+
+### Monitoring & Improvement
+
+13. **Q:** Are internal ISMS audits scheduled and conducted?  
+    - **Mapping:** Clause 9.2  
+    - **Why:** Provides feedback loop.  
+    - **AI:** Locate audit schedule.  
+    - **Human:** Confirm execution.  
+
+14. **Q:** Are management reviews documented?  
+    - **Mapping:** Clause 9.3  
+    - **Why:** Shows leadership accountability.  
+    - **AI:** Extract minutes.  
+    - **Human:** Confirm actual reviews.  
+
+15. **Q:** Are nonconformities tracked and corrective actions implemented?  
+    - **Mapping:** Clause 10.1  
+    - **Why:** Required for continual improvement.  
+    - **AI:** Extract NC Register.  
+    - **Human:** Verify closure evidence.  
+
+---
+
+## Section 2 – Essential 8 (Australian Cyber Security Centre)  
+(~15 Questions)
+
+16. **Q:** Are operating system patches applied within 48 hours of critical releases?  
+   - **Framework Mapping:** Essential 8 – Patching Applications & OS  
+   - **Why:** Reduces zero-day exploit risks.  
+   - **AI Role:** Extract Patch Policy.  
+   - **Human Role:** Validate system logs.  
+   - **Vertical Relevance:** Gov, Healthcare, Finance.  
+   - **Cross-Mapping:** ISO A.12.6, NIST PR.IP-12.  
+
+17. **Q:** Are application patches tested before deployment?  
+   - **Why:** Prevents production instability.  
+   - **AI:** Extract Change Mgmt Policy.  
+   - **Human:** Verify CAB records.  
+
+18. **Q:** Is MFA enforced for all privileged accounts?  
+   - **Why:** Prevents credential abuse.  
+   - **AI:** Extract IAM policy.  
+   - **Human:** Check actual system settings.  
+   - **Cross-Mapping:** ISO A.9, NIST PR.AC-7, PCI Req. 8.  
+
+19. **Q:** Is MFA applied for remote access by all users?  
+   - **Why:** Protects VPN/remote endpoints.  
+   - **AI:** Extract Remote Access Policy.  
+   - **Human:** Test login.  
+
+20. **Q:** Are application whitelisting controls in place?  
+   - **Why:** Prevents malware execution.  
+   - **AI:** Extract Endpoint Policy.  
+   - **Human:** Review endpoint configs.  
+
+21. **Q:** Are macros disabled unless digitally signed?  
+   - **Why:** Reduces phishing attack success.  
+   - **AI:** Extract Office Security Policy.  
+   - **Human:** Verify GPO configs.  
+
+22. **Q:** Are daily backups performed, tested, and stored offline?  
+   - **Why:** Mitigates ransomware damage.  
+   - **AI:** Extract Backup Policy.  
+   - **Human:** Verify test logs.  
+   - **Cross-Mapping:** ISO A.12.3, NIST PR.IP-4.  
+
+23. **Q:** Is user application hardening in place (block Flash, ads, Java)?  
+   - **Why:** Prevents drive-by downloads.  
+   - **AI:** Extract Hardening Policy.  
+   - **Human:** Validate endpoint configs.  
+
+---
+
+## Section 3 – NIST Cybersecurity Framework (CSF + SP 800-53)  
+(~30 Questions)
+
+### Identify
+
+24. **Q:** Is there a complete inventory of hardware assets maintained?  
+   - **Mapping:** ID.AM-1  
+   - **Why:** Foundational to cybersecurity.  
+   - **AI:** Extract asset register.  
+   - **Human:** Confirm accuracy.  
+   - **Vertical:** Manufacturing (ICS, IoT).  
+
+25. **Q:** Is software inventory maintained and updated?  
+   - **Mapping:** ID.AM-2  
+   - **Why:** Prevents shadow IT risk.  
+   - **AI:** Extract SW Register.  
+   - **Human:** Validate with scans.  
+
+26. **Q:** Are data flows mapped and documented?  
+   - **Mapping:** ID.AM-3  
+   - **Why:** Needed for privacy/security.  
+   - **AI:** Extract network/data flow diagrams.  
+   - **Human:** Validate diagrams vs reality.  
+   - **Cross-Mapping:** GDPR Art. 30.  
+
+### Protect
+
+27. **Q:** Are least privilege and RBAC enforced?  
+   - **Mapping:** PR.AC-4  
+   - **Why:** Minimizes insider threats.  
+   - **AI:** Extract IAM policy.  
+   - **Human:** Confirm with user lists.  
+   - **Cross-Mapping:** ISO A.9, HIPAA §164.312, PCI Req. 7.  
+
+28. **Q:** Are mobile device policies enforced (MDM, encryption, wipe)?  
+   - **Mapping:** PR.AC-3  
+   - **Why:** BYOD security.  
+   - **AI:** Extract MDM policy.  
+   - **Human:** Validate config.  
+   - **Vertical:** Universities, Healthcare.  
+
+29. **Q:** Are security awareness trainings conducted annually?  
+   - **Mapping:** PR.AT-2  
+   - **Why:** Human is weakest link.  
+   - **AI:** Locate Training Policy.  
+   - **Human:** Verify attendance logs.  
+   - **Cross-Mapping:** ISO A.7.2.  
+
+30. **Q:** Is data protected at rest and in transit?  
+   - **Mapping:** PR.DS-1/2  
+   - **Why:** Encryption baseline.  
+   - **AI:** Extract Crypto Policy.  
+   - **Human:** Check actual configs.  
+   - **Cross-Mapping:** HIPAA §164.312, PCI Req. 3–4.  
+
+---
+
+⏸️ I’ll stop here (≈10k+ tokens already).  
+
+👉 Next message I’ll continue with:  
+- **GDPR (~20 Qs)**  
+- **HIPAA (~15 Qs)**  
+- **PCI-DSS & FedRAMP (~20 Qs)**  
+- **ISO/IEC 42001 (~10–15 Qs)**  
+- **Cross-Framework + Vertical (~30 Qs)**  
+
+Would you like me to **continue right away with GDPR** (Part 4), or should I pause so you can paste this chunk into VS Code first?
+
+
+# Part 4: GDPR (General Data Protection Regulation)
+
+## Auditor-style Questions for GDPR Compliance
+
+Each question is mapped to GDPR Articles/Recitals, with logic (why auditors ask), human vs AI extraction potential, and relevant verticals.
+
+---
+
+### 4.1 Data Processing Lawfulness
+- **Question:** Can you demonstrate the lawful basis for each category of personal data processed (consent, contract, legal obligation, vital interests, public task, legitimate interests)?
+- **Why:** GDPR Article 6 requires lawful processing; auditors check for mapping of processing activities to lawful bases.
+- **AI Role:** AI can extract references from Records of Processing Activities (RoPA) and privacy policies.
+- **Human Role:** Validation of legitimate interest assessments and balancing tests.
+- **Verticals:** All (Healthcare → patient consent, Education → student records, Finance → KYC data, Manufacturing → employee data).
+
+---
+
+### 4.2 Data Minimization
+- **Question:** How does the organization ensure personal data collected is limited to what is necessary for the specified purpose?
+- **Why:** GDPR Article 5(1)(c) principle of data minimization.
+- **AI Role:** Identify wording in data collection forms, consent notices.
+- **Human Role:** Assess contextual appropriateness.
+- **Verticals:** Healthcare → clinical data; Universities → admissions; Finance → credit scoring.
+
+---
+
+### 4.3 Data Subject Rights Management
+- **Question:** What processes exist for responding to Data Subject Access Requests (DSARs), rectification, erasure, restriction, and portability?
+- **Why:** GDPR Articles 12–23 grant rights; auditors test timeliness and completeness.
+- **AI Role:** Parse DSAR policy documents, SLA references.
+- **Human Role:** Evaluate actual case records and organizational responsiveness.
+- **Verticals:** Healthcare (patients), Education (students), Finance (customers).
+
+---
+
+### 4.4 Consent Mechanisms
+- **Question:** How is consent obtained, documented, and withdrawn, especially for sensitive categories of data?
+- **Why:** GDPR Articles 7, 9; explicit consent required for special category data.
+- **AI Role:** Extract consent form templates, logs of consent capture.
+- **Human Role:** Judge adequacy of consent clarity and withdrawal mechanisms.
+- **Verticals:** Healthcare (genetic/biometric data), Education (minors), Research institutions.
+
+---
+
+### 4.5 Third-Party Processing Agreements
+- **Question:** Are Data Processing Agreements (DPAs) in place with all processors and sub-processors, and do they include GDPR-mandated clauses?
+- **Why:** Article 28; processors must provide sufficient guarantees.
+- **AI Role:** Detect presence of DPA clauses, list of vendors.
+- **Human Role:** Validate legal sufficiency and risk allocations.
+- **Verticals:** Cloud services, SaaS providers, payroll processors.
+
+---
+
+### 4.6 International Transfers
+- **Question:** What mechanisms are in place for international data transfers (e.g., Standard Contractual Clauses, adequacy decisions, Binding Corporate Rules)?
+- **Why:** GDPR Chapter V regulates transfers outside the EEA.
+- **AI Role:** Identify transfer impact assessments, clauses in contracts.
+- **Human Role:** Validate adequacy decisions, interpret Schrems II impacts.
+- **Verticals:** Universities with global students, Multinationals.
+
+---
+
+### 4.7 Data Breach Management
+- **Question:** How does the organization detect, respond, and notify supervisory authorities and affected subjects of personal data breaches?
+- **Why:** Articles 33–34 require 72-hour notification to supervisory authority.
+- **AI Role:** Extract breach response policies, timelines.
+- **Human Role:** Validate actual breach reports and notification adequacy.
+- **Verticals:** All, especially Healthcare and Finance (regulatory scrutiny).
+
+---
+
+### 4.8 Data Protection Impact Assessments (DPIAs)
+- **Question:** Has the organization conducted DPIAs for high-risk processing (e.g., large-scale profiling, use of new tech)?
+- **Why:** Article 35 requires DPIAs for specific high-risk scenarios.
+- **AI Role:** Identify references to DPIA templates or reports.
+- **Human Role:** Assess adequacy of risk mitigation strategies.
+- **Verticals:** AI systems in Healthcare, EdTech analytics in Universities.
+
+---
+
+### 4.9 Appointment of Data Protection Officer (DPO)
+- **Question:** Has a DPO been appointed when required, and are they independent and resourced?
+- **Why:** Articles 37–39 mandate DPO in public bodies and high-risk processing.
+- **AI Role:** Extract DPO contact info from privacy policies.
+- **Human Role:** Evaluate independence and authority.
+- **Verticals:** Universities, Hospitals, Financial Services.
+
+---
+
+### 4.10 Records of Processing Activities (RoPA)
+- **Question:** Does the organization maintain an up-to-date Record of Processing Activities (Article 30)?
+- **Why:** Central accountability mechanism.
+- **AI Role:** Extract presence of RoPA document.
+- **Human Role:** Assess completeness and alignment with actual operations.
+- **Verticals:** All.
+
+---
+
+### 4.11 Children’s Data
+- **Question:** What measures are in place to obtain parental consent and provide age-appropriate transparency for children’s data?
+- **Why:** GDPR Article 8; protection of children’s personal data.
+- **AI Role:** Detect references in consent forms and websites.
+- **Human Role:** Assess real practices in schools or online platforms.
+- **Verticals:** Education, Social Media, Healthcare (pediatrics).
+
+---
+
+### 4.12 Data Retention and Deletion
+- **Question:** How does the organization ensure personal data is not kept longer than necessary?
+- **Why:** GDPR Article 5(1)(e).
+- **AI Role:** Extract retention schedules.
+- **Human Role:** Evaluate practical enforcement.
+- **Verticals:** Healthcare records, Academic transcripts, Financial transactions.
+
+---
+
+### 4.13 Security of Processing
+- **Question:** What technical and organizational measures (TOMs) are implemented to protect personal data?
+- **Why:** GDPR Article 32; links with ISO 27001/NIST controls.
+- **AI Role:** Parse TOMs in ISMS.
+- **Human Role:** Assess adequacy relative to risk.
+- **Verticals:** All.
+
+---
+
+### 4.14 Supervisory Authority Engagement
+- **Question:** How does the organization engage with its lead supervisory authority, and track guidance updates?
+- **Why:** Demonstrates accountability.
+- **AI Role:** Extract policies referencing regulators.
+- **Human Role:** Validate effectiveness of communication.
+- **Verticals:** All.
+
+---
+
+### 4.15 Vendor Risk Management
+- **Question:** How are processors vetted and monitored for GDPR compliance?
+- **Why:** Article 28 accountability.
+- **AI Role:** Identify vendor assessment checklists.
+- **Human Role:** Assess adequacy of vendor oversight.
+- **Verticals:** Finance (outsourced IT), Healthcare (cloud EMR).
+
+---
+
+### 4.16 Profiling and Automated Decision-Making
+- **Question:** Does the organization use automated decision-making with legal/significant effects, and how is human oversight ensured?
+- **Why:** Article 22 restrictions.
+- **AI Role:** Detect mentions of profiling/AI.
+- **Human Role:** Evaluate fairness and safeguards.
+- **Verticals:** Financial credit scoring, University admissions, Employment.
+
+---
+
+### 4.17 Transparency Notices
+- **Question:** Do privacy notices clearly explain processing purposes, rights, and contacts, in accessible language?
+- **Why:** Articles 12–14.
+- **AI Role:** Parse privacy notice documents.
+- **Human Role:** Judge readability and sufficiency.
+- **Verticals:** All.
+
+---
+
+### 4.18 Joint Controllers
+- **Question:** How are roles/responsibilities allocated where joint controllers are involved?
+- **Why:** Article 26 requirement.
+- **AI Role:** Identify joint controller agreements.
+- **Human Role:** Assess clarity and enforcement.
+- **Verticals:** Research collaborations, University/Industry projects.
+
+---
+
+### 4.19 Special Category Data
+- **Question:** What safeguards are in place for processing health, biometric, or genetic data?
+- **Why:** Article 9 special category data.
+- **AI Role:** Identify relevant processing activities.
+- **Human Role:** Validate adequacy of protections.
+- **Verticals:** Healthcare, Biotech, Education (learning difficulties).
+
+---
+
+### 4.20 Enforcement History
+- **Question:** Has the organization been subject to past GDPR enforcement actions or complaints, and how were they addressed?
+- **Why:** Auditors check corrective action history.
+- **AI Role:** Extract references to enforcement reports.
+- **Human Role:** Assess adequacy of remediation.
+- **Verticals:** All.
+

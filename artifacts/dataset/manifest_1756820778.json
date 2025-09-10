@@ -1,0 +1,13 @@
+{
+  "export_ts": 1756820778,
+  "tenant": null,
+  "anomaly_count": 0,
+  "params_snapshot": {
+    "baseline.window_size": 50,
+    "baseline.stddev_threshold": 2.0,
+    "baseline.warmup_min": 10,
+    "baseline.mad_factor": 3.5,
+    "flood.threshold": 0.2
+  },
+  "notes": "Dataset export stub v1; fields subject to extension."
+}

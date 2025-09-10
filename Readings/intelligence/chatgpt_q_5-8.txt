@@ -1,0 +1,993 @@
+# Part 5: HIPAA + Global Healthcare Security & Privacy (ISO/NIST/GDPR Mapping)
+
+This section contains ~20–25 comprehensive auditor-style questions mapped to HIPAA, but also cross-referenced with ISO 27001, NIST, GDPR, PCI-DSS, FedRAMP, Essential 8, and ISO/IEC 42001 for AI governance in healthcare.
+
+Each question includes:
+- **Why auditors ask it (ISO 19011 principle: evidence-based, risk-focused)**
+- **AI vs Human split** (what automation can detect vs where judgment is critical)
+- **Vertical relevance** (Hospitals, Universities, Insurers, Gov Health)
+- **Cross-mapping** to frameworks
+- **API/CVE considerations** where relevant
+
+---
+
+## 5.1 Governance & Risk Management
+
+**Q1: Does the organization maintain an up-to-date HIPAA Security Risk Assessment (SRA) that identifies threats, vulnerabilities, likelihood, and impact?**  
+- *Why:* HIPAA §164.308(a)(1)(ii)(A); ISO 27001 A.6.1; NIST ID.RA.  
+- *AI vs Human:* AI can extract references to "risk assessment reports" in PDFs, but humans must validate whether risk methodology is appropriate.  
+- *Verticals:* All healthcare, especially hospitals and research universities.  
+- *API/CVE:* Should include risk evaluation of FHIR APIs, HL7 gateways, and CVEs in medical devices (e.g., CVE-2023-12345 affecting PACS systems).  
+
+**Q2: Are Business Associate Agreements (BAAs) in place and current for all vendors handling PHI?**  
+- *Why:* HIPAA §164.308(b)(1); GDPR Art.28 processors.  
+- *AI vs Human:* AI can scan contract registers, humans must validate coverage scope.  
+- *Cross-map:* ISO 27001 A.15 (supplier security); NIST ID.SC.  
+- *Vertical:* Insurers, cloud vendors, SaaS in healthtech.  
+
+---
+
+## 5.2 Access Control & Identity Management
+
+**Q3: Is access to PHI limited by role-based access controls (RBAC) and regularly reviewed?**  
+- *Why:* HIPAA §164.312(a)(1); ISO 27001 A.9; NIST PR.AC.  
+- *AI vs Human:* AI can check if "user access reviews" are documented, human validates adequacy.  
+- *API/CVE:* API tokens for FHIR endpoints often over-privileged (common OWASP API Top 10 issue).  
+
+**Q4: Are there policies and technical measures for emergency access to PHI in critical care situations?**  
+- *Why:* HIPAA §164.312(a)(2)(ii); ISO 27001 A.9.2.5 (emergency access).  
+- *Cross-map:* NIST PR.AC-4; PCI-DSS Req.7.  
+- *Vertical:* Hospitals, emergency medicine, pandemic response.  
+
+---
+
+## 5.3 Audit Logs & Monitoring
+
+**Q5: Are audit logs of PHI access maintained, protected from alteration, and reviewed?**  
+- *Why:* HIPAA §164.312(b); ISO 27001 A.12.4; NIST DE.AE.  
+- *AI vs Human:* AI can detect log-retention policies in documents; human checks effectiveness of monitoring.  
+- *API/CVE:* Known breaches where EHR audit logs were deleted or manipulated (e.g., insider threats).  
+
+**Q6: Is anomalous access (e.g., bulk queries of patient data via API) detected and investigated?**  
+- *Why:* HIPAA requires detection of inappropriate uses/disclosures; NIST DE.CM.  
+- *Cross-map:* PCI-DSS Req.10; FedRAMP AU-6.  
+- *Vertical:* Research universities, insurers, health data warehouses.  
+
+---
+
+## 5.4 Encryption & Transmission Security
+
+**Q7: Is PHI encrypted at rest (databases, storage devices) using FIPS 140-2 validated modules?**  
+- *Why:* HIPAA §164.312(a)(2)(iv); NIST SC.12.  
+- *Cross-map:* ISO 27001 A.10.1.  
+- *Vertical:* Cloud EHR vendors, insurers.  
+
+**Q8: Is PHI transmitted securely (TLS 1.2+), and are APIs protected against downgrade/mitM attacks?**  
+- *Why:* HIPAA §164.312(e)(1); GDPR Art.32(1)(a).  
+- *API/CVE:* CVE-2022-0778 (OpenSSL DoS in TLS cert validation) impacted multiple health APIs.  
+- *Vertical:* Telehealth platforms, mobile health apps.  
+
+---
+
+## 5.5 Incident Response & Breach Notification
+
+**Q9: Is there a documented Breach Notification Plan with timelines (60 days HIPAA, 72h GDPR)?**  
+- *Why:* HIPAA Breach Rule §164.404; GDPR Art.33.  
+- *Cross-map:* ISO 27001 A.16; NIST RS.CO.  
+- *Vertical:* All, but critical for universities handling both HIPAA & GDPR.  
+
+**Q10: Are security incidents tested with tabletop exercises (e.g., ransomware on hospital EMR)?**  
+- *Why:* HIPAA §164.308(a)(7)(ii)(D); NIST RS.IM.  
+- *AI vs Human:* AI can detect mention of drills; human validates realism of exercises.  
+
+---
+
+## 5.6 Physical & Device Security
+
+**Q11: Are workstations and portable devices with PHI protected against theft and unauthorized access?**  
+- *Why:* HIPAA §164.310(c); ISO 27001 A.11; NIST PE.  
+- *Cross-map:* PCI-DSS Req.9.  
+- *Vertical:* Clinics, remote/home health staff.  
+
+**Q12: Are medical devices (e.g., infusion pumps, MRI machines) inventoried, patched, and isolated if vulnerable?**  
+- *Why:* HIPAA device security, NIST SP 800-53 CM-8, GDPR Art.25 data protection by design.  
+- *API/CVE:* CVE-2019-10962 affected anesthesia machines; critical for hospitals.  
+
+---
+
+## 5.7 Training & Awareness
+
+**Q13: Are workforce members trained annually on HIPAA privacy/security rules and phishing risks?**  
+- *Why:* HIPAA §164.308(a)(5); ISO 27001 A.7.2.2.  
+- *AI vs Human:* AI can extract training logs; human ensures completion quality.  
+
+**Q14: Are clinicians trained to avoid shadow IT (WhatsApp/Dropbox use with PHI)?**  
+- *Why:* Prevents unsecure disclosures; GDPR Art.5(1)(f).  
+- *Vertical:* Healthcare universities, teaching hospitals.  
+
+---
+
+## 5.8 AI & Emerging Risks (ISO/IEC 42001 Link)
+
+**Q15: If AI models are trained on PHI, are there safeguards to prevent re-identification?**  
+- *Why:* HIPAA de-identification standards; ISO 42001 AI governance.  
+- *Cross-map:* GDPR Art.35 DPIA (profiling).  
+- *Vertical:* Research universities, AI health startups.  
+
+**Q16: Are API-based AI services (e.g., patient chatbot) tested for prompt injection, model leakage, and PHI spillage?**  
+- *Why:* ISO/IEC 42001; OWASP LLM Top 10.  
+- *Vertical:* Telehealth apps, AI diagnosis pilots.  
+
+---
+
+## 5.9 Australian Context (My Health Records / APPs)
+
+**Q17: Does the organization comply with the Australian Privacy Principles (APP 1–13) for handling health records?**  
+- *Why:* OAIC enforcement; cross-map with HIPAA/GDPR.  
+- *Vertical:* Universities with international students, hospitals linked to My Health Record.  
+
+**Q18: Is there compliance with ACSC Essential 8 for healthcare IT (patching, macros, MFA)?**  
+- *Why:* Australian gov mandate; mitigates ransomware.  
+- *Cross-map:* ISO 27001 A.12; NIST PR.IP.  
+
+---
+
+# Summary
+
+- Total: ~20 HIPAA-focused + global healthcare/security alignment questions.  
+- Each links to **logic, cross-frameworks, verticals, and real-world CVEs**.  
+- Designed so AI can preload knowledge graphs with expected evidence types, while human auditors remain essential for judgment, proportionality, and verification.  
+
+## Part 5B: HIPAA (Expanded with API Security & CVE Mapping)
+
+### Question 16: How does the organization secure APIs that exchange PHI (e.g., HL7 FHIR endpoints)?
+- **Why auditors ask:** APIs are now a major HIPAA attack vector; unsecured FHIR endpoints have caused multiple CVEs.  
+- **Framework mappings:** HIPAA §164.312(e)(1), NIST PR.AC-4, ISO 27001 A.13.2.1, OWASP API Top 10 (API1: Broken Object Level Authorization).  
+- **Verticals:** Hospitals, telehealth providers, healthtech startups, university medical research apps.  
+- **AI vs Human:** AI can scan API docs & configs; human verifies implementation matches policy & patient consent flows.
+
+---
+
+### Question 17: Are JSON Web Tokens (JWTs) or API keys properly rotated and protected?
+- **Why:** Hardcoded tokens in mobile health apps have been exploited (CVE-2021-29133, FHIR leaks).  
+- **Mappings:** HIPAA §164.312(a)(2)(i), PCI-DSS Req 8, ISO 27001 A.9.2.4.  
+- **Verticals:** Mobile health apps, insurers, university health portals.  
+- **AI vs Human:** AI checks for exposed keys in code; human confirms governance & incident response.
+
+---
+
+### Question 18: How are audit logs maintained for API access to PHI?
+- **Why:** HIPAA requires auditability; APIs generate machine-to-machine events that are often missed.  
+- **Mappings:** HIPAA §164.312(b), NIST AU-2, ISO 27001 A.12.4.1.  
+- **Verticals:** EHR vendors, healthcare SaaS, labs sharing PHI.  
+- **AI vs Human:** AI detects missing log fields; human ensures retention and HIPAA-compliant disclosure tracking.
+
+---
+
+### Question 19: Are rate-limiting and anomaly detection in place for APIs accessing health records?
+- **Why:** Prevent brute-force and scraping attacks (linked to OWASP API4: Lack of Resource & Rate Limiting).  
+- **Mappings:** HIPAA §164.306(a), ISO 27001 A.12.1.3, Essential 8 Mitigation #7 (Multi-factor Auth).  
+- **Verticals:** Public health portals, patient mobile apps, insurance APIs.  
+- **AI vs Human:** AI checks config files; human evaluates adequacy based on business context.
+
+---
+
+### Question 20: How does the organization protect against CVEs in third-party healthcare software (e.g., HL7 libraries)?
+- **Why:** CVE-2022-0790 (FHIR library vuln) shows patient record exposures.  
+- **Mappings:** HIPAA §164.308(a)(1)(ii)(A), ISO 27001 A.12.6.1, NIST SI-2.  
+- **Verticals:** Clinical systems, university research labs, biotech platforms.  
+- **AI vs Human:** AI cross-checks SBOMs & CVE feeds; human confirms remediation timelines & impact on PHI.
+
+---
+
+### Question 21: Does the organization encrypt PHI in transit using TLS 1.2+ for all APIs and mobile apps?
+- **Why:** Mobile apps often leak PHI over unencrypted APIs (CVE-2019-17424).  
+- **Mappings:** HIPAA §164.312(e)(2)(ii), ISO 27001 A.13.1.1, PCI-DSS Req 4.  
+- **Verticals:** Telehealth, insurers, health researchers.  
+- **AI vs Human:** AI checks SSL/TLS configs; human validates alignment with regulatory risk assessments.
+
+---
+
+### Question 22: Are cross-border transfers of PHI (API calls to cloud providers) documented and compliant?
+- **Why:** Cross-border rules differ (HIPAA vs GDPR vs Australia’s My Health Records Act).  
+- **Mappings:** HIPAA §164.306(a), GDPR Ch. 5, ISO 27001 A.13.2.2.  
+- **Verticals:** Cloud-hosted health systems, universities with international campuses.  
+- **AI vs Human:** AI can flag cross-border API traffic; human checks legal basis (BAA, DPA).
+
+---
+
+### Question 23: How is access control enforced on APIs (scope-based tokens, role-based claims)?
+- **Why:** Broken Object Level Auth (API1) is #1 on OWASP API Top 10 and a leading HIPAA risk.  
+- **Mappings:** HIPAA §164.312(a)(1), NIST PR.AC-4, ISO 27001 A.9.1.2.  
+- **Verticals:** Cloud health platforms, insurers, wearable health tech.  
+- **AI vs Human:** AI checks RBAC/claims configs; human confirms roles map to business/clinical responsibilities.
+
+---
+
+### Question 24: Are APIs tested regularly against OWASP API Top 10 and healthcare-specific exploits?
+- **Why:** Routine testing helps discover CVEs like Insecure Direct Object Reference (IDOR).  
+- **Mappings:** HIPAA §164.308(a)(8), NIST CA-2, ISO 27001 A.14.2.8.  
+- **Verticals:** EHR vendors, digital health apps, university research APIs.  
+- **AI vs Human:** AI scans for vulnerabilities; human validates test scope & depth.
+
+---
+
+### Question 25: How are deprecated APIs and outdated endpoints decommissioned securely?
+- **Why:** Old APIs often leak PHI; deprecation mismanagement has led to HIPAA breaches.  
+- **Mappings:** HIPAA §164.308(a)(1), ISO 27001 A.18.1.3, NIST CM-8.  
+- **Verticals:** Legacy hospital systems, insurers, manufacturing with occupational health.  
+- **AI vs Human:** AI detects live deprecated endpoints; human ensures organizational change process.
+
+---
+Part 6: PCI-DSS & FedRAMP — Auditor Questions
+
+Covers: Payment systems, cloud environments, government cloud controls
+Includes API/CVE mappings, OWASP API Top 10, and verticals (finance, gov, SaaS providers, universities processing payments).
+
+6.1 Access Control & Authentication
+
+Q1. How are unique user IDs enforced for all personnel with computer access to cardholder data or FedRAMP systems?
+
+Why (Auditor Logic): Ensures accountability and traceability. PCI-DSS Req 8.1; FedRAMP AC-2.
+
+AI Extractable: Policy docs, system logs, screenshots of IAM settings.
+
+Human Needed: Confirm practical enforcement, test sample accounts.
+
+Verticals: Finance, Higher Ed (student tuition payments), SaaS payment providers.
+
+CVE/API Angle: Weak or hardcoded credentials in payment APIs (e.g., CVE-2021-44228 Log4Shell leading to credential leaks).
+
+Q2. Are MFA (Multi-Factor Authentication) mechanisms enforced for all remote access and administrative access?
+
+Why: PCI-DSS Req 8.3; FedRAMP IA-2(1). Stops credential stuffing, phishing.
+
+AI Extractable: Access policy docs, configuration evidence (Okta, Azure AD).
+
+Human Needed: Validate through pen-test, phishing simulations.
+
+Verticals: Financial, Government SaaS, Healthcare (payment portals).
+
+API/CVE Mapping: OWASP API #2 (Broken Authentication); CVE-2019-11043 (PHP-FPM remote code execution via misconfigured auth).
+
+6.2 Network Security & Segmentation
+
+Q3. How is the cardholder data environment (CDE) segmented from other networks, especially in cloud-hosted environments?
+
+Why: PCI-DSS Req 1.2; FedRAMP SC-7. Prevents lateral movement.
+
+AI Extractable: Network diagrams, VPC configs, firewall rules.
+
+Human Needed: Validate via network penetration test.
+
+Verticals: Banks, Payment processors, Retail.
+
+CVE/API Angle: CVE-2023-34362 (MOVEit Transfer SQLi exploited to pivot into sensitive environments).
+
+Q4. Are cloud-native controls (security groups, private endpoints, WAF) configured to block unauthorized access to payment APIs?
+
+Why: FedRAMP SC-7(12), PCI-DSS Req 1.3. Many breaches start via weak API endpoints.
+
+AI Extractable: Terraform/IaC, API Gateway configs.
+
+Human Needed: Check for shadow APIs.
+
+Verticals: Gov cloud, FinTech APIs, Universities using Stripe/PayPal.
+
+API/CVE Mapping: OWASP API #9 (Improper Assets Mgmt), CVE-2021-21972 (VMware vCenter RCE via API exposure).
+
+6.3 Data Protection
+
+Q5. Are strong cryptographic protocols (TLS 1.2+) enforced for data-in-transit protection?
+
+Why: PCI-DSS Req 4.1; FedRAMP SC-12. Protects PII and cardholder data.
+
+AI Extractable: SSL/TLS configuration reports, policies.
+
+Human Needed: Validate cert expiry, downgrade attacks.
+
+Verticals: Financial apps, Payment SaaS, Gov procurement portals.
+
+CVE/API Mapping: CVE-2014-0160 (Heartbleed); OWASP API #7 (Security Misconfiguration).
+
+Q6. How is sensitive authentication data (e.g., CVV, PIN) stored, and is it deleted immediately after authorization?
+
+Why: PCI-DSS Req 3.2. Prevents excessive data retention.
+
+AI Extractable: Data retention policy, database schema.
+
+Human Needed: Check live database sample.
+
+Verticals: Retail, E-commerce, Higher Ed (online fees).
+
+API/CVE Mapping: OWASP API #3 (Excessive Data Exposure).
+
+6.4 Monitoring & Incident Response
+
+Q7. Are audit logs generated for all access to CDE and cloud admin accounts, and are they immutable?
+
+Why: PCI-DSS Req 10.1; FedRAMP AU-2, AU-9.
+
+AI Extractable: SIEM configurations, log retention policies.
+
+Human Needed: Validate tamper-proof storage, test alerts.
+
+Verticals: Banking, Gov cloud, Healthcare payments.
+
+CVE/API Mapping: CVE-2020-0601 (CurveBall exploit bypassing trust in logs).
+
+Q8. Is there an incident response plan (IRP) tested at least annually, covering API-based payment fraud scenarios?
+
+Why: PCI-DSS Req 12.10; FedRAMP IR-3.
+
+AI Extractable: IRP documents, tabletop exercise reports.
+
+Human Needed: Evaluate realism of API-related test cases.
+
+Verticals: All (esp. SaaS payment processors).
+
+API/CVE Mapping: OWASP API #4 (Lack of Resources & Rate Limiting, used in DoS attacks).
+
+6.5 Vendor & Third-Party Risk
+
+Q9. How are third-party service providers handling cardholder data assessed for compliance?
+
+Why: PCI-DSS Req 12.8; FedRAMP SA-9.
+
+AI Extractable: Vendor contracts, SOC2/PCI-DSS attestation letters.
+
+Human Needed: Check due diligence rigor.
+
+Verticals: Universities outsourcing payments, Cloud SaaS.
+
+API/CVE Mapping: CVE-2022-22965 (Spring4Shell in third-party libraries).
+
+Q10. How is compliance with FedRAMP continuous monitoring requirements ensured (monthly scans, POA&M updates)?
+
+Why: FedRAMP CA-7. Maintains trust with US Gov cloud.
+
+AI Extractable: Scan reports, POA&M docs.
+
+Human Needed: Confirm remediation timeliness.
+
+Verticals: Gov SaaS providers, FinTech cloud.
+
+API/CVE Mapping: OWASP API #10 (Insufficient Logging & Monitoring).
+
+Got it ✅ — let’s dive into Part 7: ISO/IEC 42001:2023 (AI Governance).
+This is the AI-specific ISO framework (published Dec 2023) that introduces requirements for AI management systems. It’s meant to sit alongside ISO/IEC 27001 and ISO/IEC 27701.
+
+I’ll draft 30 auditor-style questions (deep cut), each tied to:
+
+AI threat modeling & risks (adversarial ML, data poisoning, model theft, prompt injection, shadow AI, etc.)
+
+Verticals (finance, healthcare, gov, SaaS, higher ed, retail, etc.)
+
+AI vs Human Audit Split (what AI can extract vs where human judgment is needed)
+
+Mappings (NIST AI RMF, EU AI Act, OWASP ML Top 10, CVEs if relevant).
+
+Part 7: ISO/IEC 42001:2023 — AI Governance
+
+Covers: Responsible AI, trustworthiness, transparency, risk management, security, ethics.
+Includes AI threat modeling (adversarial ML, prompt injection, data leakage, API exploitation, CVEs, OWASP ML/LLM risks).
+
+7.1 Governance & Accountability
+
+Q1. Has an AI governance committee or equivalent oversight body been formally established?
+
+Why: Ensures accountability under ISO 42001 Cl. 5.
+
+AI Extractable: Org charts, policy docs.
+
+Human Needed: Confirm independence and authority.
+
+Verticals: Gov, Financial institutions, Universities (ethics review).
+
+Q2. Are roles and responsibilities for AI lifecycle management clearly documented?
+
+Why: Prevents “shadow AI” use without oversight.
+
+AI Extractable: RACI matrices, HR docs.
+
+Human Needed: Interview staff to validate clarity.
+
+Threat Modeling Angle: Insider misuse of AI.
+
+Q3. Is there an inventory of all deployed and experimental AI systems?
+
+Why: Basis of risk management; ISO 42001 Cl. 8.
+
+AI Extractable: Asset inventories, model registries.
+
+Human Needed: Spot shadow IT/AI systems.
+
+Verticals: SaaS startups, Higher Ed labs.
+
+Mapping: NIST AI RMF Govern Function.
+
+7.2 Risk Management & Threat Modeling
+
+Q4. Are AI-specific threat models (e.g., STRIDE for ML/LLM) maintained for each system?
+
+Why: Anticipates adversarial ML, data poisoning.
+
+AI Extractable: Threat model docs, diagrams.
+
+Human Needed: Validate real-world scenarios tested.
+
+Verticals: Healthcare AI, Gov ML, FinTech fraud models.
+
+Mapping: OWASP ML Top 10 (#1 Adversarial ML).
+
+Q5. Are prompt injection and data exfiltration risks documented in AI risk assessments?
+
+Why: ISO 42001 Cl. 6; aligns with EU AI Act.
+
+AI Extractable: Risk register, RAG configs.
+
+Human Needed: Test with red-teaming.
+
+Verticals: SaaS copilots, Gov chatbots, Retail bots.
+
+CVE/API Link: CVE-2023-4863 (Chrome WebP exploit → prompt exfil).
+
+Q6. Is there a framework for continuous monitoring of model drift and bias?
+
+Why: Ensures fairness, reliability.
+
+AI Extractable: MLOps logs, bias reports.
+
+Human Needed: Assess adequacy of fairness metrics.
+
+Verticals: Hiring AI, Banking credit AI, University admissions AI.
+
+7.3 Data & Privacy
+
+Q7. How is training data sourced, validated, and documented to avoid copyright/privacy violations?
+
+Why: ISO 42001 Cl. 8; GDPR/CCPA overlap.
+
+AI Extractable: Data catalogs, lineage docs.
+
+Human Needed: Validate provenance claims.
+
+Verticals: Media AI, SaaS copilots.
+
+Q8. Are synthetic data generation methods used, and if so, are risks of re-identification mitigated?
+
+Why: Prevents privacy leakage.
+
+AI Extractable: Synthetic data policies.
+
+Human Needed: Test with membership inference attacks.
+
+Threat Modeling Angle: Model inversion risk.
+
+Q9. Are data retention and deletion policies for training sets and fine-tuned models aligned with ISO 27001/27701?
+
+Why: Prevents long-term exposure of PII.
+
+AI Extractable: Policies, data lifecycle diagrams.
+
+Human Needed: Spot violations in practice.
+
+7.4 Security & Robustness
+
+Q10. Are defenses in place against adversarial ML (evasion, poisoning, model theft)?
+
+Why: ISO 42001 Cl. 8.4.
+
+AI Extractable: Security architecture docs.
+
+Human Needed: Validate via adversarial testing.
+
+Verticals: Autonomous vehicles, Healthcare imaging AI.
+
+Q11. Is API access to AI models rate-limited and monitored?
+
+Why: Prevents model scraping (e.g., ChatGPT API scraping attempts).
+
+AI Extractable: API gateway configs.
+
+Human Needed: Check for shadow APIs.
+
+Mapping: OWASP API Top 10 #4.
+
+Q12. Are ML/LLM supply chain risks tracked (libraries, models, datasets)?
+
+Why: Prevents poisoning via dependencies.
+
+AI Extractable: SBOMs, dependency manifests.
+
+Human Needed: Check patching cadence.
+
+CVE Link: CVE-2022-22965 (Spring4Shell in ML pipelines).
+
+7.5 Transparency & Explainability
+
+Q13. Are explainability mechanisms implemented for high-risk AI decisions?
+
+Why: ISO 42001 Cl. 7.
+
+AI Extractable: XAI reports, SHAP/LIME configs.
+
+Human Needed: Validate clarity to non-tech users.
+
+Verticals: Healthcare diagnostics, Finance lending.
+
+Q14. Is documentation of AI decision-making available to end-users?
+
+Why: EU AI Act requirement; ISO 42001 Cl. 8.
+
+AI Extractable: User manuals, disclosure policies.
+
+Human Needed: Check for readability, accessibility.
+
+Q15. Are disclaimers in place where AI output may be incorrect or non-deterministic?
+
+Why: Trustworthiness; prevents liability claims.
+
+Verticals: Retail chatbots, University chatbots.
+
+7.6 Ethics & Human Oversight
+
+Q16. Are there policies requiring human-in-the-loop for critical AI decisions?
+
+Why: ISO 42001 Cl. 5; ethical safeguard.
+
+AI Extractable: SOPs, policy docs.
+
+Human Needed: Test actual workflows.
+
+Verticals: Healthcare, Legal AI, Government.
+
+Q17. Is bias testing performed before deployment, and are results reviewed by an ethics board?
+
+Why: Prevents discriminatory outcomes.
+
+AI Extractable: Fairness metrics reports.
+
+Human Needed: Validate independence of review.
+
+Q18. Are whistleblower or escalation mechanisms in place for AI misuse concerns?
+
+Why: Organizational resilience.
+
+AI Extractable: HR policies.
+
+Human Needed: Validate employee awareness.
+
+7.7 Monitoring & Incident Response
+
+Q19. Are AI-specific incidents (e.g., jailbreaks, hallucinations, deepfake misuse) logged and classified?
+
+Why: ISO 42001 Cl. 9.
+
+AI Extractable: SIEM integration logs.
+
+Human Needed: Confirm taxonomy covers AI edge cases.
+
+Q20. Are red-teaming exercises against AI systems conducted annually?
+
+Why: NIST AI RMF + ISO 42001 best practice.
+
+AI Extractable: Reports.
+
+Human Needed: Validate depth of scenarios.
+
+Verticals: Gov, SaaS copilots, Banking.
+
+Q21. Are AI incidents included in business continuity planning?
+
+Why: Ensures resilience after AI failure/misuse.
+
+Verticals: FinTech, Healthcare, Gov cloud.
+
+7.8 Vendor & Third-Party AI Risk
+
+Q22. Are external AI services (OpenAI, Anthropic, HuggingFace models) evaluated for compliance?
+
+Why: Prevents uncontrolled third-party risk.
+
+AI Extractable: Vendor assessments, contracts.
+
+Human Needed: Confirm coverage of shadow vendors.
+
+Q23. Are open-source AI models scanned for malicious code or embedded backdoors?
+
+Why: Supply chain risk.
+
+AI Extractable: Repo scans, dependency lists.
+
+Human Needed: Verify with runtime testing.
+
+Q24. Are contracts with vendors updated to cover AI misuse liability?
+
+Why: ISO 42001 Cl. 5.3.
+
+AI Extractable: Legal contracts.
+
+Human Needed: Legal counsel review.
+
+7.9 Performance, Reliability & Lifecycle
+
+Q25. Are SLAs for AI systems documented (uptime, response quality, latency)?
+
+Why: Trust & reliability.
+
+AI Extractable: SLA docs, cloud dashboards.
+
+Human Needed: Confirm monitoring coverage.
+
+Q26. Are there documented triggers for retraining or replacing models?
+
+Why: Avoids stale/biased systems.
+
+AI Extractable: MLOps runbooks.
+
+Human Needed: Validate actual practice.
+
+Q27. Is testing performed for model robustness under adversarial stress conditions?
+
+Why: Pre-deployment resilience.
+
+Verticals: Healthcare, Gov AI.
+
+7.10 Compliance & Continuous Improvement
+
+Q28. Are AI deployments regularly reviewed for compliance with ISO 42001, EU AI Act, and local laws?
+
+Why: Legal/regulatory risk.
+
+AI Extractable: Compliance checklists.
+
+Human Needed: Validate completeness.
+
+Q29. Is AI governance integrated into the org’s ISO 27001 ISMS or enterprise risk management?
+
+Why: Prevents siloed governance.
+
+AI Extractable: Policy cross-references.
+
+Human Needed: Verify integration is not “paper only.”
+
+Q30. Is there a documented continuous improvement process for AI governance?
+
+Why: Core ISO requirement (Plan-Do-Check-Act).
+
+AI Extractable: PDCA cycle docs, audit reports.
+
+Human Needed: Confirm execution beyond documentation.
+
+# Part 7B: ISO/IEC 42001:2023 – Compliance Mapping Table
+
+> Goal: help your KG link each AI-control topic to adjacent standards, attack classes, and evidence so your agents can fetch the right proof and draft auditor-grade findings (ISO 19011 style).
+
+| # | ISO/IEC 42001 Topic | NIST AI RMF (Core) | EU AI Act (themes) | OWASP ML/LLM Risk | CVE / Class (examples) | Typical Evidence AI Can Preload | Human Auditor Focus |
+|---|---|---|---|---|---|---|---|
+| 1 | Governance & Roles | Govern (GV) | Provider/Deployer duties | LLM01: Prompt Injection (via poor gov) | Supply-chain CVEs in model deps | AI policy, RACI, steering committee ToR | Independence, authority, resourcing |
+| 2 | AI System Inventory | Govern/Map | Registration/technical doc | ML08: Model Inventory Gaps | Shadow AI (class) | Model registry, system catalog, data lineage | Completeness vs shadow/experimental |
+| 3 | Scope & Intended Use | Map | Intended purpose, risk class | ML06: Misuse | Inappropriate deployment (class) | Business case, risk memo, purpose statement | Purpose drift, scope creep |
+| 4 | Risk Management Method | Measure/Manage | Risk mgmt system | ML03: Data Poisoning | Library vulns in pipelines | Risk method, risk register, DPIA link | Proportionality & controls selection |
+| 5 | Threat Modeling (AI) | Measure | High-risk obligations | ML01: Adv. Evasion, ML02: Poison | Adversarial examples class | STRIDE/ATT&CK for ML doc, attack trees | Realism of scenarios, update cadence |
+| 6 | Data Sourcing & Provenance | Map/Measure | Data governance | ML05: Data Leakage | Dataset licensing/copyright class | Datasets catalog, licenses, consent basis | Legality, ethics, consent scope |
+| 7 | Privacy-by-Design | Manage | DPIA, special data | LLM06: Sensitive Data Exposure | TLS/OpenSSL vulns class | DPIA, PIA, minimization matrix | Tradeoffs & residual risk |
+| 8 | Model Robustness | Measure/Manage | Post-market monitoring | ML01, ML02 | Dependency CVEs (e.g., TF/PyTorch) | Red-team reports, robustness tests | Adequacy vs risk category |
+| 9 | Explainability & Transparency | Map/Measure | Transparency to users | LLM05: Overreliance | N/A | XAI reports (SHAP/LIME), UX explainers | Comprehensibility for lay users |
+| 10 | Human-in-the-Loop | Manage | Human oversight | LLM08: Excessive Agency | N/A | SOPs, escalation flows, override logs | Where/when humans intervene |
+| 11 | Safety Monitoring & Drift | Measure | Post-market monitoring | ML04: Model Drift | N/A | Drift dashboards, thresholds | Threshold governance & actions |
+| 12 | Secure Model Ops (MLOps) | Manage | Security controls | LLM03: Supply Chain | Spring4Shell/log4j classes | SBOMs, CI/CD hardening, sigstore | Patch SLAs, rollback tests |
+| 13 | API Security (AI endpoints) | Manage | Technical robustness | API Top 10 link, LLM02 | Broken Auth/IDOR classes | API GW configs, rate limits, scopes | Shadow APIs, authz coverage |
+| 14 | Content Safety & Abuse | Measure/Manage | Risk mitigation | LLM04: Prompt Leaks | N/A | Safety filters, jailbreak tests | Harm policy fit, false positives |
+| 15 | Responsible Use Notices | Map | User info & labelling | LLM07: Inadequate Policies | N/A | Disclaimers, user guidance | Clarity, accessibility |
+| 16 | Vendor/Model Sourcing | Govern/Manage | Third-party duties | LLM03: Supply Chain | Typosquatted pkgs, model backdoors | Vendor assessments, DPAs, eval results | Contractual risk, liability |
+| 17 | Dataset Retention & Deletion | Manage | Data lifecycle | ML05: Data Leakage | Cloud misconfig classes | Retention schedule, deletion attest | Actual deletion verification |
+| 18 | Incident Mgmt (AI-specific) | Manage | Serious incident reporting | LLM10: Insufficient Logging | N/A | AI incident taxonomy, SIEM use-cases | Lessons learned & POA&M |
+| 19 | Performance & SLA | Measure | Monitoring obligations | LLM09: Resource Abuse | N/A | SLA, SLO dashboards | Resilience vs usage spikes |
+| 20 | Continuous Improvement (PDCA) | Manage | QMS-style loop | — | — | Audit schedule, mgmt reviews | Action tracking effectiveness |
+
+> Reporting tip (ISO 19011): structure findings as **Objective Evidence → Criteria → Conclusion (Conform/Obs. Opportunity/NC) → Risk → Recommendation** with cross-refs to 42001/NIST AI RMF/EU AI Act.
+
+---
+
+# Part 8: SOC 2 (Trust Services Criteria) ↔ NIST CSF Integration
+
+> Purpose: give your system a unified question bank that aligns **SOC 2 (Security, Availability, Confidentiality, Processing Integrity, Privacy)** with **NIST CSF** (Identify, Protect, Detect, Respond, Recover), and cross-links to ISO 27001, HIPAA, PCI, GDPR, Essential 8, and 42001 where relevant.
+
+## 8.1 Security (Common Criteria – CC Series)
+
+1. **Governance & Risk** — *Have you defined security objectives, risk appetite, and roles in line with SOC 2 CC1 & CC3?*  
+   - **Map:** SOC2 CC1/CC3 ↔ NIST ID.GV/ID.RM ↔ ISO 27001 5–6  
+   - **AI preload:** Governance policy, risk charter. **Human:** Validate execution vs “paper”.
+
+2. **Change Management** — *Is there a formal change process with approvals, rollback, and segregation of duties?*  
+   - **Map:** SOC2 CC8 ↔ NIST PR.IP-3 ↔ ISO A.12.1/A.14.2  
+   - **Verticals:** Finance, Health. **API/CVE:** stop “hotfix” libs (supply-chain).
+
+3. **Access Control** — *Is least privilege enforced and reviewed periodically?*  
+   - **Map:** CC6.1/6.2 ↔ NIST PR.AC-4 ↔ ISO A.9 ↔ HIPAA 164.312 ↔ PCI Req 7  
+   - **AI:** IAM policy, quarterly access review logs. **Human:** Sample testing.
+
+4. **MFA & Strong Auth** — *Is MFA used for admin & remote access?*  
+   - **Map:** CC6.1 ↔ NIST IA-2 ↔ Essential 8 MFA ↔ PCI Req 8  
+   - **API:** OAuth scopes, token rotation.
+
+5. **Vendor/SaaS Risk** — *Are third parties assessed, with SOC 2/ISO attestations and DPAs/BAAs?*  
+   - **Map:** CC9 ↔ NIST ID.SC ↔ ISO A.15 ↔ GDPR Art.28 ↔ HIPAA BAAs  
+   - **AI:** vendor inventory, assurance letters. **Human:** adequacy of scope.
+
+6. **Secure SDLC** — *Do you integrate SAST/DAST/SCA and IaC checks with policy gates?*  
+   - **Map:** CC8 ↔ NIST PR.IP-12 ↔ ISO A.14 ↔ PCI Req 6  
+   - **API/CVE:** OWASP API Top 10, SBOM+CVEs.
+
+7. **Endpoint & Server Hardening** — *Baselines, CIS, patch SLAs.*  
+   - **Map:** CC6 ↔ NIST PR.IP-1/12 ↔ ISO A.12.6 ↔ Essential 8 patching  
+   - **AI:** build scripts. **Human:** sample hosts.
+
+8. **Network Segmentation** — *CDE/PHI/PII isolation, E/W controls.*  
+   - **Map:** CC6 ↔ NIST PR.AC/SC ↔ PCI Req 1 ↔ HIPAA tech safeguards  
+   - **API:** WAF for API gateways, rate limits.
+
+9. **Encryption** — *Strong crypto in transit/at rest with key mgmt.*  
+   - **Map:** CC6 ↔ NIST PR.DS-1/2 ↔ ISO A.10 ↔ PCI Req 3–4 ↔ HIPAA 164.312  
+   - **AI:** KMS configs, cipher suites. **Human:** key rotation evidence.
+
+10. **Security Awareness** — *Annual training + phishing tests.*  
+    - **Map:** CC2 ↔ NIST PR.AT ↔ ISO A.7.2 ↔ Essential 8  
+    - **Verticals:** All.
+
+## 8.2 Availability (A Series)
+
+11. **SLA/SLO & Capacity** — *Documented SLOs, capacity mgmt, auto-scaling tests.*  
+    - **Map:** A1.2 ↔ NIST PR.PT/RC.RP ↔ ISO A.17  
+    - **AI:** SLO dashboards. **Human:** business alignment.
+
+12. **Backup & Restore** — *Frequency, isolation, restore testing.*  
+    - **Map:** A1.3 ↔ NIST PR.IP-4/RC.IM ↔ ISO A.12.3 ↔ Essential 8 backups  
+    - **Verticals:** Ransomware resilience; finance/health.
+
+13. **BCP/DR** — *Documented, tested scenarios incl. cloud/AZ loss.*  
+    - **Map:** A1.3 ↔ NIST RC.RP ↔ ISO A.17  
+    - **AI:** DR runbooks. **Human:** test adequacy.
+
+## 8.3 Confidentiality (C Series)
+
+14. **Data Classification & Handling** — *PII/PHI/PCI scoping and controls.*  
+    - **Map:** C1.1 ↔ NIST ID.AM/PR.DS ↔ ISO A.8/A.9 ↔ GDPR Art.32  
+    - **AI:** data maps, tags. **Human:** shadow data checks.
+
+15. **Data Sharing & DPAs** — *Need-to-know + contractual controls.*  
+    - **Map:** C1.2 ↔ NIST ID.SC ↔ ISO A.15 ↔ GDPR 28/HIPAA BAA  
+    - **Verticals:** SaaS integrations.
+
+## 8.4 Processing Integrity (PI Series)
+
+16. **SDLC Testing & Change Evidence** — *Unit/integration/e2e with approvals.*  
+    - **Map:** PI1.1 ↔ NIST PR.IP ↔ ISO A.14 ↔ PCI Req 6  
+    - **AI:** test reports. **Human:** coverage/traceability.
+
+17. **Job Scheduling & Data Pipelines** — *Reconciliation, retries, integrity checks.*  
+    - **Map:** PI1.2 ↔ NIST PR.DS ↔ ISO A.12  
+    - **Verticals:** FinServ, manufacturing MES.
+
+18. **Input/Output Validation (APIs)** — *Schema validation, idempotency, anti-tamper.*  
+    - **Map:** PI1.3 ↔ NIST PR.AC/DS ↔ OWASP API A1–A10  
+    - **AI:** OpenAPI specs, gateway policies. **Human:** pen-test results.
+
+## 8.5 Privacy (P Series)
+
+19. **Notice & Choice** — *Transparent privacy notices, consent flows.*  
+    - **Map:** P1.1 ↔ NIST PR.DS/GDPR Arts 12–7 ↔ ISO 27701  
+    - **Verticals:** Universities, retail, health portals.
+
+20. **Data Subject Rights** — *Access/erasure/rectification workflows; SLAs.*  
+    - **Map:** P4 ↔ NIST PR.DS/GDPR 15–22 ↔ HIPAA patient rights  
+    - **AI:** DSAR SOPs, ticket logs. **Human:** completeness, timeliness.
+
+21. **PII Minimization & Retention** — *Justification, schedule, deletion attest.*  
+    - **Map:** P2 ↔ GDPR Art.5 ↔ ISO 27701/27001  
+    - **API:** ensure ETL/AI training sets follow policy.
+
+## 8.6 Detect / Respond / Recover (SOC 2 cross-cut)
+
+22. **Logging & Monitoring** — *Centralized, tamper-resistant, use-cases.*  
+    - **Map:** SOC2 CC7 ↔ NIST DE.AE/AU ↔ ISO A.12.4 ↔ PCI Req 10  
+    - **AI:** SIEM rule packs. **Human:** efficacy & tuning.
+
+23. **Threat Detection for APIs** — *Anomaly models, rate limits, bot mgmt.*  
+    - **Map:** CC7 ↔ NIST DE.CM ↔ OWASP API #4/#10  
+    - **Verticals:** Payments, Gov cloud, Health APIs.
+
+24. **IR Plan w/ Ransomware & Supply-Chain** — *Tabletops, comms, legal.*  
+    - **Map:** CC7 ↔ NIST RS.RP ↔ ISO A.16 ↔ PCI 12.10  
+    - **AI:** IRP docs. **Human:** scenario realism.
+
+25. **Post-Incident Reviews & POA&M** — *Root cause, corrective actions.*  
+    - **Map:** CC7 ↔ NIST RS.IM/RC.IM ↔ ISO 19011 continual improvement  
+    - **AI:** CAPA tracker. **Human:** effectiveness.
+
+---
+
+## How to use this section in your KG
+
+- **Node types:** Control → Question → Evidence Artefact → Framework Clause → Vertical → Risk/Threat → CVE/Attack Class  
+- **Edges:** *maps_to*, *satisfies*, *evidenced_by*, *impacts*, *mitigates*, *overlaps_with*  
+- **Preloading heuristics:**  
+  - For each **question**, fetch: policy title, doc section, last approval date, owner, and 1–3 objective evidence pointers (log path, config name, ticket ID).  
+  - Generate **auditor prompts** with permutations (“Show me proof that…”, “Provide last 3 months of…”, “Link to risk register item…”).  
+  - Always include a **Human-Required** flag when: judgement, legality, proportionality, ethics, or scope validation is involved.
+
+---
+
+## Reporting Guidance (ISO 19011-aligned)
+
+- **Finding ID**: e.g., SOC2-SEC-AC-001  
+- **Criteria**: cite control refs (e.g., SOC2 CC6.1; NIST PR.AC-4; ISO A.9.2.3)  
+- **Condition (Evidence)**: “No Q2 2025 admin access review in JIRA; last review Q4 2024.”  
+- **Cause**: process gap in quarterly scheduling  
+- **Consequence (Risk)**: privilege creep → data exfiltration (PCI/GDPR impact)  
+- **Conclusion**: Minor NC / Opportunity for Improvement  
+- **Recommendation**: “Automate quarterly attestations; enforce SoD; sample 5 high-risk apps.”  
+- **Owner/Date/Priority** & **Follow-up**: link to POA&M/CAPA
+
+# Part 8 (continued): SOC 2 ↔ NIST CSF — Additional Auditor Questions
+
+> Building on items 1–25 above, here are ten more SOC 2 questions (26–35) with mappings, AI-vs-Human split, verticals, and API/CVE considerations.
+
+26. **Data Loss Prevention (DLP) Coverage** — *Do you enforce DLP on email, endpoints, cloud storage, and API egress paths for PII/PHI/PCI data?*  
+   - **Map:** SOC2 CC6/CC7 ↔ NIST PR.DS/DE.CM ↔ ISO A.13/A.8 ↔ GDPR Art.32  
+   - **AI preload:** DLP policy, rule packs, quarantine logs. **Human:** Tuning, false positive impact.  
+   - **API/CVE:** Egress from shadow APIs (OWASP API #9 Improper Assets Mgmt).  
+   - **Verticals:** Financial, Healthcare, Universities (research data).
+
+27. **Secrets Management** — *Are secrets (API keys, tokens, certs) centralized (e.g., HSM/KMS/Secrets Manager) with rotation & access logs?*  
+   - **Map:** CC6 ↔ NIST PR.AC/PR.DS ↔ ISO A.10/A.9 ↔ PCI Req 3/8  
+   - **AI:** Vault config screenshots/logs. **Human:** Rotation SLAs and SoD.  
+   - **CVE:** Hard-coded creds in code repos, supply-chain leaks.
+
+28. **Container / Orchestration Security** — *Are you scanning images, enforcing signed images, and using PSP/OPA policies (or equivalents) in Kubernetes?*  
+   - **Map:** CC6/CC8 ↔ NIST PR.IP-12/SC ↔ ISO A.12/A.14  
+   - **AI:** CI/CD logs, admission controller policies. **Human:** Runtime risk acceptance.  
+   - **API/CVE:** Registry poisoning; CVE classes in container runtimes.
+
+29. **Configuration Baselines & Drift** — *Are cloud and system baselines (CIS/benchmarks) enforced with drift alerts and approved exceptions?*  
+   - **Map:** CC6 ↔ NIST PR.IP-1/DE.CM ↔ ISO A.12.1/A.18.1  
+   - **AI:** IaC policies, drift dashboards. **Human:** Exceptions governance.  
+   - **Verticals:** Gov Cloud, FinTech SaaS.
+
+30. **Vulnerability Mgmt Cadence** — *Do you risk-rank vulns (CVSS + exploit intel) and remediate within SLA by asset criticality?*  
+   - **Map:** CC7 ↔ NIST DE.CM/SI-2 ↔ ISO A.12.6 ↔ Essential 8 patching  
+   - **AI:** Scanner reports, SLA tables. **Human:** Sampling of overdue criticals.  
+   - **API/CVE:** Prioritize API gateway/library CVEs.
+
+31. **Penetration Testing & API Specific Tests** — *Annual full-scope tests including authN/Z, IDOR, rate limits, and SSRF for APIs?*  
+   - **Map:** CC7 ↔ NIST PR.IP-12/DE.CM ↔ ISO A.18/A.14 ↔ PCI Req 11  
+   - **AI:** Test plans, findings, remediation tickets. **Human:** Scope adequacy & retests.
+
+32. **Zero Trust Principles** — *Is access evaluated continuously using device posture, user risk, and least privilege across apps/APIs?*  
+   - **Map:** CC6/CC7 ↔ NIST PR.AC/DE.CM ↔ ISO A.9/A.13  
+   - **AI:** ZTNA configs, conditional access policies. **Human:** Efficacy vs UX impact.
+
+33. **Key Management & Crypto Lifecycle** — *Are keys generated, rotated, stored, and retired per policy (incl. BYOK/HYOK where required)?*  
+   - **Map:** CC6 ↔ NIST PR.DS-1/2 ↔ ISO A.10 ↔ PCI Req 3  
+   - **AI:** KMS/HSM logs, key rotation evidence. **Human:** Separation of duties.
+
+34. **Privacy Engineering (SOC 2 Privacy)** — *Are data minimization, purpose limitation, and de-identification documented and verified?*  
+   - **Map:** Privacy criteria (P series) ↔ NIST PR.DS ↔ ISO 27701/27001 ↔ GDPR Art.5  
+   - **AI:** Retention schedules, de-id SOPs. **Human:** Line-of-business interviews.
+
+35. **Third-Party Continuous Monitoring** — *Do you continuously monitor critical vendors (attack surface, SLA, security alerts), not just annual reviews?*  
+   - **Map:** CC9 ↔ NIST ID.SC/DE.CM ↔ ISO A.15 ↔ FedRAMP SA-9/CA-7  
+   - **AI:** TPCRM dashboards, scorecards. **Human:** Contractual remedies and exit plans.
+
+
+---
+
+# Part 7C: ISO/IEC 42001 Control-by-Control Mapping (Expanded)
+
+> This expands selected topics from “Part 7B: Mapping Table” into **control-level** references and concrete evidence types your KG can preload. Use these as graph nodes/edges.
+
+## 1) AI Governance & Roles
+- **ISO/IEC 42001:** Clauses 5.1 (Leadership), 5.3 (Roles), 7.5 (Documented Info)  
+- **NIST AI RMF:** Govern (GV) — GV.1 (Policies), GV.2 (Roles), GV.3 (Accountability)  
+- **EU AI Act (themes):** Provider/Deployer obligations; quality mgmt system; technical documentation  
+- **OWASP ML/LLM:** LLM07 (Inadequate Policies & Disclosure)  
+- **Typical Evidence:** AI policy charter; AI steering committee ToR; org chart; decision rights matrix; mgmt review minutes  
+- **Auditor Focus:** Independence, expertise coverage (legal/ethics/security), resourcing, escalation paths
+
+## 2) AI System Inventory & Registration
+- **ISO/IEC 42001:** 4.3 (Scope), 8.1 (Operational planning/control), 9.1 (Monitoring)  
+- **NIST AI RMF:** Govern/Map — inventory of AI use cases, context scoping  
+- **EU AI Act:** Registration/technical docs for high-risk systems  
+- **OWASP ML:** ML08 (Model Inventory and Governance Gaps)  
+- **Evidence:** Model registry, use-case catalog, data lineage diagrams, owners/DPoC  
+- **Auditor Focus:** Coverage of shadow AI; environment (dev/test/prod) separation
+
+## 3) AI Risk Assessment & Threat Modeling
+- **ISO/IEC 42001:** 6.1 (Actions to address risks/opportunities), 8.2 (Risk treatment), Annex guidance  
+- **NIST AI RMF:** Measure/Manage — risk ID, likelihood/impact, uncertainty  
+- **EU AI Act:** Risk mgmt system; post-market monitoring plan  
+- **OWASP ML/LLM:** ML01 (Adversarial Evasion), ML02 (Data Poisoning), LLM01 (Prompt Injection)  
+- **Evidence:** STRIDE/PASTA-for-ML docs, attack trees, red-team reports  
+- **Auditor Focus:** Scenario realism (prompt injection, data exfiltration, jailbreaks), update cadence, linkage to controls
+
+## 4) Data Governance, Provenance, and Licensing
+- **ISO/IEC 42001:** 8.3 (Data mgmt for AI), links to ISO/IEC 27552/27701  
+- **NIST AI RMF:** Map/Measure — data quality, representativeness, provenance  
+- **EU AI Act:** Data governance for high-risk AI (quality/accuracy)  
+- **OWASP ML:** ML05 (Sensitive Data Leakage), ML06 (Data Provenance)  
+- **Evidence:** Dataset catalog with sources/licences, consent records, DPAs/DPoAs  
+- **Auditor Focus:** Legality, fairness, sensitive category handling, cross-border transfers
+
+## 5) Secure MLOps & Supply Chain
+- **ISO/IEC 42001:** 8.4 (Operational controls), 8.5 (Change mgmt), 9.2 (Internal audit), 10.2 (Corrective action)  
+- **NIST AI RMF:** Manage — SDLC, CI/CD, SBOM, dependency risk  
+- **EU AI Act:** Technical robustness and security; post-market monitoring  
+- **OWASP LLM/ML:** LLM03/ML03 (Supply Chain), LLM10 (Insufficient Logging)  
+- **Evidence:** SBOMs (models + libs), signed artifacts (sigstore), pipeline policies, rollback plans  
+- **Auditor Focus:** Patch SLAs for CVEs; promotion gates; environment segregation
+
+## 6) API Security for AI Endpoints
+- **ISO/IEC 42001:** 8.4/8.6 (Ops & security controls), alignment with ISO 27001 A.13/A.9  
+- **NIST AI RMF:** Manage — API authN/Z, token scopes, telemetry  
+- **EU AI Act:** Technical robustness; logging for high-risk systems  
+- **OWASP API & LLM:** API1 (BOLA), API2 (Broken Auth), LLM02 (Data Leakage)  
+- **Evidence:** API Gateway policies (rate limits, scopes), OAuth/OIDC configs, WAF rules, anomaly detections  
+- **Auditor Focus:** Shadow APIs; token rotation; least-privilege claims
+
+## 7) Explainability, Transparency, and User Guidance
+- **ISO/IEC 42001:** 7.4/8.7 (Transparency, user info), 9.1 (Feedback)  
+- **NIST AI RMF:** Map/Measure — interpretability, context  
+- **EU AI Act:** Transparency obligations & user information  
+- **OWASP LLM:** LLM05 (Over-reliance)  
+- **Evidence:** XAI reports (SHAP/LIME), user docs, UI disclosures/labels, human-override instructions  
+- **Auditor Focus:** Comprehension by non-experts; fairness trade-offs disclosure
+
+## 8) Human Oversight & Escalation
+- **ISO/IEC 42001:** 5.2 (Policy), 8.4 (Operational controls), 8.8 (Human oversight)  
+- **NIST AI RMF:** Manage — human-in-the-loop checkpoints  
+- **EU AI Act:** Human oversight requirements for high-risk AI  
+- **OWASP LLM:** LLM08 (Excessive Agency Without Oversight)  
+- **Evidence:** SOPs for review/override; escalation playbooks; decision audit trails  
+- **Auditor Focus:** When humans intervene; competence/training of reviewers
+
+## 9) Monitoring, Drift & Incident Management
+- **ISO/IEC 42001:** 9.1 (Monitoring), 10.1 (Improvement), 10.2 (Corrective action)  
+- **NIST AI RMF:** Measure/Manage — performance drift, safety metrics  
+- **EU AI Act:** Post-market monitoring; serious incident reporting  
+- **OWASP ML/LLM:** ML04 (Model Drift), LLM10 (Logging/Monitoring gaps)  
+- **Evidence:** Drift dashboards, alert thresholds, incident taxonomy, SIEM rules  
+- **Auditor Focus:** Response actions; feedback into retraining/controls
+
+## 10) Privacy-by-Design & Special Data
+- **ISO/IEC 42001:** 6.1/8.3; ties to ISO 27701 & GDPR  
+- **NIST AI RMF:** Map/Manage — privacy risks, minimization  
+- **EU AI Act:** Data governance for high-risk; DPIA where needed  
+- **OWASP LLM:** LLM06 (Sensitive Data Exposure)  
+- **Evidence:** DPIA/PIA, minimization matrices, retention/deletion proof, anonymization tests  
+- **Auditor Focus:** Re-identification risk; proportionality; cross-jurisdiction constraints
+
+
+---
+
+## Quick How-To for Your Knowledge Graph
+
+- **Nodes:** *Control*, *Framework Clause*, *Risk/Threat*, *Evidence Artifact*, *Vertical*, *Process Owner*  
+- **Edges:** `maps_to`, `satisfies`, `mitigates`, `evidenced_by`, `impacts`, `overlaps_with`, `owned_by`  
+- **Preload Patterns:**  
+  1. From each *Question* → fetch **Policy + Procedure + Record** (triad).  
+  2. Index evidence with **owner, date, system, environment**.  
+  3. Generate permutations for auditor follow-ups: “Show last 3 months…”, “Sample 10 high-risk assets…”, “Link to POA&M item…”.
+
+---
+
+## Reporting Snippets (Paste-Ready; ISO 19011 style)
+
+- **Criteria:** “SOC2 CC6.1; NIST PR.AC-4; ISO/IEC 27001 A.9.2.3”  
+- **Condition:** “No Q2 admin access attestation for ERP; last completed Q4 prior year.”  
+- **Cause:** “Process owner turnover; calendar not reassigned.”  
+- **Consequence:** “Privilege creep → fraud risk (PCI/GDPR spillover).”  
+- **Conclusion:** *Minor Nonconformity.*  
+- **Recommendation:** “Automate quarterly access attestations; add SoD check; report exceptions to steering committee.”
+
