@@ -57,9 +57,9 @@ except ImportError as e:
 logger = logging.getLogger(__name__)
 
 # Configuration from TitanAI_full.md (CORRECTED)
-NEON_CONNECTION = "postgresql://neondb_owner:npg_ThutiZv19xRV@ep-crimson-cake-a7qb20jn-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require"
+NEON_CONNECTION = "postgresql://user:password@your-database-host.com:5432/database"
 UPSTASH_URL = "https://informed-snapper-72020-us1.upstash.io"
-UPSTASH_TOKEN = "ABoFMGluZm9ybWVkLXNuYXBwZXItNzIwMjAtdXMxYWRtaW5ZakF6TldGalpqY3ROV0ZoTUMwME1XUXpMVGt6TW1VdE56YzNaVEptWmpRek5UUmw="
+UPSTASH_TOKEN = "your-upstash-token-here"
 OLLAMA_BASE_URL = "http://localhost:11434"
 
 # Initialize FastAPI app
