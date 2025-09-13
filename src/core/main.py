@@ -2687,6 +2687,11 @@ async def api_intelligence_control(control_id: str, framework: str | None = None
         try:
             dbi = CompleteDatabaseIntegration()
             res = await dbi.get_integrated_intelligence(control_id, framework or "ISO27001")  # type: ignore
+            # Convert object to dict if needed for JSON serialization
+            if hasattr(res, '__dict__'):
+                res = res.__dict__
+            elif hasattr(res, '_asdict'):
+                res = res._asdict()
             return {"source": "dump_complete_db", "data": res}
         except Exception:
             pass
@@ -2889,7 +2894,12 @@ async def api_framework_analysis(body: dict):
         mapper = EnterpriseFrameworkMapper()  # type: ignore
         # Some dump modules rely on Enums; attempt raw strings path
         res = mapper.analyze_framework_compatibility(primary, targets)  # type: ignore
-        out = {"source": "dump_mapper", "result": res}
+        # Convert object to dict if needed
+        if hasattr(res, '__dict__'):
+            res = res.__dict__
+        elif hasattr(res, '_asdict'):
+            res = res._asdict()
+        out = {"source": "dump_mapper", **res if isinstance(res, dict) else {"result": res}}
         # Persist
         try:
             if _use_pg_backend():
@@ -3001,7 +3011,14 @@ async def api_strategic_analysis(body: dict):
     try:
         reasoner = ProperApolloReasoner()  # type: ignore
         ins = reasoner.analyze_strategic_question(question, organization, assessment_data, evidence_summary)  # type: ignore
-        out = {"source": "apollo_reasoner", "insight": ins.__dict__}
+        # Convert object to dict if needed
+        if hasattr(ins, '__dict__'):
+            ins_dict = ins.__dict__
+        elif hasattr(ins, '_asdict'):
+            ins_dict = ins._asdict()
+        else:
+            ins_dict = ins
+        out = {"source": "apollo_reasoner", "insight": ins_dict}
         try:
             if _use_pg_backend():
                 from storage import postgres as _pg  # type: ignore
