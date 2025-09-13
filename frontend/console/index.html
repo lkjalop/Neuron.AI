@@ -15,7 +15,9 @@
         <button id="mode-wiki" class="mode-btn">Wiki</button>
       </div>
       <div class="spacer"></div>
-      <button id="open-palette" class="ghost">⌘K</button>
+  <div id="api-key-indicator" title="API key status"><span class="dot"></span></div>
+  <button id="open-palette" class="ghost">⌘K</button>
+  <button id="set-api-key" class="ghost">Set API Key</button>
       <div class="scope">
         <label>Tenant</label>
         <select id="tenant">
@@ -27,7 +29,7 @@
           <option>Last 7d</option>
         </select>
       </div>
-      <div class="status" id="status">Models OK • Ingest OK</div>
+      <div class="status" id="status" title="Click for deployment status">Models OK • Ingest OK</div>
     </header>
 
     <div class="columns">
@@ -194,6 +196,7 @@
             </select>
           </label>
           <button id="refresh-graphs" class="ghost small">Refresh</button>
+          <span id="graphs-conn" class="hint" style="margin-left:auto; opacity:0.85">Conn: —</span>
         </div>
         <div id="graphs-error" class="hint hidden" style="color:#f66">Graphs unavailable (proxy error or unconfigured).</div>
         <iframe id="grafana-iframe" src="about:blank" style="width:100%;height:520px;border:0;background:#111"></iframe>
@@ -206,6 +209,16 @@
   <div id="palette" class="palette hidden">
     <input id="palette-input" placeholder="Type a command… (e.g., Open Editable Report)" />
     <ul id="palette-list"></ul>
+  </div>
+
+  <!-- Status Popover -->
+  <div id="status-popover" class="popover hidden">
+    <div class="popover-header">Deployment Status</div>
+    <div class="popover-body">
+      <div id="health-summary" class="hint">Checking readiness…</div>
+      <div class="sep" style="margin:8px 0"></div>
+      <div id="proxy-ready" class="hint">Proxies: —</div>
+    </div>
   </div>
 
   <script src="./script.js"></script>

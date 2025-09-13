@@ -104,6 +104,7 @@ function bindTabs() {
         try {
           const iframe = qs('#grafana-iframe');
           const banner = qs('#graphs-error');
+          const conn = qs('#graphs-conn');
           const panelId = '1'; // default panel; can be made dynamic
           const tenantSel = qs('#tenant-select');
           const timeSel = qs('#time-select');
@@ -114,17 +115,20 @@ function bindTabs() {
           const fr = (timeSel?.value)||'now-6h'; const to = 'now';
           const url = `/proxy/grafana/iframe?panelId=${encodeURIComponent(panelId)}&vars=${encodeURIComponent(vars)}&fr=${encodeURIComponent(fr)}&to=${encodeURIComponent(to)}`;
           // Fetch the resolved URL from backend (keeps tokens server-side)
-          fetch(url, { headers: apiHeaders?.() || {} })
+          const hdrs = (typeof apiHeaders === 'function') ? apiHeaders() : {};
+          fetch(url, { headers: hdrs })
             .then(r => r.ok ? r.json() : Promise.reject(r.status))
             .then(j => {
               if (j && j.url) {
                 iframe.src = j.url;
                 if (banner) banner.classList.add('hidden');
+                if (conn) conn.textContent = 'Conn: OK';
               }
             })
             .catch(() => {
               iframe.src = 'about:blank';
               if (banner){ banner.classList.remove('hidden'); banner.textContent = 'Graphs unavailable (proxy error or unconfigured).'; }
+              if (conn) conn.textContent = 'Conn: ERR';
             });
         } catch { /* noop */ }
       }
@@ -182,6 +186,29 @@ function init() {
   bindTabs();
   bindComposer();
   setMode('main');
+  // API key helper
+  const setKey = qs('#set-api-key');
+  const apiKeyIndicator = qs('#api-key-indicator');
+  const updateKeyIndicator = () => {
+    const has = !!(localStorage.getItem('X_API_KEY')||'').trim();
+    if (apiKeyIndicator) apiKeyIndicator.classList.toggle('set', has);
+  };
+  updateKeyIndicator();
+  setKey?.addEventListener('click', () => {
+    const curr = localStorage.getItem('X_API_KEY') || '';
+    const v = prompt('Enter API Key (predict/admin):', curr || '');
+    if (v !== null) {
+      const trimmed = v.trim();
+      if (trimmed) {
+        localStorage.setItem('X_API_KEY', trimmed);
+        alert('API key saved to local storage.');
+      } else {
+        localStorage.removeItem('X_API_KEY');
+        alert('API key cleared from local storage.');
+      }
+      updateKeyIndicator();
+    }
+  });
   // Bind Graphs controls
   const tSel = qs('#tenant-select'); const tiSel = qs('#time-select'); const btn = qs('#refresh-graphs');
   const refresh = () => {
@@ -214,3 +241,57 @@ function init() {
 }
 
 init();
+
+// Health/readiness summary and status popover
+(function(){
+  const statusEl = qs('#status');
+  const pop = qs('#status-popover');
+  const healthEl = qs('#health-summary');
+  const proxyEl = qs('#proxy-ready');
+  const hdrs = (typeof apiHeaders === 'function') ? apiHeaders() : {};
+
+  // Toggle popover
+  statusEl?.addEventListener('click', () => {
+    pop?.classList.toggle('hidden');
+  });
+  // Hide on outside click
+  document.addEventListener('click', (e) => {
+    if (!pop || pop.classList.contains('hidden')) return;
+    if (e.target === pop || e.target === statusEl || pop.contains(e.target)) return;
+    pop.classList.add('hidden');
+  });
+
+  // Fetch readiness
+  fetch('/health/ready', { headers: hdrs })
+    .then(async (r) => {
+      if (r.ok) {
+        const j = await r.json().catch(() => null);
+        const mode = j && j.mode ? j.mode : 'strict';
+        statusEl && (statusEl.textContent = mode === 'partial' ? 'Ready: Degraded' : 'Ready: OK');
+        healthEl && (healthEl.textContent = mode === 'partial' ? 'Readiness: degraded (ALLOW_PARTIAL_READINESS=1)' : 'Readiness: OK');
+      } else if (r.status === 503) {
+        statusEl && (statusEl.textContent = 'Ready: Not Ready');
+        healthEl && (healthEl.textContent = 'Readiness: not ready (503)');
+      } else {
+        statusEl && (statusEl.textContent = 'Ready: Unknown');
+        healthEl && (healthEl.textContent = 'Readiness: unknown');
+      }
+    })
+    .catch(() => {
+      statusEl && (statusEl.textContent = 'Ready: Unreachable');
+      healthEl && (healthEl.textContent = 'Readiness: unreachable');
+    })
+    .finally(() => {
+      // Fetch proxy readiness (predict/admin key may be required if configured)
+      fetch('/proxy/ready', { headers: hdrs })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(j => {
+          const prom = j && j.prometheus_configured ? 'Prometheus: configured' : 'Prometheus: not set';
+          const graf = j && j.grafana_configured ? 'Grafana: configured' : 'Grafana: not set';
+          proxyEl && (proxyEl.textContent = `${prom} • ${graf}`);
+        })
+        .catch(() => {
+          proxyEl && (proxyEl.textContent = 'Proxies: unreachable or unauthorized');
+        });
+    });
+})();
