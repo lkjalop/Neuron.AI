@@ -1,0 +1,160 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-01-15T10:30:00Z",
+    "tools": [
+      {
+        "vendor": "Acme Security Corp",
+        "name": "Enterprise SBOM Generator",
+        "version": "2.3.1"
+      }
+    ],
+    "component": {
+      "bom-ref": "enterprise-web-app-1.0.0",
+      "type": "application",
+      "name": "Enterprise Web Application",
+      "version": "1.0.0",
+      "description": "Critical business application processing customer financial data"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:npm/express@4.17.1",
+      "type": "library",
+      "name": "express",
+      "version": "4.17.1",
+      "purl": "pkg:npm/express@4.17.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Fast, unopinionated, minimalist web framework for node",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "http://expressjs.com/"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/lodash@4.17.15",
+      "type": "library",
+      "name": "lodash",
+      "version": "4.17.15",
+      "purl": "pkg:npm/lodash@4.17.15",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Lodash modular utilities"
+    },
+    {
+      "bom-ref": "pkg:npm/jsonwebtoken@8.5.1",
+      "type": "library",
+      "name": "jsonwebtoken",
+      "version": "8.5.1",
+      "purl": "pkg:npm/jsonwebtoken@8.5.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "JSON Web Token implementation"
+    },
+    {
+      "bom-ref": "pkg:pypi/django@3.1.7",
+      "type": "library",
+      "name": "django",
+      "version": "3.1.7",
+      "purl": "pkg:pypi/django@3.1.7",
+      "scope": "required",
+      "licenses": [{"license": {"id": "BSD-3-Clause"}}],
+      "description": "High-level Python Web framework"
+    },
+    {
+      "bom-ref": "pkg:pypi/pillow@8.1.0",
+      "type": "library",
+      "name": "pillow",
+      "version": "8.1.0",
+      "purl": "pkg:pypi/pillow@8.1.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "PIL License"}}],
+      "description": "Python Imaging Library"
+    },
+    {
+      "bom-ref": "pkg:pypi/requests@2.25.1",
+      "type": "library",
+      "name": "requests",
+      "version": "2.25.1",
+      "purl": "pkg:pypi/requests@2.25.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Apache-2.0"}}],
+      "description": "HTTP library for Python"
+    },
+    {
+      "bom-ref": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.0",
+      "type": "library",
+      "name": "log4j-core",
+      "version": "2.14.0",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Apache-2.0"}}],
+      "description": "Apache Log4j Implementation"
+    },
+    {
+      "bom-ref": "pkg:maven/org.springframework/spring-core@5.2.13.RELEASE",
+      "type": "library",
+      "name": "spring-core",
+      "version": "5.2.13.RELEASE",
+      "purl": "pkg:maven/org.springframework/spring-core@5.2.13.RELEASE",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Apache-2.0"}}],
+      "description": "Spring Core"
+    },
+    {
+      "bom-ref": "pkg:npm/axios@0.21.0",
+      "type": "library",
+      "name": "axios",
+      "version": "0.21.0",
+      "purl": "pkg:npm/axios@0.21.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Promise based HTTP client"
+    },
+    {
+      "bom-ref": "pkg:pypi/cryptography@3.3.1",
+      "type": "library",
+      "name": "cryptography",
+      "version": "3.3.1",
+      "purl": "pkg:pypi/cryptography@3.3.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Apache-2.0"}}],
+      "description": "Cryptographic recipes and primitives"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "CVE-2021-44228-log4j",
+      "id": "CVE-2021-44228",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-44228"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "NVD",
+            "url": "https://nvd.nist.gov/"
+          },
+          "score": 10.0,
+          "severity": "critical",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H"
+        }
+      ],
+      "cwes": [502, 917],
+      "description": "Apache Log4j2 <=2.14.1 JNDI features do not protect against attacker controlled LDAP and other JNDI related endpoints.",
+      "affects": [
+        {
+          "ref": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.0"
+        }
+      ]
+    }
+  ]
+}

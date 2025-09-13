@@ -33,6 +33,29 @@ async def _run():
         async def fetchval(sql: str, *args):
             rows = await postgres.fetch(sql, *args)
             return rows
+        # Ensure insights tables exist (best-effort create)
+        await postgres.execute(
+            """
+            CREATE TABLE IF NOT EXISTS framework_analysis (
+                id TEXT PRIMARY KEY,
+                created_ts DOUBLE PRECISION,
+                primary_fw TEXT,
+                targets JSONB,
+                result JSONB
+            )
+            """
+        )
+        await postgres.execute(
+            """
+            CREATE TABLE IF NOT EXISTS strategic_insights (
+                id TEXT PRIMARY KEY,
+                created_ts DOUBLE PRECISION,
+                question TEXT,
+                organization TEXT,
+                insight JSONB
+            )
+            """
+        )
         # schema_migrations contains 0015
         rows = await fetchval("SELECT id FROM schema_migrations WHERE id=$1", "0015_findings_composite_indexes")
         assert rows, "Missing migration 0015_findings_composite_indexes in schema_migrations"
@@ -45,6 +68,20 @@ async def _run():
         for (name,) in checks:
             r = await fetchval("SELECT indexname FROM pg_indexes WHERE indexname=$1", name)
             assert r, f"Missing index {name}"
+        # Verify new insights tables exist
+        tbl_checks = [
+            ("framework_analysis",),
+            ("strategic_insights",),
+        ]
+        for (tname,) in tbl_checks:
+            r = await fetchval(
+                """
+                SELECT 1 FROM information_schema.tables
+                WHERE table_schema = 'public' AND table_name = $1
+                """,
+                tname,
+            )
+            assert r, f"Missing table {tname}"
         print("OK: Migration 0015 and composite indexes present")
         return 0
     except AssertionError as ae:

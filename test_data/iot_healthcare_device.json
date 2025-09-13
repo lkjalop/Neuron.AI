@@ -1,0 +1,125 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:d4e5f6g7-h8i9-0123-defg-456789012345",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-01-30T16:20:45Z",
+    "tools": [
+      {
+        "vendor": "MedTech Security Solutions",
+        "name": "IoT Device Analyzer",
+        "version": "2.7.3"
+      }
+    ],
+    "component": {
+      "bom-ref": "iot-patient-monitor-v3.4.2",
+      "type": "firmware",
+      "name": "Smart Patient Monitoring System",
+      "version": "3.4.2",
+      "description": "FDA-approved IoT device monitoring vital signs for ICU patients"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:generic/openssl@1.0.2ze",
+      "type": "library",
+      "name": "openssl",
+      "version": "1.0.2ze",
+      "purl": "pkg:generic/openssl@1.0.2ze",
+      "scope": "required",
+      "licenses": [{"license": {"id": "OpenSSL"}}],
+      "description": "Cryptography and SSL/TLS Toolkit"
+    },
+    {
+      "bom-ref": "pkg:generic/busybox@1.31.1",
+      "type": "library",
+      "name": "busybox",
+      "version": "1.31.1",
+      "purl": "pkg:generic/busybox@1.31.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "GPL-2.0"}}],
+      "description": "The Swiss Army Knife of Embedded Linux"
+    },
+    {
+      "bom-ref": "pkg:pypi/twisted@20.3.0",
+      "type": "library",
+      "name": "twisted",
+      "version": "20.3.0",
+      "purl": "pkg:pypi/twisted@20.3.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "An asynchronous networking framework written in Python"
+    },
+    {
+      "bom-ref": "pkg:c/zlib@1.2.11",
+      "type": "library",
+      "name": "zlib",
+      "version": "1.2.11",
+      "purl": "pkg:c/zlib@1.2.11",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Zlib"}}],
+      "description": "A massively spiffy yet delicately unobtrusive compression library"
+    },
+    {
+      "bom-ref": "pkg:generic/curl@7.68.0",
+      "type": "library",
+      "name": "curl",
+      "version": "7.68.0",
+      "purl": "pkg:generic/curl@7.68.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Command line tool and library for transferring data with URLs"
+    },
+    {
+      "bom-ref": "pkg:pypi/paho-mqtt@1.5.0",
+      "type": "library",
+      "name": "paho-mqtt",
+      "version": "1.5.0",
+      "purl": "pkg:pypi/paho-mqtt@1.5.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "EPL-1.0"}}],
+      "description": "MQTT version 3.1.1 client class"
+    },
+    {
+      "bom-ref": "pkg:generic/sqlite@3.31.1",
+      "type": "library",
+      "name": "sqlite",
+      "version": "3.31.1",
+      "purl": "pkg:generic/sqlite@3.31.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Public Domain"}}],
+      "description": "SQLite is a C-language library that implements a small, fast SQL database engine"
+    },
+    {
+      "bom-ref": "pkg:pypi/pyserial@3.4",
+      "type": "library",
+      "name": "pyserial",
+      "version": "3.4",
+      "purl": "pkg:pypi/pyserial@3.4",
+      "scope": "required",
+      "licenses": [{"license": {"id": "BSD-3-Clause"}}],
+      "description": "Python Serial Port Extension"
+    },
+    {
+      "bom-ref": "pkg:generic/mbedtls@2.16.5",
+      "type": "library",
+      "name": "mbedtls",
+      "version": "2.16.5",
+      "purl": "pkg:generic/mbedtls@2.16.5",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Apache-2.0"}}],
+      "description": "An open source, portable, easy to use TLS library"
+    },
+    {
+      "bom-ref": "pkg:generic/linux-kernel@4.19.118",
+      "type": "operating-system",
+      "name": "linux-kernel",
+      "version": "4.19.118",
+      "purl": "pkg:generic/linux-kernel@4.19.118",
+      "scope": "required",
+      "licenses": [{"license": {"id": "GPL-2.0"}}],
+      "description": "Linux kernel for embedded systems"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:c3d4e5f6-g7h8-9012-cdef-345678901234",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-01-25T09:45:15Z",
+    "tools": [
+      {
+        "vendor": "CloudNative Security",
+        "name": "Kubernetes SBOM Scanner",
+        "version": "3.1.4"
+      }
+    ],
+    "component": {
+      "bom-ref": "microservices-platform-v1.2.0",
+      "type": "application",
+      "name": "Microservices E-commerce Platform",
+      "version": "1.2.0",
+      "description": "Cloud-native e-commerce platform serving 50M+ users"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:docker/redis@6.0.8",
+      "type": "container",
+      "name": "redis",
+      "version": "6.0.8",
+      "purl": "pkg:docker/redis@6.0.8",
+      "scope": "required",
+      "description": "Redis in-memory data structure store"
+    },
+    {
+      "bom-ref": "pkg:docker/nginx@1.18.0",
+      "type": "container",
+      "name": "nginx",
+      "version": "1.18.0",
+      "purl": "pkg:docker/nginx@1.18.0",
+      "scope": "required",
+      "description": "HTTP and reverse proxy server"
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gin-gonic/gin@v1.7.2",
+      "type": "library",
+      "name": "gin",
+      "version": "1.7.2",
+      "purl": "pkg:golang/github.com/gin-gonic/gin@v1.7.2",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Gin is a HTTP web framework written in Go"
+    },
+    {
+      "bom-ref": "pkg:npm/socket.io@2.3.0",
+      "type": "library",
+      "name": "socket.io",
+      "version": "2.3.0",
+      "purl": "pkg:npm/socket.io@2.3.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Realtime application framework"
+    },
+    {
+      "bom-ref": "pkg:pypi/kubernetes@18.20.0",
+      "type": "library",
+      "name": "kubernetes",
+      "version": "18.20.0",
+      "purl": "pkg:pypi/kubernetes@18.20.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Apache-2.0"}}],
+      "description": "Official Python client library for kubernetes"
+    },
+    {
+      "bom-ref": "pkg:npm/ws@7.4.2",
+      "type": "library",
+      "name": "ws",
+      "version": "7.4.2",
+      "purl": "pkg:npm/ws@7.4.2",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Simple to use, blazing fast and thoroughly tested WebSocket client and server"
+    },
+    {
+      "bom-ref": "pkg:maven/org.elasticsearch/elasticsearch@7.8.0",
+      "type": "library",
+      "name": "elasticsearch",
+      "version": "7.8.0",
+      "purl": "pkg:maven/org.elasticsearch/elasticsearch@7.8.0",
+      "scope": "required",
+      "licenses": [{"license": {"id": "Elastic License"}}],
+      "description": "Elasticsearch - Open Source, Distributed, RESTful Search Engine"
+    },
+    {
+      "bom-ref": "pkg:pypi/fastapi@0.65.1",
+      "type": "library",
+      "name": "fastapi",
+      "version": "0.65.1",
+      "purl": "pkg:pypi/fastapi@0.65.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "FastAPI framework, high performance, easy to learn"
+    },
+    {
+      "bom-ref": "pkg:npm/react@17.0.1",
+      "type": "library",
+      "name": "react",
+      "version": "17.0.1",
+      "purl": "pkg:npm/react@17.0.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "React is a JavaScript library for building user interfaces"
+    },
+    {
+      "bom-ref": "pkg:golang/github.com/gorilla/websocket@v1.4.2",
+      "type": "library",
+      "name": "websocket",
+      "version": "1.4.2",
+      "purl": "pkg:golang/github.com/gorilla/websocket@v1.4.2",
+      "scope": "required",
+      "licenses": [{"license": {"id": "BSD-2-Clause"}}],
+      "description": "A fast, well-tested and widely used WebSocket implementation for Go"
+    },
+    {
+      "bom-ref": "pkg:pypi/uvicorn@0.13.4",
+      "type": "library",
+      "name": "uvicorn",
+      "version": "0.13.4",
+      "purl": "pkg:pypi/uvicorn@0.13.4",
+      "scope": "required",
+      "licenses": [{"license": {"id": "BSD-3-Clause"}}],
+      "description": "The lightning-fast ASGI server"
+    },
+    {
+      "bom-ref": "pkg:npm/helmet@4.4.1",
+      "type": "library",
+      "name": "helmet",
+      "version": "4.4.1",
+      "purl": "pkg:npm/helmet@4.4.1",
+      "scope": "required",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "description": "Help secure Express apps with various HTTP headers"
+    }
+  ]
+}
