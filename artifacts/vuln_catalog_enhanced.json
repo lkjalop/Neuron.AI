@@ -1,0 +1,227 @@
+[
+  {
+    "package": "log4j-core",
+    "affected": "<=2.14.1",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "log4j-core",
+    "affected": "<=2.14.0",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "log4j-core",
+    "affected": "<=2.13.3",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "log4j-core",
+    "affected": "<=2.13.2",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "log4j-core",
+    "affected": "<=2.13.1",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "log4j-core",
+    "affected": "<=2.13.0",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "log4j-core",
+    "affected": "<=2.12.2",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "log4j-core",
+    "affected": "<=2.12.1",
+    "cve": "CVE-2021-44228",
+    "severity": "CRITICAL",
+    "cvss_base": 10.0,
+    "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+    "remediation": "Upgrade to log4j-core 2.17.0 or later"
+  },
+  {
+    "package": "spring-core",
+    "affected": "<=5.3.9",
+    "cve": "CVE-2022-22965",
+    "severity": "CRITICAL",
+    "cvss_base": 9.8,
+    "description": "Spring Framework RCE via Data Binding (Spring4Shell)",
+    "remediation": "Upgrade to Spring Framework 5.3.18 or later"
+  },
+  {
+    "package": "spring-core",
+    "affected": "<=5.3.8",
+    "cve": "CVE-2022-22965",
+    "severity": "CRITICAL",
+    "cvss_base": 9.8,
+    "description": "Spring Framework RCE via Data Binding (Spring4Shell)",
+    "remediation": "Upgrade to Spring Framework 5.3.18 or later"
+  },
+  {
+    "package": "spring-core",
+    "affected": "<=5.3.7",
+    "cve": "CVE-2022-22965",
+    "severity": "CRITICAL",
+    "cvss_base": 9.8,
+    "description": "Spring Framework RCE via Data Binding (Spring4Shell)",
+    "remediation": "Upgrade to Spring Framework 5.3.18 or later"
+  },
+  {
+    "package": "spring-core",
+    "affected": "<=5.3.6",
+    "cve": "CVE-2022-22965",
+    "severity": "CRITICAL",
+    "cvss_base": 9.8,
+    "description": "Spring Framework RCE via Data Binding (Spring4Shell)",
+    "remediation": "Upgrade to Spring Framework 5.3.18 or later"
+  },
+  {
+    "package": "spring-core",
+    "affected": "<=5.3.5",
+    "cve": "CVE-2022-22965",
+    "severity": "CRITICAL",
+    "cvss_base": 9.8,
+    "description": "Spring Framework RCE via Data Binding (Spring4Shell)",
+    "remediation": "Upgrade to Spring Framework 5.3.18 or later"
+  },
+  {
+    "package": "jackson-databind",
+    "affected": "<=2.9.8",
+    "cve": "CVE-2019-12384",
+    "severity": "HIGH",
+    "cvss_base": 7.5,
+    "description": "Jackson Databind deserialization vulnerability",
+    "remediation": "Upgrade to jackson-databind 2.9.9 or later"
+  },
+  {
+    "package": "jackson-databind",
+    "affected": "<=2.9.7",
+    "cve": "CVE-2019-12384",
+    "severity": "HIGH",
+    "cvss_base": 7.5,
+    "description": "Jackson Databind deserialization vulnerability",
+    "remediation": "Upgrade to jackson-databind 2.9.9 or later"
+  },
+  {
+    "package": "jackson-databind",
+    "affected": "<=2.9.6",
+    "cve": "CVE-2019-12384",
+    "severity": "HIGH",
+    "cvss_base": 7.5,
+    "description": "Jackson Databind deserialization vulnerability",
+    "remediation": "Upgrade to jackson-databind 2.9.9 or later"
+  },
+  {
+    "package": "jackson-databind",
+    "affected": "<=2.9.5",
+    "cve": "CVE-2019-12384",
+    "severity": "HIGH",
+    "cvss_base": 7.5,
+    "description": "Jackson Databind deserialization vulnerability",
+    "remediation": "Upgrade to jackson-databind 2.9.9 or later"
+  },
+  {
+    "package": "openssl",
+    "affected": "<=1.1.1k",
+    "cve": "CVE-2021-3711",
+    "severity": "HIGH",
+    "cvss_base": 9.8,
+    "description": "OpenSSL buffer overflow vulnerability",
+    "remediation": "Upgrade to OpenSSL 1.1.1l or later"
+  },
+  {
+    "package": "openssl",
+    "affected": "<=1.1.1j",
+    "cve": "CVE-2021-3711",
+    "severity": "HIGH",
+    "cvss_base": 9.8,
+    "description": "OpenSSL buffer overflow vulnerability",
+    "remediation": "Upgrade to OpenSSL 1.1.1l or later"
+  },
+  {
+    "package": "openssl",
+    "affected": "<=1.1.1i",
+    "cve": "CVE-2021-3711",
+    "severity": "HIGH",
+    "cvss_base": 9.8,
+    "description": "OpenSSL buffer overflow vulnerability",
+    "remediation": "Upgrade to OpenSSL 1.1.1l or later"
+  },
+  {
+    "package": "openssl",
+    "affected": "<=1.1.1h",
+    "cve": "CVE-2021-3711",
+    "severity": "HIGH",
+    "cvss_base": 9.8,
+    "description": "OpenSSL buffer overflow vulnerability",
+    "remediation": "Upgrade to OpenSSL 1.1.1l or later"
+  },
+  {
+    "package": "nginx",
+    "affected": "<=1.18.0",
+    "cve": "CVE-2021-23017",
+    "severity": "MEDIUM",
+    "cvss_base": 6.5,
+    "description": "Nginx DNS resolver off-by-one heap write",
+    "remediation": "Upgrade to nginx 1.20.1 or later"
+  },
+  {
+    "package": "nginx",
+    "affected": "<=1.17.10",
+    "cve": "CVE-2021-23017",
+    "severity": "MEDIUM",
+    "cvss_base": 6.5,
+    "description": "Nginx DNS resolver off-by-one heap write",
+    "remediation": "Upgrade to nginx 1.20.1 or later"
+  },
+  {
+    "package": "nginx",
+    "affected": "<=1.17.9",
+    "cve": "CVE-2021-23017",
+    "severity": "MEDIUM",
+    "cvss_base": 6.5,
+    "description": "Nginx DNS resolver off-by-one heap write",
+    "remediation": "Upgrade to nginx 1.20.1 or later"
+  },
+  {
+    "package": "nginx",
+    "affected": "<=1.17.8",
+    "cve": "CVE-2021-23017",
+    "severity": "MEDIUM",
+    "cvss_base": 6.5,
+    "description": "Nginx DNS resolver off-by-one heap write",
+    "remediation": "Upgrade to nginx 1.20.1 or later"
+  }
+]

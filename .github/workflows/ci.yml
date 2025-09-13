@@ -22,6 +22,10 @@ jobs:
           pip install ruff bandit pip-audit cyclonedx-bom detect-secrets
       - name: Lint & Security
         run: make security
+      - name: Helm Lint
+        run: |
+          curl -sSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+          helm lint deploy/helm/neuron || (echo "Helm lint failed" && exit 1)
       - name: Tests
         run: make test
       - name: Performance check

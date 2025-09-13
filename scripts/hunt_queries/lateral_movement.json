@@ -1,0 +1,31 @@
+{
+  "queries": [
+    {
+      "name": "SMB Lateral Movement",
+      "description": "Detect SMB connections across multiple hosts",
+      "category": "lateral_movement",
+      "query": "event_type:lateral_movement AND protocol:SMB",
+      "timeframe": "last_24h",
+      "severity": "high",
+      "mitre_tactic": "TA0008"
+    },
+    {
+      "name": "RDP Brute Force",
+      "description": "Multiple RDP login attempts from single source",
+      "category": "lateral_movement",
+      "query": "event_type:authentication AND protocol:RDP AND result:failure AND count>10",
+      "timeframe": "last_6h",
+      "severity": "medium",
+      "mitre_tactic": "TA0008"
+    },
+    {
+      "name": "Unusual Internal Scanning",
+      "description": "Port scanning behavior on internal networks",
+      "category": "reconnaissance",
+      "query": "event_type:port_scan AND src_ip:192.168.* AND port_count>50",
+      "timeframe": "last_12h",
+      "severity": "medium",
+      "mitre_tactic": "TA0007"
+    }
+  ]
+}

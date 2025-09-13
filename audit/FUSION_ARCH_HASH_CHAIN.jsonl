@@ -326,3 +326,5 @@
 {"ts": 1757709187.033253, "param": "fusion.weight.snn", "hash": "5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5"}
 {"ts": 1757709187.8783567, "param": "fusion.weight.iforest", "hash": "5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5"}
 {"ts": 1757709187.9664564, "param": "fusion.weight.iforest", "hash": "5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5"}
+{"ts": 1757728214.3072035, "param": "fusion.weight.baseline", "hash": "5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5"}
+{"ts": 1757728214.3072035, "param": "fusion.weight.snn", "hash": "5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5"}

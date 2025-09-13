@@ -1,0 +1,93 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:secure-app-20250913",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-09-13T19:29:52.299582Z",
+    "tools": [
+      {
+        "vendor": "Neuron-AI",
+        "name": "vulnerability-scanner",
+        "version": "1.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "secure-web-app",
+      "version": "2.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "log4j-core-2.17.0",
+      "name": "log4j-core",
+      "version": "2.17.0",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.17.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "spring-core-5.3.18",
+      "name": "spring-core",
+      "version": "5.3.18",
+      "purl": "pkg:maven/org.springframework/spring-core@5.3.18",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "jackson-databind-2.13.2",
+      "name": "jackson-databind",
+      "version": "2.13.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.13.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "openssl-3.0.2",
+      "name": "openssl",
+      "version": "3.0.2",
+      "purl": "pkg:generic/openssl@3.0.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "nginx-1.22.0",
+      "name": "nginx",
+      "version": "1.22.0",
+      "purl": "pkg:generic/nginx@1.22.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    }
+  ]
+}

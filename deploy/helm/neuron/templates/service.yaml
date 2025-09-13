@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "neuron.fullname" . }}
+  labels:
+    app: {{ include "neuron.name" . }}
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ include "neuron.name" . }}
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: 8000

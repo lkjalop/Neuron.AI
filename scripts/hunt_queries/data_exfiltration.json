@@ -1,0 +1,31 @@
+{
+  "queries": [
+    {
+      "name": "Large Data Transfers",
+      "description": "Unusually large outbound data transfers",
+      "category": "exfiltration",
+      "query": "event_type:data_exfiltration AND bytes_out>10000000",
+      "timeframe": "last_24h",
+      "severity": "critical",
+      "mitre_tactic": "TA0010"
+    },
+    {
+      "name": "DNS Tunneling",
+      "description": "Suspicious DNS query patterns for data exfiltration",
+      "category": "exfiltration",
+      "query": "event_type:dns_query AND query_length>100 AND response_size>512",
+      "timeframe": "last_6h",
+      "severity": "high",
+      "mitre_tactic": "TA0010"
+    },
+    {
+      "name": "HTTPS Beaconing",
+      "description": "Regular HTTPS connections indicating C2 beaconing",
+      "category": "command_control",
+      "query": "event_type:c2_beacon AND protocol:HTTPS AND beacon_interval<3600",
+      "timeframe": "last_12h",
+      "severity": "critical",
+      "mitre_tactic": "TA0011"
+    }
+  ]
+}

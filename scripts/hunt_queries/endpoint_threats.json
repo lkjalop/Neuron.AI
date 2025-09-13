@@ -1,0 +1,40 @@
+{
+  "queries": [
+    {
+      "name": "Process Injection",
+      "description": "Detect process injection techniques",
+      "category": "defense_evasion",
+      "query": "event_type:process_injection AND injection_type:DLL_injection",
+      "timeframe": "last_24h",
+      "severity": "high",
+      "mitre_tactic": "TA0005"
+    },
+    {
+      "name": "Privilege Escalation",
+      "description": "Unusual privilege escalation attempts",
+      "category": "privilege_escalation",
+      "query": "event_type:privilege_escalation AND success:true",
+      "timeframe": "last_12h",
+      "severity": "critical",
+      "mitre_tactic": "TA0004"
+    },
+    {
+      "name": "Suspicious Registry Modifications",
+      "description": "Registry changes indicating persistence",
+      "category": "persistence",
+      "query": "event_type:registry_modification AND key:*\\\\CurrentVersion\\\\Run*",
+      "timeframe": "last_6h",
+      "severity": "medium",
+      "mitre_tactic": "TA0003"
+    },
+    {
+      "name": "Living off the Land",
+      "description": "Abuse of legitimate system tools",
+      "category": "defense_evasion",
+      "query": "process_name:(powershell.exe OR cmd.exe OR wmic.exe) AND command_line:*encoded*",
+      "timeframe": "last_24h",
+      "severity": "medium",
+      "mitre_tactic": "TA0005"
+    }
+  ]
+}

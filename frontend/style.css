@@ -57,3 +57,9 @@ button.small { font-size:12px; padding:4px 8px; }
 ::-webkit-scrollbar-thumb:hover { background:#27313e; }
 .fade-in { animation:fade .25s ease; }
 @keyframes fade { from { opacity:0; transform:translateY(4px);} to { opacity:1; transform:translateY(0);} }
+.badge{display:inline-block;padding:.25rem .5rem;border-radius:.4rem;background:#334155;color:#fff;font-size:.85rem}
+.banner{padding:.5rem .75rem;border-radius:.4rem;margin:.5rem 0;font-size:.9rem}
+.banner.postgres{background:#0b3d3d;color:#e0fffb}
+.banner.memory{background:#3a2d0f;color:#ffe6b3}
+.banner.mock{background:#3f1d1d;color:#ffd6d6}
+.hidden{display:none}

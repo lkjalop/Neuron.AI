@@ -116,7 +116,7 @@ function bindTabs() {
           const url = `/proxy/grafana/iframe?panelId=${encodeURIComponent(panelId)}&vars=${encodeURIComponent(vars)}&fr=${encodeURIComponent(fr)}&to=${encodeURIComponent(to)}`;
           // Fetch the resolved URL from backend (keeps tokens server-side)
           const hdrs = (typeof apiHeaders === 'function') ? apiHeaders() : {};
-          fetch(url, { headers: hdrs })
+          fetch(apiUrl(url), { headers: hdrs })
             .then(r => r.ok ? r.json() : Promise.reject(r.status))
             .then(j => {
               if (j && j.url) {
@@ -237,6 +237,70 @@ function init() {
     rollback.onclick = () => { li.firstChild.textContent = `${id}: Rolled back`; rollback.disabled=true; };
     li.appendChild(document.createTextNode(' ')); li.appendChild(approve); li.appendChild(reject); li.appendChild(rollback);
     approvals?.appendChild(li);
+  });
+  // Sidebar navigation wiring
+  const on = (id, fn) => { const el = qs(id); if (el) el.addEventListener('click', fn); };
+  on('#nav-objectives', async () => {
+    try {
+      const data = await getJSON('/dashboard/latest');
+      addCard({ title: 'Today’s Objectives', body: `Cached: ${!!data.cached} • Fusion Keys: ${Object.keys(data.fusion||{}).length}` });
+    } catch (e) {
+      addCard({ title: 'Today’s Objectives', body: 'Failed to load dashboard snapshot.' });
+    }
+  });
+  on('#nav-sla-risks', async () => {
+    try {
+      const data = await getJSON('/findings/sla/upcoming');
+      const cnt = (data?.items||[]).length;
+      addCard({ title: 'SLA Risks', body: `Upcoming SLA items: ${cnt}` });
+    } catch {
+      addCard({ title: 'SLA Risks', body: 'Failed to load SLA risks.' });
+    }
+  });
+  on('#nav-open-tickets', () => {
+    try {
+      fetch(apiUrl('/tickets'), { headers: (typeof apiHeaders==='function')?apiHeaders():{} })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(j => {
+          const items = (j?.items)||[];
+          addCard({ title: 'Open Tickets', body: `Tickets listed: ${items.length} (see /tickets)` });
+        })
+        .catch(() => addCard({ title: 'Open Tickets', body: 'Failed to load tickets.' }));
+    } catch { /* noop */ }
+  });
+  on('#nav-saved-views', () => addCard({ title: 'Saved Views', body: 'Coming soon — will list saved report layouts.' }));
+  on('#nav-playbooks', () => addCard({ title: 'Playbooks', body: 'Coming soon — guided response playbooks.' }));
+  on('#nav-exec-summary', () => openReport());
+  on('#nav-hunt', async () => {
+    try {
+      const body = { pattern: 'ransom', field: 'message', limit: 10 };
+      const res = await fetch(apiUrl('/hunt/query'), { method:'POST', headers: apiHeaders(), body: JSON.stringify(body) });
+      if (!res.ok) throw new Error(String(res.status));
+      const j = await res.json();
+      const cnt = (j?.items||j?.results||[]).length;
+      addCard({ title: 'Ransomware Hunt', body: `Pattern: ${body.pattern} • Matches: ${cnt}` });
+    } catch (e) {
+      addCard({ title: 'Ransomware Hunt', body: 'Hunt query failed.' });
+    }
+  });
+  on('#nav-forensics', async () => {
+    try {
+      // Create a quick triage job
+      const created = await fetch(apiUrl('/forensics/jobs'), { method:'POST', headers: apiHeaders(), body: JSON.stringify({ kind:'triage', note:'UI trigger' }) })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status));
+      const jobId = created?.job?.id || created?.id || 'unknown';
+      // Verify custody best-effort
+      const custody = await fetch(apiUrl(`/forensics/custody/verify?job_id=${encodeURIComponent(jobId)}`), { headers: apiHeaders() })
+        .then(r => r.ok ? r.json() : { ok:false });
+      // List recent jobs
+      const jobs = await fetch(apiUrl('/forensics/jobs/recent'), { headers: apiHeaders() })
+        .then(r => r.ok ? r.json() : { items:[] });
+      const jcnt = (jobs?.items||[]).length;
+      const cmsg = custody?.ok ? 'Custody OK' : 'Custody check failed';
+      addCard({ title: 'Forensics Triage', body: `Job ${jobId} created • Recent jobs: ${jcnt} • ${cmsg}` });
+    } catch (e) {
+      addCard({ title: 'Forensics Triage', body: 'Forensics API failed.' });
+    }
   });
 }
 

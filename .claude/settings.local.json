@@ -46,7 +46,19 @@
       "Bash(curl:*)",
       "Bash(docker-compose up:*)",
       "Bash(chcp:*)",
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "Bash(find:*)",
+      "Bash(docker-compose:*)",
+      "Bash(docker:*)",
+      "Bash(powershell:*)",
+      "Bash(timeout:*)",
+      "Bash(make:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(pkill:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []

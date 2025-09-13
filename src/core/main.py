@@ -14,6 +14,7 @@ from pathlib import Path
 from fastapi import FastAPI, Response, HTTPException, Request, Depends
 from fastapi import UploadFile, File
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.responses import FileResponse
@@ -22,6 +23,7 @@ import logging
 import uuid
 import csv
 import io
+from pathlib import Path
 
 from config.performance import TIERS, TierConfig, ACTIVE_TIER
 
@@ -1351,6 +1353,74 @@ def admin_report_generate(include_html: bool = True, include_diff: bool = True, 
     except Exception as e:  # noqa: BLE001
         raise HTTPException(500, f"report_generate_error:{e}")
 
+# --- Admin: Vulnerability Feed Import ---
+@app.post('/admin/vuln/import')
+async def admin_vuln_import(path: str | None = None, _auth=Depends(require_api_key)):
+    """Import vulnerabilities from a seed/feed file.
+
+    Params:
+      - path (optional): explicit path to JSON/CSV; if omitted, attempts default seed paths.
+    """
+    if not _use_pg_backend():
+        raise HTTPException(503, 'store_unavailable')
+    try:
+        from storage.vuln_feed_importer import import_seed, import_from_file  # type: ignore
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(500, f"importer_unavailable:{e}")
+    try:
+        if path:
+            res = await import_from_file(path)
+            out = {"imported": res[0], "kind": res[1], "path": path}
+        else:
+            out = await import_seed()
+        # Audit trail
+        try:
+            ap = Path('audit'); ap.mkdir(parents=True, exist_ok=True)
+            with (ap / 'MIGRATION_AUDIT.log').open('a', encoding='utf-8') as f:
+                f.write(json.dumps({"ts": time.time(), "action": "vuln_import", "detail": out}) + "\n")
+        except Exception:
+            pass
+        return out
+    except HTTPException:
+        raise
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(500, f"import_error:{e}")
+
+# --- Admin: On-demand Matcher Trigger ---
+@app.post('/admin/vuln/match')
+async def admin_vuln_match(max_vulns: int = 1000, _auth=Depends(require_api_key)):
+    """Trigger component->vulnerability matcher in background and return an ack.
+
+    Query/body param:
+      - max_vulns: upper bound of vulnerabilities to consider.
+    """
+    if not _use_pg_backend():
+        raise HTTPException(503, 'store_unavailable')
+    try:
+        from scanner.matcher import run_component_match  # type: ignore
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(500, f"matcher_unavailable:{e}")
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+    try:
+        task = loop.create_task(run_component_match(max_vulns=max_vulns))
+    except Exception:
+        try:
+            task = asyncio.ensure_future(run_component_match(max_vulns=max_vulns))
+        except Exception as e:  # noqa: BLE001
+            raise HTTPException(500, f"schedule_error:{e}")
+    # Audit
+    try:
+        ap = Path('audit'); ap.mkdir(parents=True, exist_ok=True)
+        with (ap / 'MIGRATION_AUDIT.log').open('a', encoding='utf-8') as f:
+            f.write(json.dumps({"ts": time.time(), "action": "vuln_match_trigger", "params": {"max_vulns": max_vulns}}) + "\n")
+    except Exception:
+        pass
+    return {"scheduled": True, "max_vulns": max_vulns}
+
 @app.post('/admin/params/update')
 def admin_params_update(request: Request, body: dict, _auth=Depends(require_api_key)):
     if not isinstance(body, dict):
@@ -2255,6 +2325,8 @@ def _use_pg_backend() -> bool:
     import os as _os
     return bool(_os.getenv("NEON_DATABASE_URL") or _os.getenv("DATABASE_URL"))
 
+_LAST_SBOM_COMPONENTS: list[dict] | None = None
+
 @app.get("/vuln/findings")
 async def vuln_findings(limit: int = 50, severity: str | None = None, state: str | None = None, tenant: str | None = None, status: str | None = None):
     """List recent findings (in-memory). Optional filters: severity, state, tenant.
@@ -2303,11 +2375,52 @@ async def vuln_findings(limit: int = 50, severity: str | None = None, state: str
             "status": getattr(f, 'status', None),
             "risk_score": getattr(f, 'risk_score', None),
             "risk_severity": sev,
+            # UI-friendly aliases
+            "package": getattr(f, 'component_name', None) or getattr(f, 'component_id', None),
+            "version": getattr(f, 'component_version', None),
+            "cve": [getattr(f, 'cve_id', None)] if getattr(f, 'cve_id', None) else [],
+            "sla_due_days": getattr(f, 'sla_due_days', None),
             "introduced_ts": getattr(getattr(f, 'introduced_ts', None), 'timestamp', lambda: None)(),
             "detected_ts": getattr(getattr(f, 'detected_ts', None), 'timestamp', lambda: None)(),
         })
         if len(items) >= limit:
             break
+    # If nothing found anywhere but we have a recent SBOM snapshot, synthesize a couple mock findings for demo/testing
+    if not items:
+        try:
+            global _LAST_SBOM_COMPONENTS
+            comps = _LAST_SBOM_COMPONENTS or []
+            mock: list[dict] = []
+            for c in comps:
+                nm = (c or {}).get('name')
+                ver = (c or {}).get('version')
+                if not nm:
+                    continue
+                # Match a couple of well-known CVEs to demonstrate UI
+                cves = []
+                if isinstance(nm, str) and 'log4j' in nm.lower():
+                    cves.append('CVE-2021-44228')
+                if isinstance(nm, str) and 'spring' in nm.lower():
+                    cves.append('CVE-2022-22965')
+                if not cves:
+                    continue
+                score = 9.8 if '22965' in ','.join(cves) else 10.0
+                mock.append({
+                    "id": f"mock-{nm}-{ver}",
+                    "package": nm,
+                    "version": ver,
+                    "cve": cves,
+                    "risk": score,
+                    "risk_score": score,
+                    "risk_severity": "CRITICAL" if score >= 9.0 else "HIGH",
+                    "sla_due_days": 7,
+                })
+                if len(mock) >= limit:
+                    break
+            if mock:
+                return {"items": mock[:limit], "count": len(mock), "source": "mock"}
+        except Exception:
+            pass
     return {"items": items, "count": len(items), "source": "memory"}
 
 @app.get("/vuln/vulnerabilities")
@@ -2621,6 +2734,24 @@ async def vuln_ingest_sbom(body: dict):
             "type": c.get("type"),
         })
     persisted = False
+    # Persist last ingested SBOM components to artifacts for demo/test fallback
+    try:
+        from pathlib import Path as _P
+        _P('artifacts').mkdir(parents=True, exist_ok=True)
+        import json as _json
+        _P('artifacts/last_ingested_sbom.json').write_text(_json.dumps({
+            "asset_name": asset_name,
+            "components": components_out,
+            "ingested_at": time.time(),
+        }, ensure_ascii=False), encoding='utf-8')
+    except Exception:
+        pass
+    # Save in-memory snapshot for mock generation if DB unavailable
+    try:
+        global _LAST_SBOM_COMPONENTS
+        _LAST_SBOM_COMPONENTS = list(components_out)
+    except Exception:
+        pass
     # Best-effort persistence using storage.vuln_store if available; tolerate missing DB
     try:
         from storage import vuln_store as _vs  # type: ignore
@@ -2664,6 +2795,25 @@ async def vuln_ingest_sbom(body: dict):
                 continue
     except Exception:
         persisted = False
+    # Best-effort: trigger vulnerability matching in background if DB is configured
+    try:
+        from scanner.matcher import run_component_match as _run_match  # type: ignore
+        if _use_pg_backend():
+            try:
+                loop = asyncio.get_event_loop()
+            except RuntimeError:
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+            try:
+                loop.create_task(_run_match(max_vulns=1000))
+            except Exception:
+                # Fallback: fire-and-forget via ensure_future if available
+                try:
+                    asyncio.ensure_future(_run_match(max_vulns=1000))
+                except Exception:
+                    pass
+    except Exception:
+        pass
     return {"count": len(components_out), "components": components_out, "persisted": bool(persisted)}
 
 @app.get("/vuln/sbom/jobs/{job_id}")
@@ -3153,6 +3303,18 @@ class TenantInjectionMiddleware(BaseHTTPMiddleware):
         return response
 
 app.add_middleware(TenantInjectionMiddleware)
+
+# Development CORS to allow console on 8080
+try:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:8080", "http://127.0.0.1:8080"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"]
+    )
+except Exception:
+    pass
 
 @app.get("/")
 def root_index():  # lightweight redirect to focus mode UI
@@ -4609,8 +4771,13 @@ async def dashboard_latest(max_age_s: int = 3600, _auth=Depends(require_predict_
     except Exception:
         raise HTTPException(503, {"error": {"code": "storage_unavailable"}})
     try:
-        rows = await _pg.fetch("SELECT ts, payload FROM dashboard_cache ORDER BY ts DESC LIMIT 1")  # type: ignore[attr-defined]
         now = time.time()
+        rows = []
+        # Try cache fetch; if DB unavailable, continue without cache
+        try:
+            rows = await _pg.fetch("SELECT ts, payload FROM dashboard_cache ORDER BY ts DESC LIMIT 1")  # type: ignore[attr-defined]
+        except Exception:
+            rows = []
         if rows:
             ts, payload_json = rows[0]
             try:
@@ -4620,12 +4787,13 @@ async def dashboard_latest(max_age_s: int = 3600, _auth=Depends(require_predict_
             stale = bool(now - ts > max(1, int(max_age_s)))
             if not stale:
                 return {"cached": True, "stale": False, **snap}
-        # compute fresh
+        # compute fresh when no cache or stale, even if DB missing
         compute = _dash_compute
         if __import__('inspect').iscoroutinefunction(compute):
             snap = await compute()  # type: ignore[misc]
         else:
             snap = compute()
+        # Best-effort insert; ignore failures when DB not configured
         try:
             await _pg.execute("INSERT INTO dashboard_cache(ts,payload) VALUES($1,$2)", now, __import__('json').dumps(snap))  # type: ignore[attr-defined]
         except Exception:

@@ -1,0 +1,79 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:nodejs-app-20250913",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-09-13T19:29:52.299582Z",
+    "tools": [
+      {
+        "vendor": "npm",
+        "name": "cyclonedx-npm",
+        "version": "1.7.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "express-api",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "express-4.17.1",
+      "name": "express",
+      "version": "4.17.1",
+      "purl": "pkg:npm/express@4.17.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "lodash-4.17.20",
+      "name": "lodash",
+      "version": "4.17.20",
+      "purl": "pkg:npm/lodash@4.17.20",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "axios-0.21.0",
+      "name": "axios",
+      "version": "0.21.0",
+      "purl": "pkg:npm/axios@0.21.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "helmet-3.23.3",
+      "name": "helmet",
+      "version": "3.23.3",
+      "purl": "pkg:npm/helmet@3.23.3",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ]
+}

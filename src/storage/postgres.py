@@ -37,6 +37,20 @@ async def execute(sql: str, *args) -> Any:
     async with pool.acquire() as conn:  # type: ignore
         return await conn.execute(sql, *args)  # type: ignore
 
+async def executemany(sql: str, rows: List[tuple]) -> Any:
+    pool = await _init_pool()
+    async with pool.acquire() as conn:  # type: ignore
+        try:
+            return await conn.executemany(sql, rows)  # type: ignore
+        except Exception:
+            # Best-effort fallback: sequential execute
+            for r in rows:
+                try:
+                    await conn.execute(sql, *r)  # type: ignore
+                except Exception:
+                    continue
+            return None
+
 
 async def health() -> bool:
     try:
@@ -47,3 +61,4 @@ async def health() -> bool:
 
 
 __all__ = ["fetch", "execute", "health"]
+__all__.append("executemany")

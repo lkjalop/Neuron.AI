@@ -1,0 +1,17 @@
+Thank you for installing Neuron!
+
+To access the service within the cluster:
+  kubectl port-forward svc/{{ include "neuron.fullname" . }} 8000:{{ .Values.service.port }}
+
+If Ingress is enabled, browse:
+  http{{ if .Values.ingress.tls.enabled }}s{{ end }}://{{ .Values.ingress.host }}/app/
+
+Health checks:
+  curl http://localhost:8000/health/live
+  curl http://localhost:8000/health/ready
+
+Metrics (requires key if configured):
+  curl -H "X-API-Key: <PREDICT_API_KEY>" http://localhost:8000/metrics
+
+Proxy readiness (predict/admin key may be required):
+  curl -H "X-API-Key: <PREDICT_API_KEY>" http://localhost:8000/proxy/ready

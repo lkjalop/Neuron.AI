@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Vulnerabilities & SBOM</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="/app/style.css" />
+  <link rel="stylesheet" href="/style.css" />
   <style>
     body { padding:12px; }
     table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
@@ -22,6 +22,7 @@
     <button id="refresh">Refresh</button>
     <span id="status" class="badge">Idle</span>
   </div>
+  <div id="sourceBanner" class="banner hidden"></div>
 
   <section style="margin-top:1rem">
     <h2>SBOM Ingest</h2>
@@ -40,7 +41,7 @@
       <tbody></tbody>
     </table>
   </section>
-
-  <script src="/app/vuln.js"></script>
+  <script src="/console/adapters.js"></script>
+  <script src="/vuln.js"></script>
 </body>
 </html>

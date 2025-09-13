@@ -1,1 +1,2 @@
 {"ts": 1757709193.0119758, "action": "drift_guard", "detail": "raise_threshold", "new_threshold": 0.56, "tenant": "tenant_trace"}
+{"ts": 1757728217.5488234, "action": "drift_guard", "detail": "disable_snn", "tenant": "t1"}

@@ -135,4 +135,15 @@ async def proxy_grafana_render(panelId: str, dashboard: str | None = None, orgId
     except Exception as e:  # noqa: BLE001
         raise HTTPException(502, f"grafana_proxy_error:{e}")
 
+@router.get("/proxy/ready")
+def proxy_ready(_auth=Depends(require_predict_api_key)):
+    """Lightweight readiness echo for observability proxies.
+
+    Returns whether upstream endpoints are configured. Does not perform network calls.
+    Protected with predict-scope to avoid unauthenticated probing of deployment config.
+    """
+    prom = bool(os.getenv("PROMETHEUS_URL"))
+    graf = bool(os.getenv("GRAFANA_BASE_URL"))
+    return {"prometheus_configured": prom, "grafana_configured": graf}
+
 __all__ = ['router']

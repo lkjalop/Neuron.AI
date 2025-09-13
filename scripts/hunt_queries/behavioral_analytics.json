@@ -1,0 +1,31 @@
+{
+  "queries": [
+    {
+      "name": "Off-hours Activity",
+      "description": "User activity during non-business hours",
+      "category": "anomalous_behavior",
+      "query": "user_login:* AND (hour<8 OR hour>18) AND day_of_week:(Saturday OR Sunday)",
+      "timeframe": "last_7d",
+      "severity": "low",
+      "mitre_tactic": "TA0001"
+    },
+    {
+      "name": "Impossible Travel",
+      "description": "User logins from geographically impossible locations",
+      "category": "anomalous_behavior",
+      "query": "event_type:user_login AND travel_speed>1000",
+      "timeframe": "last_24h",
+      "severity": "high",
+      "mitre_tactic": "TA0001"
+    },
+    {
+      "name": "Bulk File Access",
+      "description": "Unusual volume of file access",
+      "category": "collection",
+      "query": "event_type:file_access AND file_count>1000 AND timespan<3600",
+      "timeframe": "last_6h",
+      "severity": "medium",
+      "mitre_tactic": "TA0009"
+    }
+  ]
+}

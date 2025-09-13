@@ -11,6 +11,11 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--fg);fo
 .scope{display:flex;align-items:center;gap:8px}
 .status{color:var(--muted)}
 
+/* API key status indicator */
+#api-key-indicator{width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#api-key-indicator .dot{width:8px;height:8px;border-radius:50%;background:#666;border:1px solid #2a3548}
+#api-key-indicator.set .dot{background:var(--ok);border-color:#2e7d32}
+
 .columns{display:grid;grid-template-columns:260px 1fr 320px;gap:10px;padding:10px;height:calc(100vh - 52px - 70px)}
 .left,.right{background:var(--panel);border:1px solid #1f2633;border-radius:10px;display:flex;flex-direction:column;min-height:0}
 .center{background:var(--panel);border:1px solid #1f2633;border-radius:10px;display:flex;flex-direction:column;min-height:0}
@@ -19,6 +24,8 @@ html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--fg);fo
 .list{list-style:none;margin:8px 0 16px;padding:0}
 .list li{padding:6px 4px;color:var(--muted)}
 .list.small li{font-size:12px}
+.list .nav-link{cursor:pointer}
+.list .nav-link:hover{color:#d0d7e2}
 
 .thread{flex:1;overflow:auto;padding:12px}
 .card{background:#0f131b;border:1px solid #1f2633;border-radius:10px;margin:10px 0;padding:12px}
@@ -59,3 +66,9 @@ button.small{font-size:12px;padding:4px 8px}
 /* toast */
 .toast{position:fixed;bottom:90px;right:24px;background:#101520;border:1px solid #2a3548;color:var(--fg);padding:10px 12px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:1300;display:flex;gap:8px;align-items:center}
 .toast button{padding:6px 10px;border-radius:8px;border:1px solid #2a3548;background:transparent;color:var(--fg);cursor:pointer}
+
+/* popover */
+.popover{position:fixed;top:56px;right:24px;width:280px;background:#0f131b;border:1px solid #1f2633;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:1250}
+.popover.hidden{display:none}
+.popover-header{padding:8px 10px;border-bottom:1px solid #1f2633;font-weight:600}
+.popover-body{padding:10px}

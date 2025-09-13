@@ -1,0 +1,5 @@
+apiVersion: v2
+name: neuron
+version: 0.1.0
+appVersion: "0.1.0"
+description: NEURON Platform (FastAPI) Helm chart

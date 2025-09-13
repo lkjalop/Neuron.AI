@@ -1,0 +1,107 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:vulnerable-app-20250913",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-09-13T19:29:52.299582Z",
+    "tools": [
+      {
+        "vendor": "Neuron-AI",
+        "name": "vulnerability-scanner",
+        "version": "1.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "vulnerable-web-app",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "log4j-core-2.14.1",
+      "name": "log4j-core",
+      "version": "2.14.1",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "spring-core-5.3.9",
+      "name": "spring-core",
+      "version": "5.3.9",
+      "purl": "pkg:maven/org.springframework/spring-core@5.3.9",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "jackson-databind-2.9.8",
+      "name": "jackson-databind",
+      "version": "2.9.8",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "openssl-1.1.1k",
+      "name": "openssl",
+      "version": "1.1.1k",
+      "purl": "pkg:generic/openssl@1.1.1k",
+      "licenses": [
+        {
+          "license": {
+            "id": "OpenSSL"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "nginx-1.18.0",
+      "name": "nginx",
+      "version": "1.18.0",
+      "purl": "pkg:generic/nginx@1.18.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "jquery-3.4.1",
+      "name": "jquery",
+      "version": "3.4.1",
+      "purl": "pkg:npm/jquery@3.4.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ]
+}

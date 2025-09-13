@@ -40,14 +40,14 @@
         </div>
         <div class="pane-body" id="mission">
           <ul class="list">
-            <li>Today’s Objectives</li>
-            <li>SLA Risks (12)</li>
-            <li>Open Tickets (7)</li>
+            <li id="nav-objectives" class="nav-link">Today’s Objectives</li>
+            <li id="nav-sla-risks" class="nav-link">SLA Risks (12)</li>
+            <li id="nav-open-tickets" class="nav-link">Open Tickets (7)</li>
           </ul>
           <h4>Collections</h4>
-          <ul class="list"><li>Saved Views</li><li>Playbooks</li></ul>
+          <ul class="list"><li id="nav-saved-views" class="nav-link">Saved Views</li><li id="nav-playbooks" class="nav-link">Playbooks</li></ul>
           <h4>Templates</h4>
-          <ul class="list"><li>Exec Summary</li><li>Ransomware Hunt</li><li>Forensics Triage</li></ul>
+          <ul class="list"><li id="nav-exec-summary" class="nav-link">Exec Summary</li><li id="nav-hunt" class="nav-link">Ransomware Hunt</li><li id="nav-forensics" class="nav-link">Forensics Triage</li></ul>
         </div>
       </aside>
 
@@ -221,6 +221,7 @@
     </div>
   </div>
 
+  <script src="./adapters.js"></script>
   <script src="./script.js"></script>
   <script src="./report.js"></script>
 </body>

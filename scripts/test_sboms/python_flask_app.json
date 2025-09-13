@@ -1,0 +1,79 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:python-app-20250913",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-09-13T19:29:52.299582Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "cyclonedx-python",
+        "version": "2.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "flask-api",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "flask-1.1.4",
+      "name": "flask",
+      "version": "1.1.4",
+      "purl": "pkg:pypi/flask@1.1.4",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "requests-2.25.1",
+      "name": "requests",
+      "version": "2.25.1",
+      "purl": "pkg:pypi/requests@2.25.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pillow-8.1.0",
+      "name": "pillow",
+      "version": "8.1.0",
+      "purl": "pkg:pypi/pillow@8.1.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "HPND"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pyyaml-5.4.1",
+      "name": "pyyaml",
+      "version": "5.4.1",
+      "purl": "pkg:pypi/pyyaml@5.4.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "neuron.fullname" . }}
+  labels:
+    app: {{ include "neuron.name" . }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: {{ include "neuron.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "neuron.name" . }}
+    spec:
+      containers:
+        - name: app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8000
+          env:
+            {{- range $k, $v in .Values.env }}
+            - name: {{ $k }}
+              value: "{{ $v }}"
+            {{- end }}
+          livenessProbe:
+            httpGet: { path: /health/live, port: 8000 }
+            initialDelaySeconds: 10
+          readinessProbe:
+            httpGet: { path: /health/ready, port: 8000 }
+            initialDelaySeconds: 10
