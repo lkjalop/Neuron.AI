@@ -17627,3 +17627,1285 @@ HashPlaceholders: (covered by next manifest regeneration if required)
 - 2025-09-10T05:28:32.319349Z PARAM_CHANGE key=story.max_content_bytes old=20000 new=100 reason=test_max actor=test
 - 2025-09-10T05:55:37.013693Z PARAM_CHANGE key=governance.policy.eval.enabled old=True new=True reason=test actor=test
 - 2025-09-10T05:55:37.029317Z PARAM_CHANGE key=governance.policy.eval.sign old=True new=False reason=test actor=test
+- 2025-09-12T12:00:52.602467Z PARAM_CHANGE key=alerts.enabled old=True new=True reason=test actor=test
+- 2025-09-12T12:00:52.606201Z PARAM_CHANGE key=alerts.webhook.enabled old=False new=True reason=test actor=test
+- 2025-09-12T12:00:52.607201Z PARAM_CHANGE key=alerts.webhook.url old= new=http://127.0.0.1:9/does-not-exist reason=test actor=test
+- 2025-09-12T12:01:00.233987Z PARAM_CHANGE key=alerts.enabled old=True new=True reason=test actor=test
+- 2025-09-12T12:01:00.233987Z PARAM_CHANGE key=alerts.webhook.enabled old=True new=True reason=test actor=test
+- 2025-09-12T12:01:00.233987Z PARAM_CHANGE key=alerts.webhook.url old=http://127.0.0.1:9/does-not-exist new=http://127.0.0.1:9/does-not-exist reason=test actor=test
+- 2025-09-12T12:01:15.899568Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=attack_sim actor=system
+- 2025-09-12T12:01:15.899568Z PARAM_CHANGE key=detection.fusion.strategy old=pass_through new=pass_through reason=attack_sim actor=system
+- 2025-09-12T12:01:15.899568Z PARAM_CHANGE key=baseline.stddev_threshold old=2.0 new=2.0 reason=attack_sim actor=system
+- 2025-09-12T12:01:15.946784Z PARAM_CHANGE key=baseline.window_size old=50 new=55 reason=test_audit_chain_verifier actor=system
+- 2025-09-12T12:01:15.946784Z PARAM_CHANGE key=baseline.stddev_threshold old=2.0 new=2.5 reason=test_audit_chain_verifier actor=system
+- 2025-09-12T12:01:16.515123Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.55 reason=test_audit actor=system
+- 2025-09-12T12:01:16.515123Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:16.515123Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.45 reason=test_audit actor=system
+- 2025-09-12T12:01:16.515123Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:16.582974Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test0 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test1 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test2 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test3 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test4 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test5 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test6 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test7 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test8 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test9 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test10 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test11 actor=system
+- 2025-09-12T12:01:16.598614Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test12 actor=system
+- 2025-09-12T12:01:16.614238Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test13 actor=system
+- 2025-09-12T12:01:16.614238Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test14 actor=system
+- 2025-09-12T12:01:16.618079Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test15 actor=system
+- 2025-09-12T12:01:16.619077Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test16 actor=system
+- 2025-09-12T12:01:16.620078Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test17 actor=system
+- 2025-09-12T12:01:16.621119Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test18 actor=system
+- 2025-09-12T12:01:16.621119Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test19 actor=system
+- 2025-09-12T12:01:16.621119Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test20 actor=system
+- 2025-09-12T12:01:16.625382Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test21 actor=system
+- 2025-09-12T12:01:16.626705Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test22 actor=system
+- 2025-09-12T12:01:16.627705Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test23 actor=system
+- 2025-09-12T12:01:16.629704Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test24 actor=system
+- 2025-09-12T12:01:16.630704Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test25 actor=system
+- 2025-09-12T12:01:16.632220Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test26 actor=system
+- 2025-09-12T12:01:16.633708Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test27 actor=system
+- 2025-09-12T12:01:16.634705Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test28 actor=system
+- 2025-09-12T12:01:16.635705Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test29 actor=system
+- 2025-09-12T12:01:16.636705Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test30 actor=system
+- 2025-09-12T12:01:16.637739Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test31 actor=system
+- 2025-09-12T12:01:16.637739Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test32 actor=system
+- 2025-09-12T12:01:16.637739Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test33 actor=system
+- 2025-09-12T12:01:16.642741Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test34 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test35 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test36 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test37 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test38 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test39 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test40 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test41 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test42 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test43 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test44 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test45 actor=system
+- 2025-09-12T12:01:16.644192Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test46 actor=system
+- 2025-09-12T12:01:16.660070Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test47 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test48 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test49 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test50 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test51 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test52 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test53 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test54 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test55 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test56 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test57 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test58 actor=system
+- 2025-09-12T12:01:16.660460Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test59 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test60 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test61 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test62 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test63 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test64 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test65 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test66 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test67 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test68 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test69 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test70 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test71 actor=system
+- 2025-09-12T12:01:16.676088Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test72 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test73 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test74 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test75 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test76 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test77 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test78 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test79 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test80 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test81 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test82 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test83 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test84 actor=system
+- 2025-09-12T12:01:16.691714Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test85 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test86 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test87 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test88 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test89 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test90 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test91 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test92 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test93 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test94 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test95 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test96 actor=system
+- 2025-09-12T12:01:16.707337Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test97 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test98 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test99 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test100 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test101 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test102 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test103 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test104 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test105 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test106 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test107 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test108 actor=system
+- 2025-09-12T12:01:16.722961Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test109 actor=system
+- 2025-09-12T12:01:16.738587Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test110 actor=system
+- 2025-09-12T12:01:16.738587Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test111 actor=system
+- 2025-09-12T12:01:16.742047Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test112 actor=system
+- 2025-09-12T12:01:16.744044Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test113 actor=system
+- 2025-09-12T12:01:16.745042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test114 actor=system
+- 2025-09-12T12:01:16.746043Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test115 actor=system
+- 2025-09-12T12:01:16.747140Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test116 actor=system
+- 2025-09-12T12:01:16.747140Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test117 actor=system
+- 2025-09-12T12:01:16.747140Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test118 actor=system
+- 2025-09-12T12:01:16.747140Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test119 actor=system
+- 2025-09-12T12:01:16.747140Z PARAM_CHANGE key=detection.fusion.strategy old=pass_through new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:16.747140Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.3 reason=test_setup actor=test
+- 2025-09-12T12:01:16.762768Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_setup actor=test
+- 2025-09-12T12:01:18.183801Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:18.183801Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.3 new=0.9 reason=test_setup actor=test
+- 2025-09-12T12:01:18.183801Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_setup actor=test
+- 2025-09-12T12:01:19.572250Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_setup actor=test
+- 2025-09-12T12:01:19.572250Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:19.572250Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.9 new=0.4 reason=test_setup actor=test
+- 2025-09-12T12:01:19.572250Z PARAM_CHANGE key=detection.enable_snn old=True new=False reason=drift_guard actor=governance
+- 2025-09-12T12:01:25.434315Z PARAM_CHANGE key=baseline.window_size old=55 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.435313Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.0', 'v': 0}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.436311Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.437312Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.1', 'v': 1}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.438344Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.440907Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.2', 'v': 2}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.442472Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.444475Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.3', 'v': 3}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.445472Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.447470Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.4', 'v': 4}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.448585Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.448585Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.5', 'v': 5}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.451478Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.452485Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.6', 'v': 6}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.453473Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.454473Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.7', 'v': 7}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.455504Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.457840Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.8', 'v': 8}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.460026Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.461025Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.9', 'v': 9}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.462022Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.464024Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.10', 'v': 10}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.11', 'v': 11}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.12', 'v': 12}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.13', 'v': 13}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.465292Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.14', 'v': 14}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.474642Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.15', 'v': 15}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.16', 'v': 16}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.17', 'v': 17}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.18', 'v': 18}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.19', 'v': 19}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.20', 'v': 20}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.476214Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.21', 'v': 21}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.22', 'v': 22}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.23', 'v': 23}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.24', 'v': 24}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.25', 'v': 25}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.26', 'v': 26}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.491849Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.27', 'v': 27}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.28', 'v': 28}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.29', 'v': 29}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.30', 'v': 30}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.31', 'v': 31}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.32', 'v': 32}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.507469Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.33', 'v': 33}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.34', 'v': 34}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.35', 'v': 35}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.36', 'v': 36}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.37', 'v': 37}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.38', 'v': 38}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T12:01:25.523092Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.39', 'v': 39}} reason=agent_decision actor=seed
+- 2025-09-12T12:01:25.576537Z PARAM_CHANGE key=diagnostics.auth.required old=False new=True reason=test actor=test
+- 2025-09-12T12:01:25.577535Z PARAM_CHANGE key=diagnostics.auth.key old= new=cb4ad9db221b reason=test actor=test
+- 2025-09-12T12:01:25.601048Z PARAM_CHANGE key=diagnostics.auth.required old=True new=False reason=cleanup actor=test
+- 2025-09-12T12:01:25.863036Z PARAM_CHANGE key=vuln.risk.exploit_bonus_max old=0.1 new=0.05 reason=test actor=test
+- 2025-09-12T12:01:25.998907Z PARAM_CHANGE key=insight.context.min_severity old=0.6 new=0.0 reason=test actor=system
+- 2025-09-12T12:01:25.998907Z PARAM_CHANGE key=insight.context.top_k old=3 new=2 reason=test actor=system
+- 2025-09-12T12:01:31.223288Z PARAM_CHANGE key=ingest.inline_detection.enabled old=True new=True reason=test actor=system
+- 2025-09-12T12:01:31.223288Z PARAM_CHANGE key=baseline.warmup_jitter_events old=0 new=0 reason=test actor=system
+- 2025-09-12T12:01:31.391532Z PARAM_CHANGE key=detection.temporal.enabled old=False new=False reason=test actor=test
+- 2025-09-12T12:01:31.393530Z PARAM_CHANGE key=detection.transformer.enabled old=False new=False reason=test actor=test
+- 2025-09-12T12:01:31.395529Z PARAM_CHANGE key=fusion.weight.transformer old=0.0 new=1.0 reason=test actor=test
+- 2025-09-12T12:01:31.396530Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.transformer'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.402040Z PARAM_CHANGE key=detection.transformer.enabled old=False new=True reason=test actor=test
+- 2025-09-12T12:01:31.404037Z PARAM_CHANGE key=fusion.weight.transformer old=1.0 new=0.7 reason=test actor=test
+- 2025-09-12T12:01:31.405037Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.transformer'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.541728Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.541728Z PARAM_CHANGE key=fusion.weight.baseline old=0.55 new=0.5 reason=test_setup actor=system
+- 2025-09-12T12:01:31.541728Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.557358Z PARAM_CHANGE key=fusion.weight.snn old=0.45 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.560629Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.561629Z PARAM_CHANGE key=detection.temporal.weight old=0.0 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.563627Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.4 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.582038Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.584189Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.5 reason=test_setup actor=system
+- 2025-09-12T12:01:31.586185Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.587184Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.588219Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.592657Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.593638Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.604521Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.607296Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.5 reason=test_setup actor=system
+- 2025-09-12T12:01:31.610261Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.611256Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.613256Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.614903Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.614903Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.618392Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.0 reason=disable_temporal actor=system
+- 2025-09-12T12:01:31.631059Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.631348Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.5 reason=test_setup actor=system
+- 2025-09-12T12:01:31.631348Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.631348Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.631348Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.640512Z PARAM_CHANGE key=detection.temporal.weight old=0.0 new=0.25 reason=test_setup actor=system
+- 2025-09-12T12:01:31.641818Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.649352Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.649352Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.6 reason=test_setup actor=system
+- 2025-09-12T12:01:31.659266Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.660266Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.4 reason=test_setup actor=system
+- 2025-09-12T12:01:31.662267Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.664447Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.667879Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.669879Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.6 reason=test_setup actor=system
+- 2025-09-12T12:01:31.670912Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.670912Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.4 reason=test_setup actor=system
+- 2025-09-12T12:01:31.676046Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.678023Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.680023Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.25 reason=test_suppress actor=system
+- 2025-09-12T12:01:31.682569Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.684953Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.6 reason=test_setup actor=system
+- 2025-09-12T12:01:31.686948Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.687947Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.4 reason=test_setup actor=system
+- 2025-09-12T12:01:31.690648Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.693644Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.25 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.695640Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.5 reason=test_no_sup actor=system
+- 2025-09-12T12:01:31.698044Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T12:01:31.700930Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.6 reason=test_setup actor=system
+- 2025-09-12T12:01:31.701927Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.703926Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.4 reason=test_setup actor=system
+- 2025-09-12T12:01:31.704957Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.708343Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.0 reason=test_setup actor=system
+- 2025-09-12T12:01:31.711342Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.0 reason=test_weights actor=system
+- 2025-09-12T12:01:31.712342Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.714341Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.0 reason=test_weights actor=system
+- 2025-09-12T12:01:31.714591Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:31.752189Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.754224Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.754224Z PARAM_CHANGE key=governance.autotune.max_per_hour old=12 new=3 reason=test_setup actor=test
+- 2025-09-12T12:01:31.759004Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:31.761867Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:31.762863Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.53 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:31.765891Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.765891Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.53 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.765891Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T12:01:31.765891Z PARAM_CHANGE key=detection.enable_snn old=False new=True reason=test actor=test
+- 2025-09-12T12:01:31.773575Z PARAM_CHANGE key=governance.drift_guard.action_mode old=disable_then_raise new=disable_only reason=test actor=test
+- 2025-09-12T12:01:31.775812Z PARAM_CHANGE key=detection.enable_snn old=True new=False reason=drift_guard actor=governance
+- 2025-09-12T12:01:31.777797Z PARAM_CHANGE key=detection.enable_snn old=False new=False reason=test actor=test
+- 2025-09-12T12:01:31.778784Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.6 reason=reset actor=test
+- 2025-09-12T12:01:31.780784Z PARAM_CHANGE key=governance.drift_guard.action_mode old=disable_only new=raise_only reason=test actor=test
+- 2025-09-12T12:01:31.781297Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.6 new=0.62 reason=drift_guard actor=governance
+- 2025-09-12T12:01:31.785710Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.786710Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.62 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.787711Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T12:01:31.791570Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:31.794571Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:31.798391Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.798391Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.800715Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T12:01:31.804708Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.806770Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.813277Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:31.814743Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:31.830834Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.831064Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.875588Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.875588Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.892207Z PARAM_CHANGE key=detection.enable_snn old=False new=True reason=test actor=test
+- 2025-09-12T12:01:31.892207Z PARAM_CHANGE key=governance.drift_guard.action_mode old=raise_only new=raise_first reason=test actor=test
+- 2025-09-12T12:01:31.896780Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.52 reason=drift_guard actor=governance
+- 2025-09-12T12:01:31.899812Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.899812Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.914066Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.916800Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.924843Z PARAM_CHANGE key=governance.diagnostics.enabled old=True new=False reason=test_disable actor=test
+- 2025-09-12T12:01:31.931299Z PARAM_CHANGE key=governance.diagnostics.enabled old=False new=True reason=test_reenable actor=test
+- 2025-09-12T12:01:31.937823Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:31.941600Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:31.943601Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T12:01:31.948159Z PARAM_CHANGE key=governance.diagnostics.max_log_bytes old=500000 new=200 reason=test actor=test
+- 2025-09-12T12:01:31.950709Z PARAM_CHANGE key=governance.diagnostics.max_history_files old=5 new=2 reason=test actor=test
+- 2025-09-12T12:01:32.006098Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:32.006098Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:32.006098Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T12:01:32.006098Z PARAM_CHANGE key=governance.shadow.enabled old=False new=True reason=test actor=test
+- 2025-09-12T12:01:32.006098Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:32.006098Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T12:01:32.021724Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T12:01:32.024502Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T12:01:32.132941Z PARAM_CHANGE key=governance.policy.eval.enabled old=True new=True reason=test actor=test
+- 2025-09-12T12:01:32.132941Z PARAM_CHANGE key=governance.policy.eval.sign old=True new=False reason=test actor=test
+- 2025-09-12T12:01:32.168761Z PARAM_CHANGE key=governance.shadow.enabled old=True new=True reason=test_setup actor=test
+- 2025-09-12T12:01:32.203304Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=shadow_setup actor=test
+- 2025-09-12T12:01:32.208915Z PARAM_CHANGE key=governance.shadow.enabled old=True new=True reason=shadow_setup actor=test
+- 2025-09-12T12:01:32.208915Z PARAM_CHANGE key=agent.governance_shadow.decision old=None new={'action': 'recommend', 'detail': {'tenant': 'tshadow', 'suggestion': {'action': 'raise_threshold', 'delta': 0.01, 'reason': 'shadow_fp_rate_diff', 'diff': 0.129}}} reason=agent_decision actor=governance_shadow
+- 2025-09-12T12:01:32.313141Z PARAM_CHANGE key=iforest.enable old=False new=True reason=test actor=test
+- 2025-09-12T12:01:32.314730Z PARAM_CHANGE key=iforest.min_train old=32 new=1000000 reason=test actor=test
+- 2025-09-12T12:01:32.314730Z PARAM_CHANGE key=iforest.extreme_value_threshold old=6.0 new=5.0 reason=test actor=test
+- 2025-09-12T12:01:32.318062Z PARAM_CHANGE key=iforest.extreme_value_threshold old=5.0 new=8.0 reason=test actor=test
+- 2025-09-12T12:01:32.319060Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T12:01:32.320059Z PARAM_CHANGE key=iforest.min_train old=1000000 new=1000000 reason=test actor=test
+- 2025-09-12T12:01:32.343453Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=0.8 new=2.0 reason=test actor=test
+- 2025-09-12T12:01:32.344452Z PARAM_CHANGE key=fusion.suppression_alert_rate old=0.85 new=1e-09 reason=test actor=test
+- 2025-09-12T12:01:32.364532Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T12:01:32.374986Z PARAM_CHANGE key=iforest.buffer_size old=512 new=64 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=iforest.retrain_interval_events old=128 new=8 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=iforest.retrain_interval_s old=30.0 new=0.0 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=iforest.min_train old=1000000 new=8 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=iforest.n_estimators old=100 new=25 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=iforest.contamination old=0.1 new=0.15 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=fusion.weight.iforest old=0.0 new=0.35 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.iforest'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=fusion.suppression_alert_rate old=1e-09 new=1e-09 reason=test actor=test
+- 2025-09-12T12:01:32.375330Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=2.0 new=2.0 reason=test actor=test
+- 2025-09-12T12:01:32.425169Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T12:01:32.425169Z PARAM_CHANGE key=iforest.buffer_size old=64 new=128 reason=test actor=test
+- 2025-09-12T12:01:32.425169Z PARAM_CHANGE key=iforest.retrain_interval_events old=8 new=16 reason=test actor=test
+- 2025-09-12T12:01:32.440358Z PARAM_CHANGE key=iforest.retrain_interval_s old=0.0 new=0.0 reason=test actor=test
+- 2025-09-12T12:01:32.442091Z PARAM_CHANGE key=iforest.min_train old=8 new=16 reason=test actor=test
+- 2025-09-12T12:01:32.445368Z PARAM_CHANGE key=iforest.n_estimators old=25 new=50 reason=test actor=test
+- 2025-09-12T12:01:32.446365Z PARAM_CHANGE key=iforest.max_samples old=256 new=64 reason=test actor=test
+- 2025-09-12T12:01:32.447363Z PARAM_CHANGE key=iforest.contamination old=0.15 new=0.1 reason=test actor=test
+- 2025-09-12T12:01:32.448363Z PARAM_CHANGE key=iforest.random_seed old=42 new=123 reason=test actor=test
+- 2025-09-12T12:01:32.463073Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T12:01:32.464469Z PARAM_CHANGE key=iforest.buffer_size old=128 new=64 reason=test actor=test
+- 2025-09-12T12:01:32.464469Z PARAM_CHANGE key=iforest.retrain_interval_events old=16 new=8 reason=test actor=test
+- 2025-09-12T12:01:32.464469Z PARAM_CHANGE key=iforest.retrain_interval_s old=0.0 new=0.0 reason=test actor=test
+- 2025-09-12T12:01:32.469352Z PARAM_CHANGE key=iforest.min_train old=16 new=8 reason=test actor=test
+- 2025-09-12T12:01:32.470351Z PARAM_CHANGE key=iforest.n_estimators old=50 new=25 reason=test actor=test
+- 2025-09-12T12:01:32.471350Z PARAM_CHANGE key=iforest.contamination old=0.1 new=0.15 reason=test actor=test
+- 2025-09-12T12:01:32.472349Z PARAM_CHANGE key=fusion.weight.iforest old=0.35 new=0.3 reason=test actor=test
+- 2025-09-12T12:01:32.475585Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.iforest'} reason=weight_change_hash actor=system
+- 2025-09-12T12:01:32.478580Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=test
+- 2025-09-12T12:01:33.914317Z PARAM_CHANGE key=fusion.memory.uplift.threshold old=0.05 new=0.5 reason=test_thr actor=test
+- 2025-09-12T12:01:33.917955Z PARAM_CHANGE key=fusion.memory.uplift.threshold old=0.5 new=0.0 reason=lower_thr actor=test
+- 2025-09-12T12:01:33.925769Z PARAM_CHANGE key=memory.trigger.confidence_threshold old=0.7 new=0.6 reason=test actor=test
+- 2025-09-12T12:01:33.927845Z PARAM_CHANGE key=memory.trigger.risk_threshold old=60.0 new=50.0 reason=test actor=test
+- 2025-09-12T12:01:33.928847Z PARAM_CHANGE key=memory.jobs.active old=2 new=5 reason=test actor=test
+- 2025-09-12T12:01:33.937728Z PARAM_CHANGE key=memory.trigger.confidence_threshold old=0.6 new=0.6 reason=test actor=test
+- 2025-09-12T12:01:33.940284Z PARAM_CHANGE key=memory.trigger.risk_threshold old=50.0 new=50.0 reason=test actor=test
+- 2025-09-12T12:01:33.941921Z PARAM_CHANGE key=memory.jobs.active old=5 new=5 reason=test actor=test
+- 2025-09-12T12:01:34.428108Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_helper actor=test
+- 2025-09-12T12:01:34.429838Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=baseline_priority reason=strategy_fallback actor=test_helper
+- 2025-09-12T12:01:34.525344Z PARAM_CHANGE key=governance.drift_guard.trace.persist old=False new=True reason=test actor=test
+- 2025-09-12T12:01:34.525344Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.52 reason=drift_guard actor=governance
+- 2025-09-12T12:01:34.525344Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.54 reason=drift_guard actor=governance
+- 2025-09-12T12:01:34.541535Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.54 new=0.56 reason=drift_guard actor=governance
+- 2025-09-12T12:01:34.759771Z PARAM_CHANGE key=ioc.ttl.seconds old=0 new=1 reason=test actor=test
+- 2025-09-12T12:01:34.780863Z PARAM_CHANGE key=ioc.hit.dedupe_window_s old=0 new=30 reason=test actor=test
+- 2025-09-12T12:01:34.809696Z PARAM_CHANGE key=hunt.query.cache.size old=0 new=10 reason=test actor=test
+- 2025-09-12T12:01:34.810692Z PARAM_CHANGE key=hunt.query.cache.ttl_s old=120 new=60 reason=test actor=test
+- 2025-09-12T12:01:34.835228Z PARAM_CHANGE key=ingest.validation.enable old=True new=True reason=test actor=test
+- 2025-09-12T12:01:34.860824Z PARAM_CHANGE key=ingest.rate.per_tenant_per_min old=0 new=2 reason=test actor=test
+- 2025-09-12T12:01:34.897472Z PARAM_CHANGE key=hunt.buffer.activity.window_s old=600 new=120 reason=test actor=test
+- 2025-09-12T12:01:34.897472Z PARAM_CHANGE key=hunt.buffer.tier.high_activity_multiplier old=2.0 new=3.0 reason=test actor=test
+- 2025-09-12T12:01:35.629206Z PARAM_CHANGE key=response.execution.enable old=False new=False reason=test actor=system
+- 2025-09-12T12:01:35.643975Z PARAM_CHANGE key=response.execution.enable old=False new=True reason=test actor=system
+- 2025-09-12T12:01:35.645974Z PARAM_CHANGE key=response.action.cooldown_s old=120 new=1 reason=test actor=system
+- 2025-09-12T12:01:35.646972Z PARAM_CHANGE key=response.action.max_per_case_per_hour old=20 new=5 reason=test actor=system
+- 2025-09-12T12:01:36.770370Z PARAM_CHANGE key=executive.dashboard.cache_ttl_s old=15 new=5 reason=test actor=system
+- 2025-09-12T12:01:37.174891Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_noise_setup actor=system
+- 2025-09-12T12:01:37.176893Z PARAM_CHANGE key=detection.fusion.strategy old=baseline_priority new=pass_through reason=test_noise_setup actor=system
+- 2025-09-12T12:01:37.177948Z PARAM_CHANGE key=fusion.precision_window old=200 new=20 reason=test_noise_setup actor=system
+- 2025-09-12T12:01:37.280217Z PARAM_CHANGE key=retrieval.scoring.mode old=keyword new=hybrid reason=test_hybrid actor=system
+- 2025-09-12T12:01:37.289665Z PARAM_CHANGE key=retrieval.hybrid.embedding_weight old=0.3 new=0.5 reason=test_hybrid actor=system
+- 2025-09-12T12:01:37.291369Z PARAM_CHANGE key=retrieval.scoring.mode old=hybrid new=keyword reason=reset_hybrid actor=system
+- 2025-09-12T12:01:37.348120Z PARAM_CHANGE key=retrieval.scoring.mode old=keyword new=vector reason=test actor=system
+- 2025-09-12T12:01:37.348120Z PARAM_CHANGE key=retrieval.scoring.mode old=vector new=keyword reason=test actor=system
+- 2025-09-12T12:01:37.348120Z PARAM_CHANGE key=retrieval.scoring.mode old=keyword new=hybrid_vector reason=test actor=system
+- 2025-09-12T12:01:37.348120Z PARAM_CHANGE key=retrieval.hybrid.embedding_weight old=0.5 new=0.5 reason=test actor=system
+- 2025-09-12T12:01:37.359460Z PARAM_CHANGE key=retrieval.scoring.mode old=hybrid_vector new=vector reason=test actor=system
+- 2025-09-12T12:01:39.325516Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=stress actor=test
+- 2025-09-12T12:01:39.341139Z PARAM_CHANGE key=fusion.precision_window old=20 new=50 reason=stress actor=test
+- 2025-09-12T12:01:46.309515Z PARAM_CHANGE key=response.auto.escalate.enabled old=False new=True reason=test actor=system
+- 2025-09-12T12:01:46.331928Z PARAM_CHANGE key=response.auto.escalate.enabled old=True new=True reason=test actor=system
+- 2025-09-12T12:01:46.332925Z PARAM_CHANGE key=response.auto.escalate.require_promoted old=True new=True reason=test actor=system
+- 2025-09-12T12:01:46.335948Z PARAM_CHANGE key=response.memory.min_artifacts_for_skip old=2 new=1 reason=test actor=system
+- 2025-09-12T12:01:46.785797Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=hunt_test actor=test
+- 2025-09-12T12:01:46.866649Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T12:01:46.882767Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T12:01:46.884765Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=0 reason=test_disable actor=test
+- 2025-09-12T12:01:46.896148Z PARAM_CHANGE key=retrieval.pipeline.enabled old=0 new=1 reason=test_reenable actor=test
+- 2025-09-12T12:01:46.901606Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T12:01:46.939657Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T12:01:47.130067Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v1 reason=test_guard_valid actor=system
+- 2025-09-12T12:01:47.130067Z PARAM_CHANGE key=snn.encoder old=rate_v1 new=rate_v2 reason=test_guard_valid actor=system
+- 2025-09-12T12:01:48.812469Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.812469Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v1 reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.812469Z PARAM_CHANGE key=snn.auto_cal.enabled old=False new=True reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.812469Z PARAM_CHANGE key=snn.auto_cal.interval old=500 new=60 reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.828093Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.828093Z PARAM_CHANGE key=snn.threshold old=3.0 new=1.0 reason=auto_cal_test_reset actor=system
+- 2025-09-12T12:01:48.857957Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.859955Z PARAM_CHANGE key=snn.encoder old=rate_v1 new=rate_v2 reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.860955Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.862463Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.862463Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=auto_cal_test actor=system
+- 2025-09-12T12:01:48.864873Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=auto_cal_test_reset actor=system
+- 2025-09-12T12:01:48.889814Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.889814Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.889814Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.889814Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T12:01:48.889814Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.889814Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.2 new=0.3 reason=cal_test actor=system
+- 2025-09-12T12:01:48.926088Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.928088Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.929088Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.930104Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T12:01:48.931390Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.933589Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.3 new=0.3 reason=cal_test actor=system
+- 2025-09-12T12:01:48.935583Z PARAM_CHANGE key=snn.threshold old=1.0 new=6.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.952204Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.955366Z PARAM_CHANGE key=snn.threshold old=6.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.957176Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.957176Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T12:01:48.960923Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.961922Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.3 new=0.3 reason=cal_test actor=system
+- 2025-09-12T12:01:48.981442Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.983441Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.984442Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T12:01:48.985441Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T12:01:48.986478Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T12:01:48.989715Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.3 new=0.3 reason=cal_test actor=system
+- 2025-09-12T12:01:48.990230Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v2 reason=enc_test actor=system
+- 2025-09-12T12:01:48.996060Z PARAM_CHANGE key=snn.encoder.rate_v2.global_shrink old=0.4 new=1.0 reason=density_cap_test actor=system
+- 2025-09-12T12:01:48.997097Z PARAM_CHANGE key=snn.encoder.rate_v2.min_floor old=0.05 new=0.0 reason=density_cap_test actor=system
+- 2025-09-12T12:01:48.997097Z PARAM_CHANGE key=snn.encoder.rate_v2.global_shrink old=1.0 new=1.0 reason=density_cap_test actor=system
+- 2025-09-12T12:01:48.997097Z PARAM_CHANGE key=snn.encoder.rate_v2.min_floor old=0.0 new=0.0 reason=density_cap_test actor=system
+- 2025-09-12T12:01:48.997097Z PARAM_CHANGE key=snn.encoder.rate_v2.global_shrink old=1.0 new=0.2 reason=density_cap_test actor=system
+- 2025-09-12T12:01:49.005076Z PARAM_CHANGE key=snn.encoder.rate_v2.min_floor old=0.0 new=0.0 reason=density_cap_test actor=system
+- 2025-09-12T12:01:49.010030Z PARAM_CHANGE key=detection.enable_snn old=True new=False reason=test actor=system
+- 2025-09-12T12:01:49.012997Z PARAM_CHANGE key=detection.enable_snn old=False new=True reason=test actor=system
+- 2025-09-12T12:01:49.019356Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.024679Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.029274Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.036588Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_enable_snn actor=system
+- 2025-09-12T12:01:49.039396Z PARAM_CHANGE key=snn.mode old=proto new=proto reason=test_set_mode actor=system
+- 2025-09-12T12:01:49.047943Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_enable_snn actor=system
+- 2025-09-12T12:01:49.048939Z PARAM_CHANGE key=snn.mode old=proto new=lif reason=test_set_mode actor=system
+- 2025-09-12T12:01:49.359000Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_enable_snn actor=system
+- 2025-09-12T12:01:49.359000Z PARAM_CHANGE key=snn.mode old=lif new=proto reason=test_set_mode actor=system
+- 2025-09-12T12:01:49.359000Z PARAM_CHANGE key=snn.norm.enable old=False new=True reason=norm_test actor=test
+- 2025-09-12T12:01:49.359000Z PARAM_CHANGE key=snn.norm.window old=400 new=100 reason=norm_test actor=test
+- 2025-09-12T12:01:49.359000Z PARAM_CHANGE key=snn.norm.min_samples old=80 new=30 reason=norm_test actor=test
+- 2025-09-12T12:01:49.374639Z PARAM_CHANGE key=snn.norm.enable old=True new=True reason=norm_test2 actor=test
+- 2025-09-12T12:01:49.374639Z PARAM_CHANGE key=snn.norm.window old=100 new=50 reason=norm_test2 actor=test
+- 2025-09-12T12:01:49.377736Z PARAM_CHANGE key=snn.norm.min_samples old=30 new=40 reason=norm_test2 actor=test
+- 2025-09-12T12:01:49.380731Z PARAM_CHANGE key=seq.forecaster.enable old=False new=False reason=test actor=system
+- 2025-09-12T12:01:49.381754Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v1 reason=test actor=system
+- 2025-09-12T12:01:49.381754Z PARAM_CHANGE key=snn.threshold old=1.0 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:49.381754Z PARAM_CHANGE key=seq.forecaster.enable old=False new=False reason=test actor=system
+- 2025-09-12T12:01:49.390180Z PARAM_CHANGE key=seq.forecaster.enable old=False new=True reason=test actor=system
+- 2025-09-12T12:01:49.392179Z PARAM_CHANGE key=snn.encoder old=rate_v1 new=rate_v1 reason=test actor=system
+- 2025-09-12T12:01:49.393177Z PARAM_CHANGE key=snn.threshold old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:49.401423Z PARAM_CHANGE key=snn.guard.cooldown_s old=30.0 new=1.0 reason=test actor=test
+- 2025-09-12T12:01:49.646352Z PARAM_CHANGE key=story.ttl_seconds old=43200 new=1 reason=test_ttl actor=test
+- 2025-09-12T12:01:49.679597Z PARAM_CHANGE key=story.max_content_bytes old=20000 new=100 reason=test_max actor=test
+- 2025-09-12T12:01:49.889936Z PARAM_CHANGE key=detection.temporal.enable_transformer old=False new=True reason=test actor=system
+- 2025-09-12T12:01:49.889936Z PARAM_CHANGE key=detection.temporal.simple_model old=False new=True reason=test actor=system
+- 2025-09-12T12:01:49.889936Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=variance reason=test actor=system
+- 2025-09-12T12:01:49.889936Z PARAM_CHANGE key=detection.temporal.var_threshold old=0.18 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:49.904902Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.906074Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.909590Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=attn reason=test actor=system
+- 2025-09-12T12:01:49.911588Z PARAM_CHANGE key=detection.temporal.attn_threshold old=0.22 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:49.924541Z PARAM_CHANGE key=temporal.guard.max_window old=2000 new=10 reason=test actor=system
+- 2025-09-12T12:01:49.926539Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.929469Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.929469Z PARAM_CHANGE key=detection.temporal.encoder old=attn new=variance reason=test actor=system
+- 2025-09-12T12:01:49.941393Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=temporal_eval actor=system
+- 2025-09-12T12:01:49.947187Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=guard_test actor=system
+- 2025-09-12T12:01:49.947187Z PARAM_CHANGE key=temporal.guard.max_latency_s old=0.2 new=0.01 reason=guard_test actor=system
+- 2025-09-12T12:01:49.960292Z PARAM_CHANGE key=detection.fusion.strategy old=pass_through new=weighted_sum reason=test actor=system
+- 2025-09-12T12:01:49.961295Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.963260Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.963642Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=variance reason=test actor=system
+- 2025-09-12T12:01:49.963642Z PARAM_CHANGE key=snn.encoding_window old=20 new=5 reason=test actor=system
+- 2025-09-12T12:01:49.968632Z PARAM_CHANGE key=detection.temporal.var_threshold old=0.05 new=0.01 reason=test actor=system
+- 2025-09-12T12:01:49.969629Z PARAM_CHANGE key=fusion.temporal.precision_max_rate old=1.0 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:49.971670Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.4 reason=test actor=system
+- 2025-09-12T12:01:49.978886Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T12:01:49.979722Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=tft reason=test actor=system
+- 2025-09-12T12:01:49.982952Z PARAM_CHANGE key=snn.encoding_window old=5 new=5 reason=test actor=system
+- 2025-09-12T12:01:49.992368Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=test
+- 2025-09-12T12:01:50.004916Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test_temporal_stub actor=system
+- 2025-09-12T12:01:50.007913Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=False reason=test_temporal_stub_reset actor=system
+- 2025-09-12T12:01:50.012151Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T12:01:50.012512Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=False new=True reason=test actor=system
+- 2025-09-12T12:01:50.012512Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=2.0 new=1.0 reason=test actor=system
+- 2025-09-12T12:01:50.017445Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.018444Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.019496Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=30.0 new=60.0 reason=test actor=system
+- 2025-09-12T12:01:50.022675Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T12:01:50.024677Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T12:01:50.025675Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T12:01:50.026673Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T12:01:50.028675Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T12:01:50.030376Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T12:01:50.030376Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.033377Z PARAM_CHANGE key=detection.temporal.weight old=0.4 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.035376Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=300.0 reason=test actor=system
+- 2025-09-12T12:01:50.042648Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T12:01:50.043648Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T12:01:50.044647Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T12:01:50.046191Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.046971Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.046971Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=300.0 new=60.0 reason=test actor=system
+- 2025-09-12T12:01:50.046971Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T12:01:50.046971Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T12:01:50.054879Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T12:01:50.056982Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T12:01:50.057954Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T12:01:50.058951Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T12:01:50.060950Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.061950Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.064078Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=50 reason=test actor=system
+- 2025-09-12T12:01:50.067074Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T12:01:50.068074Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T12:01:50.070111Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T12:01:50.071991Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=60.0 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=50 new=3 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.073429Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.087871Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T12:01:50.089102Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=200 reason=test actor=system
+- 2025-09-12T12:01:50.093299Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T12:01:50.095297Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T12:01:50.096332Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T12:01:50.096332Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.096332Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.096332Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=60.0 reason=test actor=system
+- 2025-09-12T12:01:50.096332Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T12:01:50.096332Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=200 new=10 reason=test actor=system
+- 2025-09-12T12:01:50.096332Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T12:01:50.104820Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T12:01:50.106833Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T12:01:50.107846Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T12:01:50.108833Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.110832Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.111845Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T12:01:50.114721Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T12:01:50.115717Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.117717Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=10 reason=test actor=system
+- 2025-09-12T12:01:50.118747Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.05 reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=1.0 reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=detection.temporal.simple_model old=False new=True reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=detection.temporal.encoder old=tft new=variance reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=detection.temporal.var_threshold old=0.01 new=0.01 reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=10 new=1 reason=test actor=system
+- 2025-09-12T12:01:50.139284Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.0 reason=test actor=system
+- 2025-09-12T12:02:01.071168Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.56 new=0.42 reason=raise actor=test_user
+- 2025-09-12T12:02:01.094711Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.42 new=0.56 reason=rollback actor=test_user
+- 2025-09-12T12:02:01.104485Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.56 new=0.42 reason=tuner_approve actor=api
+- 2025-09-12T20:02:39.750217Z PARAM_CHANGE key=detection.fusion.strategy old=pass_through new=weighted_sum reason=test_helper actor=test
+- 2025-09-12T20:02:39.810304Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=baseline_priority reason=strategy_fallback actor=test_helper
+- 2025-09-12T20:02:39.883621Z PARAM_CHANGE key=governance.drift_guard.trace.persist old=False new=True reason=test actor=test
+- 2025-09-12T20:02:39.883621Z PARAM_CHANGE key=detection.enable_snn old=True new=False reason=drift_guard actor=governance
+- 2025-09-12T20:02:39.901021Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.52 reason=drift_guard actor=governance
+- 2025-09-12T20:02:39.901021Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.54 reason=drift_guard actor=governance
+- 2025-09-12T20:21:50.047596Z PARAM_CHANGE key=ioc.ttl.seconds old=0 new=1 reason=test actor=test
+- 2025-09-12T20:21:50.063220Z PARAM_CHANGE key=ioc.hit.dedupe_window_s old=0 new=30 reason=test actor=test
+- 2025-09-12T20:21:50.094471Z PARAM_CHANGE key=hunt.query.cache.size old=0 new=10 reason=test actor=test
+- 2025-09-12T20:21:50.094471Z PARAM_CHANGE key=hunt.query.cache.ttl_s old=120 new=60 reason=test actor=test
+- 2025-09-12T20:21:50.125723Z PARAM_CHANGE key=ingest.validation.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:21:50.156974Z PARAM_CHANGE key=ingest.rate.per_tenant_per_min old=0 new=2 reason=test actor=test
+- 2025-09-12T20:21:50.188221Z PARAM_CHANGE key=hunt.buffer.activity.window_s old=600 new=120 reason=test actor=test
+- 2025-09-12T20:21:50.188221Z PARAM_CHANGE key=hunt.buffer.tier.high_activity_multiplier old=2.0 new=3.0 reason=test actor=test
+- 2025-09-12T20:26:15.813499Z PARAM_CHANGE key=ioc.ttl.seconds old=0 new=1 reason=test actor=test
+- 2025-09-12T20:26:15.829610Z PARAM_CHANGE key=ioc.hit.dedupe_window_s old=0 new=30 reason=test actor=test
+- 2025-09-12T20:26:15.862499Z PARAM_CHANGE key=hunt.query.cache.size old=0 new=10 reason=test actor=test
+- 2025-09-12T20:26:15.927888Z PARAM_CHANGE key=hunt.query.cache.ttl_s old=120 new=60 reason=test actor=test
+- 2025-09-12T20:26:15.945079Z PARAM_CHANGE key=ingest.validation.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:26:16.560152Z PARAM_CHANGE key=hunt.buffer.activity.window_s old=600 new=120 reason=test actor=test
+- 2025-09-12T20:26:16.560152Z PARAM_CHANGE key=hunt.buffer.tier.high_activity_multiplier old=2.0 new=3.0 reason=test actor=test
+- 2025-09-12T20:31:50.522316Z PARAM_CHANGE key=ingest.validation.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:31:50.553564Z PARAM_CHANGE key=ingest.validation.enable old=True new=False reason=test actor=test
+- 2025-09-12T20:32:16.910284Z PARAM_CHANGE key=alerts.enabled old=True new=True reason=test actor=test
+- 2025-09-12T20:32:16.911282Z PARAM_CHANGE key=alerts.webhook.enabled old=False new=True reason=test actor=test
+- 2025-09-12T20:32:16.912284Z PARAM_CHANGE key=alerts.webhook.url old= new=http://127.0.0.1:9/does-not-exist reason=test actor=test
+- 2025-09-12T20:32:24.548730Z PARAM_CHANGE key=alerts.enabled old=True new=True reason=test actor=test
+- 2025-09-12T20:32:24.548730Z PARAM_CHANGE key=alerts.webhook.enabled old=True new=True reason=test actor=test
+- 2025-09-12T20:32:24.548730Z PARAM_CHANGE key=alerts.webhook.url old=http://127.0.0.1:9/does-not-exist new=http://127.0.0.1:9/does-not-exist reason=test actor=test
+- 2025-09-12T20:32:47.982600Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=attack_sim actor=system
+- 2025-09-12T20:32:47.982600Z PARAM_CHANGE key=detection.fusion.strategy old=pass_through new=pass_through reason=attack_sim actor=system
+- 2025-09-12T20:32:47.982600Z PARAM_CHANGE key=baseline.stddev_threshold old=2.0 new=2.0 reason=attack_sim actor=system
+- 2025-09-12T20:32:48.091976Z PARAM_CHANGE key=baseline.window_size old=50 new=55 reason=test_audit_chain_verifier actor=system
+- 2025-09-12T20:32:48.091976Z PARAM_CHANGE key=baseline.stddev_threshold old=2.0 new=2.5 reason=test_audit_chain_verifier actor=system
+- 2025-09-12T20:32:50.787385Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.55 reason=test_audit actor=system
+- 2025-09-12T20:32:50.818633Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:32:50.881133Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.45 reason=test_audit actor=system
+- 2025-09-12T20:32:50.881133Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:32:50.966279Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test0 actor=system
+- 2025-09-12T20:32:50.966279Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test1 actor=system
+- 2025-09-12T20:32:50.966279Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test2 actor=system
+- 2025-09-12T20:32:50.966279Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test3 actor=system
+- 2025-09-12T20:32:50.966279Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test4 actor=system
+- 2025-09-12T20:32:50.966279Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test5 actor=system
+- 2025-09-12T20:32:50.966279Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test6 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test7 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test8 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test9 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test10 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test11 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test12 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test13 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test14 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test15 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test16 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test17 actor=system
+- 2025-09-12T20:32:50.981903Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test18 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test19 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test20 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test21 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test22 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test23 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test24 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test25 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test26 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test27 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test28 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test29 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test30 actor=system
+- 2025-09-12T20:32:50.997528Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test31 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test32 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test33 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test34 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test35 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test36 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test37 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test38 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test39 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test40 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test41 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test42 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test43 actor=system
+- 2025-09-12T20:32:51.013153Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test44 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test45 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test46 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test47 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test48 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test49 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test50 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test51 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test52 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test53 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test54 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test55 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test56 actor=system
+- 2025-09-12T20:32:51.028777Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test57 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test58 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test59 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test60 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test61 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test62 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test63 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test64 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test65 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test66 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test67 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test68 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test69 actor=system
+- 2025-09-12T20:32:51.044403Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test70 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test71 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test72 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test73 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test74 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test75 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test76 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test77 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test78 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test79 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test80 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test81 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test82 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test83 actor=system
+- 2025-09-12T20:32:51.060042Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test84 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test85 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test86 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test87 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test88 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test89 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test90 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test91 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test92 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test93 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test94 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test95 actor=system
+- 2025-09-12T20:32:51.075656Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test96 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test97 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test98 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test99 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test100 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test101 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test102 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test103 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test104 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test105 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test106 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test107 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test108 actor=system
+- 2025-09-12T20:32:51.091280Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test109 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test110 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test111 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test112 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test113 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test114 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test115 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test116 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test117 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test118 actor=system
+- 2025-09-12T20:32:51.106905Z PARAM_CHANGE key=baseline.mad_factor old=3.5 new=3.5 reason=test119 actor=system
+- 2025-09-12T20:32:51.122532Z PARAM_CHANGE key=detection.fusion.strategy old=pass_through new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:32:51.122532Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.3 reason=test_setup actor=test
+- 2025-09-12T20:32:51.122532Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_setup actor=test
+- 2025-09-12T20:32:52.641554Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:32:52.641554Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.3 new=0.9 reason=test_setup actor=test
+- 2025-09-12T20:32:52.657176Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_setup actor=test
+- 2025-09-12T20:32:54.325443Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_setup actor=test
+- 2025-09-12T20:32:54.325443Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:32:54.325443Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.9 new=0.4 reason=test_setup actor=test
+- 2025-09-12T20:32:54.325443Z PARAM_CHANGE key=detection.enable_snn old=True new=False reason=drift_guard actor=governance
+- 2025-09-12T20:33:00.577318Z PARAM_CHANGE key=baseline.window_size old=55 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.579188Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.0', 'v': 0}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.580187Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.582196Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.1', 'v': 1}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.583188Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.585542Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.2', 'v': 2}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.585688Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.588430Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.3', 'v': 3}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.590430Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.593136Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.4', 'v': 4}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.595074Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.597045Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.5', 'v': 5}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.598047Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.599047Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.6', 'v': 6}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.601045Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.601403Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.7', 'v': 7}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.601403Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.601403Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.8', 'v': 8}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.601403Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.609594Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.9', 'v': 9}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.10', 'v': 10}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.11', 'v': 11}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.12', 'v': 12}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.13', 'v': 13}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.14', 'v': 14}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.610315Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.15', 'v': 15}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.16', 'v': 16}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.17', 'v': 17}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.18', 'v': 18}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.19', 'v': 19}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.20', 'v': 20}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.625945Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.21', 'v': 21}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.22', 'v': 22}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.23', 'v': 23}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.24', 'v': 24}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.25', 'v': 25}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.641572Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.26', 'v': 26}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.27', 'v': 27}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.28', 'v': 28}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.29', 'v': 29}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.30', 'v': 30}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.657194Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.31', 'v': 31}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.32', 'v': 32}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.33', 'v': 33}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.34', 'v': 34}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.35', 'v': 35}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.36', 'v': 36}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=baseline.window_size old=50 new=51 reason=seed actor=test
+- 2025-09-12T20:33:00.672820Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.37', 'v': 37}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.688444Z PARAM_CHANGE key=baseline.window_size old=51 new=52 reason=seed actor=test
+- 2025-09-12T20:33:00.688444Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.38', 'v': 38}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.688444Z PARAM_CHANGE key=baseline.window_size old=52 new=50 reason=seed actor=test
+- 2025-09-12T20:33:00.688444Z PARAM_CHANGE key=agent.seed.decision old=None new={'action': 'note', 'detail': {'k': 'test.param.39', 'v': 39}} reason=agent_decision actor=seed
+- 2025-09-12T20:33:00.738365Z PARAM_CHANGE key=diagnostics.auth.required old=False new=True reason=test actor=test
+- 2025-09-12T20:33:00.740364Z PARAM_CHANGE key=diagnostics.auth.key old= new=5f425a18e97e reason=test actor=test
+- 2025-09-12T20:33:00.771351Z PARAM_CHANGE key=diagnostics.auth.required old=True new=False reason=cleanup actor=test
+- 2025-09-12T20:33:01.061939Z PARAM_CHANGE key=vuln.risk.exploit_bonus_max old=0.1 new=0.05 reason=test actor=test
+- 2025-09-12T20:33:01.240756Z PARAM_CHANGE key=insight.context.min_severity old=0.6 new=0.0 reason=test actor=system
+- 2025-09-12T20:33:01.240756Z PARAM_CHANGE key=insight.context.top_k old=3 new=2 reason=test actor=system
+- 2025-09-12T20:33:06.470118Z PARAM_CHANGE key=ingest.inline_detection.enabled old=True new=True reason=test actor=system
+- 2025-09-12T20:33:06.470118Z PARAM_CHANGE key=baseline.warmup_jitter_events old=0 new=0 reason=test actor=system
+- 2025-09-12T20:33:06.625433Z PARAM_CHANGE key=detection.temporal.enabled old=False new=False reason=test actor=test
+- 2025-09-12T20:33:06.649131Z PARAM_CHANGE key=detection.transformer.enabled old=False new=False reason=test actor=test
+- 2025-09-12T20:33:06.649131Z PARAM_CHANGE key=fusion.weight.transformer old=0.0 new=1.0 reason=test actor=test
+- 2025-09-12T20:33:06.649131Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.transformer'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.661115Z PARAM_CHANGE key=detection.transformer.enabled old=False new=True reason=test actor=test
+- 2025-09-12T20:33:06.662117Z PARAM_CHANGE key=fusion.weight.transformer old=1.0 new=0.7 reason=test actor=test
+- 2025-09-12T20:33:06.664115Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.transformer'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.875261Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:06.875261Z PARAM_CHANGE key=fusion.weight.baseline old=0.55 new=0.5 reason=test_setup actor=system
+- 2025-09-12T20:33:06.875261Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.875261Z PARAM_CHANGE key=fusion.weight.snn old=0.45 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.875261Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.875261Z PARAM_CHANGE key=detection.temporal.weight old=0.0 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.875261Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.4 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:06.899120Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:06.899120Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.5 reason=test_setup actor=system
+- 2025-09-12T20:33:06.899120Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.909343Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.910343Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.912343Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.913343Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:06.926704Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:06.928703Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.5 reason=test_setup actor=system
+- 2025-09-12T20:33:06.929702Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.931702Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.933322Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.933322Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.936855Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:06.937854Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.0 reason=disable_temporal actor=system
+- 2025-09-12T20:33:06.952204Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:06.954204Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.5 reason=test_setup actor=system
+- 2025-09-12T20:33:06.955203Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.957790Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.960632Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.962455Z PARAM_CHANGE key=detection.temporal.weight old=0.0 new=0.25 reason=test_setup actor=system
+- 2025-09-12T20:33:06.963452Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:06.976921Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:06.978919Z PARAM_CHANGE key=fusion.weight.baseline old=0.5 new=0.6 reason=test_setup actor=system
+- 2025-09-12T20:33:06.979918Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.981919Z PARAM_CHANGE key=fusion.weight.snn old=0.25 new=0.4 reason=test_setup actor=system
+- 2025-09-12T20:33:06.982834Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.985017Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:06.989039Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:06.990566Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.6 reason=test_setup actor=system
+- 2025-09-12T20:33:06.992613Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.994612Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.4 reason=test_setup actor=system
+- 2025-09-12T20:33:06.996612Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:06.997611Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:06.999522Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.25 reason=test_suppress actor=system
+- 2025-09-12T20:33:07.002826Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:07.004824Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.6 reason=test_setup actor=system
+- 2025-09-12T20:33:07.005824Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.008689Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.4 reason=test_setup actor=system
+- 2025-09-12T20:33:07.010986Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.011984Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.25 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:07.013983Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.5 reason=test_no_sup actor=system
+- 2025-09-12T20:33:07.016732Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=system
+- 2025-09-12T20:33:07.018916Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.6 reason=test_setup actor=system
+- 2025-09-12T20:33:07.019915Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.021911Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.4 reason=test_setup actor=system
+- 2025-09-12T20:33:07.022912Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.026668Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.0 reason=test_setup actor=system
+- 2025-09-12T20:33:07.028669Z PARAM_CHANGE key=fusion.weight.baseline old=0.6 new=0.0 reason=test_weights actor=system
+- 2025-09-12T20:33:07.029668Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.baseline'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.031667Z PARAM_CHANGE key=fusion.weight.snn old=0.4 new=0.0 reason=test_weights actor=system
+- 2025-09-12T20:33:07.033253Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.snn'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.071183Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.072183Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.0 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.074312Z PARAM_CHANGE key=governance.autotune.max_per_hour old=12 new=3 reason=test_setup actor=test
+- 2025-09-12T20:33:07.077487Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.079861Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.081863Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.53 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.083891Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.083891Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.53 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.083891Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T20:33:07.083891Z PARAM_CHANGE key=detection.enable_snn old=False new=True reason=test actor=test
+- 2025-09-12T20:33:07.091971Z PARAM_CHANGE key=governance.drift_guard.action_mode old=disable_then_raise new=disable_only reason=test actor=test
+- 2025-09-12T20:33:07.094156Z PARAM_CHANGE key=detection.enable_snn old=True new=False reason=drift_guard actor=governance
+- 2025-09-12T20:33:07.096154Z PARAM_CHANGE key=detection.enable_snn old=False new=False reason=test actor=test
+- 2025-09-12T20:33:07.097153Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.6 reason=reset actor=test
+- 2025-09-12T20:33:07.098152Z PARAM_CHANGE key=governance.drift_guard.action_mode old=disable_only new=raise_only reason=test actor=test
+- 2025-09-12T20:33:07.099153Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.6 new=0.62 reason=drift_guard actor=governance
+- 2025-09-12T20:33:07.103290Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.104289Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.62 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.105288Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T20:33:07.109321Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.111324Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.115321Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.116557Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.118432Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T20:33:07.121428Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.122429Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.130716Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.133148Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.147711Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.149476Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.193604Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.193604Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.208760Z PARAM_CHANGE key=detection.enable_snn old=False new=True reason=test actor=test
+- 2025-09-12T20:33:07.208760Z PARAM_CHANGE key=governance.drift_guard.action_mode old=raise_only new=raise_first reason=test actor=test
+- 2025-09-12T20:33:07.211720Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.52 reason=drift_guard actor=governance
+- 2025-09-12T20:33:07.215751Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.215751Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.229822Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.230821Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.237741Z PARAM_CHANGE key=governance.diagnostics.enabled old=True new=False reason=test_disable actor=test
+- 2025-09-12T20:33:07.246720Z PARAM_CHANGE key=governance.diagnostics.enabled old=False new=True reason=test_reenable actor=test
+- 2025-09-12T20:33:07.252769Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.253765Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.255765Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T20:33:07.292030Z PARAM_CHANGE key=governance.diagnostics.max_log_bytes old=500000 new=200 reason=test actor=test
+- 2025-09-12T20:33:07.292030Z PARAM_CHANGE key=governance.diagnostics.max_history_files old=5 new=2 reason=test actor=test
+- 2025-09-12T20:33:07.354531Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.354531Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.354531Z PARAM_CHANGE key=governance.autotune.max_per_hour old=3 new=3 reason=test_setup actor=test
+- 2025-09-12T20:33:07.393439Z PARAM_CHANGE key=governance.shadow.enabled old=False new=True reason=test actor=test
+- 2025-09-12T20:33:07.408465Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.51 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.408968Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.51 new=0.52 reason=autotune_suppression actor=governance
+- 2025-09-12T20:33:07.408968Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_setup actor=test
+- 2025-09-12T20:33:07.408968Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.5 reason=test_setup actor=test
+- 2025-09-12T20:33:07.532595Z PARAM_CHANGE key=governance.policy.eval.enabled old=True new=True reason=test actor=test
+- 2025-09-12T20:33:07.532595Z PARAM_CHANGE key=governance.policy.eval.sign old=True new=False reason=test actor=test
+- 2025-09-12T20:33:07.570347Z PARAM_CHANGE key=governance.shadow.enabled old=True new=True reason=test_setup actor=test
+- 2025-09-12T20:33:07.608974Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=shadow_setup actor=test
+- 2025-09-12T20:33:07.608974Z PARAM_CHANGE key=governance.shadow.enabled old=True new=True reason=shadow_setup actor=test
+- 2025-09-12T20:33:07.653074Z PARAM_CHANGE key=agent.governance_shadow.decision old=None new={'action': 'recommend', 'detail': {'tenant': 'tshadow', 'suggestion': {'action': 'raise_threshold', 'delta': 0.01, 'reason': 'shadow_fp_rate_diff', 'diff': 0.129}}} reason=agent_decision actor=governance_shadow
+- 2025-09-12T20:33:07.800173Z PARAM_CHANGE key=iforest.enable old=False new=True reason=test actor=test
+- 2025-09-12T20:33:07.804088Z PARAM_CHANGE key=iforest.min_train old=32 new=1000000 reason=test actor=test
+- 2025-09-12T20:33:07.805084Z PARAM_CHANGE key=iforest.extreme_value_threshold old=6.0 new=5.0 reason=test actor=test
+- 2025-09-12T20:33:07.808395Z PARAM_CHANGE key=iforest.extreme_value_threshold old=5.0 new=8.0 reason=test actor=test
+- 2025-09-12T20:33:07.810211Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:33:07.811208Z PARAM_CHANGE key=iforest.min_train old=1000000 new=1000000 reason=test actor=test
+- 2025-09-12T20:33:07.833644Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=0.8 new=2.0 reason=test actor=test
+- 2025-09-12T20:33:07.836197Z PARAM_CHANGE key=fusion.suppression_alert_rate old=0.85 new=1e-09 reason=test actor=test
+- 2025-09-12T20:33:07.865716Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:33:07.866033Z PARAM_CHANGE key=iforest.buffer_size old=512 new=64 reason=test actor=test
+- 2025-09-12T20:33:07.866033Z PARAM_CHANGE key=iforest.retrain_interval_events old=128 new=8 reason=test actor=test
+- 2025-09-12T20:33:07.866033Z PARAM_CHANGE key=iforest.retrain_interval_s old=30.0 new=0.0 reason=test actor=test
+- 2025-09-12T20:33:07.866033Z PARAM_CHANGE key=iforest.min_train old=1000000 new=8 reason=test actor=test
+- 2025-09-12T20:33:07.866033Z PARAM_CHANGE key=iforest.n_estimators old=100 new=25 reason=test actor=test
+- 2025-09-12T20:33:07.866033Z PARAM_CHANGE key=iforest.contamination old=0.1 new=0.15 reason=test actor=test
+- 2025-09-12T20:33:07.873967Z PARAM_CHANGE key=fusion.weight.iforest old=0.0 new=0.35 reason=test actor=test
+- 2025-09-12T20:33:07.875342Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.iforest'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.878357Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=test
+- 2025-09-12T20:33:07.880352Z PARAM_CHANGE key=fusion.suppression_alert_rate old=1e-09 new=1e-09 reason=test actor=test
+- 2025-09-12T20:33:07.881352Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=2.0 new=2.0 reason=test actor=test
+- 2025-09-12T20:33:07.929089Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:33:07.931087Z PARAM_CHANGE key=iforest.buffer_size old=64 new=128 reason=test actor=test
+- 2025-09-12T20:33:07.932107Z PARAM_CHANGE key=iforest.retrain_interval_events old=8 new=16 reason=test actor=test
+- 2025-09-12T20:33:07.932107Z PARAM_CHANGE key=iforest.retrain_interval_s old=0.0 new=0.0 reason=test actor=test
+- 2025-09-12T20:33:07.932107Z PARAM_CHANGE key=iforest.min_train old=8 new=16 reason=test actor=test
+- 2025-09-12T20:33:07.932107Z PARAM_CHANGE key=iforest.n_estimators old=25 new=50 reason=test actor=test
+- 2025-09-12T20:33:07.932107Z PARAM_CHANGE key=iforest.max_samples old=256 new=64 reason=test actor=test
+- 2025-09-12T20:33:07.932107Z PARAM_CHANGE key=iforest.contamination old=0.15 new=0.1 reason=test actor=test
+- 2025-09-12T20:33:07.932107Z PARAM_CHANGE key=iforest.random_seed old=42 new=123 reason=test actor=test
+- 2025-09-12T20:33:07.953381Z PARAM_CHANGE key=iforest.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:33:07.954380Z PARAM_CHANGE key=iforest.buffer_size old=128 new=64 reason=test actor=test
+- 2025-09-12T20:33:07.955431Z PARAM_CHANGE key=iforest.retrain_interval_events old=16 new=8 reason=test actor=test
+- 2025-09-12T20:33:07.958394Z PARAM_CHANGE key=iforest.retrain_interval_s old=0.0 new=0.0 reason=test actor=test
+- 2025-09-12T20:33:07.960129Z PARAM_CHANGE key=iforest.min_train old=16 new=8 reason=test actor=test
+- 2025-09-12T20:33:07.961123Z PARAM_CHANGE key=iforest.n_estimators old=50 new=25 reason=test actor=test
+- 2025-09-12T20:33:07.962122Z PARAM_CHANGE key=iforest.contamination old=0.1 new=0.15 reason=test actor=test
+- 2025-09-12T20:33:07.964121Z PARAM_CHANGE key=fusion.weight.iforest old=0.35 new=0.3 reason=test actor=test
+- 2025-09-12T20:33:07.965121Z PARAM_CHANGE key=fusion.arch.hash old=None new={'file': 'docs\\FUSION_ARCHITECTURE.md', 'sha256': '5319f0e4640f31bc2aa8a8e1c32c3b965dddbc0bec4cbd69e69c82a60dd5c5a5', 'trigger_param': 'fusion.weight.iforest'} reason=weight_change_hash actor=system
+- 2025-09-12T20:33:07.966456Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=test
+- 2025-09-12T20:33:09.520905Z PARAM_CHANGE key=fusion.memory.uplift.threshold old=0.05 new=0.5 reason=test_thr actor=test
+- 2025-09-12T20:33:09.522904Z PARAM_CHANGE key=fusion.memory.uplift.threshold old=0.5 new=0.0 reason=lower_thr actor=test
+- 2025-09-12T20:33:09.530922Z PARAM_CHANGE key=memory.trigger.confidence_threshold old=0.7 new=0.6 reason=test actor=test
+- 2025-09-12T20:33:09.532921Z PARAM_CHANGE key=memory.trigger.risk_threshold old=60.0 new=50.0 reason=test actor=test
+- 2025-09-12T20:33:09.533949Z PARAM_CHANGE key=memory.jobs.active old=2 new=5 reason=test actor=test
+- 2025-09-12T20:33:09.575381Z PARAM_CHANGE key=memory.trigger.confidence_threshold old=0.6 new=0.6 reason=test actor=test
+- 2025-09-12T20:33:09.575381Z PARAM_CHANGE key=memory.trigger.risk_threshold old=50.0 new=50.0 reason=test actor=test
+- 2025-09-12T20:33:09.591012Z PARAM_CHANGE key=memory.jobs.active old=5 new=5 reason=test actor=test
+- 2025-09-12T20:33:12.879873Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test_helper actor=test
+- 2025-09-12T20:33:12.879873Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=baseline_priority reason=strategy_fallback actor=test_helper
+- 2025-09-12T20:33:12.992495Z PARAM_CHANGE key=governance.drift_guard.trace.persist old=False new=True reason=test actor=test
+- 2025-09-12T20:33:12.992495Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.5 new=0.52 reason=drift_guard actor=governance
+- 2025-09-12T20:33:13.008476Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.52 new=0.54 reason=drift_guard actor=governance
+- 2025-09-12T20:33:13.010979Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.54 new=0.56 reason=drift_guard actor=governance
+- 2025-09-12T20:33:13.241414Z PARAM_CHANGE key=ioc.ttl.seconds old=0 new=1 reason=test actor=test
+- 2025-09-12T20:33:13.256684Z PARAM_CHANGE key=ioc.hit.dedupe_window_s old=0 new=30 reason=test actor=test
+- 2025-09-12T20:33:13.292451Z PARAM_CHANGE key=hunt.query.cache.size old=0 new=10 reason=test actor=test
+- 2025-09-12T20:33:13.292451Z PARAM_CHANGE key=hunt.query.cache.ttl_s old=120 new=60 reason=test actor=test
+- 2025-09-12T20:33:13.315382Z PARAM_CHANGE key=ingest.validation.enable old=True new=True reason=test actor=test
+- 2025-09-12T20:33:13.335099Z PARAM_CHANGE key=ingest.validation.enable old=True new=False reason=test actor=test
+- 2025-09-12T20:33:13.349332Z PARAM_CHANGE key=ingest.rate.per_tenant_per_min old=0 new=2 reason=test actor=test
+- 2025-09-12T20:33:13.387769Z PARAM_CHANGE key=hunt.buffer.activity.window_s old=600 new=120 reason=test actor=test
+- 2025-09-12T20:33:13.390125Z PARAM_CHANGE key=hunt.buffer.tier.high_activity_multiplier old=2.0 new=3.0 reason=test actor=test
+- 2025-09-12T20:33:14.169683Z PARAM_CHANGE key=response.execution.enable old=False new=False reason=test actor=system
+- 2025-09-12T20:33:14.186667Z PARAM_CHANGE key=response.execution.enable old=False new=True reason=test actor=system
+- 2025-09-12T20:33:14.187670Z PARAM_CHANGE key=response.action.cooldown_s old=120 new=1 reason=test actor=system
+- 2025-09-12T20:33:14.189993Z PARAM_CHANGE key=response.action.max_per_case_per_hour old=20 new=5 reason=test actor=system
+- 2025-09-12T20:33:15.315941Z PARAM_CHANGE key=executive.dashboard.cache_ttl_s old=15 new=5 reason=test actor=system
+- 2025-09-12T20:33:15.634111Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_noise_setup actor=system
+- 2025-09-12T20:33:15.649740Z PARAM_CHANGE key=detection.fusion.strategy old=baseline_priority new=pass_through reason=test_noise_setup actor=system
+- 2025-09-12T20:33:15.649740Z PARAM_CHANGE key=fusion.precision_window old=200 new=20 reason=test_noise_setup actor=system
+- 2025-09-12T20:33:15.825156Z PARAM_CHANGE key=retrieval.scoring.mode old=keyword new=hybrid reason=test_hybrid actor=system
+- 2025-09-12T20:33:15.825156Z PARAM_CHANGE key=retrieval.hybrid.embedding_weight old=0.3 new=0.5 reason=test_hybrid actor=system
+- 2025-09-12T20:33:15.825156Z PARAM_CHANGE key=retrieval.scoring.mode old=hybrid new=keyword reason=reset_hybrid actor=system
+- 2025-09-12T20:33:15.911073Z PARAM_CHANGE key=retrieval.scoring.mode old=keyword new=vector reason=test actor=system
+- 2025-09-12T20:33:15.914072Z PARAM_CHANGE key=retrieval.scoring.mode old=vector new=keyword reason=test actor=system
+- 2025-09-12T20:33:15.915986Z PARAM_CHANGE key=retrieval.scoring.mode old=keyword new=hybrid_vector reason=test actor=system
+- 2025-09-12T20:33:15.917987Z PARAM_CHANGE key=retrieval.hybrid.embedding_weight old=0.5 new=0.5 reason=test actor=system
+- 2025-09-12T20:33:15.921030Z PARAM_CHANGE key=retrieval.scoring.mode old=hybrid_vector new=vector reason=test actor=system
+- 2025-09-12T20:33:17.813950Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=stress actor=test
+- 2025-09-12T20:33:17.813950Z PARAM_CHANGE key=fusion.precision_window old=20 new=50 reason=stress actor=test
+- 2025-09-12T20:33:21.412400Z PARAM_CHANGE key=response.auto.escalate.enabled old=False new=True reason=test actor=system
+- 2025-09-12T20:33:21.440609Z PARAM_CHANGE key=response.auto.escalate.enabled old=True new=True reason=test actor=system
+- 2025-09-12T20:33:21.442610Z PARAM_CHANGE key=response.auto.escalate.require_promoted old=True new=True reason=test actor=system
+- 2025-09-12T20:33:21.445606Z PARAM_CHANGE key=response.memory.min_artifacts_for_skip old=2 new=1 reason=test actor=system
+- 2025-09-12T20:33:21.944195Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=hunt_test actor=test
+- 2025-09-12T20:33:22.013798Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T20:33:22.035799Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T20:33:22.039116Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=0 reason=test_disable actor=test
+- 2025-09-12T20:33:22.053893Z PARAM_CHANGE key=retrieval.pipeline.enabled old=0 new=1 reason=test_reenable actor=test
+- 2025-09-12T20:33:22.059565Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T20:33:22.090746Z PARAM_CHANGE key=retrieval.pipeline.enabled old=1 new=1 reason=test_setup actor=test
+- 2025-09-12T20:33:22.335396Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v1 reason=test_guard_valid actor=system
+- 2025-09-12T20:33:22.335396Z PARAM_CHANGE key=snn.encoder old=rate_v1 new=rate_v2 reason=test_guard_valid actor=system
+- 2025-09-12T20:33:23.881561Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.881561Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v1 reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.881561Z PARAM_CHANGE key=snn.auto_cal.enabled old=False new=True reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.897186Z PARAM_CHANGE key=snn.auto_cal.interval old=500 new=60 reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.897186Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.899788Z PARAM_CHANGE key=snn.threshold old=3.0 new=1.0 reason=auto_cal_test_reset actor=system
+- 2025-09-12T20:33:23.926531Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.928530Z PARAM_CHANGE key=snn.encoder old=rate_v1 new=rate_v2 reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.929529Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.930608Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.930608Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=auto_cal_test actor=system
+- 2025-09-12T20:33:23.933923Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=auto_cal_test_reset actor=system
+- 2025-09-12T20:33:23.957301Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:23.957301Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T20:33:23.957301Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:23.957301Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T20:33:23.957301Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T20:33:23.957301Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.2 new=0.3 reason=cal_test actor=system
+- 2025-09-12T20:33:23.992521Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:23.993521Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T20:33:23.994520Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:23.995519Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T20:33:23.997542Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T20:33:24.024803Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.3 new=0.3 reason=cal_test actor=system
+- 2025-09-12T20:33:24.024803Z PARAM_CHANGE key=snn.threshold old=1.0 new=6.0 reason=cal_test actor=system
+- 2025-09-12T20:33:24.040221Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:24.040221Z PARAM_CHANGE key=snn.threshold old=6.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T20:33:24.040221Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:24.055866Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T20:33:24.055866Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T20:33:24.058785Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.3 new=0.3 reason=cal_test actor=system
+- 2025-09-12T20:33:24.077328Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:24.078330Z PARAM_CHANGE key=snn.threshold old=1.0 new=1.0 reason=cal_test actor=system
+- 2025-09-12T20:33:24.080164Z PARAM_CHANGE key=snn.auto_cal.enabled old=True new=True reason=cal_test actor=system
+- 2025-09-12T20:33:24.081166Z PARAM_CHANGE key=snn.auto_cal.interval old=60 new=60 reason=cal_test actor=system
+- 2025-09-12T20:33:24.082164Z PARAM_CHANGE key=snn.auto_cal.target_ratio old=2.0 new=2.0 reason=cal_test actor=system
+- 2025-09-12T20:33:24.083163Z PARAM_CHANGE key=snn.auto_cal.max_step old=0.3 new=0.3 reason=cal_test actor=system
+- 2025-09-12T20:33:24.085197Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v2 reason=enc_test actor=system
+- 2025-09-12T20:33:24.090688Z PARAM_CHANGE key=snn.encoder.rate_v2.global_shrink old=0.4 new=1.0 reason=density_cap_test actor=system
+- 2025-09-12T20:33:24.090688Z PARAM_CHANGE key=snn.encoder.rate_v2.min_floor old=0.05 new=0.0 reason=density_cap_test actor=system
+- 2025-09-12T20:33:24.093299Z PARAM_CHANGE key=snn.encoder.rate_v2.global_shrink old=1.0 new=1.0 reason=density_cap_test actor=system
+- 2025-09-12T20:33:24.094297Z PARAM_CHANGE key=snn.encoder.rate_v2.min_floor old=0.0 new=0.0 reason=density_cap_test actor=system
+- 2025-09-12T20:33:24.098318Z PARAM_CHANGE key=snn.encoder.rate_v2.global_shrink old=1.0 new=0.2 reason=density_cap_test actor=system
+- 2025-09-12T20:33:24.098318Z PARAM_CHANGE key=snn.encoder.rate_v2.min_floor old=0.0 new=0.0 reason=density_cap_test actor=system
+- 2025-09-12T20:33:24.098318Z PARAM_CHANGE key=detection.enable_snn old=True new=False reason=test actor=system
+- 2025-09-12T20:33:24.108070Z PARAM_CHANGE key=detection.enable_snn old=False new=True reason=test actor=system
+- 2025-09-12T20:33:24.155668Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test actor=system
+- 2025-09-12T20:33:24.205184Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test actor=system
+- 2025-09-12T20:33:24.253388Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test actor=system
+- 2025-09-12T20:33:24.265243Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_enable_snn actor=system
+- 2025-09-12T20:33:24.265243Z PARAM_CHANGE key=snn.mode old=proto new=proto reason=test_set_mode actor=system
+- 2025-09-12T20:33:24.279744Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=test_enable_snn actor=system
+- 2025-09-12T20:33:24.281079Z PARAM_CHANGE key=snn.mode old=proto new=proto reason=test_set_mode actor=system
+- 2025-09-12T20:33:24.289717Z PARAM_CHANGE key=snn.norm.enable old=False new=True reason=norm_test actor=test
+- 2025-09-12T20:33:24.291771Z PARAM_CHANGE key=snn.norm.window old=400 new=100 reason=norm_test actor=test
+- 2025-09-12T20:33:24.292773Z PARAM_CHANGE key=snn.norm.min_samples old=80 new=30 reason=norm_test actor=test
+- 2025-09-12T20:33:24.297770Z PARAM_CHANGE key=snn.norm.enable old=True new=True reason=norm_test2 actor=test
+- 2025-09-12T20:33:24.298726Z PARAM_CHANGE key=snn.norm.window old=100 new=50 reason=norm_test2 actor=test
+- 2025-09-12T20:33:24.298726Z PARAM_CHANGE key=snn.norm.min_samples old=30 new=40 reason=norm_test2 actor=test
+- 2025-09-12T20:33:24.303733Z PARAM_CHANGE key=seq.forecaster.enable old=False new=False reason=test actor=system
+- 2025-09-12T20:33:24.306491Z PARAM_CHANGE key=snn.encoder old=rate_v2 new=rate_v1 reason=test actor=system
+- 2025-09-12T20:33:24.308473Z PARAM_CHANGE key=snn.threshold old=1.0 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:24.310474Z PARAM_CHANGE key=seq.forecaster.enable old=False new=False reason=test actor=system
+- 2025-09-12T20:33:24.314266Z PARAM_CHANGE key=seq.forecaster.enable old=False new=True reason=test actor=system
+- 2025-09-12T20:33:24.315264Z PARAM_CHANGE key=snn.encoder old=rate_v1 new=rate_v1 reason=test actor=system
+- 2025-09-12T20:33:24.317264Z PARAM_CHANGE key=snn.threshold old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:24.327946Z PARAM_CHANGE key=snn.guard.cooldown_s old=30.0 new=1.0 reason=test actor=test
+- 2025-09-12T20:33:24.556277Z PARAM_CHANGE key=story.ttl_seconds old=43200 new=1 reason=test_ttl actor=test
+- 2025-09-12T20:33:24.596755Z PARAM_CHANGE key=story.max_content_bytes old=20000 new=100 reason=test_max actor=test
+- 2025-09-12T20:33:24.780053Z PARAM_CHANGE key=detection.temporal.enable_transformer old=False new=True reason=test actor=system
+- 2025-09-12T20:33:24.790172Z PARAM_CHANGE key=detection.temporal.simple_model old=False new=True reason=test actor=system
+- 2025-09-12T20:33:24.791174Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=variance reason=test actor=system
+- 2025-09-12T20:33:24.838713Z PARAM_CHANGE key=detection.temporal.var_threshold old=0.18 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:24.838713Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T20:33:24.838713Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T20:33:24.838713Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=attn reason=test actor=system
+- 2025-09-12T20:33:24.891107Z PARAM_CHANGE key=detection.temporal.attn_threshold old=0.22 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:24.906758Z PARAM_CHANGE key=temporal.guard.max_window old=2000 new=10 reason=test actor=system
+- 2025-09-12T20:33:24.906758Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T20:33:24.906758Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T20:33:24.906758Z PARAM_CHANGE key=detection.temporal.encoder old=attn new=variance reason=test actor=system
+- 2025-09-12T20:33:24.957823Z PARAM_CHANGE key=detection.enable_snn old=True new=True reason=temporal_eval actor=system
+- 2025-09-12T20:33:25.008202Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=guard_test actor=system
+- 2025-09-12T20:33:25.023184Z PARAM_CHANGE key=temporal.guard.max_latency_s old=0.2 new=0.01 reason=guard_test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=detection.fusion.strategy old=pass_through new=weighted_sum reason=test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=variance reason=test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=snn.encoding_window old=20 new=5 reason=test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=detection.temporal.var_threshold old=0.05 new=0.01 reason=test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=fusion.temporal.precision_max_rate old=1.0 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.074603Z PARAM_CHANGE key=detection.temporal.weight old=0.25 new=0.4 reason=test actor=system
+- 2025-09-12T20:33:25.089882Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.090316Z PARAM_CHANGE key=detection.temporal.encoder old=variance new=tft reason=test actor=system
+- 2025-09-12T20:33:25.092738Z PARAM_CHANGE key=snn.encoding_window old=5 new=5 reason=test actor=system
+- 2025-09-12T20:33:25.097755Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=test
+- 2025-09-12T20:33:25.155542Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test_temporal_stub actor=system
+- 2025-09-12T20:33:25.155542Z PARAM_CHANGE key=detection.temporal.simple_model old=True new=False reason=test_temporal_stub_reset actor=system
+- 2025-09-12T20:33:25.208985Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T20:33:25.208985Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=False new=True reason=test actor=system
+- 2025-09-12T20:33:25.208985Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=2.0 new=1.0 reason=test actor=system
+- 2025-09-12T20:33:25.208985Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.208985Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.208985Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=30.0 new=60.0 reason=test actor=system
+- 2025-09-12T20:33:25.208985Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T20:33:25.224112Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T20:33:25.224112Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T20:33:25.227811Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T20:33:25.228811Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T20:33:25.229810Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T20:33:25.230839Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.230839Z PARAM_CHANGE key=detection.temporal.weight old=0.4 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.230839Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=300.0 reason=test actor=system
+- 2025-09-12T20:33:25.238482Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T20:33:25.241575Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.242572Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T20:33:25.244571Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.246568Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.248287Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=300.0 new=60.0 reason=test actor=system
+- 2025-09-12T20:33:25.248287Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T20:33:25.248287Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T20:33:25.256373Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T20:33:25.258312Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T20:33:25.261316Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T20:33:25.263314Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T20:33:25.265608Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.266081Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.266081Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=50 reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=60.0 reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=50 new=3 reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T20:33:25.273507Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T20:33:25.289145Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T20:33:25.289145Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T20:33:25.293921Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T20:33:25.294920Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.296919Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.296959Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T20:33:25.296959Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=200 reason=test actor=system
+- 2025-09-12T20:33:25.309161Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T20:33:25.311161Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.313157Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T20:33:25.314873Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.314873Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.318637Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=60.0 reason=test actor=system
+- 2025-09-12T20:33:25.319635Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=3 reason=test actor=system
+- 2025-09-12T20:33:25.323908Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=200 new=10 reason=test actor=system
+- 2025-09-12T20:33:25.326168Z PARAM_CHANGE key=fusion.temporal.tuner.max_step old=0.25 new=0.25 reason=test actor=system
+- 2025-09-12T20:33:25.328167Z PARAM_CHANGE key=fusion.temporal.tuner.max_abs_delta old=0.3 new=0.3 reason=test actor=system
+- 2025-09-12T20:33:25.329167Z PARAM_CHANGE key=fusion.temporal.tuner.min_weight old=0.0 new=0.0 reason=test actor=system
+- 2025-09-12T20:33:25.331169Z PARAM_CHANGE key=fusion.temporal.tuner.max_weight old=2.0 new=2.0 reason=test actor=system
+- 2025-09-12T20:33:25.333384Z PARAM_CHANGE key=fusion.temporal.tuner.seed_weight old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.334677Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.336676Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T20:33:25.342390Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.1 reason=test actor=system
+- 2025-09-12T20:33:25.345900Z PARAM_CHANGE key=fusion.temporal.tuner.hysteresis old=0.05 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.347455Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=3 new=10 reason=test actor=system
+- 2025-09-12T20:33:25.348533Z PARAM_CHANGE key=fusion.temporal.tuner.min_anomalies old=10 new=10 reason=test actor=system
+- 2025-09-12T20:33:25.376014Z PARAM_CHANGE key=detection.fusion.strategy old=weighted_sum new=weighted_sum reason=test actor=system
+- 2025-09-12T20:33:25.376014Z PARAM_CHANGE key=fusion.temporal.tuner.enabled old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.376014Z PARAM_CHANGE key=fusion.temporal.tuner.target_uplift old=1.0 new=1.0 reason=test actor=system
+- 2025-09-12T20:33:25.376014Z PARAM_CHANGE key=fusion.temporal.tuner.tolerance old=0.1 new=0.05 reason=test actor=system
+- 2025-09-12T20:33:25.382482Z PARAM_CHANGE key=fusion.temporal.tuner.cooldown_s old=60.0 new=1.0 reason=test actor=system
+- 2025-09-12T20:33:25.382482Z PARAM_CHANGE key=detection.temporal.enable_transformer old=True new=True reason=test actor=system
+- 2025-09-12T20:33:25.385359Z PARAM_CHANGE key=detection.temporal.simple_model old=False new=True reason=test actor=system
+- 2025-09-12T20:33:25.386985Z PARAM_CHANGE key=detection.temporal.encoder old=tft new=variance reason=test actor=system
+- 2025-09-12T20:33:25.390323Z PARAM_CHANGE key=detection.temporal.var_threshold old=0.01 new=0.01 reason=test actor=system
+- 2025-09-12T20:33:25.391917Z PARAM_CHANGE key=fusion.temporal.tuner.min_baseline old=10 new=1 reason=test actor=system
+- 2025-09-12T20:33:25.393289Z PARAM_CHANGE key=detection.temporal.weight old=0.1 new=0.0 reason=test actor=system
+- 2025-09-12T20:33:36.542999Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.56 new=0.42 reason=raise actor=test_user
+- 2025-09-12T20:33:36.574759Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.42 new=0.56 reason=rollback actor=test_user
+- 2025-09-12T20:33:36.590395Z PARAM_CHANGE key=fusion.weighted_sum.suppress_threshold old=0.56 new=0.42 reason=tuner_approve actor=api

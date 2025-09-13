@@ -22,3 +22,7 @@
 {"ts": 1757451683.8674686, "detector": "snn_detector", "old_weight": 1.0, "new_weight": 0.95, "delta": -0.05, "unique_ratio": 0.01, "fp_rate": 0.0, "reason": "unique_demote=0.010"}
 {"ts": 1757452585.7946784, "detector": "baseline_stats", "old_weight": 1.0, "new_weight": 1.05, "delta": 0.05, "unique_ratio": 0.5, "fp_rate": 0.0, "reason": "unique_promote=0.500"}
 {"ts": 1757452585.8034751, "detector": "snn_detector", "old_weight": 1.0, "new_weight": 0.95, "delta": -0.05, "unique_ratio": 0.01, "fp_rate": 0.0, "reason": "unique_demote=0.010"}
+{"ts": 1757678521.0554926, "detector": "baseline_stats", "old_weight": 1.0, "new_weight": 1.05, "delta": 0.05, "unique_ratio": 0.5, "fp_rate": 0.0, "reason": "unique_promote=0.500"}
+{"ts": 1757678521.060821, "detector": "snn_detector", "old_weight": 1.0, "new_weight": 0.95, "delta": -0.05, "unique_ratio": 0.01, "fp_rate": 0.0, "reason": "unique_demote=0.010"}
+{"ts": 1757709216.4052603, "detector": "baseline_stats", "old_weight": 1.0, "new_weight": 1.05, "delta": 0.05, "unique_ratio": 0.5, "fp_rate": 0.0, "reason": "unique_promote=0.500"}
+{"ts": 1757709216.420899, "detector": "snn_detector", "old_weight": 1.0, "new_weight": 0.95, "delta": -0.05, "unique_ratio": 0.01, "fp_rate": 0.0, "reason": "unique_demote=0.010"}

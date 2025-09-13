@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import time
 from typing import List, Callable, Awaitable
+import sys
 
 MIGRATIONS: List[tuple[str, Callable[[], Awaitable[None]]]] = []
 
@@ -18,9 +19,23 @@ def migration(id_: str):  # decorator
     return wrap
 
 
+def _get_postgres():
+    """Return a postgres shim, honoring test monkeypatches.
+
+    Tests may insert a non-module object into sys.modules['storage.postgres'].
+    Using standard importlib can bypass that, so prefer sys.modules if present.
+    """
+    pg = sys.modules.get("storage.postgres")
+    if pg is not None:
+        return pg
+    # Fallback to real module
+    from storage import postgres as real_pg  # type: ignore
+    return real_pg
+
+
 @migration("0001_init_anomalies")
 async def _m0001():  # noqa: D401
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     await postgres.execute(
         """
         CREATE TABLE IF NOT EXISTS anomalies (
@@ -40,7 +55,7 @@ async def _m0001():  # noqa: D401
 
 @migration("0002_calibration_quantiles")
 async def _m0002():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     await postgres.execute(
         """
         CREATE TABLE IF NOT EXISTS calibration_quantiles (
@@ -55,7 +70,7 @@ async def _m0002():
 
 
 async def apply_migrations():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     await postgres.execute(
         """
         CREATE TABLE IF NOT EXISTS schema_migrations (
@@ -81,7 +96,7 @@ __all__ = ["apply_migrations"]
 
 @migration("0003_vuln_scanning")
 async def _m0003():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     # assets table
     await postgres.execute(
         """
@@ -181,7 +196,7 @@ async def _m0003():
 
 @migration("0004_vuln_enrichment_extensions")
 async def _m0004():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     # Add enrichment timestamp columns if not present
     try:
         await postgres.execute("ALTER TABLE vulnerabilities ADD COLUMN IF NOT EXISTS enrichment_epss_ts DOUBLE PRECISION")
@@ -208,7 +223,7 @@ async def _m0004():
 
 @migration("0005_vuln_sla_columns")
 async def _m0005():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     # Add sla_due_ts column to findings for SLA breach tracking
     try:
         await postgres.execute("ALTER TABLE findings ADD COLUMN IF NOT EXISTS sla_due_ts DOUBLE PRECISION")
@@ -217,7 +232,7 @@ async def _m0005():
 
 @migration("0006_finding_risk_factors")
 async def _m0006():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     try:
         await postgres.execute("ALTER TABLE findings ADD COLUMN IF NOT EXISTS risk_factors JSONB")
     except Exception:
@@ -225,7 +240,7 @@ async def _m0006():
 
 @migration("0007_feature_series")
 async def _m0007():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     # Temporal feature vectors per asset/kind
     try:
         await postgres.execute(
@@ -250,7 +265,7 @@ async def _m0007():
 
 @migration("0008_attack_mapping")
 async def _m0008():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     # ATT&CK technique table
     try:
         await postgres.execute(
@@ -268,7 +283,7 @@ async def _m0008():
 
 @migration("0009_remediation_workflow")
 async def _m0009():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     # Add remediation workflow fields to findings
     statements = [
         "ALTER TABLE findings ADD COLUMN IF NOT EXISTS treatment_state TEXT",
@@ -283,7 +298,7 @@ async def _m0009():
 
 @migration("0010_risk_exceptions")
 async def _m0010():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     try:
         await postgres.execute(
             """
@@ -321,7 +336,7 @@ async def _m0010():
 
 @migration("0011_asset_external_exposure")
 async def _m0011():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     try:
         await postgres.execute("ALTER TABLE assets ADD COLUMN IF NOT EXISTS external_exposure BOOLEAN")
     except Exception:  # noqa: BLE001
@@ -329,7 +344,7 @@ async def _m0011():
 
 @migration("0012_feed_confidence")
 async def _m0012():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     try:
         await postgres.execute(
             """
@@ -385,7 +400,7 @@ async def _m0012():
 
 @migration("0013_remediation_plans")
 async def _m0013():
-    from storage import postgres  # type: ignore
+    postgres = _get_postgres()
     try:
         await postgres.execute(
             """
@@ -400,4 +415,26 @@ async def _m0013():
             """
         )
     except Exception:  # noqa: BLE001
+        pass
+
+@migration("0015_findings_composite_indexes")
+async def _m0015():
+    """Add composite indexes to accelerate common read paths for findings and vulnerabilities.
+
+    - findings(state, risk_severity, last_seen DESC)
+    - findings(asset_id, state, last_seen DESC)
+    - vulnerabilities(kev_listed, exploit_available)
+    """
+    postgres = _get_postgres()
+    try:
+        await postgres.execute("CREATE INDEX IF NOT EXISTS idx_findings_state_sev_last ON findings (state, risk_severity, last_seen DESC)")
+    except Exception:
+        pass
+    try:
+        await postgres.execute("CREATE INDEX IF NOT EXISTS idx_findings_asset_state_last ON findings (asset_id, state, last_seen DESC)")
+    except Exception:
+        pass
+    try:
+        await postgres.execute("CREATE INDEX IF NOT EXISTS idx_vuln_kev_exploit ON vulnerabilities (kev_listed, exploit_available)")
+    except Exception:
         pass

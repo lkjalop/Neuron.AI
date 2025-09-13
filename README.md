@@ -95,8 +95,11 @@ python -m uvicorn core.main:app --reload --factory
 ```
 
 Visit:
-- http://localhost:8000/healthz
-- http://localhost:8000/metrics (if enabled)
+- http://localhost:8000/health/live (alias: /healthz)
+- http://localhost:8000/health/ready (alias: /readyz)
+  - Dev tip: set `ALLOW_PARTIAL_READINESS=1` to return `status: degraded` (HTTP 200) when Prometheus/Grafana envs are missing.
+  - Tip (dev): set `ALLOW_PARTIAL_READINESS=1` to return `status: degraded` when Prometheus/Grafana envs are not configured.
+- http://localhost:8000/metrics (auth required if keys configured)
 - http://localhost:8000/config/flags
 - Diagnostics UI: http://localhost:8000/app/diagnostics.html (runtime params pagination, governance recommendations, normalization freshness chip)
 - API Reference: see `docs/API_REFERENCE.md` (export machine schema: `python docs/export_openapi.py --out artifacts/openapi.json`)
@@ -576,7 +579,7 @@ docker compose -f docker-compose.observability.yml up --build
 ```
 
 Then visit:
-- App health: http://localhost:8000/healthz
+- App health: http://localhost:8000/health/live
 - Metrics raw: http://localhost:8000/metrics
 - Prometheus: http://localhost:9090
 - Grafana: http://localhost:3000 (admin / admin)
@@ -589,6 +592,17 @@ docker compose -f docker-compose.observability.yml down -v
 ```
 
 To enable tracing later (if OTLP collector added): set `NEURON_OTEL_ENABLED=1` for the `app` service.
+
+### Go-Live Checklist
+See `docs/GO_LIVE_CHECKLIST.md` for required environment variables, health probes, and smoke tests. Minimal required envs:
+
+```
+PREDICT_API_KEY=<required>
+PROMETHEUS_URL=http://prometheus:9090
+GRAFANA_BASE_URL=http://grafana:3000
+# optional
+GRAFANA_TOKEN=<for /proxy/grafana/render>
+```
 
 
 

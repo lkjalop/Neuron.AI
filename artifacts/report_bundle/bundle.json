@@ -1,12 +1,7 @@
 {
-  "generated_ts": 1757452585.7805321,
+  "generated_ts": 1757709216.3579037,
   "executive_kpis": {},
-  "coverage": {
-    "total": 0,
-    "avg_detection_count": 0.0,
-    "avg_control_count": 0.0,
-    "techniques": []
-  },
+  "coverage": {},
   "enrichment_coverage": {
     "total": 1,
     "epss_count": 1,
@@ -21,14 +16,6 @@
   "retrieval": {
     "provider_failovers_total": 0,
     "corpus_sizes": [
-      [
-        1757122778,
-        3
-      ],
-      [
-        1757122819,
-        3
-      ],
       [
         1757123034,
         3
@@ -99,6 +86,14 @@
       ],
       [
         1757452552,
+        3
+      ],
+      [
+        1757678485,
+        3
+      ],
+      [
+        1757709181,
         3
       ]
     ]
@@ -209,19 +204,35 @@
         "reason_code": "composite_low",
         "composite": 0.27198394148547017,
         "shadow": true
+      },
+      {
+        "ts": 1757678521.0218167,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.27132347068530066,
+        "shadow": true
+      },
+      {
+        "ts": 1757709216.3402324,
+        "direction": "increase",
+        "delta": 0.0075,
+        "reason_code": "composite_low",
+        "composite": 0.27132347068530066,
+        "shadow": true
       }
     ],
     "counts": {
-      "composite_low": 12
+      "composite_low": 14
     },
-    "total_records_sampled": 12,
+    "total_records_sampled": 14,
     "last_reason_code": "composite_low"
   },
   "forensics": {
     "job_counts": {
-      "memory": 3
+      "memory": 6
     },
-    "last_job_ts": 1757452557.3731277
+    "last_job_ts": 1757709186.572234
   },
   "hunt": {}
 }

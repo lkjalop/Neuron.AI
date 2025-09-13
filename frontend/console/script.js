@@ -97,7 +97,37 @@ function bindTabs() {
       qsa('.tab').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       qsa('.tab-body').forEach(x => x.classList.add('hidden'));
-      qs('#tab-'+btn.dataset.tab).classList.remove('hidden');
+      const body = qs('#tab-'+btn.dataset.tab);
+      body.classList.remove('hidden');
+      // If switching to Graphs, set/refresh iframe URL via backend proxy
+      if (btn.dataset.tab === 'graphs') {
+        try {
+          const iframe = qs('#grafana-iframe');
+          const banner = qs('#graphs-error');
+          const panelId = '1'; // default panel; can be made dynamic
+          const tenantSel = qs('#tenant-select');
+          const timeSel = qs('#time-select');
+          const tenant = (tenantSel?.value) || (localStorage.getItem('tenant')||'tenant_fx');
+          if (tenantSel && !tenantSel.value) tenantSel.value = tenant;
+          localStorage.setItem('tenant', tenant);
+          const vars = JSON.stringify({ tenant });
+          const fr = (timeSel?.value)||'now-6h'; const to = 'now';
+          const url = `/proxy/grafana/iframe?panelId=${encodeURIComponent(panelId)}&vars=${encodeURIComponent(vars)}&fr=${encodeURIComponent(fr)}&to=${encodeURIComponent(to)}`;
+          // Fetch the resolved URL from backend (keeps tokens server-side)
+          fetch(url, { headers: apiHeaders?.() || {} })
+            .then(r => r.ok ? r.json() : Promise.reject(r.status))
+            .then(j => {
+              if (j && j.url) {
+                iframe.src = j.url;
+                if (banner) banner.classList.add('hidden');
+              }
+            })
+            .catch(() => {
+              iframe.src = 'about:blank';
+              if (banner){ banner.classList.remove('hidden'); banner.textContent = 'Graphs unavailable (proxy error or unconfigured).'; }
+            });
+        } catch { /* noop */ }
+      }
     };
   });
 }
@@ -152,6 +182,15 @@ function init() {
   bindTabs();
   bindComposer();
   setMode('main');
+  // Bind Graphs controls
+  const tSel = qs('#tenant-select'); const tiSel = qs('#time-select'); const btn = qs('#refresh-graphs');
+  const refresh = () => {
+    const graphsTabBtn = qsa('.tab').find(b => b.dataset.tab==='graphs');
+    if (graphsTabBtn){ graphsTabBtn.click(); }
+  };
+  tSel?.addEventListener('change', () => { localStorage.setItem('tenant', tSel.value); refresh(); });
+  tiSel?.addEventListener('change', refresh);
+  btn?.addEventListener('click', refresh);
   // seed example cards
   addCard({title:'Anomaly Timeline', body:'Chart + annotations…'});
   addCard({title:'CVEs EPSS>0.6', body:'23 findings • Export CSV'});

@@ -175,7 +175,29 @@
         </ul>
       </div>
       <div class="tab-body hidden" id="tab-findings">Findings list…</div>
-      <div class="tab-body hidden" id="tab-graphs">Grafana panels here (iframe)</div>
+      <div class="tab-body hidden" id="tab-graphs">
+        <div class="hint">Interactive Grafana panel via backend proxy</div>
+        <div class="toolbar" style="margin:6px 0; display:flex; gap:8px; align-items:center;">
+          <label>Tenant
+            <select id="tenant-select">
+              <option value="tenant_fx">tenant_fx</option>
+              <option value="tenantA">tenantA</option>
+              <option value="tenantB">tenantB</option>
+            </select>
+          </label>
+          <label>Time
+            <select id="time-select">
+              <option value="now-1h">Last 1h</option>
+              <option value="now-6h" selected>Last 6h</option>
+              <option value="now-24h">Last 24h</option>
+              <option value="now-7d">Last 7d</option>
+            </select>
+          </label>
+          <button id="refresh-graphs" class="ghost small">Refresh</button>
+        </div>
+        <div id="graphs-error" class="hint hidden" style="color:#f66">Graphs unavailable (proxy error or unconfigured).</div>
+        <iframe id="grafana-iframe" src="about:blank" style="width:100%;height:520px;border:0;background:#111"></iframe>
+      </div>
       <div class="tab-body hidden" id="tab-tuners">Sandbox details…</div>
       <div class="tab-body hidden" id="tab-maps">Mappings and explanations…</div>
     </div>

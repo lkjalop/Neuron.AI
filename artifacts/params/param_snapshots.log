@@ -1,3 +1,9 @@
 {"audit_id":"f1bf22681bcf","param":"fusion.weighted_sum.suppress_threshold","old":0.0,"new":0.42,"actor":"test_user","reason":"raise","ts":1757479591.227354}
 {"audit_id":"d58beafea615","param":"fusion.weighted_sum.suppress_threshold","old":0.42,"new":0.0,"actor":"test_user","reason":"rollback","ts":1757479591.2727706}
 {"audit_id":"28d11f480bbf","param":"fusion.weighted_sum.suppress_threshold","old":0.0,"new":0.42,"actor":"api","reason":"tuner_approve","ts":1757479591.2906578}
+{"audit_id":"96a9cf733846","param":"fusion.weighted_sum.suppress_threshold","old":0.56,"new":0.42,"actor":"test_user","reason":"raise","ts":1757678521.0731704}
+{"audit_id":"c42c289d681a","param":"fusion.weighted_sum.suppress_threshold","old":0.42,"new":0.56,"actor":"test_user","reason":"rollback","ts":1757678521.0947113}
+{"audit_id":"243267482819","param":"fusion.weighted_sum.suppress_threshold","old":0.56,"new":0.42,"actor":"api","reason":"tuner_approve","ts":1757678521.104485}
+{"audit_id":"8da346ed9951","param":"fusion.weighted_sum.suppress_threshold","old":0.56,"new":0.42,"actor":"test_user","reason":"raise","ts":1757709216.5429993}
+{"audit_id":"914f15bf1780","param":"fusion.weighted_sum.suppress_threshold","old":0.42,"new":0.56,"actor":"test_user","reason":"rollback","ts":1757709216.574759}
+{"audit_id":"b258da7cf5c8","param":"fusion.weighted_sum.suppress_threshold","old":0.56,"new":0.42,"actor":"api","reason":"tuner_approve","ts":1757709216.5903947}
