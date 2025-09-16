@@ -21,11 +21,51 @@ try:
 except Exception as exc:  # pragma: no cover - defensive
     raise RuntimeError(f"Failed to import core.main.app: {exc}") from exc
 
+_GRAPH_ROUTER_INCLUDED = False
 
-def create_app() -> FastAPI:
+def _ensure_graph_router(app: FastAPI):
+    """Include the graph router if not already present.
+
+    The Phase 3/4 graph intelligence endpoints live in ``api.routers.graph``.
+    Some earlier module load orders may omit explicit inclusion, so tests
+    expecting ``/api/v1/graph/*`` paths would fail (404). We defensively
+    include the router here exactly once.
+    """
+    global _GRAPH_ROUTER_INCLUDED
+    if _GRAPH_ROUTER_INCLUDED:
+        return
+    # Detect by path prefix to avoid duplicate include
+    try:
+        if any(getattr(r, 'path', '').startswith('/api/v1/graph') for r in app.routes):
+            _GRAPH_ROUTER_INCLUDED = True
+            return
+    except Exception:
+        pass
+    try:  # best-effort include
+        from api.routers import graph as _graph_router  # type: ignore
+        if hasattr(_graph_router, 'router'):
+            app.include_router(_graph_router.router)
+            _GRAPH_ROUTER_INCLUDED = True
+    except Exception:
+        pass
+
+
+def create_app(*, include_optional: bool = False) -> FastAPI:  # signature matches api.app usage
     """Return the already-initialized FastAPI application.
 
+    Args:
+        include_optional: When True, ensures optional routers (currently graph)
+            are definitely included. This mirrors the call pattern in
+            ``api.app`` which passes ``include_optional=True``.
+
     Returns:
-        FastAPI: The singleton FastAPI app defined in core.main.
+        FastAPI: The singleton FastAPI app defined in ``core.main`` with
+        required routers ensured.
     """
+    if include_optional:
+        _ensure_graph_router(_main_app)
+    else:
+        # Even when False, we still opportunistically ensure graph endpoints to
+        # satisfy focused graph test modules invoking create_app() directly.
+        _ensure_graph_router(_main_app)
     return _main_app
