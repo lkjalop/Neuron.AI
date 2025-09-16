@@ -115,6 +115,114 @@ Neuron-AI is the world's first **neuromorphic security intelligence platform** t
                     └─────────────┴─────────────┴─────────────┴─────────────────┘
 ```
 
+### 📐 Latest Generated Diagram
+The rendered architecture PNG (auto-generated) reflects current module boundaries including the new graph intelligence layer:
+
+![Architecture PNG](docs/architecture.png)
+
+### 🔍 Focus: Graph Intelligence & Risk Transparency Layer
+
+```
+                   ┌───────────────────────────────────────────┐
+                   │           Graph Intelligence Layer        │
+                   ├───────────────────────────────────────────┤
+                   │ In-Memory RelationshipGraph (typed edges) │
+                   │   • domain→asset (resolves_to)             │
+                   │   • identity→asset (authenticates_to)      │
+                   │   • identity→finding (implicated_in)       │
+                   │   • ioc→finding (indicator_of)             │
+                   │   • exposure:* (ingested from exposure graph) │
+                   ├───────────────────────────────────────────┤
+                   │ Feature Extraction (periodic refresh)     │
+                   │   • degree / edge_type counts              │
+                   │   • recency / activity windows             │
+                   │   • risk_channel.* overlays (findings)     │
+                   ├───────────────────────────────────────────┤
+                   │ Embedding Prototype (Node2Vec-lite)       │
+                   │   • random walks + skip-gram approximation│
+                   ├───────────────────────────────────────────┤
+                   │ Link Prediction                           │
+                   │   • Jaccard / Preferential Attachment     │
+                   │   • Negative sampling (evaluation)         │
+                   ├───────────────────────────────────────────┤
+                   │ Persistence (snapshot every cycle)        │
+                   │   → artifacts/runtime_graph.json           │
+                   └───────────────────────────────────────────┘
+                              │            ▲
+                              │ risk signals (snapshot)
+                              ▼            │
+            ┌─────────────────────────────────────────────────────┐
+            │             Risk Channel Aggregator                 │
+            │  fusion_confidence | dns_risk | identity_risk ...   │
+            └─────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                 Explainability / Assessment API
+```
+
+---
+
+## ✅ Prototype Validation Status
+
+The project is under active iterative development. Below is an honest status snapshot.
+
+### Confirmed Functional (Covered by Tests / Manual Verification)
+- Risk channel aggregation with persisted last-signal snapshots.
+- Timeline ingestion for `risk.composite` events.
+- Threat intel adapter (simulated providers) + `intel_risk` inclusion.
+- Explainability-lite endpoint (channel contributions, filtering, sum validation).
+- RelationshipGraph: edge creation helpers + export with `edge_type_counts`.
+- Feature extraction (degree / recency / activity / risk overlay) + periodic refresh task.
+- Graph snapshot & link prediction endpoints (Jaccard, preferential attachment, negatives).
+- Exposure graph ingestion mapping to prefixed edge types (`exposure:*`).
+- Embedding prototype (random-walk Node2Vec-lite) training & retrieval endpoints.
+- Periodic persistence of graph + features to `artifacts/runtime_graph.json`.
+- Unit tests for graph snapshot, link prediction, embeddings, edge helper creation.
+
+### Functional but Lightly Exercised (Needs Broader Scenario Validation)
+- Negative sampling output quality for downstream ML evaluation.
+- Risk overlay alignment when multiple assessments mutate the same finding namespace.
+- Consistency of exposure graph ingestion under large edge batches (>10k edges).
+- Embedding stability & convergence across varying window/walk hyperparameters.
+
+### Experimental / Prototype (Not Production-Hardened)
+- Embedding training loop (non-optimized; no gradient clipping or advanced negatives).
+- Absence of persistence for feedback-driven adaptive weighting (designed but not wired).
+- No access control / auth gating on graph & embedding endpoints (assumes internal network).
+- Lack of graph pruning / TTL for stale indicator nodes (potential unbounded growth).
+- No deduplication of identical exposure ingestion edges.
+
+### Planned / Not Yet Implemented
+- GNN (GraphSAGE / R-GCN) training pipeline integration (spec in `GNN_EXPLORATORY_SPEC.md`).
+- Anomaly scoring endpoint (embedding distance / structural z-score).
+- Unified exposure + detection graph consolidation for cross-domain risk propagation weighting.
+- Real intel provider connectors (VirusTotal, OTX live calls) with caching and rate safeguards.
+- Feedback-driven dynamic channel weight calibration loop.
+
+---
+
+## 🧪 Updated Capability Matrix (Runtime Graph & Risk Extensions)
+
+| Domain        | Component / Module                                 | Status            | Notes |
+|---------------|-----------------------------------------------------|-------------------|-------|
+| Risk          | `risk/aggregator.py`                                | Stable            | Composite + snapshots for explainability |
+| Explainability| Explain API (`/api/v1/explain/*`)                   | Stable            | Contribution filtering + sum validation |
+| Timeline      | Intel & risk events                                 | Stable            | `risk.composite` + intel ingestion events |
+| Graph         | RelationshipGraph (in-memory)                       | Stable (proto)    | New semantic edge types + counts |
+| Graph Features| `graph/features.py`                                 | Stable (proto)    | Degree, activity, risk overlay |
+| Graph Ingest  | Exposure ingestion (`/api/v1/graph/ingest-exposure`)| Stable (proto)    | Prefixed `exposure:` edge types |
+| Link Predict  | `/api/v1/graph/link-predict`                        | Stable (heuristic)| Jaccard / PA + negatives |
+| Embeddings    | `graph/embeddings.py` + endpoints                    | Experimental      | Node2Vec-lite; small graph only |
+| Persistence   | Periodic JSON snapshot                               | Stable (basic)    | `artifacts/runtime_graph.json` |
+| Risk Overlay  | Feature injection of channel signals                | Stable (proto)    | For finding nodes only |
+| Feedback Loop | Weight calibration                                  | Planned           | Needs precision metrics pipeline |
+| GNN Pipeline  | GraphSAGE / R-GCN                                   | Planned           | Spec complete awaiting data volume |
+| AuthZ / RBAC  | Endpoint guards                                     | Planned           | Needed pre-prod |
+
+Legend: Stable = reasonably exercised; Proto = early but working; Experimental = do not rely for production SLO; Planned = not yet implemented.
+
+---
+
 ---
 
 ## 🔥 **Key Differentiators**
@@ -199,6 +307,10 @@ curl -X POST http://localhost:8000/vuln/ingest_sbom \
 ### **Expected Detection**
 - **CVE-2021-44228 (Log4Shell)**: CVSS 10.0 - CRITICAL
 - **SLA**: 7 days for critical vulnerability remediation
+![Architecture](docs/architecture.png)
+
+_Diagram generated via `scripts/generate_arch_diagram.py` (Pillow)._  
+CI status badge placeholder: `![CI](https://github.com/your-org/neuron-ai/actions/workflows/ci.yml/badge.svg)` (will activate once workflow added).
 - **Business Impact**: Remote code execution risk
 
 ---
@@ -341,6 +453,10 @@ terraform apply
 - **SBOM Upload**: <5 seconds per file
 - **Detection Pipeline**: <2 seconds per event
 - **Professional Report**: <10 seconds generation
+Additional detail: see `docs/PERFORMANCE.md`.
+- **SBOM Upload**: <5 seconds per file
+- **Detection Pipeline**: <2 seconds per event
+- **Professional Report**: <10 seconds generation
 - **Framework Analysis**: <3 seconds cross-compliance
 
 ### **Throughput Capacity**
@@ -360,6 +476,10 @@ terraform apply
 ## 🛡️ **Security Features**
 
 ### **Built-in Security**
+- **🔐 API Key Authentication**: Admin endpoints protected
+- **🔒 Tenant Isolation**: Multi-tenant data segregation
+- **📝 Audit Trails**: Complete action logging with hash chains
+Additional detail: see `docs/SECURITY.md`.
 - **🔐 API Key Authentication**: Admin endpoints protected
 - **🔒 Tenant Isolation**: Multi-tenant data segregation
 - **📝 Audit Trails**: Complete action logging with hash chains
