@@ -90,6 +90,15 @@ def refresh_features() -> Dict[str, Dict[str, float]]:
         f["recency_seconds"] = (now - last_ts) if last_ts else -1.0
         f["activity_1h"] = float(act_1h)
         f["activity_24h"] = float(act_24h)
+        # Include edge type counts for inbound-only edges (rare but possible) to avoid empty feature set
+        if degree_total == 0 and in_map:
+            # Count inbound edge types so that nodes with only inbound edges still have minimal signal
+            for src, meta_list in in_map.items():
+                for meta in meta_list:
+                    etype = meta.get("type")
+                    if etype:
+                        key = f"edge_type_count.{etype}"
+                        f[key] = f.get(key, 0.0) + 1.0
         # Risk overlay: if node is a finding:<assessment_id> and signals snapshot exists
         if n.startswith("finding:") and risk_aggregator is not None:
             aid = n.split(":", 1)[1]

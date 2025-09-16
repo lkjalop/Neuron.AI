@@ -207,6 +207,39 @@ class RelationshipGraph:
                     edges.append({"src": src, "dst": dst, **meta})
         return {"nodes": sorted(nodes), "edges": edges, "edge_type_counts": type_counts}
 
+    async def prune_stale(self, max_age_seconds: float, node_prefixes: Optional[List[str]] = None) -> int:
+        """Prune edges (and orphaned nodes) whose latest timestamp is older than max_age_seconds.
+
+        node_prefixes: optional list of node id prefixes to restrict pruning scope (e.g., ["ioc:", "finding:"]).
+        Returns number of edges removed.
+        """
+        cutoff = time.time() - max_age_seconds
+        removed = 0
+        async with self._lock:
+            to_delete_src: List[Tuple[str, str, Dict[str, Any]]] = []
+            for src, dst_map in self._adjacency.items():
+                if node_prefixes and not any(src.startswith(p) for p in node_prefixes):
+                    continue
+                for dst, meta_list in list(dst_map.items()):
+                    # Filter meta_list in place
+                    keep = []
+                    for meta in meta_list:
+                        if meta.get("ts", 0) < cutoff:
+                            removed += 1
+                        else:
+                            keep.append(meta)
+                    if keep:
+                        dst_map[dst] = keep
+                    else:
+                        del dst_map[dst]
+            # Rebuild reverse map (simpler than selective cleanup) after pruning
+            self._reverse = {}
+            for s, dst_map in self._adjacency.items():
+                for d, metas in dst_map.items():
+                    for m in metas:
+                        self._reverse.setdefault(d, {}).setdefault(s, []).append(m)
+        return removed
+
 
 _singleton: Optional[RelationshipGraph] = None
 
@@ -216,6 +249,40 @@ def get_graph() -> RelationshipGraph:
     if _singleton is None:
         _singleton = RelationshipGraph()
     return _singleton
+
+# --- Module Alias Bridging ---------------------------------------------------
+# Tests import get_graph via 'src.graph.relationships' while application routers
+# import 'graph.relationships' (after adding 'src' to sys.path). This results in
+# two separate module objects with independent `_singleton` variables, causing
+# seeded edges to be invisible to API endpoints (features/embeddings see an
+# empty graph). We reconcile by ensuring both module namespaces reference the
+# same singleton instance whenever this file is imported under either name.
+import sys as _sys  # noqa: E402
+try:  # best-effort; silent on failure
+    _src_mod = _sys.modules.get('src.graph.relationships')
+    _plain_mod = _sys.modules.get('graph.relationships')
+    if _src_mod and _plain_mod:
+        # Prefer an existing populated singleton if one side already created it
+        src_singleton = getattr(_src_mod, '_singleton', None)
+        plain_singleton = getattr(_plain_mod, '_singleton', None)
+        chosen = src_singleton or plain_singleton
+        if chosen:
+            # Propagate to both
+            try:
+                if getattr(_src_mod, '_singleton', None) is not chosen:
+                    setattr(_src_mod, '_singleton', chosen)
+            except Exception:
+                pass
+            try:
+                if getattr(_plain_mod, '_singleton', None) is not chosen:
+                    setattr(_plain_mod, '_singleton', chosen)
+            except Exception:
+                pass
+            # Also update local name if different
+            if '_singleton' in globals() and globals().get('_singleton') is not chosen:
+                _singleton = chosen  # type: ignore[assignment]
+except Exception:
+    pass
 
 
 __all__ = [

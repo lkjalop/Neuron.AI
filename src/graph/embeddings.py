@@ -36,7 +36,16 @@ def train_embeddings(dim: int = 32, walks_per_node: int = 4, walk_length: int = 
     g = get_graph()
     nodes = g.nodes()
     if not nodes:
-        return {}
+        # Record meta with dimension for test expectations even when graph empty
+        global _EMBED_META, _EMBEDDINGS
+        _EMBEDDINGS = {}
+        _EMBED_META = {
+            "dim": dim,
+            "walks_per_node": walks_per_node,
+            "walk_length": walk_length,
+            "epochs": epochs,
+        }
+        return _EMBEDDINGS
     neighbor_map: Dict[str, List[str]] = {n: g.neighbors(n) for n in nodes}
     # Initialize embeddings
     global _EMBEDDINGS, _EMBED_META
