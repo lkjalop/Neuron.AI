@@ -14,8 +14,22 @@ import asyncio
 import os
 import json
 from pathlib import Path
+import sys as _sys
+
+# Ensure 'src' directory is on sys.path so packages like 'api', 'graph' resolve
+# when using a src/ layout (tests import core.app_factory before any path setup).
+try:  # best-effort; silent on failure
+    _root = Path(__file__).resolve().parent.parent
+    _src = _root / 'src'
+    if _src.exists():
+        sp = str(_src)
+        if sp not in _sys.path:
+            _sys.path.insert(0, sp)
+except Exception:
+    pass
 
 FEATURE_REFRESH_INTERVAL = float(os.environ.get("GRAPH_FEATURE_REFRESH_SEC", "60"))
+GRAPH_NODE_TTL_SEC = float(os.environ.get("GRAPH_NODE_TTL_SEC", "0"))  # 0 = disabled
 
 OPTIONAL_ROUTERS: dict[str, str] = {
     'intel_timeline': 'api.routers.intel_timeline',
@@ -78,6 +92,15 @@ def create_app(include_optional: bool = True, include: Iterable[str] | None = No
             while True:
                 try:
                     refresh_features()
+                    # Optional pruning of stale nodes/edges (ioc: and finding: by default)
+                    if GRAPH_NODE_TTL_SEC > 0:
+                        try:
+                            from graph.relationships import get_graph  # type: ignore
+                            ginst = get_graph()
+                            # prune only indicator/finding scoped edges
+                            asyncio.create_task(ginst.prune_stale(GRAPH_NODE_TTL_SEC, ["ioc:", "finding:"]))
+                        except Exception:
+                            pass
                     # Persist snapshot (best-effort)
                     try:
                         from graph.relationships import get_graph  # type: ignore
