@@ -399,7 +399,139 @@ Pre-configured alerts for:
 
 ---
 
-## 🧪 **Testing & Validation**
+## � Current Capability Matrix (Prototype Scope)
+
+| Domain | Component | Status | Notes |
+|--------|-----------|--------|-------|
+| Fusion | Neuromorphic Fusion Engine (SNN+TFT+IF) | Functional (heuristic stubs for ML internals) | Confidence boosts + enrichment priority scoring |
+| Risk | Channel Aggregator (`risk/aggregator.py`) | Functional | Composite risk (fusion + enrichment) with extensible weights |
+| Threat Intel | Adapter (simulated VT/OTX) | Functional (sim) | Deterministic scores, ready for real API plug-in |
+| DNS | Heuristic Analyzer | Functional | TTL variance, NXDOMAIN ratio, burst scoring |
+| Identity | Baseline Analyzer | Functional | Geo/time deviation heuristic risk |
+| Graph | Relationship Graph-Lite | Functional (in-memory) | Asset ↔ Finding edges; export endpoint |
+| Feedback | Analyst Feedback API | Functional (in-memory) | Submit/list/stats for labels (future weight tuning) |
+| DGA | Domain Scoring Heuristics | Functional | Entropy + structure scoring 0..1 |
+| Beaconing | Periodicity Detector | Functional | Variance + dominant interval heuristic |
+| Process | Lineage Simulator | Functional (synthetic) | Generates pseudo process tree for context |
+| Forensics | Timeline Aggregator | Functional (in-memory) | Unified event timeline + search |
+| Intel/TL API | Timeline & Graph Router | Functional | `/api/v1/intel/*` endpoints |
+| Reporting | Phase3 Documents | Partial (existing pipeline stubs) | Report generation placeholders |
+| Learning | Dynamic Weight Adaptation | Stub | Placeholder method `_adjust_fusion_weights` |
+| Calibration | Feedback-driven Risk Tuning | Planned | Requires feedback precision metrics |
+
+### Legend
+Functional = Produces outputs now.  
+Stub = Interface present, logic minimal.  
+Planned = Not yet implemented.
+
+---
+
+## 🧱 Expanded Architecture (New Modules Highlighted)
+
+```
+       ┌──────────────────────────────────────────────────┐
+       │            Neuromorphic Fusion Core              │
+       ├──────────────────────────────────────────────────┤
+       │  SNN Detector   |  Temporal Transformer  | IF    │
+       │  (heuristic)    |  (stub predictive)     | Anoms │
+       └───────────┬─────────────┬───────────────┬───────┘
+         │             │               │
+      ┌─────────────────▼─────────────▼───────────────▼────────────────┐
+      │                 Enrichment & Context Layer                      │
+      │  Threat Intel Adapter | DNS Heuristics | Identity Baseline      │
+      │  DGA Scorer          | Beacon Periodicity | Process Lineage     │
+      │  Relationship Graph (Graph-Lite) | Forensic Timeline            │
+      └───────────────────┬──────────────┬──────────────┬──────────────┘
+           │              │              │
+       ┌────────▼─────┐  ┌─────▼────────┐  ┌─▼───────────┐
+       │ Risk Channel │  │ Feedback API │  │ Timeline /  │
+       │ Aggregator   │  │ (Labels)     │  │ Intel API   │
+       └──────┬───────┘  └──────┬───────┘  └────┬────────┘
+         │                 │               │
+       ┌──────▼─────────────────▼───────────────▼─────┐
+       │              Frontend / UI / RAG              │
+       │ Dashboards | NLP Retrieval | Graph Export     │
+       └───────────────────────────────────────────────┘
+```
+
+---
+
+## 🔄 Data & User Flows (New Additions)
+
+1. Finding Produced → Fusion Engine enriches & scores → `publish_fusion_risk` computes composite → Event optionally added to timeline.
+2. Asset ↔ Finding edge scheduled (async) into Graph-Lite for contextual traversal.
+3. Analyst reviews finding in UI & submits feedback label → Feedback API stores record → (future) weight calibration consumes label statistics.
+4. DNS / Identity / DGA / Beacon detectors (future wiring) push heuristic events to Timeline → Frontend queries `/api/v1/intel/timeline` for narrative.
+5. Frontend requests graph snapshot `/api/v1/intel/graph/export` → Renders relationship explorer or feeds RAG context builder.
+
+---
+
+## 📡 New API Endpoints Summary
+
+| Path | Method | Purpose |
+|------|--------|---------|
+| `/api/v1/feedback/submit` | POST | Submit analyst label |
+| `/api/v1/feedback/entity/{id}` | GET | List feedback for entity |
+| `/api/v1/feedback/recent` | GET | Recent feedback records |
+| `/api/v1/feedback/stats` | GET | Aggregated label stats |
+| `/api/v1/intel/timeline` | GET | Fetch recent forensic events |
+| `/api/v1/intel/timeline/search` | GET | Keyword search timeline |
+| `/api/v1/intel/graph/export` | GET | Export relationship graph |
+
+---
+
+## 🧪 Risk Composite Test Strategy
+
+Lightweight test validates `composite_risk` appears in fusion assessment result:
+1. Mock minimal findings list + run fusion assessment (or simulate call path). 
+2. Assert presence of keys: `composite_risk`, `risk_signals.fusion_confidence`.
+3. Future: assert monotonicity when adding enrichment_risk.
+
+---
+
+## 🔮 Optional Future Enhancements
+
+| Category | Enhancement | Rationale |
+|----------|-------------|-----------|
+| Risk | Dynamic weight adaptation | Feedback-driven precision uplift |
+| Intel | Real API clients (VirusTotal, OTX) | Higher fidelity reputation |
+| Graph | Path scoring & lateral movement heuristics | Attack path surface mapping |
+| Timeline | Persistence (Redis/Postgres) | Durability & cross-session context |
+| ML | Replace heuristics with calibrated models | Accuracy & generalization |
+| Feedback | Active learning loops | Accelerated model improvement |
+| Beacon | Spectral / autocorrelation analysis | Robust periodic detection |
+| DGA | N-gram / ML classifier | Reduce false positives |
+
+---
+
+## 🧭 Frontend Query Mapping (New APIs)
+
+| Frontend Feature | Backend Call | Response Use |
+|------------------|-------------|--------------|
+| Risk Overview Panel | (future) `/api/v1/intel/graph/export` + assessment object | Display composite_risk trend |
+| Analyst Feedback Modal | POST `/api/v1/feedback/submit` | Persist analyst label |
+| Feedback Stream | GET `/api/v1/feedback/recent` | Live label feed |
+| Timeline View | GET `/api/v1/intel/timeline` | Chronological event list |
+| Timeline Search | GET `/api/v1/intel/timeline/search?q=...` | Filtered investigation |
+| Graph Explorer | GET `/api/v1/intel/graph/export` | Build node-edge visualization |
+
+---
+
+## 🧠 RAG / SOC Knowledge Base Update Plan
+
+Documents and modules to ingest for NLP retrieval context:
+1. New Python modules: `risk/aggregator.py`, `graph/relationships.py`, `dga/model.py`, `beacon/periodicity.py`, `process/lineage_simulator.py`, `forensics/timeline.py`, feedback & intel routers.
+2. README updated sections (Capability Matrix, Architecture, Data Flows).
+3. Future: Auto-diff ingestion pipeline triggers on module path prefixes.
+
+---
+
+## ✅ Summary of Added Modules This Phase
+`risk/aggregator.py`, `graph/relationships.py`, `api/routers/feedback.py`, `dga/model.py`, `beacon/periodicity.py`, `process/lineage_simulator.py`, `forensics/timeline.py`, `api/routers/intel_timeline.py` and fusion integration changes.
+
+---
+
+## �🧪 **Testing & Validation**
 
 ### **Test Suites**
 ```bash
