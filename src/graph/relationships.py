@@ -246,8 +246,56 @@ _singleton: Optional[RelationshipGraph] = None
 
 def get_graph() -> RelationshipGraph:
     global _singleton
+    # Attempt late-binding unification across module alias imports before instantiating.
+    try:  # best-effort; avoid raising inside hot path
+        import sys as _sys
+        # Determine our canonical names (this file may be imported as both)
+        aliases = [n for n in ('graph.relationships', 'src.graph.relationships') if n in _sys.modules]
+        # If any alias already has a populated singleton, reuse it
+        for name in aliases:
+            mod = _sys.modules.get(name)
+            if mod is None:
+                continue
+            other_singleton = getattr(mod, '_singleton', None)
+            if other_singleton is not None and other_singleton is not _singleton:
+                # Adopt the populated instance (prefer one with existing edges)
+                try:
+                    # Heuristic: pick the instance with more adjacency entries
+                    def _edge_count(g):
+                        try:
+                            adj = getattr(g, '_adjacency', {})
+                            return sum(len(v) for v in adj.values())
+                        except Exception:
+                            return 0
+                    if _singleton is None or _edge_count(other_singleton) > _edge_count(_singleton):
+                        _singleton = other_singleton  # type: ignore[assignment]
+                except Exception:
+                    _singleton = other_singleton  # type: ignore[assignment]
+        # Propagate chosen singleton back to all aliases so future imports stay consistent
+        if _singleton is not None:
+            for name in aliases:
+                try:
+                    mod = _sys.modules.get(name)
+                    if mod and getattr(mod, '_singleton', None) is not _singleton:
+                        setattr(mod, '_singleton', _singleton)
+                except Exception:
+                    continue
+    except Exception:
+        pass
     if _singleton is None:
         _singleton = RelationshipGraph()
+        # After creating, propagate to any already-imported alias modules
+        try:
+            import sys as _sys
+            for name in ('graph.relationships', 'src.graph.relationships'):
+                mod = _sys.modules.get(name)
+                if mod and getattr(mod, '_singleton', None) is not _singleton:
+                    try:
+                        setattr(mod, '_singleton', _singleton)
+                    except Exception:
+                        pass
+        except Exception:
+            pass
     return _singleton
 
 # --- Module Alias Bridging ---------------------------------------------------
