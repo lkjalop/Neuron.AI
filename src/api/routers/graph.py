@@ -1,20 +1,36 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Header
 from typing import List, Dict, Any
 import math
 import random
 
-from graph.relationships import get_graph
-from graph.unify import ingest_exposure_snapshot
-from graph.features import refresh_features, get_features, get_feature_metadata
-from graph.embeddings import train_embeddings, get_embedding, get_embedding_meta
+try:  # primary import path when 'graph' is a top-level package
+    from graph.relationships import get_graph  # type: ignore
+    from graph.unify import ingest_exposure_snapshot  # type: ignore
+    from graph.features import refresh_features, get_features, get_feature_metadata  # type: ignore
+    from graph.embeddings import train_embeddings, get_embedding, get_embedding_meta  # type: ignore
+    from graph.anomaly import score_anomalies  # type: ignore
+except Exception:  # fallback to src.graph.* when project uses src layout during tests
+    from src.graph.relationships import get_graph  # type: ignore
+    from src.graph.unify import ingest_exposure_snapshot  # type: ignore
+    from src.graph.features import refresh_features, get_features, get_feature_metadata  # type: ignore
+    from src.graph.embeddings import train_embeddings, get_embedding, get_embedding_meta  # type: ignore
+    from src.graph.anomaly import score_anomalies  # type: ignore
 
 router = APIRouter(prefix="/api/v1/graph", tags=["graph"])
 
 
+def _auth_guard(api_key: str | None):
+    import os
+    required = os.environ.get("GRAPH_API_KEY")
+    if required and api_key != required:
+        raise HTTPException(401, detail="invalid or missing graph api key")
+
+
 @router.get("/snapshot")
-def snapshot(include_features: bool = True):
+def snapshot(include_features: bool = True, graph_api_key: str | None = Header(default=None, alias="X-Graph-Key")):
+    _auth_guard(graph_api_key)
     g = get_graph()
     export = g.export()
     if include_features:
@@ -24,13 +40,15 @@ def snapshot(include_features: bool = True):
 
 
 @router.post("/refresh-features")
-def manual_refresh():
+def manual_refresh(graph_api_key: str | None = Header(default=None, alias="X-Graph-Key")):
+    _auth_guard(graph_api_key)
     feats = refresh_features()
     return {"refreshed": True, "node_count": len(feats)}
 
 
 @router.post("/ingest-exposure")
-async def ingest_exposure(snapshot: Dict[str, Any]):
+async def ingest_exposure(snapshot: Dict[str, Any], graph_api_key: str | None = Header(default=None, alias="X-Graph-Key")):
+    _auth_guard(graph_api_key)
     if not isinstance(snapshot, dict):
         raise HTTPException(400, detail="snapshot must be a JSON object")
     await ingest_exposure_snapshot(snapshot)
@@ -62,7 +80,9 @@ def link_predict(
     heuristic: str = Query("jaccard", regex="^(jaccard|pa)$"),
     edge_type: str | None = None,
     negatives: int = Query(0, ge=0, le=100, description="Number of random non-edge negatives to return for evaluation"),
+    graph_api_key: str | None = Header(default=None, alias="X-Graph-Key"),
 ):
+    _auth_guard(graph_api_key)
     g = get_graph()
     nodes = g.nodes()
     if node_id not in nodes:
@@ -102,14 +122,22 @@ def link_predict(
 __all__ = ["router"]
 
 @router.post("/train-embeddings")
-def train(dim: int = 32, walks_per_node: int = 4, walk_length: int = 8, epochs: int = 2, seed: int | None = None):
+def train(dim: int = 32, walks_per_node: int = 4, walk_length: int = 8, epochs: int = 2, seed: int | None = None, graph_api_key: str | None = Header(default=None, alias="X-Graph-Key")):
+    _auth_guard(graph_api_key)
     embs = train_embeddings(dim=dim, walks_per_node=walks_per_node, walk_length=walk_length, epochs=epochs, seed=seed)
     return {"trained": True, "nodes": len(embs), "meta": get_embedding_meta()}
 
 
 @router.get("/embedding/{node_id}")
-def embedding(node_id: str):
+def embedding(node_id: str, graph_api_key: str | None = Header(default=None, alias="X-Graph-Key")):
+    _auth_guard(graph_api_key)
     vec = get_embedding(node_id)
     if vec is None:
         raise HTTPException(404, detail="embedding not found")
     return {"node": node_id, "embedding": vec, "meta": get_embedding_meta()}
+
+
+@router.get("/anomalies")
+def anomalies(top_k: int = 20, graph_api_key: str | None = Header(default=None, alias="X-Graph-Key")):
+    _auth_guard(graph_api_key)
+    return score_anomalies(top_k=top_k)
