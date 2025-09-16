@@ -22,9 +22,12 @@ try:
     # subsequent TestClient(app) usage sees endpoints without needing an
     # explicit create_app(include_optional=True) call.
     try:  # best-effort
-        from api.routers import graph as _graph_router  # type: ignore
-        if hasattr(_graph_router, 'router') and not any(getattr(r, 'path', '').startswith('/api/v1/graph') for r in _main_app.routes):
-            _main_app.include_router(_graph_router.router)
+            try:
+                from api.routers import graph as _graph_router  # type: ignore
+            except Exception:
+                from src.api.routers import graph as _graph_router  # type: ignore
+            if hasattr(_graph_router, 'router') and not any(getattr(r, 'path', '').startswith('/api/v1/graph') for r in _main_app.routes):
+                _main_app.include_router(_graph_router.router)
     except Exception:
         pass
 except Exception as exc:  # pragma: no cover - defensive
@@ -79,7 +82,10 @@ def create_app(*, include_optional: bool = False) -> FastAPI:  # signature match
             from fastapi import FastAPI as _F
             _fallback = _F(title="NeuronAI Graph Test App")
             try:
-                from api.routers import graph as _graph_router  # type: ignore
+                try:
+                    from api.routers import graph as _graph_router  # type: ignore
+                except Exception:
+                    from src.api.routers import graph as _graph_router  # type: ignore
                 if hasattr(_graph_router, 'router'):
                     _fallback.include_router(_graph_router.router)
             except Exception:
