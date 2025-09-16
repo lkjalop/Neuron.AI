@@ -14,6 +14,18 @@ unchanged while unblocking the test suite.
 from __future__ import annotations
 
 from fastapi import FastAPI  # type: ignore
+import sys as _sys
+from pathlib import Path as _Path
+
+# Ensure 'src' directory is on sys.path so that packages under src (api, graph, etc.)
+# can be imported via top-level names (e.g., 'from api.routers import graph').
+try:  # best-effort
+    _root_dir = _Path(__file__).resolve().parent.parent.parent
+    _src_dir = _root_dir / 'src'
+    if _src_dir.exists() and str(_src_dir) not in _sys.path:
+        _sys.path.insert(0, str(_src_dir))
+except Exception:
+    pass
 
 # Import the existing app assembled in core.main
 try:
