@@ -31,13 +31,13 @@ def _random_walk(start: str, neighbor_map: Dict[str, List[str]], walk_length: in
 
 
 def train_embeddings(dim: int = 32, walks_per_node: int = 4, walk_length: int = 8, epochs: int = 2, lr: float = 0.05, window: int = 2, seed: int | None = None):
+    global _EMBEDDINGS, _EMBED_META
     if seed is not None:
         random.seed(seed)
     g = get_graph()
     nodes = g.nodes()
     if not nodes:
         # Record meta with dimension for test expectations even when graph empty
-        global _EMBED_META, _EMBEDDINGS
         _EMBEDDINGS = {}
         _EMBED_META = {
             "dim": dim,
@@ -48,7 +48,6 @@ def train_embeddings(dim: int = 32, walks_per_node: int = 4, walk_length: int = 
         return _EMBEDDINGS
     neighbor_map: Dict[str, List[str]] = {n: g.neighbors(n) for n in nodes}
     # Initialize embeddings
-    global _EMBEDDINGS, _EMBED_META
     _EMBEDDINGS = {n: [random.uniform(-0.5, 0.5) for _ in range(dim)] for n in nodes}
     def _norm(v: List[float]):
         mag = math.sqrt(sum(x*x for x in v)) or 1.0
